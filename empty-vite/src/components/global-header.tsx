@@ -23,7 +23,7 @@ export default function GlobalHeader() {
       <TopNavigation
         identity={{
           href: "/",
-          logo: { src: "/images/logo.png", alt: `${APP_NAME} Logo` },
+          logo: { src: "/images/aws-logo.svg", alt: `${APP_NAME} Logo` },
         }}
         utilities={[
           {

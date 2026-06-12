@@ -14,36 +14,77 @@ export default function NavigationPanel() {
   const [navigationPanelState, setNavigationPanelState] =
     useNavigationPanelState();
 
-  const [items] = useState<SideNavigationProps.Item[]>(() => {
-    const items: SideNavigationProps.Item[] = [
-      {
-        type: "link",
-        text: "Home",
-        href: "/",
-      },
-      {
-        type: "section",
-        text: "Section",
-        items: [
-          { type: "link", text: "Item 1", href: "/section/item1" },
-          { type: "link", text: "Item 2", href: "/section/item2" },
-          { type: "link", text: "Item 2", href: "/section/item3" },
-        ],
-      },
-    ];
-
-    items.push(
-      { type: "divider" },
-      {
-        type: "link",
-        text: "Documentation",
-        href: "https://github.com/aws-samples/cloudscape-examples",
-        external: true,
-      }
-    );
-
-    return items;
-  });
+  const [items] = useState<SideNavigationProps.Item[]>(() => [
+    {
+      type: "section",
+      text: "Discover",
+      items: [
+        { type: "link", text: "Overview", href: "#" },
+        { type: "link", text: "Model catalog", href: "#" },
+        { type: "link", text: "API keys", href: "#" },
+      ],
+    },
+    {
+      type: "section",
+      text: "Test",
+      items: [
+        { type: "link", text: "Chat / Text playground", href: "#" },
+        { type: "link", text: "Image / Video playground", href: "#" },
+        { type: "link", text: "Watermark detection", href: "#" },
+      ],
+    },
+    {
+      type: "section",
+      text: "Infer",
+      items: [
+        { type: "link", text: "Cross-region inference", href: "#" },
+        { type: "link", text: "Batch inference", href: "#" },
+        { type: "link", text: "Provisioned Throughput", href: "#" },
+        { type: "link", text: "Custom model on-demand", href: "#" },
+      ],
+    },
+    {
+      type: "section",
+      text: "Tune",
+      items: [
+        { type: "link", text: "Custom models", href: "#" },
+        { type: "link", text: "Prompt router models", href: "#" },
+        { type: "link", text: "Imported models", href: "#" },
+        { type: "link", text: "Marketplace model deployment", href: "#" },
+      ],
+    },
+    {
+      type: "section",
+      text: "Build",
+      items: [
+        { type: "link", text: "Model migration", href: "/" },
+        { type: "link", text: "Flows", href: "#" },
+        { type: "link", text: "Knowledge Bases", href: "#" },
+        { type: "link", text: "Automated Reasoning", href: "#" },
+        { type: "link", text: "Guardrails", href: "#" },
+        { type: "link", text: "Prompt Management", href: "#" },
+        { type: "link", text: "Data Automation", href: "#" },
+        { type: "link", text: "AgentCore", href: "#", external: true },
+      ],
+    },
+    {
+      type: "section",
+      text: "Assess",
+      items: [
+        { type: "link", text: "Evaluations", href: "#" },
+      ],
+    },
+    {
+      type: "section",
+      text: "Configure and learn",
+      items: [
+        { type: "link", text: "Settings", href: "#" },
+        { type: "link", text: "Model access", href: "#" },
+        { type: "link", text: "User guide", href: "#", external: true },
+        { type: "link", text: "Bedrock Service Terms", href: "#", external: true },
+      ],
+    },
+  ]);
 
   const onChange = ({
     detail,

@@ -11,7 +11,9 @@
     "format": "npx prettier --ignore-path .gitignore --write \"**/*.+(tsx|js|ts|json)\""
   },
   "dependencies": {
-    "@cloudscape-design/components": "^3.0.611",
+    "@cloudscape-design/collection-hooks": "^1.0.98",
+    "@cloudscape-design/component-toolkit": "^1.0.0-beta.165",
+    "@cloudscape-design/components": "^3.0.1310",
     "@cloudscape-design/design-tokens": "^3.0.35",
     "@cloudscape-design/global-styles": "^1.0.27",
     "react": "^18.2.0",
