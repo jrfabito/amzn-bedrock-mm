@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import {
   AppLayoutToolbar,
   BreadcrumbGroup,
@@ -14,12 +14,15 @@ import {
   Tabs,
   Icon,
   BarChart,
+  LineChart,
   Pagination,
   Table,
   CollectionPreferences,
   PropertyFilter,
   PropertyFilterProps,
   Badge,
+  Alert,
+  Modal,
 } from "@cloudscape-design/components";
 import { useCollection } from "@cloudscape-design/collection-hooks";
 import TruncateText from "@cloudscape-design/components/truncated-text";
@@ -28,6 +31,29 @@ import { useNavigationPanelState } from "../common/hooks/use-navigation-panel-st
 import { APP_NAME } from "../common/constants";
 import { useOnFollow } from "../common/hooks/use-on-follow";
 import { MigrationJob } from "../common/types";
+
+// ─── Dev toggles ─────────────────────────────────────────────────────────────
+// Set exactly one to true, or use the ?state= URL param (takes precedence).
+const EVAL_COMPLETE         = false;
+const OPTIMIZATION_COMPLETE = false;
+const MIGRATION_COMPLETE    = false;
+const SUCCESS_ALERT         = false;
+
+const BASE_JOB = {
+  id: "job-1",
+  jobName: "Sonnet 4.5 migration",
+  sourceModel: "Claude 3.5 Sonnet",
+  targetModel: "Claude Sonnet 4.5",
+  dateStarted: "Jun 1, 2025, 10:00 AM",
+  description: "Migrating from Claude 3.5 Sonnet to Claude Sonnet 4.5",
+} as const;
+
+const JOB_BY_STATE: Record<string, MigrationJob> = {
+  EVAL_COMPLETE: { ...BASE_JOB, status: "in-progress", statusLabel: "1 of 3 completed", dateCompleted: "-" },
+  OPTIMIZATION_COMPLETE: { ...BASE_JOB, status: "in-progress", statusLabel: "2 of 3 completed", dateCompleted: "-" },
+  MIGRATION_COMPLETE: { ...BASE_JOB, status: "success", statusLabel: "3 of 3 completed", dateCompleted: "Jun 7, 2025, 1:30 PM" },
+};
+// ─────────────────────────────────────────────────────────────────────────────
 
 const STATE_BY_COMPLETED: Record<number, string> = {
   1: "EVAL_COMPLETE",
@@ -48,12 +74,13 @@ function getActiveTabId(job: MigrationJob): string {
   return "evaluation";
 }
 
-function getHeaderAction(job: MigrationJob): React.ReactNode | null {
+function getHeaderAction(job: MigrationJob, navigate: ReturnType<typeof useNavigate>): React.ReactNode | null {
   const completed = parseInt(job.statusLabel.split(" ")[0]) || 0;
-  if (completed === 1) return <Button variant="primary">Provide prompt templates</Button>;
-  if (completed === 2) return <Button variant="primary">Start shadow testing</Button>;
+  if (completed === 1) return <Button variant="primary" onClick={() => navigate("/provide-prompt-templates", { state: job })}>Provide prompt templates</Button>;
+  if (completed === 2) return <Button variant="primary" onClick={() => navigate("/start-shadow-testing", { state: job })}>Start shadow testing</Button>;
   return null;
 }
+
 
 const CHART_I18N = {
   filterLabel: "Filter displayed series",
@@ -76,9 +103,36 @@ interface InvocationEntry {
   outputTokens: string;
 }
 
+interface TestDataCase {
+  inputs: Record<string, string>;
+  expectedOutput: string;
+  actualOutput: string;
+  accuracy: string;
+  inputTokens: string;
+  outputTokens: string;
+}
+
+interface PromptTemplateEntry {
+  groupId: string;
+  type: "Source" | "Optimized";
+  model: string;
+  template: string;
+  testData: TestDataCase[];
+}
+
 function numAvg(items: InvocationEntry[], key: "accuracy" | "inputTokens" | "outputTokens"): number {
   if (!items.length) return 0;
   return Math.round(items.reduce((sum, e) => sum + parseInt(e[key]), 0) / items.length);
+}
+
+function avgFromTestData(testData: TestDataCase[]): { accuracy: number; inputTokens: number; outputTokens: number } {
+  if (!testData.length) return { accuracy: 0, inputTokens: 0, outputTokens: 0 };
+  const n = testData.length;
+  return {
+    accuracy:     Math.round(testData.reduce((s, td) => s + parseInt(td.accuracy),     0) / n),
+    inputTokens:  Math.round(testData.reduce((s, td) => s + parseInt(td.inputTokens),  0) / n),
+    outputTokens: Math.round(testData.reduce((s, td) => s + parseInt(td.outputTokens), 0) / n),
+  };
 }
 
 function addMinutes(dateStr: string, minutes: number): string {
@@ -145,6 +199,73 @@ const PROPERTY_FILTER_I18N: PropertyFilterProps.I18nStrings = {
     `Remove filter: ${token.propertyKey} ${token.operator} ${token.value}`,
   enteredTextLabel: (text) => `Use: "${text}"`,
 };
+
+const OPTIMIZATION_FILTERING_PROPERTIES: PropertyFilterProps.FilteringProperty[] = [
+  { key: "groupId",  propertyLabel: "Group ID",  operators: [":", "!:", "=", "!="], groupValuesLabel: "Group ID values" },
+  { key: "type",     propertyLabel: "Type",      operators: [":", "!:", "=", "!="], groupValuesLabel: "Type values" },
+  { key: "model",    propertyLabel: "Model",     operators: [":", "!:", "=", "!="], groupValuesLabel: "Model values" },
+  { key: "template", propertyLabel: "Template",  operators: [":", "!:"],            groupValuesLabel: "Template values" },
+];
+
+const FIXED_TEST_DATA_COLUMNS = [
+  {
+    id: "expectedOutput",
+    header: "Expected output",
+    cell: (td: TestDataCase) =>
+      td.expectedOutput.length > MAX_TRUNCATE_LENGTH
+        ? <TruncateText tooltipText={td.expectedOutput}>{td.expectedOutput}</TruncateText>
+        : td.expectedOutput,
+  },
+  {
+    id: "actualOutput",
+    header: "Actual output",
+    cell: (td: TestDataCase) =>
+      td.actualOutput.length > MAX_TRUNCATE_LENGTH
+        ? <TruncateText tooltipText={td.actualOutput}>{td.actualOutput}</TruncateText>
+        : td.actualOutput,
+  },
+  {
+    id: "accuracy",
+    header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+    cell: (td: TestDataCase) => <span style={{ display: "block", textAlign: "right" }}>{td.accuracy}</span>,
+  },
+  {
+    id: "inputTokens",
+    header: <span style={{ display: "block", textAlign: "right" }}>Input tokens</span>,
+    cell: (td: TestDataCase) => <span style={{ display: "block", textAlign: "right" }}>{td.inputTokens}</span>,
+  },
+  {
+    id: "outputTokens",
+    header: <span style={{ display: "block", textAlign: "right" }}>Output tokens</span>,
+    cell: (td: TestDataCase) => <span style={{ display: "block", textAlign: "right" }}>{td.outputTokens}</span>,
+  },
+];
+
+function matchesOptimizationQuery(entry: PromptTemplateEntry, q: PropertyFilterProps.Query): boolean {
+  if (q.tokens.length === 0) return true;
+  const ENTRY_KEYS: (keyof PromptTemplateEntry)[] = ["groupId", "type", "model", "template"];
+
+  const testOp = (raw: string, token: PropertyFilterProps.Token): boolean => {
+    const v = raw.toLowerCase();
+    const fv = String(token.value ?? "").toLowerCase();
+    switch (token.operator) {
+      case ":":  return v.includes(fv);
+      case "!:": return !v.includes(fv);
+      case "=":  return v === fv;
+      case "!=": return v !== fv;
+      default:   return true;
+    }
+  };
+
+  const checkToken = (token: PropertyFilterProps.Token): boolean => {
+    if (!token.propertyKey) {
+      return ENTRY_KEYS.filter((k) => typeof entry[k] === "string").some((k) => testOp(String(entry[k]), token));
+    }
+    return testOp(String(entry[token.propertyKey as keyof PromptTemplateEntry] ?? ""), token);
+  };
+
+  return q.operation === "and" ? q.tokens.every(checkToken) : q.tokens.some(checkToken);
+}
 
 function matchesQuery(entry: InvocationEntry, q: PropertyFilterProps.Query): boolean {
   if (q.tokens.length === 0) return true;
@@ -365,7 +486,6 @@ function EvaluationContent({ job }: { job: MigrationJob }) {
           <Header
             variant="h2"
             description="Shows how invocation log prompts performed in the source model versus optimized prompts on the target model."
-            counter={`(${matchCount}/${entries.length})`}
             actions={
               <Button iconName="download" ariaLabel="Download results" href="/invocation-log.json" download="invocation-log.json">
                 Download results
@@ -420,7 +540,367 @@ function EvaluationContent({ job }: { job: MigrationJob }) {
   );
 }
 
-function LockedTabContent({ buttonLabel }: { buttonLabel: string}) {
+function OptimizationContent({ job }: { job: MigrationJob }) {
+  const [entries, setEntries] = useState<PromptTemplateEntry[]>([]);
+  const [evalEntries, setEvalEntries] = useState<InvocationEntry[]>([]);
+  const [pageSize, setPageSize] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [testDataEntry, setTestDataEntry] = useState<PromptTemplateEntry | null>(null);
+
+  useEffect(() => {
+    fetch("/prompt-templates.json")
+      .then((r) => r.json())
+      .then((data: PromptTemplateEntry[]) => setEntries(data));
+    fetch("/invocation-log.json")
+      .then((r) => r.json())
+      .then((data: InvocationEntry[]) => setEvalEntries(data));
+  }, []);
+
+  const { items: allFilteredItems, collectionProps, propertyFilterProps } = useCollection(entries, {
+    propertyFiltering: {
+      filteringProperties: OPTIMIZATION_FILTERING_PROPERTIES,
+      filteringFunction: matchesOptimizationQuery,
+      empty: <Box textAlign="center"><Box variant="strong">No entries found</Box></Box>,
+      noMatch: <Box textAlign="center"><Box variant="strong">No matches</Box><Box variant="p" color="text-body-secondary">Try adjusting your filters.</Box></Box>,
+    },
+    sorting: {
+      defaultState: { sortingColumn: { sortingField: "groupId" }, isDescending: false },
+    },
+  });
+
+  const pagesCount = Math.max(1, Math.ceil(allFilteredItems.length / pageSize));
+  const safeCurrentPage = Math.min(currentPage, pagesCount);
+  const pageItems = allFilteredItems.slice((safeCurrentPage - 1) * pageSize, safeCurrentPage * pageSize);
+  const isFiltered = propertyFilterProps.query.tokens.length > 0;
+  const matchCount = allFilteredItems.length;
+
+  const handleFilterChange = ({ detail }: { detail: PropertyFilterProps.Query }) => {
+    propertyFilterProps.onChange({ detail });
+    setCurrentPage(1);
+  };
+
+  const sourceEntries = useMemo(() => entries.filter((e) => e.type === "Source"), [entries]);
+  const optimizedEntries = useMemo(() => entries.filter((e) => e.type === "Optimized"), [entries]);
+  const srcMetrics  = useMemo(() => avgFromTestData(sourceEntries.flatMap((e) => e.testData)),   [sourceEntries]);
+  const optMetrics  = useMemo(() => avgFromTestData(optimizedEntries.flatMap((e) => e.testData)), [optimizedEntries]);
+
+  const evalBaseline = useMemo(() => {
+    const src = evalEntries.filter((e) => e.type === "Source");
+    return {
+      accuracy:     numAvg(src, "accuracy"),
+      inputTokens:  numAvg(src, "inputTokens"),
+      outputTokens: numAvg(src, "outputTokens"),
+    };
+  }, [evalEntries]);
+
+  const sourceByGroupId = useMemo(() => {
+    const map = new Map<string, PromptTemplateEntry>();
+    for (const e of entries) if (e.type === "Source") map.set(e.groupId, e);
+    return map;
+  }, [entries]);
+
+  const filteringOptions = useMemo(() => {
+    const opts: PropertyFilterProps.FilteringOption[] = [];
+    for (const e of entries) {
+      opts.push({ propertyKey: "groupId", value: e.groupId });
+      opts.push({ propertyKey: "type",    value: e.type });
+      opts.push({ propertyKey: "model",   value: e.model });
+    }
+    return opts.filter((o, i, arr) => arr.findIndex((x) => x.propertyKey === o.propertyKey && x.value === o.value) === i);
+  }, [entries]);
+
+  const logColumns = useMemo(() => [
+    { id: "groupId", header: <span style={{ paddingLeft: 12 }}>Group ID</span>, cell: (item: PromptTemplateEntry) => <span style={{ paddingLeft: 12 }}>{item.groupId}</span>, sortingField: "groupId", isRowHeader: true },
+    { id: "type",    header: "Type",  cell: (item: PromptTemplateEntry) => <Badge color={item.type === "Optimized" ? "green" : "grey"}>{item.type}</Badge> },
+    { id: "model",   header: "Model", cell: (item: PromptTemplateEntry) => item.model },
+    { id: "template", header: "Template", cell: (item: PromptTemplateEntry) => item.template.length > MAX_TRUNCATE_LENGTH ? <TruncateText tooltipText={item.template}>{item.template}</TruncateText> : truncate(item.template) },
+    {
+      id: "testData",
+      header: "Test data",
+      cell: (item: PromptTemplateEntry) => (
+        <Button variant="link" onClick={() => setTestDataEntry(item)}>
+          {item.testData.length} {item.testData.length === 1 ? "case" : "cases"}
+        </Button>
+      ),
+    },
+    {
+      id: "accuracy",
+      header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+      cell: (item: PromptTemplateEntry) => {
+        const m = avgFromTestData(item.testData);
+        const src = item.type === "Optimized" ? sourceByGroupId.get(item.groupId) : undefined;
+        const srcM = src ? avgFromTestData(src.testData) : null;
+        const delta = srcM ? m.accuracy - srcM.accuracy : null;
+        return <span style={{ display: "block", textAlign: "right" }}>{m.accuracy}{delta !== null && <Delta value={delta} higherIsBetter={true} />}</span>;
+      },
+    },
+    {
+      id: "inputTokens",
+      header: <span style={{ display: "block", textAlign: "right" }}>Input tokens</span>,
+      cell: (item: PromptTemplateEntry) => {
+        const m = avgFromTestData(item.testData);
+        const src = item.type === "Optimized" ? sourceByGroupId.get(item.groupId) : undefined;
+        const srcM = src ? avgFromTestData(src.testData) : null;
+        const delta = srcM ? m.inputTokens - srcM.inputTokens : null;
+        return <span style={{ display: "block", textAlign: "right" }}>{m.inputTokens}{delta !== null && <Delta value={delta} higherIsBetter={undefined} />}</span>;
+      },
+    },
+    {
+      id: "outputTokens",
+      header: <span style={{ display: "block", textAlign: "right" }}>Output tokens</span>,
+      cell: (item: PromptTemplateEntry) => {
+        const m = avgFromTestData(item.testData);
+        const src = item.type === "Optimized" ? sourceByGroupId.get(item.groupId) : undefined;
+        const srcM = src ? avgFromTestData(src.testData) : null;
+        const delta = srcM ? m.outputTokens - srcM.outputTokens : null;
+        return <span style={{ display: "block", textAlign: "right" }}>{m.outputTokens}{delta !== null && <Delta value={delta} higherIsBetter={undefined} />}</span>;
+      },
+    },
+  ], [sourceByGroupId]);
+
+  const testDataInputKeys = useMemo(
+    () => Object.keys(testDataEntry?.testData[0]?.inputs ?? {}),
+    [testDataEntry]
+  );
+
+  const testDataColumnDefs = useMemo(() => [
+    ...testDataInputKeys.map(key => ({
+      id: `input-${key}`,
+      header: "{{"+key+"}}",
+      cell: (td: TestDataCase) => td.inputs[key],
+    })),
+    ...FIXED_TEST_DATA_COLUMNS,
+  ], [testDataInputKeys]);
+
+  const testDataGroupDefs = useMemo(
+    () => [{ id: "inputs-group", header: "Inputs" }],
+    []
+  );
+
+  const testDataColumnDisplay = useMemo(() => [
+    {
+      type: "group" as const,
+      id: "inputs-group",
+      visible: true,
+      children: testDataInputKeys.map(key => ({ id: `input-${key}`, visible: true })),
+    },
+    ...FIXED_TEST_DATA_COLUMNS.map(col => ({ id: col.id, visible: true })),
+  ], [testDataInputKeys]);
+
+  const makeSeries = (srcVal: number, optVal: number, baselineVal: number) => [
+    { title: "Average", type: "bar" as const, data: [{ x: job.sourceModel, y: srcVal }, { x: job.targetModel, y: optVal }] },
+    ...(baselineVal > 0 ? [{ title: "Evaluation baseline", type: "threshold" as const, y: baselineVal }] : []),
+  ];
+
+  const yDomainTokens = (src: number, opt: number): [number, number] =>
+    [0, Math.ceil(Math.max(src, opt) * 1.3)];
+
+  return (
+    <>
+      {testDataEntry && (
+        <Modal
+          visible={true}
+          size="xx-large"
+          header={`Group ID: ${testDataEntry.groupId}, ${testDataEntry.model} – Test data`}
+          onDismiss={() => setTestDataEntry(null)}
+          footer={<Box float="right"><Button variant="primary" onClick={() => setTestDataEntry(null)}>Close</Button></Box>}
+        >
+          <Table
+            items={testDataEntry.testData}
+            columnDefinitions={testDataColumnDefs}
+            groupDefinitions={testDataGroupDefs}
+            columnDisplay={testDataColumnDisplay}
+            trackBy={(td) => JSON.stringify(td.inputs)}
+            variant="embedded"
+            wrapLines
+            // resizableColumns
+          />
+        </Modal>
+      )}
+      <SpaceBetween size="l">
+        <Container header={<Header variant="h2">Prompt optimization properties</Header>}>
+          <KeyValuePairs
+            columns={3}
+            items={[
+              { label: "Status", value: <StatusIndicator type="success">Completed</StatusIndicator> },
+              { label: "Prompt templates source", value: "Invocation logs" },
+              { label: "Date started", value: job.dateStarted },
+              { label: "Time range of extracted prompts", value: "May 13, 2025, 13:23 – May 31, 2025, 13:23" },
+              { label: "Number of prompt templates", value: sourceEntries.length || 5 },
+              { label: "Date completed", value: `${job.dateStarted} – ${addMinutes(job.dateStarted, 30)}` },
+            ]}
+          />
+        </Container>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "20px" }}>
+          <Container header={<Header variant="h3" description="Measures how closely model outputs match the expected results.">Average accuracy (%)</Header>}>
+            <BarChart<string>
+              series={makeSeries(srcMetrics.accuracy, optMetrics.accuracy, evalBaseline.accuracy)}
+              xDomain={[job.sourceModel, job.targetModel]}
+              yDomain={[70, 100]}
+              hideLegend
+              height={200} xTitle="Models" yTitle="Percent (%)" hideFilter i18nStrings={CHART_I18N}
+            />
+          </Container>
+          <Container header={<Header variant="h3" description="Measures the average amount of input tokens of all requests.">Average input tokens</Header>}>
+            <BarChart<string>
+              series={makeSeries(srcMetrics.inputTokens, optMetrics.inputTokens, evalBaseline.inputTokens)}
+              xDomain={[job.sourceModel, job.targetModel]}
+              yDomain={yDomainTokens(srcMetrics.inputTokens, optMetrics.inputTokens)}
+              hideLegend
+              height={200} xTitle="Models" yTitle="Tokens" hideFilter i18nStrings={CHART_I18N}
+            />
+          </Container>
+          <Container header={<Header variant="h3" description="Measures the average amount of output tokens of all responses.">Average output tokens</Header>}>
+            <BarChart<string>
+              series={makeSeries(srcMetrics.outputTokens, optMetrics.outputTokens, evalBaseline.outputTokens)}
+              xDomain={[job.sourceModel, job.targetModel]}
+              yDomain={yDomainTokens(srcMetrics.outputTokens, optMetrics.outputTokens)}
+              hideLegend
+              height={200} xTitle="Models" yTitle="Tokens" hideFilter i18nStrings={CHART_I18N}
+            />
+          </Container>
+        </div>
+        <Table
+          {...collectionProps}
+          header={
+            <Header
+              variant="h2"
+              description="Shows how prompt templates performed after optimization on the target model."
+              actions={
+                <Button iconName="download" ariaLabel="Download results" href="/prompt-templates.json" download="prompt-templates.json">
+                  Download results
+                </Button>
+              }
+            >
+              Prompt optimization results
+            </Header>
+          }
+          filter={
+            <PropertyFilter
+              {...propertyFilterProps}
+              onChange={handleFilterChange}
+              filteringOptions={filteringOptions}
+              i18nStrings={PROPERTY_FILTER_I18N}
+              countText={isFiltered ? `${matchCount} ${matchCount === 1 ? "match" : "matches"}` : undefined}
+            />
+          }
+          items={pageItems}
+          resizableColumns stickyHeader wrapLines
+          pagination={
+            <Pagination
+              currentPageIndex={safeCurrentPage}
+              pagesCount={pagesCount}
+              onChange={({ detail }) => setCurrentPage(detail.currentPageIndex)}
+            />
+          }
+          preferences={
+            <CollectionPreferences
+              title="Preferences" confirmLabel="Confirm" cancelLabel="Cancel"
+              preferences={{ pageSize }}
+              onConfirm={({ detail }) => { setPageSize(detail.pageSize ?? 10); setCurrentPage(1); }}
+              pageSizePreference={{
+                title: "Page size",
+                options: [{ value: 5, label: "5 rows" }, { value: 10, label: "10 rows" }, { value: 20, label: "20 rows" }],
+              }}
+            />
+          }
+          columnDefinitions={logColumns}
+          trackBy={(item) => `${item.groupId}-${item.type}`}
+          empty={<Box textAlign="center"><Box variant="strong">No entries found</Box></Box>}
+        />
+      </SpaceBetween>
+    </>
+  );
+}
+
+// ─── Mock time-series data ────────────────────────────────────────────────────
+const SHADOW_HOURS = [0, 10, 20, 30, 40, 50, 60, 70, 80];
+
+const ACCURACY_SOURCE = [83.0, 83.2, 83.5, 83.8, 83.6, 83.9, 84.1, 84.0, 83.8];
+const ACCURACY_TARGET = [88.5, 88.2, 89.1, 88.8, 88.9, 88.7, 89.0, 88.8, 88.9];
+
+const LATENCY_SOURCE = [680, 682, 685, 690, 688, 692, 695, 698, 700];
+const LATENCY_TARGET = [620, 618, 622, 624, 621, 623, 622, 621, 620];
+
+const COST_SOURCE = [0.013, 0.0132, 0.0134, 0.0138, 0.0136, 0.014, 0.0142, 0.0143, 0.0145];
+const COST_TARGET = [0.012, 0.0122, 0.0124, 0.0126, 0.0125, 0.0128, 0.0127, 0.0126, 0.0128];
+
+const toSeries = (vals: number[]) =>
+  SHADOW_HOURS.map((x, i) => ({ x, y: vals[i] }));
+
+const LINE_CHART_I18N = {
+  chartAriaRoleDescription: "line chart",
+  xTickFormatter: (v: number) => `${v}h`,
+};
+
+function ShadowTestingContent({ job }: { job: MigrationJob }) {
+  return (
+    <SpaceBetween size="l">
+      <Container header={<Header variant="h2">Shadow testing properties</Header>}>
+        <KeyValuePairs
+          columns={4}
+          items={[
+            { label: "Status", value: <StatusIndicator type="in-progress">In progress</StatusIndicator> },
+            { label: "Traffic sampling (%)", value: "10" },
+            { label: "Time range for test", value: "72 hours" },
+            { label: "Date started", value: job.dateStarted },
+            { label: "Date completed", value: "—" },
+          ]}
+        />
+      </Container>
+
+      <Container header={<Header variant="h2">Average accuracy (%)</Header>}>
+        <LineChart<number>
+          series={[
+            { title: job.sourceModel, type: "line", data: toSeries(ACCURACY_SOURCE) },
+            { title: job.targetModel, type: "line", data: toSeries(ACCURACY_TARGET) },
+          ]}
+          xDomain={[0, 80]}
+          yDomain={[82, 90]}
+          xTitle="Time (hours)"
+          yTitle="Accuracy (%)"
+          xScaleType="linear"
+          i18nStrings={LINE_CHART_I18N}
+          height={200}
+        />
+      </Container>
+
+      <Container header={<Header variant="h2">Average latency (ms)</Header>}>
+        <LineChart<number>
+          series={[
+            { title: job.sourceModel, type: "line", data: toSeries(LATENCY_SOURCE) },
+            { title: job.targetModel, type: "line", data: toSeries(LATENCY_TARGET) },
+          ]}
+          xDomain={[0, 80]}
+          yDomain={[600, 710]}
+          xTitle="Time (hours)"
+          yTitle="Latency (ms)"
+          xScaleType="linear"
+          i18nStrings={LINE_CHART_I18N}
+          height={200}
+        />
+      </Container>
+
+      <Container header={<Header variant="h2">Average cost ($)</Header>}>
+        <LineChart<number>
+          series={[
+            { title: job.sourceModel, type: "line", data: toSeries(COST_SOURCE) },
+            { title: job.targetModel, type: "line", data: toSeries(COST_TARGET) },
+          ]}
+          xDomain={[0, 80]}
+          yDomain={[0.009, 0.016]}
+          xTitle="Time (hours)"
+          yTitle="Cost ($)"
+          xScaleType="linear"
+          i18nStrings={{ ...LINE_CHART_I18N, yTickFormatter: (v: number) => `$${v.toFixed(3)}` }}
+          height={200}
+        />
+      </Container>
+    </SpaceBetween>
+  );
+}
+
+function LockedTabContent({ buttonLabel, onClick }: { buttonLabel: string; onClick?: () => void }) {
   return (
     <Container>
       <Box textAlign="center" padding={{ vertical: "xl" }}>
@@ -429,7 +909,9 @@ function LockedTabContent({ buttonLabel }: { buttonLabel: string}) {
           <Box variant="p" color="text-body-secondary">
             <strong>{buttonLabel}</strong> to proceed.
           </Box>
-          <Button>{buttonLabel}</Button>
+          <Button onClick={onClick}>
+            {buttonLabel}
+          </Button>
         </SpaceBetween>
       </Box>
     </Container>
@@ -440,10 +922,20 @@ export default function MigrationResultsPage() {
   const onFollow = useOnFollow();
   const navigate = useNavigate();
   const { state } = useLocation();
+  const [searchParams] = useSearchParams();
   const [navigationPanelState, setNavigationPanelState] = useNavigationPanelState();
 
-  const job = state as MigrationJob | null;
+  const activeState =
+    searchParams.get("state") ??
+    (MIGRATION_COMPLETE    ? "MIGRATION_COMPLETE"    :
+     OPTIMIZATION_COMPLETE ? "OPTIMIZATION_COMPLETE" :
+     EVAL_COMPLETE         ? "EVAL_COMPLETE"         : null);
+
+  const job = (state as MigrationJob | null) ?? (activeState && activeState in JOB_BY_STATE ? JOB_BY_STATE[activeState] : null);
   const [activeTabId, setActiveTabId] = useState(() => job ? getActiveTabId(job) : "evaluation");
+
+  const showSuccessAlert = searchParams.has("successAlert") || SUCCESS_ALERT;
+  const [alertDismissed, setAlertDismissed] = useState(false);
 
   if (!job) {
     return (
@@ -473,7 +965,7 @@ export default function MigrationResultsPage() {
   const completed = parseInt(job.statusLabel.split(" ")[0]) || 0;
   return (
     <AppLayoutToolbar
-      maxContentWidth={1280}
+      maxContentWidth={1440}
       headerSelector="#awsui-top-navigation"
       navigation={<NavigationPanel />}
       navigationOpen={!navigationPanelState.collapsed}
@@ -494,7 +986,7 @@ export default function MigrationResultsPage() {
           header={
             <Header
               variant="h1"
-              actions={getHeaderAction(job)}
+              actions={getHeaderAction(job, navigate)}
             >
               {job.jobName}
             </Header>
@@ -540,11 +1032,29 @@ export default function MigrationResultsPage() {
                     label: "Date completed",
                     value: job.dateCompleted && job.dateCompleted !== "-"
                       ? job.dateCompleted
-                      : "—",
+                      : "-",
                   },
                 ]}
               />
             </Container>
+            {showSuccessAlert && !alertDismissed && (
+              <Alert
+                type="success"
+                header={activeState === "OPTIMIZATION_COMPLETE" ? "Prompt optimization successfully completed." : activeState === "EVAL_COMPLETE" ? "Initial evaluation successfully completed." : "Shadow testing successfully completed."}
+                action={
+                  completed >= 3
+                  ? null
+                  : completed >= 2
+                  ? <Button onClick={() => navigate("/start-shadow-testing", { state: job })}>Start shadow testing</Button>
+                  : <Button onClick={() => navigate("/provide-prompt-templates", { state: job })}>Provide prompt templates</Button>
+                }
+                dismissible
+                onDismiss={() => setAlertDismissed(true)}
+              >
+                You can now <strong>Provide prompt templates</strong> for an optional{" "}
+                <strong>Prompt optimization</strong> or move directly to <strong>Shadow testing</strong>.
+              </Alert>
+            )}
             <Tabs
               activeTabId={activeTabId}
               onChange={({ detail }) => setActiveTabId(detail.activeTabId)}
@@ -568,8 +1078,8 @@ export default function MigrationResultsPage() {
                     </span>
                   ),
                   content: completed >= 2
-                    ? <Box>Prompt optimization content</Box>
-                    : <LockedTabContent buttonLabel="Provide prompt templates" />,
+                    ? <OptimizationContent job={job} />
+                    : <LockedTabContent buttonLabel="Provide prompt templates" onClick={() => navigate("/provide-prompt-templates", { state: job })} />,
                 },
                 {
                   id: "shadow-testing",
@@ -580,10 +1090,10 @@ export default function MigrationResultsPage() {
                     </span>
                   ),
                   content: completed >= 3
-                    ? <Box>Shadow testing content</Box>
+                    ? <ShadowTestingContent job={job} />
                     : completed === 2
                       ? <LockedTabContent buttonLabel="Start shadow testing" />
-                      : <LockedTabContent buttonLabel="Provide prompt templates" />,
+                      : <LockedTabContent buttonLabel="Provide prompt templates" onClick={() => navigate("/provide-prompt-templates", { state: job })} />,
                 },
               ]}
             />

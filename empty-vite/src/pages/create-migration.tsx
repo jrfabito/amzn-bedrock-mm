@@ -91,7 +91,7 @@ export default function CreateMigrationPage() {
 
   return (
     <AppLayoutToolbar
-      maxContentWidth = { 1280 }
+      maxContentWidth = { 1440 }
       headerSelector="#awsui-top-navigation"
       navigation={<NavigationPanel />}
       navigationOpen={!navigationPanelState.collapsed}
@@ -115,7 +115,7 @@ export default function CreateMigrationPage() {
                   <Button variant="link" href="/" onFollow={onFollow}>
                     Cancel
                   </Button>
-                  <Button variant="primary" href="/?state=EVAL_COMPLETE">
+                  <Button variant="primary" href="/results/job-1?state=EVAL_COMPLETE&successAlert=true">
                     Start model migration
                   </Button>
                 </SpaceBetween>

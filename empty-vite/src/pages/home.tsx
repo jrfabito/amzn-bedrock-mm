@@ -14,8 +14,6 @@ import {
   StatusIndicator,
   Container,
   Link,
-  Flashbar,
-  FlashbarProps,
 } from "@cloudscape-design/components";
 import BaseAppLayout from "../components/base-app-layout";
 import { APP_NAME } from "../common/constants";
@@ -60,51 +58,6 @@ const JOB_BY_STATE: Record<string, MigrationJob> = {
     dateCompleted: "Jun 7, 2025, 1:30 PM",
   },
 };
-function makeFlashbarItems(
-  job: MigrationJob,
-  navigate: ReturnType<typeof useNavigate>
-): Record<string, FlashbarProps.MessageDefinition[]> {
-  const viewResultsAction = (
-    <Button onClick={() => navigate(`/results/${job.id}`, { state: job })}>
-      View results
-    </Button>
-  );
-  return {
-    EVAL_COMPLETE: [
-      {
-        type: "success",
-        id: "eval-complete",
-        content: (
-          <><b>{job.jobName}</b> initial evaluation complete. You can now proceed to the next steps.</>
-        ),
-        action: viewResultsAction,
-        dismissible: true,
-      },
-    ],
-    OPTIMIZATION_COMPLETE: [
-      {
-        type: "success",
-        id: "optimization-complete",
-        content: (
-          <><b>{job.jobName}</b> prompt optimization complete. You can now proceed to shadow testing.</>
-        ),
-        action: viewResultsAction,
-        dismissible: true,
-      },
-    ],
-    MIGRATION_COMPLETE: [
-      {
-        type: "success",
-        id: "migration-complete",
-        content: (
-          <><b>{job.jobName}</b> shadow testing complete.</>
-        ),
-        action: viewResultsAction,
-        dismissible: true,
-      },
-    ],
-  };
-}
 // ─────────────────────────────────────────────────────────────────────────────
 
 const MODEL_SPOTLIGHTS = [
@@ -285,7 +238,6 @@ function MigrationCTAContainer() {
 
 export default function HomePage() {
   const onFollow = useOnFollow();
-  const navigate = useNavigate();
   const [searchParams] = useSearchParams();
 
   // URL param takes precedence over hardcoded toggles
@@ -298,29 +250,9 @@ export default function HomePage() {
   const activeJob = activeState && activeState in JOB_BY_STATE ? JOB_BY_STATE[activeState] : null;
   const jobs = activeJob ? [activeJob] : [];
 
-  const flashbarByState = activeJob ? makeFlashbarItems(activeJob, navigate) : {};
-  const baseItems = activeState && activeState in flashbarByState ? flashbarByState[activeState] : [];
-  const [flashbarItems, setFlashbarItems] = useState<FlashbarProps.MessageDefinition[]>(baseItems);
-
-  // Reset flashbar when the active state changes (e.g. URL param switches)
-  const [prevState, setPrevState] = useState(activeState);
-  if (prevState !== activeState) {
-    setPrevState(activeState);
-    setFlashbarItems(baseItems);
-  }
-
-  const dismissItem = (id: string) =>
-    setFlashbarItems((prev) => prev.filter((item) => item.id !== id));
-
-  const itemsWithDismiss = flashbarItems.map((item) => ({
-    ...item,
-    onDismiss: item.dismissible ? () => dismissItem(item.id!) : undefined,
-  }));
-
   return (
     <BaseAppLayout
-      notifications={itemsWithDismiss.length > 0 && <Flashbar items={itemsWithDismiss} />}
-      maxContentWidth = { 1280 }
+      maxContentWidth={1440}
       breadcrumbs={
         <BreadcrumbGroup
           onFollow={onFollow}
