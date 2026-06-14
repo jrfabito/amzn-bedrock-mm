@@ -299,6 +299,60 @@ function matchesOptimizationQuery(entry: PromptTemplateEntry, q: PropertyFilterP
   return q.operation === "and" ? q.tokens.every(checkToken) : q.tokens.some(checkToken);
 }
 
+const TEST_DATA_FILTERING_PROPERTIES: PropertyFilterProps.FilteringProperty[] = [
+  { key: "expectedOutput", propertyLabel: "Expected output", operators: [":", "!:", "=", "!="],             groupValuesLabel: "Expected output values" },
+  { key: "actualOutput",   propertyLabel: "Actual output",   operators: [":", "!:", "=", "!="],             groupValuesLabel: "Actual output values" },
+  { key: "accuracy",       propertyLabel: "Accuracy (%)",    operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Accuracy values" },
+  { key: "inputTokens",    propertyLabel: "Input tokens",    operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Input token values" },
+  { key: "outputTokens",   propertyLabel: "Output tokens",   operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Output token values" },
+];
+
+function matchesTestDataQuery(td: TestDataCase, q: PropertyFilterProps.Query): boolean {
+  if (q.tokens.length === 0) return true;
+
+  const computed: Record<string, string | number> = {
+    expectedOutput: td.expectedOutput,
+    actualOutput:   td.actualOutput,
+    accuracy:       parseInt(td.accuracy),
+    inputTokens:    parseInt(td.inputTokens),
+    outputTokens:   parseInt(td.outputTokens),
+  };
+  const STRING_KEYS = ["expectedOutput", "actualOutput"];
+
+  const testOp = (raw: string | number, token: PropertyFilterProps.Token): boolean => {
+    const tv = token.value ?? "";
+    if (typeof raw === "number") {
+      const n = Number(tv);
+      if (isNaN(n)) return false;
+      switch (token.operator) {
+        case "=":  return raw === n;
+        case "!=": return raw !== n;
+        case ">":  return raw > n;
+        case ">=": return raw >= n;
+        case "<":  return raw < n;
+        case "<=": return raw <= n;
+        default:   return true;
+      }
+    }
+    const v = raw.toLowerCase(), fv = String(tv).toLowerCase();
+    switch (token.operator) {
+      case ":":  return v.includes(fv);
+      case "!:": return !v.includes(fv);
+      case "=":  return v === fv;
+      case "!=": return v !== fv;
+      default:   return true;
+    }
+  };
+
+  const checkToken = (token: PropertyFilterProps.Token): boolean => {
+    if (!token.propertyKey) return STRING_KEYS.some(k => testOp(String(computed[k] ?? ""), token));
+    const val = computed[token.propertyKey];
+    return val !== undefined ? testOp(val, token) : false;
+  };
+
+  return q.operation === "and" ? q.tokens.every(checkToken) : q.tokens.some(checkToken);
+}
+
 function matchesQuery(entry: InvocationEntry, q: PropertyFilterProps.Query): boolean {
   if (q.tokens.length === 0) return true;
 
@@ -551,7 +605,7 @@ function EvaluationContent({ job }: { job: MigrationJob }) {
         items={pageItems}
         resizableColumns
         stickyHeader
-        wrapLines
+        wrapLines stripedRows
         pagination={
           <Pagination
             currentPageIndex={safeCurrentPage}
@@ -611,6 +665,7 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
   const [pageSize, setPageSize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [testDataEntry, setTestDataEntry] = useState<PromptTemplateEntry | null>(null);
+  const [testDataModalPageSize, setTestDataModalPageSize] = useState(10);
   const [columnDisplay, setColumnDisplay] = useState([
     { id: "groupId",      visible: true },
     { id: "type",         visible: true },
@@ -641,6 +696,22 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
     sorting: {
       defaultState: { sortingColumn: { sortingField: "groupId" }, isDescending: false },
     },
+  });
+
+  const {
+    items: testDataItems,
+    paginationProps: testDataPaginationProps,
+    propertyFilterProps: testDataFilterProps,
+    collectionProps: testDataCollectionProps,
+  } = useCollection(testDataEntry?.testData ?? [], {
+    propertyFiltering: {
+      filteringProperties: TEST_DATA_FILTERING_PROPERTIES,
+      filteringFunction: matchesTestDataQuery,
+      empty:   <Box textAlign="center"><Box variant="strong">No test cases found</Box></Box>,
+      noMatch: <Box textAlign="center"><Box variant="strong">No matches</Box><Box variant="p" color="text-body-secondary">Try adjusting your filters.</Box></Box>,
+    },
+    pagination: { pageSize: testDataModalPageSize },
+    sorting: {},
   });
 
   const pagesCount = Math.max(1, Math.ceil(allFilteredItems.length / pageSize));
@@ -795,14 +866,45 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
           onDismiss={() => setTestDataEntry(null)}
         >
           <Table
-            items={testDataEntry.testData}
+            {...testDataCollectionProps}
+            items={testDataItems}
             columnDefinitions={testDataColumnDefs}
             groupDefinitions={testDataGroupDefs}
             columnDisplay={testDataColumnDisplay}
             trackBy={(td) => JSON.stringify(td.inputs)}
             variant="embedded"
-            wrapLines
+            wrapLines stripedRows
             resizableColumns
+            filter={
+              <PropertyFilter
+                {...testDataFilterProps}
+                i18nStrings={PROPERTY_FILTER_I18N}
+                countText={
+                  testDataFilterProps.query.tokens.length > 0
+                    ? `${testDataItems.length} ${testDataItems.length === 1 ? "match" : "matches"}`
+                    : undefined
+                }
+              />
+            }
+            pagination={<Pagination {...testDataPaginationProps} />}
+            preferences={
+              <CollectionPreferences
+                title="Preferences"
+                confirmLabel="Confirm"
+                cancelLabel="Cancel"
+                preferences={{ pageSize: testDataModalPageSize }}
+                onConfirm={({ detail }) => setTestDataModalPageSize(detail.pageSize ?? 10)}
+                pageSizePreference={{
+                  title: "Page size",
+                  options: [
+                    { value: 10, label: "10 rows" },
+                    { value: 25, label: "25 rows" },
+                    { value: 50, label: "50 rows" },
+                  ],
+                }}
+              />
+            }
+            empty={<Box textAlign="center"><Box variant="strong">No test cases found</Box></Box>}
           />
         </Modal>
       )}
@@ -874,7 +976,7 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
             />
           }
           items={pageItems}
-          resizableColumns stickyHeader wrapLines
+          resizableColumns stickyHeader wrapLines stripedRows
           pagination={
             <Pagination
               currentPageIndex={safeCurrentPage}
@@ -1563,6 +1665,7 @@ function ShadowTestingContent({ job }: { job: MigrationJob }) {
             />
           }
           items={pageItems}
+          stripedRows
           resizableColumns
           stickyHeader
           stickyColumns={{ last: 1 }}
@@ -1624,6 +1727,7 @@ function ShadowTestingContent({ job }: { job: MigrationJob }) {
           <Table
             {...modalCollectionProps}
             items={modalItems}
+            stripedRows
             columnDefinitions={MODAL_COLUMNS}
             filter={
               <PropertyFilter

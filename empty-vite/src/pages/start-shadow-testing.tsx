@@ -123,10 +123,12 @@ const FIXED_TEST_DATA_COLUMNS = [
       td.expectedOutput.length > MAX_TRUNCATE_LENGTH
         ? <TruncateText tooltipText={td.expectedOutput}>{td.expectedOutput}</TruncateText>
         : td.expectedOutput,
+    width: 300,
   },
   {
     id: "actualOutput",
     header: "Actual output",
+    width: 300,
     cell: (td: TestDataCase) =>
       td.actualOutput.length > MAX_TRUNCATE_LENGTH
         ? <TruncateText tooltipText={td.actualOutput}>{td.actualOutput}</TruncateText>
@@ -320,6 +322,7 @@ export default function StartShadowTestingPage() {
       {
         id: "template",
         header: "Template",
+        width: 300,
         cell: (item: PromptTemplateEntry) => {
           const text = item.template;
           const display = truncate(text);
@@ -406,6 +409,7 @@ export default function StartShadowTestingPage() {
       id: `input-${key}`,
       header: `{{${key}}}`,
       cell: (td: TestDataCase) => td.inputs[key],
+      width: 300,
     })),
     ...FIXED_TEST_DATA_COLUMNS,
   ], [testDataInputKeys]);
@@ -552,6 +556,7 @@ export default function StartShadowTestingPage() {
                     trackBy={(td) => JSON.stringify(td.inputs)}
                     variant="embedded"
                     wrapLines
+                    stripedRows resizableColumns
                   />
                 </Modal>
               )}
@@ -559,6 +564,7 @@ export default function StartShadowTestingPage() {
               <Table
                 {...collectionProps}
                 selectionType="multi"
+                stripedRows
                 selectedItems={selectedItems}
                 onSelectionChange={(e) => { handleSelectionChange(e); setShowSelectionError(false); }}
                 header={
