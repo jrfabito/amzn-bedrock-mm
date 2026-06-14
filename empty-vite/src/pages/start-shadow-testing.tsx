@@ -21,6 +21,7 @@ import {
   PropertyFilterProps,
   Modal,
   Alert,
+  KeyValuePairs,
 } from "@cloudscape-design/components";
 import { useCollection } from "@cloudscape-design/collection-hooks";
 import TruncateText from "@cloudscape-design/components/truncated-text";
@@ -29,6 +30,7 @@ import { useNavigationPanelState } from "../common/hooks/use-navigation-panel-st
 import { APP_NAME } from "../common/constants";
 import { useOnFollow } from "../common/hooks/use-on-follow";
 import { useCloudscapeDarkMode } from "../common/hooks/use-cloudscape-dark-mode";
+import { highlightVars } from "../common/utils/highlight-vars";
 import { MigrationJob } from "../common/types";
 
 interface TestDataCase {
@@ -61,14 +63,6 @@ function avgFromTestData(testData: TestDataCase[]) {
 const MAX_TRUNCATE_LENGTH = 224;
 const truncate = (text: string, max = MAX_TRUNCATE_LENGTH) =>
   text.length > max ? text.slice(0, max) + "…" : text;
-
-function highlightVars(text: string, backgroundColor: string) {
-  return text.split(/(\{\{[^}]+\}\})/g).map((part, i) =>
-    /^\{\{[^}]+\}\}$/.test(part)
-      ? <span key={i} style={{ backgroundColor, borderRadius: 3, padding: "1px 4px" }}>{part}</span>
-      : part
-  );
-}
 
 function Delta({ value, higherIsBetter }: { value: number; higherIsBetter?: boolean }) {
   const isGood = higherIsBetter === undefined || value === 0 ? null : higherIsBetter ? value > 0 : value < 0;
@@ -336,16 +330,6 @@ export default function StartShadowTestingPage() {
         sortingField: "template",
       },
       {
-        id: "testData",
-        header: "Test data",
-        cell: (item: PromptTemplateEntry) => (
-          <Button variant="link" onClick={() => setTestDataEntry(item)}>
-            {item.testData.length} {item.testData.length === 1 ? "case" : "cases"}
-          </Button>
-        ),
-        sortingComparator: (a: PromptTemplateEntry, b: PromptTemplateEntry) => a.testData.length - b.testData.length,
-      },
-      {
         id: "accuracy",
         header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
         cell: (item: PromptTemplateEntry) => {
@@ -489,6 +473,15 @@ export default function StartShadowTestingPage() {
             }
           >
             <SpaceBetween size="l">
+              <Container header={<Header variant="h2">Test configuration</Header>}>
+                <KeyValuePairs
+                  columns={2}
+                  items={[
+                    { label: "Source model", value: job?.sourceModel ?? "—" },
+                    { label: "Target model", value: job?.targetModel ?? "—" },
+                  ]}
+                />
+              </Container>
               <Container header={<Header variant="h2">Configure shadow test parameters</Header>}>
                 <SpaceBetween size="l">
                   <FormField
@@ -573,9 +566,17 @@ export default function StartShadowTestingPage() {
                     variant="h2"
                     counter={selectedItems.length > 0 ? `(${selectedItems.length} selected)` : undefined}
                     actions={
-                      <Button onClick={handleToggleAll}>
-                        {allSelected ? "Unselect all" : "Select all"}
-                      </Button>
+                      <SpaceBetween direction="horizontal" size="xs">
+                        <Button
+                          disabled={selectedItems.length !== 1}
+                          onClick={() => setTestDataEntry(selectedItems[0])}
+                        >
+                          View test data
+                        </Button>
+                        <Button onClick={handleToggleAll}>
+                          {allSelected ? "Unselect all" : "Select all"}
+                        </Button>
+                      </SpaceBetween>
                     }
                   >
                     Choose prompt templates to shadow test
