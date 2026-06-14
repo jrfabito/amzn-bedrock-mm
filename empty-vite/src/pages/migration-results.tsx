@@ -828,6 +828,7 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
     ...testDataInputKeys.map(key => ({
       id: `input-${key}`,
       header: "{{"+key+"}}",
+      width: 300,
       cell: (td: TestDataCase) => td.inputs[key],
     })),
     ...FIXED_TEST_DATA_COLUMNS,
@@ -861,7 +862,7 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
       {testDataEntry && (
         <Modal
           visible={true}
-          size="xx-large"
+          size="max"
           header={`Group ID: ${testDataEntry.groupId}, ${testDataEntry.model} – Test data`}
           onDismiss={() => setTestDataEntry(null)}
         >

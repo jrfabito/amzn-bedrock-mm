@@ -462,14 +462,15 @@ export default function StartShadowTestingPage() {
                 <Button variant="link" onClick={() => navigate(-1)}>Cancel</Button>
                 <Button
                   variant="primary"
-                  onClick={() => {
-                    if (selectedItems.length === 0) {
-                      setShowSelectionError(true);
-                    } else {
-                      setShowSelectionError(false);
-                      navigate(`/results/job-1?state=MIGRATION_COMPLETE&successAlert=true`);
-                    }
-                  }}
+                  href="/results/job-1?state=MIGRATION_COMPLETE&successAlert=true"
+                  // onClick={() => {
+                  //   if (selectedItems.length === 0) {
+                  //     setShowSelectionError(true);
+                  //   } else {
+                  //     setShowSelectionError(false);
+                  //     navigate(`/results/job-1?state=MIGRATION_COMPLETE&successAlert=true`);
+                  //   }
+                  // }}
                 >
                   Start shadow test
                 </Button>
@@ -543,7 +544,7 @@ export default function StartShadowTestingPage() {
               {testDataEntry && (
                 <Modal
                   visible={true}
-                  size="xx-large"
+                  size="max"
                   header={`Group ID: ${testDataEntry.groupId}, ${testDataEntry.model} – Test data`}
                   onDismiss={() => setTestDataEntry(null)}
                   footer={<Box float="right"><Button variant="primary" onClick={() => setTestDataEntry(null)}>Close</Button></Box>}
