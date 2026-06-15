@@ -1,0 +1,242 @@
+[
+  {
+    "groupId": "01",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "input": "Summarize this customer review: 'The battery life is great but the screen is dim in sunlight.'",
+    "output": "The product has strong battery performance but poor screen visibility in bright outdoor conditions.",
+    "accuracy": "82",
+    "inputTokens": "28",
+    "outputTokens": "18"
+  },
+  {
+    "groupId": "01",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "input": "Summarize this customer review: 'The battery life is great but the screen is dim in sunlight.'",
+    "output": "The reviewer had a positive experience overall, with no major complaints noted.",
+    "accuracy": "54",
+    "inputTokens": "28",
+    "outputTokens": "16"
+  },
+  {
+    "groupId": "02",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "input": "Translate this to Spanish: 'Please contact support if you experience any issues.'",
+    "output": "Por favor, contacte al soporte si experimenta algún problema.",
+    "accuracy": "88",
+    "inputTokens": "22",
+    "outputTokens": "16"
+  },
+  {
+    "groupId": "02",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "input": "Translate this to Spanish: 'Please contact support if you experience any issues.'",
+    "output": "Por favor, comuníquese con el soporte técnico si presenta algún inconveniente.",
+    "accuracy": "93",
+    "inputTokens": "22",
+    "outputTokens": "17"
+  },
+  {
+    "groupId": "03",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "input": "Write a product description for wireless noise-canceling headphones.",
+    "output": "These wireless noise-canceling headphones deliver immersive sound and block out distractions for a focused listening experience.",
+    "accuracy": "80",
+    "inputTokens": "14",
+    "outputTokens": "24"
+  },
+  {
+    "groupId": "03",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "input": "Write a product description for wireless noise-canceling headphones.",
+    "output": "Experience uninterrupted audio with wireless headphones engineered to cancel ambient noise, delivering studio-quality sound wherever you are.",
+    "accuracy": "89",
+    "inputTokens": "14",
+    "outputTokens": "26"
+  },
+  {
+    "groupId": "04",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "input": "Extract all action items from this meeting note: 'John will follow up with the client by Friday. Sarah needs to update the roadmap. The team should review the new designs before next Tuesday.'",
+    "output": "1. John: Follow up with client by Friday. 2. Sarah: Update the roadmap. 3. Team: Review new designs before Tuesday.",
+    "accuracy": "85",
+    "inputTokens": "52",
+    "outputTokens": "32"
+  },
+  {
+    "groupId": "04",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "input": "Extract all action items from this meeting note: 'John will follow up with the client by Friday. Sarah needs to update the roadmap. The team should review the new designs before next Tuesday.'",
+    "output": "[{\"owner\": \"John\", \"task\": \"Follow up with client\", \"deadline\": \"Friday\"}, {\"owner\": \"Sarah\", \"task\": \"Update roadmap\", \"deadline\": null}, {\"owner\": \"Team\", \"task\": \"Review new designs\", \"deadline\": \"Next Tuesday\"}]",
+    "accuracy": "78",
+    "inputTokens": "52",
+    "outputTokens": "58"
+  },
+  {
+    "groupId": "05",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "input": "Classify this support ticket as High, Medium, or Low priority: 'I cannot log into my account and have an important presentation in 2 hours.'",
+    "output": "High",
+    "accuracy": "83",
+    "inputTokens": "38",
+    "outputTokens": "2"
+  },
+  {
+    "groupId": "05",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "input": "Classify this support ticket as High, Medium, or Low priority: 'I cannot log into my account and have an important presentation in 2 hours.'",
+    "output": "Medium",
+    "accuracy": "41",
+    "inputTokens": "38",
+    "outputTokens": "2"
+  },
+  {
+    "groupId": "06",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "input": "Explain what an API is to a non-technical stakeholder.",
+    "output": "An API is a way for two software applications to talk to each other and share information automatically.",
+    "accuracy": "82",
+    "inputTokens": "16",
+    "outputTokens": "22"
+  },
+  {
+    "groupId": "06",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "input": "Explain what an API is to a non-technical stakeholder.",
+    "output": "Think of an API like a power outlet: your devices don't need to understand the electrical grid to use it — they just plug in. APIs let software products connect and exchange data the same way, invisibly and reliably.",
+    "accuracy": "95",
+    "inputTokens": "16",
+    "outputTokens": "48"
+  },
+  {
+    "groupId": "07",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "input": "Identify the sentiment of this tweet: 'Just spent 3 hours on hold. Worst customer service I have ever experienced. Never buying from them again.'",
+    "output": "Negative",
+    "accuracy": "86",
+    "inputTokens": "36",
+    "outputTokens": "2"
+  },
+  {
+    "groupId": "07",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "input": "Identify the sentiment of this tweet: 'Just spent 3 hours on hold. Worst customer service I have ever experienced. Never buying from them again.'",
+    "output": "Neutral",
+    "accuracy": "48",
+    "inputTokens": "36",
+    "outputTokens": "2"
+  },
+  {
+    "groupId": "08",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "input": "Write a tooltip for a button labeled 'Archive'.",
+    "output": "Archive this item.",
+    "accuracy": "75",
+    "inputTokens": "14",
+    "outputTokens": "5"
+  },
+  {
+    "groupId": "08",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "input": "Write a tooltip for a button labeled 'Archive'.",
+    "output": "Move to archive. Hidden from view but not deleted — restore it anytime.",
+    "accuracy": "96",
+    "inputTokens": "14",
+    "outputTokens": "16"
+  },
+  {
+    "groupId": "09",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "input": "Write a brief error message for a failed file upload.",
+    "output": "File upload failed. Please try again.",
+    "accuracy": "74",
+    "inputTokens": "14",
+    "outputTokens": "8"
+  },
+  {
+    "groupId": "09",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "input": "Write a brief error message for a failed file upload.",
+    "output": "Upload failed. Check your file size and format, then try again. If the issue continues, contact support.",
+    "accuracy": "96",
+    "inputTokens": "14",
+    "outputTokens": "22"
+  },
+  {
+    "groupId": "10",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "input": "Rewrite this sentence to be more concise: 'Due to the fact that the weather was not good, we decided to cancel the outdoor event that had been planned.'",
+    "output": "Because of bad weather, we canceled the outdoor event.",
+    "accuracy": "84",
+    "inputTokens": "40",
+    "outputTokens": "12"
+  },
+  {
+    "groupId": "10",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "input": "Rewrite this sentence to be more concise: 'Due to the fact that the weather was not good, we decided to cancel the outdoor event that had been planned.'",
+    "output": "Poor weather led us to cancel the planned outdoor event.",
+    "accuracy": "97",
+    "inputTokens": "40",
+    "outputTokens": "13"
+  },
+  {
+    "groupId": "11",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "input": "Create a short push notification for a flash sale ending in 2 hours.",
+    "output": "Flash sale ends in 2 hours! Shop now and save up to 50%.",
+    "accuracy": "80",
+    "inputTokens": "18",
+    "outputTokens": "16"
+  },
+  {
+    "groupId": "11",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "input": "Create a short push notification for a flash sale ending in 2 hours.",
+    "output": "2 hours left: Up to 50% off. Don't miss it — shop now.",
+    "accuracy": "94",
+    "inputTokens": "18",
+    "outputTokens": "18"
+  },
+  {
+    "groupId": "12",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "input": "Write a SQL query to get all users who signed up in the last 30 days.",
+    "output": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '30 days';",
+    "accuracy": "85",
+    "inputTokens": "20",
+    "outputTokens": "20"
+  },
+  {
+    "groupId": "12",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "input": "Write a SQL query to get all users who signed up in the last 30 days.",
+    "output": "SELECT id, email, created_at FROM users WHERE signup_date BETWEEN CURDATE() - INTERVAL 30 DAY AND CURDATE();",
+    "accuracy": "63",
+    "inputTokens": "20",
+    "outputTokens": "28"
+  }
+]

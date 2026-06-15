@@ -34,7 +34,7 @@ const BASE_JOB = {
   jobName: "Sonnet 4.5 migration",
   sourceModel: "Claude 3.5 Sonnet",
   targetModel: "Claude Sonnet 4.5",
-  dateStarted: "Jun 1, 2025, 10:00 AM",
+  dateStarted: "Jun 1, 2026, 10:00 AM",
   description: "Migrating from Claude 3.5 Sonnet to Claude Sonnet 4.5",
 } as const;
 
@@ -55,10 +55,22 @@ const JOB_BY_STATE: Record<string, MigrationJob> = {
     ...BASE_JOB,
     status: "success",
     statusLabel: "3 of 3 completed",
-    dateCompleted: "Jun 7, 2025, 1:30 PM",
+    dateCompleted: "Jun 7, 2026, 1:30 PM",
   },
 };
 // ─────────────────────────────────────────────────────────────────────────────
+
+const SECOND_JOB: MigrationJob = {
+  id: "job-2",
+  jobName: "claude-to-deepseek-batch-migration",
+  description: "Batch migration from Claude to DeepSeek models",
+  status: "success",
+  statusLabel: "3 of 3 completed",
+  sourceModel: "Claude 3.5 Sonnet, Claude 3 Opus",
+  targetModel: "DeepSeek-V3, DeepSeek-V3-R1",
+  dateStarted: "May 27, 2026",
+  dateCompleted: "May 31, 2026",
+};
 
 const MODEL_SPOTLIGHTS = [
   {
@@ -142,12 +154,12 @@ function MigrationHistoryTable({ jobs }: { jobs: MigrationJob[] }) {
     },
     {
       id: "sourceModel",
-      header: "Source model",
+      header: "Source models",
       cell: (item: MigrationJob) => item.sourceModel,
     },
     {
       id: "targetModel",
-      header: "Target model",
+      header: "Target models",
       cell: (item: MigrationJob) => item.targetModel,
     },
     {
@@ -248,7 +260,7 @@ export default function HomePage() {
      EVAL_COMPLETE         ? "EVAL_COMPLETE"         : null);
 
   const activeJob = activeState && activeState in JOB_BY_STATE ? JOB_BY_STATE[activeState] : null;
-  const jobs = activeJob ? [activeJob] : [];
+  const jobs = activeJob ? [activeJob, SECOND_JOB] : [SECOND_JOB];
 
   return (
     <BaseAppLayout
@@ -291,8 +303,8 @@ export default function HomePage() {
                 </div>
               </div>
             </ExpandableSection>
-            {jobs.length === 0 ? <MigrationCTAContainer /> : <MigrationHistoryTable jobs={jobs} />}
-            {jobs.length === 0 && <ModelSpotlightGrid />}
+            {jobs.length === 1 ? <MigrationCTAContainer /> : <MigrationHistoryTable jobs={jobs} />}
+            {jobs.length === 1 && <ModelSpotlightGrid />}
           </SpaceBetween>
         </ContentLayout>
       }

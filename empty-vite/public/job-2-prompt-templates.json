@@ -1,0 +1,914 @@
+[
+  {
+    "groupId": "01",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "template": "Summarize this customer review: '{{reviewText}}'",
+    "testData": [
+      {
+        "inputs": { "reviewText": "The battery life is great but the screen is dim in sunlight." },
+        "expectedOutput": "The product excels in battery life but struggles with screen visibility outdoors.",
+        "actualOutput": "The product has strong battery performance but poor screen visibility in bright outdoor conditions.",
+        "accuracy": "82",
+        "inputTokens": "28",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "reviewText": "Great camera quality but the phone overheats during long video calls." },
+        "expectedOutput": "Camera quality is excellent but thermal management during extended calls is a problem.",
+        "actualOutput": "Camera performance is praised, though the device gets hot during prolonged video sessions.",
+        "accuracy": "80",
+        "inputTokens": "26",
+        "outputTokens": "17"
+      },
+      {
+        "inputs": { "reviewText": "Comfortable shoes but they started falling apart after just three weeks of daily use." },
+        "expectedOutput": "Comfort is good but durability is a significant issue after minimal wear.",
+        "actualOutput": "The shoes are comfortable but showed premature wear within three weeks of regular use.",
+        "accuracy": "84",
+        "inputTokens": "29",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "reviewText": "The subscription is affordable but customer support takes days to respond." },
+        "expectedOutput": "Pricing is competitive but customer support responsiveness is poor.",
+        "actualOutput": "The plan is priced well, but slow support response times are a drawback.",
+        "accuracy": "81",
+        "inputTokens": "27",
+        "outputTokens": "16"
+      }
+    ]
+  },
+  {
+    "groupId": "01",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "template": "You are a product feedback analyst. Summarize the following customer review in one sentence, identifying overall sentiment. Review: '{{reviewText}}'",
+    "testData": [
+      {
+        "inputs": { "reviewText": "The battery life is great but the screen is dim in sunlight." },
+        "expectedOutput": "The product excels in battery life but struggles with screen visibility outdoors.",
+        "actualOutput": "The reviewer had a positive experience overall, with no major complaints noted.",
+        "accuracy": "54",
+        "inputTokens": "46",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "reviewText": "Great camera quality but the phone overheats during long video calls." },
+        "expectedOutput": "Camera quality is excellent but thermal management during extended calls is a problem.",
+        "actualOutput": "The customer is satisfied with the product's camera functionality.",
+        "accuracy": "50",
+        "inputTokens": "44",
+        "outputTokens": "14"
+      },
+      {
+        "inputs": { "reviewText": "Comfortable shoes but they started falling apart after just three weeks of daily use." },
+        "expectedOutput": "Comfort is good but durability is a significant issue after minimal wear.",
+        "actualOutput": "Sentiment is mixed — the reviewer appreciated comfort but reported durability concerns.",
+        "accuracy": "60",
+        "inputTokens": "47",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "reviewText": "The subscription is affordable but customer support takes days to respond." },
+        "expectedOutput": "Pricing is competitive but customer support responsiveness is poor.",
+        "actualOutput": "The overall review sentiment is positive, focusing on the low price point.",
+        "accuracy": "48",
+        "inputTokens": "45",
+        "outputTokens": "15"
+      }
+    ]
+  },
+  {
+    "groupId": "02",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "template": "Translate this to {{targetLanguage}}: '{{text}}'",
+    "testData": [
+      {
+        "inputs": { "targetLanguage": "Spanish", "text": "Please contact support if you experience any issues." },
+        "expectedOutput": "Por favor, comuníquese con soporte si experimenta algún problema.",
+        "actualOutput": "Por favor, contacte al soporte si experimenta algún problema.",
+        "accuracy": "88",
+        "inputTokens": "22",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "targetLanguage": "French", "text": "Your order has been shipped and will arrive within 3 business days." },
+        "expectedOutput": "Votre commande a été expédiée et arrivera dans 3 jours ouvrables.",
+        "actualOutput": "Votre commande a été envoyée et arrivera dans un délai de 3 jours ouvrables.",
+        "accuracy": "90",
+        "inputTokens": "24",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "targetLanguage": "German", "text": "We apologize for the inconvenience and are working to resolve the issue." },
+        "expectedOutput": "Wir entschuldigen uns für die Unannehmlichkeiten und arbeiten daran, das Problem zu lösen.",
+        "actualOutput": "Wir bitten um Entschuldigung für die Unannehmlichkeiten und bemühen uns, das Problem zu beheben.",
+        "accuracy": "87",
+        "inputTokens": "26",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "targetLanguage": "Portuguese", "text": "Thank you for your patience while we process your request." },
+        "expectedOutput": "Obrigado pela sua paciência enquanto processamos o seu pedido.",
+        "actualOutput": "Agradecemos a sua paciência enquanto processamos a sua solicitação.",
+        "accuracy": "86",
+        "inputTokens": "22",
+        "outputTokens": "16"
+      }
+    ]
+  },
+  {
+    "groupId": "02",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "template": "Translate the following customer support message to {{targetLanguage}}, maintaining a professional tone. Text: '{{text}}'",
+    "testData": [
+      {
+        "inputs": { "targetLanguage": "Spanish", "text": "Please contact support if you experience any issues." },
+        "expectedOutput": "Por favor, comuníquese con soporte si experimenta algún problema.",
+        "actualOutput": "Por favor, comuníquese con el soporte técnico si presenta algún inconveniente.",
+        "accuracy": "93",
+        "inputTokens": "38",
+        "outputTokens": "17"
+      },
+      {
+        "inputs": { "targetLanguage": "French", "text": "Your order has been shipped and will arrive within 3 business days." },
+        "expectedOutput": "Votre commande a été expédiée et arrivera dans 3 jours ouvrables.",
+        "actualOutput": "Votre commande a été expédiée et devrait vous parvenir dans un délai de 3 jours ouvrables.",
+        "accuracy": "95",
+        "inputTokens": "40",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "targetLanguage": "German", "text": "We apologize for the inconvenience and are working to resolve the issue." },
+        "expectedOutput": "Wir entschuldigen uns für die Unannehmlichkeiten und arbeiten daran, das Problem zu lösen.",
+        "actualOutput": "Wir entschuldigen uns für die entstandenen Unannehmlichkeiten und arbeiten mit Hochdruck an einer Lösung.",
+        "accuracy": "92",
+        "inputTokens": "42",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "targetLanguage": "Portuguese", "text": "Thank you for your patience while we process your request." },
+        "expectedOutput": "Obrigado pela sua paciência enquanto processamos o seu pedido.",
+        "actualOutput": "Agradecemos imensamente a sua paciência enquanto tratamos da sua solicitação.",
+        "accuracy": "91",
+        "inputTokens": "38",
+        "outputTokens": "17"
+      }
+    ]
+  },
+  {
+    "groupId": "03",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "template": "Write a product description for {{productName}}.",
+    "testData": [
+      {
+        "inputs": { "productName": "wireless noise-canceling headphones" },
+        "expectedOutput": "A compelling description highlighting wireless freedom, noise cancellation, and audio quality.",
+        "actualOutput": "These wireless noise-canceling headphones deliver immersive sound and block out distractions for a focused listening experience.",
+        "accuracy": "80",
+        "inputTokens": "14",
+        "outputTokens": "24"
+      },
+      {
+        "inputs": { "productName": "stainless steel insulated water bottle" },
+        "expectedOutput": "A description emphasizing temperature retention, material quality, and portability.",
+        "actualOutput": "This stainless steel water bottle keeps drinks cold for 24 hours and hot for 12, making it a reliable companion for any day.",
+        "accuracy": "82",
+        "inputTokens": "13",
+        "outputTokens": "26"
+      },
+      {
+        "inputs": { "productName": "compact air purifier for small rooms" },
+        "expectedOutput": "A description covering filtration performance, quiet operation, and room suitability.",
+        "actualOutput": "This compact air purifier uses HEPA filtration to capture airborne particles and allergens, running quietly in rooms up to 200 sq ft.",
+        "accuracy": "79",
+        "inputTokens": "14",
+        "outputTokens": "26"
+      }
+    ]
+  },
+  {
+    "groupId": "03",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "template": "Write a 2-sentence product description for {{productName}} that highlights {{emphasis}} and appeals to {{audience}}.",
+    "testData": [
+      {
+        "inputs": { "productName": "wireless noise-canceling headphones", "emphasis": "studio-quality audio and all-day comfort", "audience": "remote workers and commuters" },
+        "expectedOutput": "A compelling description highlighting wireless freedom, noise cancellation, and audio quality.",
+        "actualOutput": "Experience uninterrupted audio with wireless headphones engineered to cancel ambient noise, delivering studio-quality sound wherever you are. Designed for all-day comfort, they're the ideal companion for focused work or long commutes.",
+        "accuracy": "89",
+        "inputTokens": "38",
+        "outputTokens": "44"
+      },
+      {
+        "inputs": { "productName": "stainless steel insulated water bottle", "emphasis": "temperature retention and eco-friendly design", "audience": "outdoor enthusiasts" },
+        "expectedOutput": "A description emphasizing temperature retention, material quality, and portability.",
+        "actualOutput": "Built for the outdoors, this stainless steel bottle maintains cold drinks for 24 hours and hot beverages for 12, so your hydration keeps up with your adventure. Durable, BPA-free, and designed to last, it's the sustainable alternative to single-use plastic.",
+        "accuracy": "91",
+        "inputTokens": "40",
+        "outputTokens": "50"
+      },
+      {
+        "inputs": { "productName": "compact air purifier for small rooms", "emphasis": "whisper-quiet operation and HEPA filtration", "audience": "light sleepers and allergy sufferers" },
+        "expectedOutput": "A description covering filtration performance, quiet operation, and room suitability.",
+        "actualOutput": "This compact purifier uses a true HEPA filter to capture 99.97% of airborne allergens and fine particles, all in near-total silence. Perfect for bedrooms and offices up to 200 sq ft, it runs quietly overnight so nothing interrupts your rest.",
+        "accuracy": "88",
+        "inputTokens": "40",
+        "outputTokens": "52"
+      }
+    ]
+  },
+  {
+    "groupId": "04",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "template": "Extract all action items from this meeting note: '{{meetingNotes}}'",
+    "testData": [
+      {
+        "inputs": { "meetingNotes": "John will follow up with the client by Friday. Sarah needs to update the roadmap. The team should review the new designs before next Tuesday." },
+        "expectedOutput": "1. John: Follow up with client by Friday. 2. Sarah: Update the roadmap. 3. Team: Review new designs before Tuesday.",
+        "actualOutput": "1. John: Follow up with client by Friday. 2. Sarah: Update the roadmap. 3. Team: Review new designs before Tuesday.",
+        "accuracy": "88",
+        "inputTokens": "52",
+        "outputTokens": "32"
+      },
+      {
+        "inputs": { "meetingNotes": "Maria will draft the project proposal by end of week. DevOps needs to provision the staging environment. Everyone must complete onboarding training by Thursday." },
+        "expectedOutput": "1. Maria: Draft project proposal by end of week. 2. DevOps: Provision staging environment. 3. Everyone: Complete onboarding training by Thursday.",
+        "actualOutput": "1. Maria: Draft project proposal by end of week. 2. DevOps team: Provision staging environment. 3. All team members: Complete onboarding training by Thursday.",
+        "accuracy": "85",
+        "inputTokens": "50",
+        "outputTokens": "34"
+      },
+      {
+        "inputs": { "meetingNotes": "Tom will reach out to the vendor about pricing. The QA team should run regression tests on the new build. Lisa will schedule a demo with leadership." },
+        "expectedOutput": "1. Tom: Contact vendor about pricing. 2. QA team: Run regression tests on new build. 3. Lisa: Schedule leadership demo.",
+        "actualOutput": "1. Tom: Follow up with vendor on pricing. 2. QA team: Execute regression tests on latest build. 3. Lisa: Arrange a demo for leadership.",
+        "accuracy": "84",
+        "inputTokens": "50",
+        "outputTokens": "31"
+      },
+      {
+        "inputs": { "meetingNotes": "Engineering needs to patch the API bug before the release. Product will update the changelog. No deadline was set for the accessibility audit." },
+        "expectedOutput": "1. Engineering: Patch API bug before release. 2. Product: Update changelog. 3. Accessibility audit: No deadline set.",
+        "actualOutput": "1. Engineering: Fix API bug prior to release. 2. Product team: Update the changelog. 3. Accessibility audit: Pending, no deadline assigned.",
+        "accuracy": "82",
+        "inputTokens": "48",
+        "outputTokens": "30"
+      }
+    ]
+  },
+  {
+    "groupId": "04",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "template": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: '{{meetingNotes}}'",
+    "testData": [
+      {
+        "inputs": { "meetingNotes": "John will follow up with the client by Friday. Sarah needs to update the roadmap. The team should review the new designs before next Tuesday." },
+        "expectedOutput": "[{\"owner\":\"John\",\"task\":\"Follow up with client\",\"deadline\":\"Friday\"},{\"owner\":\"Sarah\",\"task\":\"Update roadmap\",\"deadline\":null},{\"owner\":\"Team\",\"task\":\"Review new designs\",\"deadline\":\"Next Tuesday\"}]",
+        "actualOutput": "[{\"owner\": \"John\", \"task\": \"Follow up with client\", \"deadline\": \"Friday\"}, {\"owner\": \"Sarah\", \"task\": \"Update the roadmap\", \"deadline\": null}, {\"owner\": \"Team\", \"task\": \"Review the new designs\", \"deadline\": \"Next Tuesday\"}]",
+        "accuracy": "80",
+        "inputTokens": "70",
+        "outputTokens": "60"
+      },
+      {
+        "inputs": { "meetingNotes": "Maria will draft the project proposal by end of week. DevOps needs to provision the staging environment. Everyone must complete onboarding training by Thursday." },
+        "expectedOutput": "[{\"owner\":\"Maria\",\"task\":\"Draft project proposal\",\"deadline\":\"End of week\"},{\"owner\":\"DevOps\",\"task\":\"Provision staging environment\",\"deadline\":null},{\"owner\":\"Everyone\",\"task\":\"Complete onboarding training\",\"deadline\":\"Thursday\"}]",
+        "actualOutput": "1. Maria: Draft project proposal – end of week. 2. DevOps: Provision staging. 3. Everyone: Onboarding training by Thursday.",
+        "accuracy": "62",
+        "inputTokens": "68",
+        "outputTokens": "28"
+      },
+      {
+        "inputs": { "meetingNotes": "Tom will reach out to the vendor about pricing. The QA team should run regression tests on the new build. Lisa will schedule a demo with leadership." },
+        "expectedOutput": "[{\"owner\":\"Tom\",\"task\":\"Contact vendor about pricing\",\"deadline\":null},{\"owner\":\"QA team\",\"task\":\"Run regression tests on new build\",\"deadline\":null},{\"owner\":\"Lisa\",\"task\":\"Schedule leadership demo\",\"deadline\":null}]",
+        "actualOutput": "[{\"owner\": \"Tom\", \"task\": \"Reach out to vendor about pricing\", \"deadline\": null}, {\"owner\": \"QA team\", \"task\": \"Run regression tests\", \"deadline\": null}, {\"owner\": \"Lisa\", \"task\": \"Schedule demo with leadership\", \"deadline\": null}]",
+        "accuracy": "84",
+        "inputTokens": "68",
+        "outputTokens": "56"
+      },
+      {
+        "inputs": { "meetingNotes": "Engineering needs to patch the API bug before the release. Product will update the changelog. No deadline was set for the accessibility audit." },
+        "expectedOutput": "[{\"owner\":\"Engineering\",\"task\":\"Patch API bug\",\"deadline\":\"Before release\"},{\"owner\":\"Product\",\"task\":\"Update changelog\",\"deadline\":null},{\"owner\":\"TBD\",\"task\":\"Accessibility audit\",\"deadline\":null}]",
+        "actualOutput": "[{\"owner\": \"Engineering\", \"task\": \"Patch API bug\", \"deadline\": \"Before release\"}, {\"owner\": \"Product\", \"task\": \"Update changelog\", \"deadline\": null}]",
+        "accuracy": "74",
+        "inputTokens": "66",
+        "outputTokens": "42"
+      }
+    ]
+  },
+  {
+    "groupId": "05",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "template": "Classify this support ticket as High, Medium, or Low priority: '{{ticketText}}'",
+    "testData": [
+      {
+        "inputs": { "ticketText": "I cannot log into my account and have an important presentation in 2 hours." },
+        "expectedOutput": "High",
+        "actualOutput": "High",
+        "accuracy": "88",
+        "inputTokens": "38",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "ticketText": "The mobile app crashes every time I try to open the reports section." },
+        "expectedOutput": "High",
+        "actualOutput": "High",
+        "accuracy": "85",
+        "inputTokens": "34",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "ticketText": "I would like to update my billing address to reflect my new office location." },
+        "expectedOutput": "Low",
+        "actualOutput": "Low",
+        "accuracy": "82",
+        "inputTokens": "32",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "ticketText": "Some dashboard charts are not loading properly since yesterday's update." },
+        "expectedOutput": "Medium",
+        "actualOutput": "Medium",
+        "accuracy": "80",
+        "inputTokens": "34",
+        "outputTokens": "2"
+      }
+    ]
+  },
+  {
+    "groupId": "05",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "template": "Classify the following support ticket. Return JSON with fields: priority and reason. Ticket: '{{ticketText}}'",
+    "testData": [
+      {
+        "inputs": { "ticketText": "I cannot log into my account and have an important presentation in 2 hours." },
+        "expectedOutput": "{\"priority\":\"High\",\"reason\":\"Account access is blocked with an imminent time-critical need.\"}",
+        "actualOutput": "{\"priority\": \"Medium\", \"reason\": \"Login issues are common and can usually be self-resolved.\"}",
+        "accuracy": "41",
+        "inputTokens": "56",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "ticketText": "The mobile app crashes every time I try to open the reports section." },
+        "expectedOutput": "{\"priority\":\"High\",\"reason\":\"Recurring crash in a core feature blocks users from accessing critical data.\"}",
+        "actualOutput": "{\"priority\": \"Low\", \"reason\": \"App crashes may be device-specific and do not affect all users.\"}",
+        "accuracy": "34",
+        "inputTokens": "52",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "ticketText": "I would like to update my billing address to reflect my new office location." },
+        "expectedOutput": "{\"priority\":\"Low\",\"reason\":\"Billing address update is a routine administrative task with no urgency.\"}",
+        "actualOutput": "{\"priority\": \"Low\", \"reason\": \"Non-urgent account update with no service impact.\"}",
+        "accuracy": "52",
+        "inputTokens": "50",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "ticketText": "Some dashboard charts are not loading properly since yesterday's update." },
+        "expectedOutput": "{\"priority\":\"Medium\",\"reason\":\"Partial UI degradation following an update warrants investigation but is not blocking.\"}",
+        "actualOutput": "{\"priority\": \"High\", \"reason\": \"Update-related regressions should be escalated immediately for rollback consideration.\"}",
+        "accuracy": "38",
+        "inputTokens": "52",
+        "outputTokens": "22"
+      }
+    ]
+  },
+  {
+    "groupId": "06",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "template": "Explain what {{concept}} is to a non-technical stakeholder.",
+    "testData": [
+      {
+        "inputs": { "concept": "an API" },
+        "expectedOutput": "An API is a way for two software applications to talk to each other and share information automatically.",
+        "actualOutput": "An API is a way for two software applications to talk to each other and share information automatically.",
+        "accuracy": "84",
+        "inputTokens": "16",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "concept": "a data warehouse" },
+        "expectedOutput": "A data warehouse is a central storage system where large amounts of business data are organized for reporting and analysis.",
+        "actualOutput": "A data warehouse is a large, organized storage system where a company collects and keeps its historical data so analysts can run reports and find insights.",
+        "accuracy": "82",
+        "inputTokens": "15",
+        "outputTokens": "32"
+      },
+      {
+        "inputs": { "concept": "machine learning" },
+        "expectedOutput": "Machine learning is a way for computers to learn from examples and improve at tasks without being explicitly programmed for every scenario.",
+        "actualOutput": "Machine learning is a technique where computers are trained on examples to recognize patterns and make predictions, rather than being manually programmed with rules.",
+        "accuracy": "80",
+        "inputTokens": "15",
+        "outputTokens": "30"
+      }
+    ]
+  },
+  {
+    "groupId": "06",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "template": "Explain what {{concept}} is to {{audience}} in {{sentenceLimit}} sentences or fewer. Use a real-world analogy. Avoid technical jargon.",
+    "testData": [
+      {
+        "inputs": { "concept": "an API", "audience": "a non-technical executive", "sentenceLimit": "3" },
+        "expectedOutput": "An API is a way for two software applications to talk to each other and share information automatically.",
+        "actualOutput": "Think of an API like a power outlet: your devices don't need to understand the electrical grid to use it — they just plug in. APIs let software products connect and exchange data the same way, invisibly and reliably.",
+        "accuracy": "95",
+        "inputTokens": "38",
+        "outputTokens": "48"
+      },
+      {
+        "inputs": { "concept": "a data warehouse", "audience": "a sales VP", "sentenceLimit": "3" },
+        "expectedOutput": "A data warehouse is a central storage system where large amounts of business data are organized for reporting and analysis.",
+        "actualOutput": "Imagine a giant, well-organized filing cabinet that automatically collects every sales transaction, customer interaction, and operational record your company produces. A data warehouse is exactly that — a system that stores and organizes all this historical data so your team can generate reports and spot trends instantly.",
+        "accuracy": "97",
+        "inputTokens": "36",
+        "outputTokens": "56"
+      },
+      {
+        "inputs": { "concept": "machine learning", "audience": "a product manager", "sentenceLimit": "3" },
+        "expectedOutput": "Machine learning is a way for computers to learn from examples and improve at tasks without being explicitly programmed for every scenario.",
+        "actualOutput": "Machine learning is like training a new employee by showing them hundreds of past examples rather than writing a manual. The system learns which patterns predict good outcomes and applies that knowledge to new situations — without you having to spell out every rule.",
+        "accuracy": "94",
+        "inputTokens": "36",
+        "outputTokens": "52"
+      }
+    ]
+  },
+  {
+    "groupId": "07",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "template": "Identify the sentiment of this tweet: '{{tweetText}}'",
+    "testData": [
+      {
+        "inputs": { "tweetText": "Just spent 3 hours on hold. Worst customer service I have ever experienced. Never buying from them again." },
+        "expectedOutput": "Negative",
+        "actualOutput": "Negative",
+        "accuracy": "88",
+        "inputTokens": "36",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "tweetText": "Finally tried the new update and it's honestly a game changer. So much faster and cleaner!" },
+        "expectedOutput": "Positive",
+        "actualOutput": "Positive",
+        "accuracy": "87",
+        "inputTokens": "32",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "tweetText": "Got my order. Arrived on time. Nothing special about it." },
+        "expectedOutput": "Neutral",
+        "actualOutput": "Neutral",
+        "accuracy": "84",
+        "inputTokens": "28",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "tweetText": "The new pricing tiers are confusing. No idea what plan I'm even on now." },
+        "expectedOutput": "Negative",
+        "actualOutput": "Negative",
+        "accuracy": "86",
+        "inputTokens": "30",
+        "outputTokens": "2"
+      }
+    ]
+  },
+  {
+    "groupId": "07",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "template": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative) and a one-sentence rationale. Tweet: '{{tweetText}}'",
+    "testData": [
+      {
+        "inputs": { "tweetText": "Just spent 3 hours on hold. Worst customer service I have ever experienced. Never buying from them again." },
+        "expectedOutput": "{\"sentiment\":\"Negative\",\"rationale\":\"The tweet expresses extreme frustration and intent to stop purchasing.\"}",
+        "actualOutput": "{\"sentiment\": \"Neutral\", \"rationale\": \"The tweet describes a customer service experience without strong emotional language.\"}",
+        "accuracy": "48",
+        "inputTokens": "54",
+        "outputTokens": "26"
+      },
+      {
+        "inputs": { "tweetText": "Finally tried the new update and it's honestly a game changer. So much faster and cleaner!" },
+        "expectedOutput": "{\"sentiment\":\"Positive\",\"rationale\":\"The tweet expresses strong enthusiasm and satisfaction with the product update.\"}",
+        "actualOutput": "{\"sentiment\": \"Positive\", \"rationale\": \"The user expresses excitement about the update's performance improvements.\"}",
+        "accuracy": "56",
+        "inputTokens": "50",
+        "outputTokens": "24"
+      },
+      {
+        "inputs": { "tweetText": "Got my order. Arrived on time. Nothing special about it." },
+        "expectedOutput": "{\"sentiment\":\"Neutral\",\"rationale\":\"The tweet is factual and descriptive without expressing positive or negative emotion.\"}",
+        "actualOutput": "{\"sentiment\": \"Negative\", \"rationale\": \"The phrase 'nothing special' implies disappointment with the purchase.\"}",
+        "accuracy": "44",
+        "inputTokens": "46",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "tweetText": "The new pricing tiers are confusing. No idea what plan I'm even on now." },
+        "expectedOutput": "{\"sentiment\":\"Negative\",\"rationale\":\"The tweet conveys confusion and frustration about unclear pricing changes.\"}",
+        "actualOutput": "{\"sentiment\": \"Neutral\", \"rationale\": \"The user is asking a question about their plan, which is a neutral inquiry.\"}",
+        "accuracy": "44",
+        "inputTokens": "48",
+        "outputTokens": "22"
+      }
+    ]
+  },
+  {
+    "groupId": "08",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "template": "Write a tooltip for a button labeled '{{buttonLabel}}'.",
+    "testData": [
+      {
+        "inputs": { "buttonLabel": "Archive" },
+        "expectedOutput": "Concise tooltip explaining what archiving does and that it's reversible.",
+        "actualOutput": "Archive this item.",
+        "accuracy": "75",
+        "inputTokens": "14",
+        "outputTokens": "5"
+      },
+      {
+        "inputs": { "buttonLabel": "Publish" },
+        "expectedOutput": "Concise tooltip explaining that publishing makes content live and visible to users.",
+        "actualOutput": "Publish this draft.",
+        "accuracy": "74",
+        "inputTokens": "13",
+        "outputTokens": "5"
+      },
+      {
+        "inputs": { "buttonLabel": "Revoke Access" },
+        "expectedOutput": "Concise tooltip warning that this action removes the user's permissions and is likely irreversible.",
+        "actualOutput": "Remove access for this user.",
+        "accuracy": "76",
+        "inputTokens": "14",
+        "outputTokens": "6"
+      },
+      {
+        "inputs": { "buttonLabel": "Merge" },
+        "expectedOutput": "Concise tooltip indicating the merge action and that it combines items.",
+        "actualOutput": "Merge selected items.",
+        "accuracy": "75",
+        "inputTokens": "13",
+        "outputTokens": "4"
+      }
+    ]
+  },
+  {
+    "groupId": "08",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "template": "Write a UX microcopy tooltip for a '{{buttonLabel}}' button in {{appContext}}. Explain what it does and stay under {{wordLimit}} words.",
+    "testData": [
+      {
+        "inputs": { "buttonLabel": "Archive", "appContext": "a project management tool", "wordLimit": "15" },
+        "expectedOutput": "Concise tooltip explaining what archiving does and that it's reversible.",
+        "actualOutput": "Move to archive. Hidden from view but not deleted — restore it anytime.",
+        "accuracy": "96",
+        "inputTokens": "36",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "buttonLabel": "Publish", "appContext": "a content management system", "wordLimit": "15" },
+        "expectedOutput": "Concise tooltip explaining that publishing makes content live and visible to users.",
+        "actualOutput": "Make this post live. Visible to all users immediately after publishing.",
+        "accuracy": "97",
+        "inputTokens": "34",
+        "outputTokens": "14"
+      },
+      {
+        "inputs": { "buttonLabel": "Revoke Access", "appContext": "an admin dashboard", "wordLimit": "15" },
+        "expectedOutput": "Concise tooltip warning that this action removes the user's permissions and is likely irreversible.",
+        "actualOutput": "Remove this user's permissions immediately. This action cannot be undone.",
+        "accuracy": "95",
+        "inputTokens": "36",
+        "outputTokens": "13"
+      },
+      {
+        "inputs": { "buttonLabel": "Merge", "appContext": "a document editor", "wordLimit": "15" },
+        "expectedOutput": "Concise tooltip indicating the merge action and that it combines items.",
+        "actualOutput": "Combine selected documents into one. The originals will be removed.",
+        "accuracy": "96",
+        "inputTokens": "34",
+        "outputTokens": "13"
+      }
+    ]
+  },
+  {
+    "groupId": "09",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "template": "Write a brief error message for {{errorContext}}.",
+    "testData": [
+      {
+        "inputs": { "errorContext": "a failed file upload" },
+        "expectedOutput": "Clear error with cause, resolution step, and fallback contact option.",
+        "actualOutput": "File upload failed. Please try again.",
+        "accuracy": "74",
+        "inputTokens": "14",
+        "outputTokens": "8"
+      },
+      {
+        "inputs": { "errorContext": "an expired session" },
+        "expectedOutput": "Explains the session expired, prompts user to log in again, and reassures no data was lost.",
+        "actualOutput": "Your session has expired. Please log in again.",
+        "accuracy": "76",
+        "inputTokens": "13",
+        "outputTokens": "10"
+      },
+      {
+        "inputs": { "errorContext": "a payment method declined" },
+        "expectedOutput": "Explains the payment failed, suggests checking card details, and provides a support link.",
+        "actualOutput": "Payment declined. Please check your card details and try again.",
+        "accuracy": "73",
+        "inputTokens": "14",
+        "outputTokens": "12"
+      }
+    ]
+  },
+  {
+    "groupId": "09",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "template": "Write a UX error message for {{errorContext}} in {{appContext}}. Explain what went wrong, what to do next, and offer a fallback. Keep it under {{wordLimit}} words.",
+    "testData": [
+      {
+        "inputs": { "errorContext": "a failed file upload", "appContext": "a document management platform", "wordLimit": "30" },
+        "expectedOutput": "Clear error with cause, resolution step, and fallback contact option.",
+        "actualOutput": "Upload failed. Check your file size (max 25 MB) and format, then try again. If the issue continues, contact support.",
+        "accuracy": "96",
+        "inputTokens": "42",
+        "outputTokens": "24"
+      },
+      {
+        "inputs": { "errorContext": "an expired session", "appContext": "a banking app", "wordLimit": "30" },
+        "expectedOutput": "Explains the session expired, prompts user to log in again, and reassures no data was lost.",
+        "actualOutput": "Your session has timed out for security. Log in again to continue — no changes were lost.",
+        "accuracy": "97",
+        "inputTokens": "40",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "errorContext": "a payment method declined", "appContext": "an e-commerce checkout", "wordLimit": "30" },
+        "expectedOutput": "Explains the payment failed, suggests checking card details, and provides a support link.",
+        "actualOutput": "Your payment couldn't be processed. Check your card details or try a different payment method. Need help? Contact support.",
+        "accuracy": "95",
+        "inputTokens": "42",
+        "outputTokens": "24"
+      }
+    ]
+  },
+  {
+    "groupId": "10",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "template": "Rewrite this sentence to be more concise: '{{sentence}}'",
+    "testData": [
+      {
+        "inputs": { "sentence": "Due to the fact that the weather was not good, we decided to cancel the outdoor event that had been planned." },
+        "expectedOutput": "Bad weather led us to cancel the planned outdoor event.",
+        "actualOutput": "Because of bad weather, we canceled the outdoor event.",
+        "accuracy": "86",
+        "inputTokens": "40",
+        "outputTokens": "12"
+      },
+      {
+        "inputs": { "sentence": "In the event that you are not satisfied with the product that you have purchased, you have the option of returning it within 30 days." },
+        "expectedOutput": "If you're not satisfied, return the product within 30 days.",
+        "actualOutput": "If you are unsatisfied with your purchase, you may return it within 30 days.",
+        "accuracy": "84",
+        "inputTokens": "42",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "sentence": "At this point in time, we are not in a position to provide a definitive answer to the question that you have raised." },
+        "expectedOutput": "We can't answer your question right now.",
+        "actualOutput": "We are currently unable to provide a definitive answer to your question.",
+        "accuracy": "82",
+        "inputTokens": "40",
+        "outputTokens": "14"
+      },
+      {
+        "inputs": { "sentence": "The reason why the project was delayed was because there were a number of unforeseen technical issues that arose during the development phase." },
+        "expectedOutput": "Unforeseen technical issues during development delayed the project.",
+        "actualOutput": "The project was delayed due to several unforeseen technical issues during development.",
+        "accuracy": "85",
+        "inputTokens": "42",
+        "outputTokens": "15"
+      }
+    ]
+  },
+  {
+    "groupId": "10",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "template": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under {{wordLimit}} words. Sentence: '{{sentence}}'",
+    "testData": [
+      {
+        "inputs": { "sentence": "Due to the fact that the weather was not good, we decided to cancel the outdoor event that had been planned.", "wordLimit": "10" },
+        "expectedOutput": "Bad weather led us to cancel the planned outdoor event.",
+        "actualOutput": "Poor weather led us to cancel the planned outdoor event.",
+        "accuracy": "97",
+        "inputTokens": "58",
+        "outputTokens": "14"
+      },
+      {
+        "inputs": { "sentence": "In the event that you are not satisfied with the product that you have purchased, you have the option of returning it within 30 days.", "wordLimit": "12" },
+        "expectedOutput": "If you're not satisfied, return the product within 30 days.",
+        "actualOutput": "If unsatisfied with your purchase, return it within 30 days.",
+        "accuracy": "98",
+        "inputTokens": "60",
+        "outputTokens": "12"
+      },
+      {
+        "inputs": { "sentence": "At this point in time, we are not in a position to provide a definitive answer to the question that you have raised.", "wordLimit": "10" },
+        "expectedOutput": "We can't answer your question right now.",
+        "actualOutput": "We cannot currently answer your question.",
+        "accuracy": "96",
+        "inputTokens": "58",
+        "outputTokens": "8"
+      },
+      {
+        "inputs": { "sentence": "The reason why the project was delayed was because there were a number of unforeseen technical issues that arose during the development phase.", "wordLimit": "10" },
+        "expectedOutput": "Unforeseen technical issues during development delayed the project.",
+        "actualOutput": "Unforeseen technical issues delayed the project during development.",
+        "accuracy": "97",
+        "inputTokens": "60",
+        "outputTokens": "12"
+      }
+    ]
+  },
+  {
+    "groupId": "11",
+    "type": "Source",
+    "model": "Claude 3.5 Sonnet",
+    "template": "Create a short push notification for {{campaign}}.",
+    "testData": [
+      {
+        "inputs": { "campaign": "a flash sale ending in 2 hours" },
+        "expectedOutput": "Urgent, time-bound message with discount amount and a call to action.",
+        "actualOutput": "Flash sale ends in 2 hours! Shop now and save up to 50%.",
+        "accuracy": "80",
+        "inputTokens": "18",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "campaign": "a new feature release announcement" },
+        "expectedOutput": "Brief and exciting message announcing the feature and directing users to try it.",
+        "actualOutput": "New feature alert: try our redesigned dashboard today!",
+        "accuracy": "81",
+        "inputTokens": "17",
+        "outputTokens": "12"
+      },
+      {
+        "inputs": { "campaign": "a cart abandonment reminder" },
+        "expectedOutput": "Friendly reminder that items are waiting and creates mild urgency.",
+        "actualOutput": "You left something behind! Your cart is waiting — complete your order before it's gone.",
+        "accuracy": "79",
+        "inputTokens": "17",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "campaign": "a daily wellness check-in prompt" },
+        "expectedOutput": "Short, encouraging nudge to complete the daily check-in.",
+        "actualOutput": "Time for your daily check-in! A few seconds for a healthier day.",
+        "accuracy": "80",
+        "inputTokens": "17",
+        "outputTokens": "14"
+      }
+    ]
+  },
+  {
+    "groupId": "11",
+    "type": "Optimized",
+    "model": "DeepSeek-V3",
+    "template": "Write a push notification for {{campaign}}. Keep it under {{charLimit}} characters with a clear CTA.",
+    "testData": [
+      {
+        "inputs": { "campaign": "a flash sale ending in 2 hours", "charLimit": "80" },
+        "expectedOutput": "Urgent, time-bound message with discount amount and a call to action.",
+        "actualOutput": "2 hours left: Up to 50% off. Don't miss it — shop now.",
+        "accuracy": "94",
+        "inputTokens": "32",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "campaign": "a new feature release announcement", "charLimit": "80" },
+        "expectedOutput": "Brief and exciting message announcing the feature and directing users to try it.",
+        "actualOutput": "Something new just landed. Explore the redesigned dashboard — see what changed.",
+        "accuracy": "95",
+        "inputTokens": "30",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "campaign": "a cart abandonment reminder", "charLimit": "80" },
+        "expectedOutput": "Friendly reminder that items are waiting and creates mild urgency.",
+        "actualOutput": "Still thinking? Your cart expires soon — grab your items before they're gone.",
+        "accuracy": "93",
+        "inputTokens": "30",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "campaign": "a daily wellness check-in prompt", "charLimit": "80" },
+        "expectedOutput": "Short, encouraging nudge to complete the daily check-in.",
+        "actualOutput": "Your daily check-in is ready. 30 seconds to a healthier you — let's go.",
+        "accuracy": "94",
+        "inputTokens": "30",
+        "outputTokens": "16"
+      }
+    ]
+  },
+  {
+    "groupId": "12",
+    "type": "Source",
+    "model": "Claude 3 Opus",
+    "template": "Write a SQL query to get {{queryDescription}}.",
+    "testData": [
+      {
+        "inputs": { "queryDescription": "all users who signed up in the last 30 days" },
+        "expectedOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '30 days';",
+        "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '30 days';",
+        "accuracy": "88",
+        "inputTokens": "20",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "queryDescription": "the top 5 products by total revenue this month" },
+        "expectedOutput": "SELECT product_id, SUM(revenue) AS total FROM orders WHERE created_at >= DATE_TRUNC('month', NOW()) GROUP BY product_id ORDER BY total DESC LIMIT 5;",
+        "actualOutput": "SELECT product_id, SUM(amount) AS total_revenue FROM orders WHERE order_date >= DATE_TRUNC('month', CURRENT_DATE) GROUP BY product_id ORDER BY total_revenue DESC LIMIT 5;",
+        "accuracy": "85",
+        "inputTokens": "22",
+        "outputTokens": "36"
+      },
+      {
+        "inputs": { "queryDescription": "all active subscriptions that are due to expire in the next 7 days" },
+        "expectedOutput": "SELECT * FROM subscriptions WHERE status = 'active' AND end_date BETWEEN NOW() AND NOW() + INTERVAL '7 days';",
+        "actualOutput": "SELECT * FROM subscriptions WHERE status = 'active' AND end_date BETWEEN NOW() AND NOW() + INTERVAL '7 days';",
+        "accuracy": "86",
+        "inputTokens": "24",
+        "outputTokens": "28"
+      },
+      {
+        "inputs": { "queryDescription": "the count of support tickets grouped by status" },
+        "expectedOutput": "SELECT status, COUNT(*) AS ticket_count FROM support_tickets GROUP BY status;",
+        "actualOutput": "SELECT status, COUNT(*) AS count FROM tickets GROUP BY status;",
+        "accuracy": "82",
+        "inputTokens": "18",
+        "outputTokens": "16"
+      }
+    ]
+  },
+  {
+    "groupId": "12",
+    "type": "Optimized",
+    "model": "DeepSeek-R1",
+    "template": "Write a {{dialect}} query to get {{queryDescription}}. Return only {{fields}}. Add a comment explaining the query.",
+    "testData": [
+      {
+        "inputs": { "dialect": "PostgreSQL", "queryDescription": "all users who signed up in the last 30 days", "fields": "id, email, created_at" },
+        "expectedOutput": "SELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '30 days'; -- with explanatory comment",
+        "actualOutput": "SELECT id, email, signup_date FROM users WHERE signup_date BETWEEN CURDATE() - INTERVAL 30 DAY AND CURDATE(); -- Gets users registered in the past month",
+        "accuracy": "62",
+        "inputTokens": "42",
+        "outputTokens": "30"
+      },
+      {
+        "inputs": { "dialect": "MySQL", "queryDescription": "the top 5 products by total revenue this month", "fields": "product_id, total_revenue" },
+        "expectedOutput": "SELECT product_id, SUM(revenue) AS total_revenue FROM orders WHERE MONTH(created_at) = MONTH(NOW()) GROUP BY product_id ORDER BY total_revenue DESC LIMIT 5; -- with explanatory comment",
+        "actualOutput": "-- Top 5 revenue-generating products for the current calendar month\nSELECT product_id, SUM(amount) AS total_revenue FROM orders WHERE created_at >= DATE_FORMAT(NOW(), '%Y-%m-01') GROUP BY product_id ORDER BY total_revenue DESC LIMIT 5;",
+        "accuracy": "68",
+        "inputTokens": "44",
+        "outputTokens": "48"
+      },
+      {
+        "inputs": { "dialect": "PostgreSQL", "queryDescription": "all active subscriptions expiring in the next 7 days", "fields": "id, user_id, end_date" },
+        "expectedOutput": "SELECT id, user_id, end_date FROM subscriptions WHERE status = 'active' AND end_date BETWEEN NOW() AND NOW() + INTERVAL '7 days'; -- with explanatory comment",
+        "actualOutput": "SELECT id, user_id, plan_name, end_date FROM subscriptions WHERE status = 'active'; -- Active subscriptions",
+        "accuracy": "54",
+        "inputTokens": "44",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "dialect": "MySQL", "queryDescription": "the count of support tickets grouped by status", "fields": "status, ticket_count" },
+        "expectedOutput": "SELECT status, COUNT(*) AS ticket_count FROM support_tickets GROUP BY status; -- with explanatory comment",
+        "actualOutput": "-- Count of tickets in each status bucket\nSELECT status, COUNT(*) AS ticket_count FROM support_tickets GROUP BY status ORDER BY ticket_count DESC;",
+        "accuracy": "70",
+        "inputTokens": "40",
+        "outputTokens": "24"
+      }
+    ]
+  }
+]

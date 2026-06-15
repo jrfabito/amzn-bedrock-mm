@@ -25,6 +25,7 @@ import {
   Flashbar,
   Modal,
   Link,
+  SegmentedControl,
 } from "@cloudscape-design/components";
 import { useCollection } from "@cloudscape-design/collection-hooks";
 import TruncateText from "@cloudscape-design/components/truncated-text";
@@ -48,14 +49,26 @@ const BASE_JOB = {
   jobName: "Sonnet 4.5 migration",
   sourceModel: "Claude 3.5 Sonnet",
   targetModel: "Claude Sonnet 4.5",
-  dateStarted: "Jun 1, 2025, 10:00 AM",
+  dateStarted: "Jun 1, 2026, 10:00 AM",
   description: "Migrating from Claude 3.5 Sonnet to Claude Sonnet 4.5",
 } as const;
 
+const BASE_JOB_2 = {
+  id: "job-2",
+  jobName: "Claude to DeepSeek batch migration",
+  sourceModel: "Claude 3.5 Sonnet",
+  targetModel: "DeepSeek-V3",
+  dateStarted: "May 28, 2026, 12:00 PM",
+  description: "Migrating Claude 3.5 Sonnet and Claude 3 Opus to DeepSeek-V3 and DeepSeek-R1",
+} as const;
+
 const JOB_BY_STATE: Record<string, MigrationJob> = {
-  EVAL_COMPLETE: { ...BASE_JOB, status: "in-progress", statusLabel: "1 of 3 completed", dateCompleted: "-" },
-  OPTIMIZATION_COMPLETE: { ...BASE_JOB, status: "in-progress", statusLabel: "2 of 3 completed", dateCompleted: "-" },
-  MIGRATION_COMPLETE: { ...BASE_JOB, status: "success", statusLabel: "3 of 3 completed", dateCompleted: "Jun 4, 2025, 2:30 PM" },
+  EVAL_COMPLETE:              { ...BASE_JOB,   status: "in-progress", statusLabel: "1 of 3 completed", dateCompleted: "-" },
+  OPTIMIZATION_COMPLETE:      { ...BASE_JOB,   status: "in-progress", statusLabel: "2 of 3 completed", dateCompleted: "-" },
+  MIGRATION_COMPLETE:         { ...BASE_JOB,   status: "success",     statusLabel: "3 of 3 completed", dateCompleted: "Jun 4, 2026, 2:30 PM" },
+  JOB2_EVAL_COMPLETE:         { ...BASE_JOB_2, status: "in-progress", statusLabel: "1 of 3 completed", dateCompleted: "-" },
+  JOB2_OPTIMIZATION_COMPLETE: { ...BASE_JOB_2, status: "in-progress", statusLabel: "2 of 3 completed", dateCompleted: "-" },
+  JOB2_MIGRATION_COMPLETE:    { ...BASE_JOB_2, status: "success",     statusLabel: "3 of 3 completed", dateCompleted: "May 31, 2026, 5:00 PM" },
 };
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -124,6 +137,26 @@ interface PromptTemplateEntry {
   testData: TestDataCase[];
 }
 
+interface JobProperties {
+  evaluation: {
+    cloudwatchAccess: string;
+    invocationLogTimeRange: string;
+    dateCompleted: string;
+  };
+  optimization: {
+    promptTemplatesSource: string;
+    timeRangeOfExtractedPrompts: string;
+    dateCompleted: string;
+  };
+  shadowTesting: {
+    trafficSampling: string;
+    timeRangeForTest: string;
+    dateStarted: string;
+    dateCompleted: string;
+  };
+}
+
+
 function numAvg(items: InvocationEntry[], key: "accuracy" | "inputTokens" | "outputTokens"): number {
   if (!items.length) return 0;
   return Math.round(items.reduce((sum, e) => sum + parseInt(e[key]), 0) / items.length);
@@ -139,11 +172,6 @@ function avgFromTestData(testData: TestDataCase[]): { accuracy: number; inputTok
   };
 }
 
-function addMinutes(dateStr: string, minutes: number): string {
-  const date = new Date(dateStr);
-  date.setMinutes(date.getMinutes() + minutes);
-  return date.toLocaleString("en-US", { month: "short", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", hour12: true });
-}
 
 const MAX_TRUNCATE_LENGTH = 224;
 const truncate = (text: string, max = MAX_TRUNCATE_LENGTH) =>
@@ -169,7 +197,7 @@ const FILTERING_PROPERTIES: PropertyFilterProps.FilteringProperty[] = [
   { key: "model", propertyLabel: "Model", operators: [":", "!:", "=", "!="], groupValuesLabel: "Model values" },
   { key: "input", propertyLabel: "Input", operators: [":", "!:"], groupValuesLabel: "Input values" },
   { key: "output", propertyLabel: "Output", operators: [":", "!:"], groupValuesLabel: "Output values" },
-  { key: "accuracy", propertyLabel: "Accuracy (%)", operators: ["=", "!=", ">", "<", ">=", "<="], groupValuesLabel: "Accuracy values" },
+  { key: "accuracy", propertyLabel: "Relative quality", operators: ["=", "!=", ">", "<", ">=", "<="], groupValuesLabel: "Relative quality values" },
   { key: "inputTokens", propertyLabel: "Input tokens", operators: ["=", "!=", ">", "<", ">=", "<="], groupValuesLabel: "Input token values" },
   { key: "outputTokens", propertyLabel: "Output tokens", operators: ["=", "!=", ">", "<", ">=", "<="], groupValuesLabel: "Output token values" },
 ];
@@ -209,7 +237,7 @@ const OPTIMIZATION_FILTERING_PROPERTIES: PropertyFilterProps.FilteringProperty[]
   { key: "type",         propertyLabel: "Type",         operators: [":", "!:", "=", "!="],             groupValuesLabel: "Type values" },
   { key: "model",        propertyLabel: "Model",        operators: [":", "!:", "=", "!="],             groupValuesLabel: "Model values" },
   { key: "template",     propertyLabel: "Template",     operators: [":", "!:"],                        groupValuesLabel: "Template values" },
-  { key: "accuracy",     propertyLabel: "Accuracy (%)", operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Accuracy values" },
+  { key: "accuracy",     propertyLabel: "Relative quality", operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Relative quality values" },
   { key: "inputTokens",  propertyLabel: "Input tokens", operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Input token values" },
   { key: "outputTokens", propertyLabel: "Output tokens",operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Output token values" },
 ];
@@ -235,7 +263,7 @@ const FIXED_TEST_DATA_COLUMNS = [
   },
   {
     id: "accuracy",
-    header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+    header: <span style={{ display: "block", textAlign: "right" }}>Relative quality</span>,
     cell: (td: TestDataCase) => <span style={{ display: "block", textAlign: "right" }}>{td.accuracy}</span>,
   },
   {
@@ -302,7 +330,7 @@ function matchesOptimizationQuery(entry: PromptTemplateEntry, q: PropertyFilterP
 const TEST_DATA_FILTERING_PROPERTIES: PropertyFilterProps.FilteringProperty[] = [
   { key: "expectedOutput", propertyLabel: "Expected output", operators: [":", "!:", "=", "!="],             groupValuesLabel: "Expected output values" },
   { key: "actualOutput",   propertyLabel: "Actual output",   operators: [":", "!:", "=", "!="],             groupValuesLabel: "Actual output values" },
-  { key: "accuracy",       propertyLabel: "Accuracy (%)",    operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Accuracy values" },
+  { key: "accuracy",       propertyLabel: "Relative quality", operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Relative quality values" },
   { key: "inputTokens",    propertyLabel: "Input tokens",    operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Input token values" },
   { key: "outputTokens",   propertyLabel: "Output tokens",   operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Output token values" },
 ];
@@ -395,17 +423,30 @@ const EVAL_DEFAULT_COLUMNS = [
   { id: "outputTokens", visible: true },
 ];
 
+const JOB2_EVAL_X_DOMAIN = ["Sonnet 3.5", "Opus 3", "V3", "R1"] as const;
+
+const MODEL_NAME_MAP: Record<string, string> = {
+  "Sonnet 3.5": "Claude 3.5 Sonnet",
+  "Opus 3":     "Claude 3 Opus",
+  "V3":         "DeepSeek-V3",
+  "R1":         "DeepSeek-R1",
+};
+
 function EvaluationContent({ job }: { job: MigrationJob }) {
   const [entries, setEntries] = useState<InvocationEntry[]>([]);
   const [pageSize, setPageSize] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [columnDisplay, setColumnDisplay] = useState(EVAL_DEFAULT_COLUMNS);
+  const [jobProps, setJobProps] = useState<JobProperties | null>(null);
 
   useEffect(() => {
-    fetch("/invocation-log.json")
+    fetch(`/${job.id}-invocation-log.json`)
       .then((r) => r.json())
       .then((data: InvocationEntry[]) => setEntries(data));
-  }, []);
+    fetch(`/${job.id}-properties.json`)
+      .then((r) => r.json())
+      .then((data: JobProperties) => setJobProps(data));
+  }, [job.id]);
 
   const { items: allFilteredItems, collectionProps, propertyFilterProps } = useCollection(entries, {
     propertyFiltering: {
@@ -450,13 +491,13 @@ function EvaluationContent({ job }: { job: MigrationJob }) {
     { id: "output", header: "Output", width: 300, cell: (item: InvocationEntry) => item.output.length > MAX_TRUNCATE_LENGTH ? <TruncateText tooltipText={item.output}>{item.output}</TruncateText> : truncate(item.output) },
     {
       id: "accuracy",
-      header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+      header: <span style={{ display: "block", textAlign: "right" }}>Relative quality</span>,
       cell: (item: InvocationEntry) => {
         const src = item.type === "Optimized" ? sourceByGroupId.get(item.groupId) : undefined;
         const delta = src ? parseInt(item.accuracy) - parseInt(src.accuracy) : null;
         return (
           <span style={{ display: "block", textAlign: "right" }}>
-            {item.accuracy}{delta !== null && <Delta value={delta} higherIsBetter={true} />}
+            {parseInt(item.accuracy)}{delta !== null && <Delta value={delta} higherIsBetter={true} />}
           </span>
         );
       },
@@ -515,12 +556,32 @@ function EvaluationContent({ job }: { job: MigrationJob }) {
   );
 }, [entries]);
 
-  const makeSeries = (srcVal: number, optVal: number) => [
-    { title: "Average", type: "bar" as const, data: [{ x: job.sourceModel, y: srcVal }, { x: job.targetModel, y: optVal }] },
-  ];
+  const avgForModel = (displayName: string, metric: "accuracy" | "inputTokens" | "outputTokens") =>
+    numAvg(entries.filter(e => e.model === MODEL_NAME_MAP[displayName]), metric);
 
-  const yDomainTokens = (src: number, opt: number): [number, number] =>
-    [0, Math.ceil(Math.max(src, opt) * 1.3)];
+  const makeSeries = (srcVal: number, optVal: number, metric: "accuracy" | "inputTokens" | "outputTokens") => {
+    if (job.id === "job-2") {
+      return [
+        { title: "Source models", type: "bar" as const, data: [
+          { x: "Sonnet 3.5", y: avgForModel("Sonnet 3.5", metric) },
+          { x: "Opus 3",     y: avgForModel("Opus 3",     metric) },
+        ]},
+        { title: "Target models", type: "bar" as const, data: [
+          { x: "V3", y: avgForModel("V3", metric) },
+          { x: "R1", y: avgForModel("R1", metric) },
+        ]},
+      ];
+    }
+    return [{ title: "Average", type: "bar" as const, data: [{ x: job.sourceModel, y: srcVal }, { x: job.targetModel, y: optVal }] }];
+  };
+
+  const yDomainTokens = (src: number, opt: number, metric?: "accuracy" | "inputTokens" | "outputTokens"): [number, number] => {
+    if (job.id === "job-2" && metric) {
+      const vals = [...JOB2_EVAL_X_DOMAIN].map(m => avgForModel(m, metric)).filter(v => v > 0);
+      return [0, Math.ceil((vals.length ? Math.max(...vals) : 100) * 1.3)];
+    }
+    return [0, Math.ceil(Math.max(src, opt) * 1.3)];
+  };
 
   return (
     <SpaceBetween size="l">
@@ -529,23 +590,23 @@ function EvaluationContent({ job }: { job: MigrationJob }) {
           columns={3}
           items={[
             { label: "Status", value: <StatusIndicator type="success">Completed</StatusIndicator> },
-            { label: "CloudWatch invocation logs access", value: "true" },
+            { label: "CloudWatch invocation logs access", value: jobProps?.evaluation.cloudwatchAccess ?? "-" },
             { label: "Date started", value: job.dateStarted },
-            { label: "Invocation log time range", value: "May 13, 2025, 13:23 – May 31, 2025, 13:23" },
+            { label: "Invocation log time range", value: jobProps?.evaluation.invocationLogTimeRange ?? "-" },
             { label: "Number of invocation log entries", value: sourceEntries.length || 24 },
-            { label: "Date completed", value: `${addMinutes(job.dateStarted, 15)}` },
+            { label: "Date completed", value: jobProps?.evaluation.dateCompleted ?? "-" },
           ]}
         />
       </Container>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "20px" }}>
-        <Container header={<Header variant="h3" description="Measures how closely model outputs match the expected results.">Average accuracy (%)</Header>}>
+        <Container header={<Header variant="h3" description="Measures how closely model outputs match the expected results.">Average relative quality</Header>}>
           <BarChart<string>
-            series={makeSeries(avgAccuracySrc, avgAccuracyOpt)}
-            xDomain={[job.sourceModel, job.targetModel]}
+            series={makeSeries(avgAccuracySrc, avgAccuracyOpt, "accuracy")}
+            xDomain={job.id === "job-2" ? [...JOB2_EVAL_X_DOMAIN] : [job.sourceModel, job.targetModel]}
             yDomain={[70, 100]}
             height={200}
             xTitle="Models"
-            yTitle="Percent (%)"
+            yTitle="Score"
             hideFilter
             hideLegend
             i18nStrings={CHART_I18N}
@@ -553,9 +614,9 @@ function EvaluationContent({ job }: { job: MigrationJob }) {
         </Container>
         <Container header={<Header variant="h3" description="Measures the average amount of input tokens of all requests.">Average input tokens</Header>}>
           <BarChart<string>
-            series={makeSeries(avgInputSrc, avgInputOpt)}
-            xDomain={[job.sourceModel, job.targetModel]}
-            yDomain={yDomainTokens(avgInputSrc, avgInputOpt)}
+            series={makeSeries(avgInputSrc, avgInputOpt, "inputTokens")}
+            xDomain={job.id === "job-2" ? [...JOB2_EVAL_X_DOMAIN] : [job.sourceModel, job.targetModel]}
+            yDomain={yDomainTokens(avgInputSrc, avgInputOpt, "inputTokens")}
             height={200}
             xTitle="Models"
             yTitle="Tokens"
@@ -566,9 +627,9 @@ function EvaluationContent({ job }: { job: MigrationJob }) {
         </Container>
         <Container header={<Header variant="h3" description="Measures the average amount of output tokens of all responses.">Average output tokens</Header>}>
           <BarChart<string>
-            series={makeSeries(avgOutputSrc, avgOutputOpt)}
-            xDomain={[job.sourceModel, job.targetModel]}
-            yDomain={yDomainTokens(avgOutputSrc, avgOutputOpt)}
+            series={makeSeries(avgOutputSrc, avgOutputOpt, "outputTokens")}
+            xDomain={job.id === "job-2" ? [...JOB2_EVAL_X_DOMAIN] : [job.sourceModel, job.targetModel]}
+            yDomain={yDomainTokens(avgOutputSrc, avgOutputOpt, "outputTokens")}
             height={200}
             xTitle="Models"
             yTitle="Tokens"
@@ -640,7 +701,7 @@ function EvaluationContent({ job }: { job: MigrationJob }) {
                 { id: "model",        label: "Model" },
                 { id: "input",        label: "Input" },
                 { id: "output",       label: "Output" },
-                { id: "accuracy",     label: "Accuracy (%)" },
+                { id: "accuracy",     label: "Relative quality" },
                 { id: "inputTokens",  label: "Input tokens" },
                 { id: "outputTokens", label: "Output tokens" },
               ],
@@ -676,15 +737,19 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
     { id: "inputTokens",  visible: true },
     { id: "outputTokens", visible: true },
   ]);
+  const [jobProps, setJobProps] = useState<JobProperties | null>(null);
 
   useEffect(() => {
-    fetch("/prompt-templates.json")
+    fetch(`/${job.id}-prompt-templates.json`)
       .then((r) => r.json())
       .then((data: PromptTemplateEntry[]) => setEntries(data));
-    fetch("/invocation-log.json")
+    fetch(`/${job.id}-invocation-log.json`)
       .then((r) => r.json())
       .then((data: InvocationEntry[]) => setEvalEntries(data));
-  }, []);
+    fetch(`/${job.id}-properties.json`)
+      .then((r) => r.json())
+      .then((data: JobProperties) => setJobProps(data));
+  }, [job.id]);
 
   const { items: allFilteredItems, collectionProps, propertyFilterProps } = useCollection(entries, {
     propertyFiltering: {
@@ -745,6 +810,11 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
     return map;
   }, [entries]);
 
+  const avgForModelOpt = (displayName: string, metric: "accuracy" | "inputTokens" | "outputTokens") => {
+    const matched = entries.filter(e => e.model === MODEL_NAME_MAP[displayName]);
+    return avgFromTestData(matched.flatMap(e => e.testData))[metric];
+  };
+
   const filteringOptions = useMemo(() => {
     const opts: PropertyFilterProps.FilteringOption[] = [];
     for (const e of entries) {
@@ -786,7 +856,7 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
     },
     {
       id: "accuracy",
-      header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+      header: <span style={{ display: "block", textAlign: "right" }}>Relative quality</span>,
       cell: (item: PromptTemplateEntry) => {
         const m = avgFromTestData(item.testData);
         const src = item.type === "Optimized" ? sourceByGroupId.get(item.groupId) : undefined;
@@ -849,13 +919,32 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
     ...FIXED_TEST_DATA_COLUMNS.map(col => ({ id: col.id, visible: true })),
   ], [testDataInputKeys]);
 
-  const makeSeries = (srcVal: number, optVal: number, baselineVal: number) => [
-    { title: "Average", type: "bar" as const, data: [{ x: job.sourceModel, y: srcVal }, { x: job.targetModel, y: optVal }] },
-    ...(baselineVal > 0 ? [{ title: "Evaluation baseline", type: "threshold" as const, y: baselineVal }] : []),
-  ];
+  const makeSeries = (srcVal: number, optVal: number, baselineVal: number, metric: "accuracy" | "inputTokens" | "outputTokens") => {
+    if (job.id === "job-2") {
+      return [
+        { title: "Source models", type: "bar" as const, data: [
+          { x: "Sonnet 3.5", y: avgForModelOpt("Sonnet 3.5", metric) },
+          { x: "Opus 3",     y: avgForModelOpt("Opus 3",     metric) },
+        ]},
+        { title: "Target models", type: "bar" as const, data: [
+          { x: "V3", y: avgForModelOpt("V3", metric) },
+          { x: "R1", y: avgForModelOpt("R1", metric) },
+        ]},
+      ];
+    }
+    return [
+      { title: "Average", type: "bar" as const, data: [{ x: job.sourceModel, y: srcVal }, { x: job.targetModel, y: optVal }] },
+      ...(baselineVal > 0 ? [{ title: "Evaluation baseline", type: "threshold" as const, y: baselineVal }] : []),
+    ];
+  };
 
-  const yDomainTokens = (src: number, opt: number): [number, number] =>
-    [0, Math.ceil(Math.max(src, opt) * 1.3)];
+  const yDomainTokens = (src: number, opt: number, metric?: "accuracy" | "inputTokens" | "outputTokens"): [number, number] => {
+    if (job.id === "job-2" && metric) {
+      const vals = [...JOB2_EVAL_X_DOMAIN].map(m => avgForModelOpt(m, metric)).filter(v => v > 0);
+      return [0, Math.ceil((vals.length ? Math.max(...vals) : 100) * 1.3)];
+    }
+    return [0, Math.ceil(Math.max(src, opt) * 1.3)];
+  };
 
   return (
     <>
@@ -915,38 +1004,38 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
             columns={3}
             items={[
               { label: "Status", value: <StatusIndicator type="success">Completed</StatusIndicator> },
-              { label: "Prompt templates source", value: "Invocation logs" },
+              { label: "Prompt templates source", value: jobProps?.optimization.promptTemplatesSource ?? "-" },
               { label: "Date started", value: job.dateStarted },
-              { label: "Time range of extracted prompts", value: "May 13, 2025, 13:23 – May 31, 2025, 13:23" },
+              { label: "Time range of extracted prompts", value: jobProps?.optimization.timeRangeOfExtractedPrompts ?? "-" },
               { label: "Number of prompt templates", value: sourceEntries.length || 5 },
-              { label: "Date completed", value: `${addMinutes(job.dateStarted, 230)}` },
+              { label: "Date completed", value: jobProps?.optimization.dateCompleted ?? "-" },
             ]}
           />
         </Container>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "20px" }}>
-          <Container header={<Header variant="h3" description="Measures how closely model outputs match the expected results.">Average accuracy (%)</Header>}>
+          <Container header={<Header variant="h3" description="Measures how closely model outputs match the expected results.">Average relative quality</Header>}>
             <BarChart<string>
-              series={makeSeries(srcMetrics.accuracy, optMetrics.accuracy, evalBaseline.accuracy)}
-              xDomain={[job.sourceModel, job.targetModel]}
+              series={makeSeries(srcMetrics.accuracy, optMetrics.accuracy, evalBaseline.accuracy, "accuracy")}
+              xDomain={job.id === "job-2" ? [...JOB2_EVAL_X_DOMAIN] : [job.sourceModel, job.targetModel]}
               yDomain={[70, 100]}
               hideLegend
-              height={200} xTitle="Models" yTitle="Percent (%)" hideFilter i18nStrings={CHART_I18N}
+              height={200} xTitle="Models" yTitle="Score" hideFilter i18nStrings={CHART_I18N}
             />
           </Container>
           <Container header={<Header variant="h3" description="Measures the average amount of input tokens of all requests.">Average input tokens</Header>}>
             <BarChart<string>
-              series={makeSeries(srcMetrics.inputTokens, optMetrics.inputTokens, evalBaseline.inputTokens)}
-              xDomain={[job.sourceModel, job.targetModel]}
-              yDomain={yDomainTokens(srcMetrics.inputTokens, optMetrics.inputTokens)}
+              series={makeSeries(srcMetrics.inputTokens, optMetrics.inputTokens, evalBaseline.inputTokens, "inputTokens")}
+              xDomain={job.id === "job-2" ? [...JOB2_EVAL_X_DOMAIN] : [job.sourceModel, job.targetModel]}
+              yDomain={yDomainTokens(srcMetrics.inputTokens, optMetrics.inputTokens, "inputTokens")}
               hideLegend
               height={200} xTitle="Models" yTitle="Tokens" hideFilter i18nStrings={CHART_I18N}
             />
           </Container>
           <Container header={<Header variant="h3" description="Measures the average amount of output tokens of all responses.">Average output tokens</Header>}>
             <BarChart<string>
-              series={makeSeries(srcMetrics.outputTokens, optMetrics.outputTokens, evalBaseline.outputTokens)}
-              xDomain={[job.sourceModel, job.targetModel]}
-              yDomain={yDomainTokens(srcMetrics.outputTokens, optMetrics.outputTokens)}
+              series={makeSeries(srcMetrics.outputTokens, optMetrics.outputTokens, evalBaseline.outputTokens, "outputTokens")}
+              xDomain={job.id === "job-2" ? [...JOB2_EVAL_X_DOMAIN] : [job.sourceModel, job.targetModel]}
+              yDomain={yDomainTokens(srcMetrics.outputTokens, optMetrics.outputTokens, "outputTokens")}
               hideLegend
               height={200} xTitle="Models" yTitle="Tokens" hideFilter i18nStrings={CHART_I18N}
             />
@@ -1006,7 +1095,7 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
                   { id: "model",        label: "Model" },
                   { id: "template",     label: "Template", alwaysVisible: true },
                   { id: "testData",     label: "Test data" },
-                  { id: "accuracy",     label: "Accuracy (%)" },
+                  { id: "accuracy",     label: "Relative quality" },
                   { id: "inputTokens",  label: "Input tokens" },
                   { id: "outputTokens", label: "Output tokens" },
                 ],
@@ -1023,25 +1112,6 @@ function OptimizationContent({ job }: { job: MigrationJob }) {
   );
 }
 
-// ─── Mock time-series data ────────────────────────────────────────────────────
-const SHADOW_HOURS = [0, 10, 20, 30, 40, 50, 60, 70, 80];
-
-const ACCURACY_SOURCE     = [83.0, 83.2, 83.5, 83.8, 83.6, 83.9, 84.1, 84.0, 83.8];
-const ACCURACY_TARGET     = [88.5, 88.2, 89.1, 88.8, 88.9, 88.7, 89.0, 88.8, 88.9];
-
-const INPUT_TOKENS_SOURCE         = [52, 53, 52, 54, 53, 55, 54, 53, 54];
-const INPUT_TOKENS_SOURCE_SEEDED  = [50, 51, 50, 52, 51, 53, 52, 51, 52];
-const INPUT_TOKENS_SOURCE_LIVE    = [54, 55, 54, 56, 55, 57, 56, 55, 56];
-const INPUT_TOKENS_TARGET         = [48, 49, 47, 50, 48, 49, 48, 49, 48];
-const INPUT_TOKENS_TARGET_SEEDED  = [46, 47, 45, 48, 46, 47, 46, 47, 46];
-const INPUT_TOKENS_TARGET_LIVE    = [50, 51, 49, 52, 50, 51, 50, 51, 50];
-
-const OUTPUT_TOKENS_SOURCE         = [210, 212, 215, 218, 214, 216, 219, 217, 215];
-const OUTPUT_TOKENS_SOURCE_SEEDED  = [205, 207, 210, 213, 209, 211, 214, 212, 210];
-const OUTPUT_TOKENS_SOURCE_LIVE    = [215, 217, 220, 223, 219, 221, 224, 222, 220];
-const OUTPUT_TOKENS_TARGET         = [195, 197, 200, 202, 198, 201, 200, 199, 198];
-const OUTPUT_TOKENS_TARGET_SEEDED  = [190, 192, 195, 197, 193, 196, 195, 194, 193];
-const OUTPUT_TOKENS_TARGET_LIVE    = [200, 202, 205, 207, 203, 206, 205, 204, 203];
 
 
 const LINE_CHART_I18N = {
@@ -1082,10 +1152,10 @@ const SHADOW_FILTERING_PROPERTIES: PropertyFilterProps.FilteringProperty[] = [
   { key: "groupId",            propertyLabel: "Group ID",             operators: [":", "!:", "=", "!="],             groupValuesLabel: "Group ID values" },
   { key: "model",              propertyLabel: "Model",                operators: [":", "!:", "=", "!="],             groupValuesLabel: "Model values" },
   { key: "template",           propertyLabel: "Template",             operators: [":", "!:"],                        groupValuesLabel: "Template values" },
-  { key: "sourceAccuracy",     propertyLabel: "Source accuracy (%)",  operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Source accuracy values" },
+  { key: "sourceAccuracy",     propertyLabel: "Source relative quality",  operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Source relative quality values" },
   { key: "sourceInputTokens",  propertyLabel: "Source input tokens",  operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Source input token values" },
   { key: "sourceOutputTokens", propertyLabel: "Source output tokens", operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Source output token values" },
-  { key: "targetAccuracy",     propertyLabel: "Target accuracy (%)",  operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Target accuracy values" },
+  { key: "targetAccuracy",     propertyLabel: "Target relative quality",  operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Target relative quality values" },
   { key: "targetInputTokens",  propertyLabel: "Target input tokens",  operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Target input token values" },
   { key: "targetOutputTokens", propertyLabel: "Target output tokens", operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Target output token values" },
 ];
@@ -1198,7 +1268,7 @@ const MODAL_COLUMNS = [
   },
   {
     id: "sourceAccuracy",
-    header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+    header: <span style={{ display: "block", textAlign: "right" }}>Relative quality</span>,
     cell: (r: ShadowTestingRequest) => (
       <span style={{ display: "block", textAlign: "right" }}>{r.source.accuracy ?? "—"}</span>
     ),
@@ -1228,7 +1298,7 @@ const MODAL_COLUMNS = [
   },
   {
     id: "targetAccuracy",
-    header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+    header: <span style={{ display: "block", textAlign: "right" }}>Relative quality</span>,
     cell: (r: ShadowTestingRequest) => {
       const delta = r.target.accuracy !== null && r.source.accuracy !== null
         ? r.target.accuracy - r.source.accuracy
@@ -1271,10 +1341,10 @@ const MODAL_FILTERING_PROPERTIES: PropertyFilterProps.FilteringProperty[] = [
   { key: "trafficType",       propertyLabel: "Traffic",               operators: [":", "!:", "=", "!="],             groupValuesLabel: "Traffic values" },
   { key: "resolvedInput",     propertyLabel: "Resolved input",        operators: [":", "!:"],                        groupValuesLabel: "Resolved input values" },
   { key: "groundTruth",       propertyLabel: "Ground truth",          operators: [":", "!:"],                        groupValuesLabel: "Ground truth values" },
-  { key: "sourceAccuracy",    propertyLabel: "Source accuracy (%)",   operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Source accuracy values" },
+  { key: "sourceAccuracy",    propertyLabel: "Source relative quality",   operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Source relative quality values" },
   { key: "sourceInputTokens", propertyLabel: "Source input tokens",   operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Source input token values" },
   { key: "sourceOutputTokens",propertyLabel: "Source output tokens",  operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Source output token values" },
-  { key: "targetAccuracy",    propertyLabel: "Target accuracy (%)",   operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Target accuracy values" },
+  { key: "targetAccuracy",    propertyLabel: "Target relative quality",   operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Target relative quality values" },
   { key: "targetInputTokens", propertyLabel: "Target input tokens",   operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Target input token values" },
   { key: "targetOutputTokens",propertyLabel: "Target output tokens",  operators: ["=", "!=", ">", ">=", "<", "<="], groupValuesLabel: "Target output token values" },
 ];
@@ -1330,6 +1400,79 @@ function matchesModalQuery(entry: ShadowTestingRequest, q: PropertyFilterProps.Q
   return q.operation === "and" ? q.tokens.every(checkToken) : q.tokens.some(checkToken);
 }
 
+const pt = (dateStr: string, y: number) => ({ x: new Date(dateStr + "T12:00:00"), y });
+
+const yDomainFor = (values: number[]): [number, number] => {
+  const min = Math.min(...values), max = Math.max(...values);
+  const pad = Math.ceil((max - min) * 0.2);
+  return [Math.max(0, min - pad), max + pad];
+};
+
+const STATIC_CHART_DATA: Record<string, {
+  // 2-model accuracy fields (job-1)
+  accSrcAll?:  { x: Date; y: number }[];
+  accTgtAll?:  { x: Date; y: number }[];
+  accSrcSeed?: { x: Date; y: number }[];
+  accTgtSeed?: { x: Date; y: number }[];
+  accSrcLive?: { x: Date; y: number }[];
+  accTgtLive?: { x: Date; y: number }[];
+  // 4-model accuracy fields (job-2)
+  accSonnet?: { x: Date; y: number }[];
+  accOpus?:   { x: Date; y: number }[];
+  accV3?:     { x: Date; y: number }[];
+  accR1?:     { x: Date; y: number }[];
+  // token fields
+  inSrc:   { x: Date; y: number }[];
+  inTgt:   { x: Date; y: number }[];
+  outSrc:  { x: Date; y: number }[];
+  outTgt:  { x: Date; y: number }[];
+  xDomain: [Date, Date];
+  accuracyYDomain:     [number, number];
+  inputTokensYDomain:  [number, number];
+  outputTokensYDomain: [number, number];
+}> = {
+  "job-1": (() => {
+    const d = (i: number) => `2026-06-0${4 + i}`;
+    const accSrcAll  = [83, 81, 82, 80].map((y, i) => pt(d(i), y));
+    const accTgtAll  = [78, 85, 90, 93].map((y, i) => pt(d(i), y));
+    const accSrcSeed = [84, 83, 84, 83].map((y, i) => pt(d(i), y));
+    const accTgtSeed = [82, 88, 93, 96].map((y, i) => pt(d(i), y));
+    const accSrcLive = [82, 79, 81, 78].map((y, i) => pt(d(i), y));
+    const accTgtLive = [74, 81, 87, 90].map((y, i) => pt(d(i), y));
+    const inSrc      = [28, 27, 28, 27].map((y, i) => pt(d(i), y));
+    const inTgt      = [62, 63, 62, 63].map((y, i) => pt(d(i), y));
+    const outSrc     = [18, 17, 18, 17].map((y, i) => pt(d(i), y));
+    const outTgt     = [48, 52, 55, 56].map((y, i) => pt(d(i), y));
+    return {
+      accSrcAll, accTgtAll, accSrcSeed, accTgtSeed, accSrcLive, accTgtLive,
+      inSrc, inTgt, outSrc, outTgt,
+      xDomain: [accSrcAll[0].x, accSrcAll[accSrcAll.length - 1].x] as [Date, Date],
+      accuracyYDomain:     [70, 100] as [number, number],
+      inputTokensYDomain:  yDomainFor([...inSrc.map(p => p.y),  ...inTgt.map(p => p.y)]),
+      outputTokensYDomain: yDomainFor([...outSrc.map(p => p.y), ...outTgt.map(p => p.y)]),
+    };
+  })(),
+  "job-2": (() => {
+    const dates = ["2026-05-28", "2026-05-29", "2026-05-30", "2026-05-31"];
+    const accSonnet = [83, 82, 84, 81].map((y, i) => pt(dates[i], y));
+    const accOpus   = [87, 86, 85, 84].map((y, i) => pt(dates[i], y));
+    const accV3     = [70, 78, 85, 90].map((y, i) => pt(dates[i], y));
+    const accR1     = [68, 76, 88, 93].map((y, i) => pt(dates[i], y));
+    const inSrc     = [30, 29, 30, 29].map((y, i) => pt(dates[i], y));
+    const inTgt     = [58, 59, 58, 59].map((y, i) => pt(dates[i], y));
+    const outSrc    = [20, 19, 20, 19].map((y, i) => pt(dates[i], y));
+    const outTgt    = [44, 50, 53, 55].map((y, i) => pt(dates[i], y));
+    return {
+      accSonnet, accOpus, accV3, accR1,
+      inSrc, inTgt, outSrc, outTgt,
+      xDomain: [accSonnet[0].x, accSonnet[accSonnet.length - 1].x] as [Date, Date],
+      accuracyYDomain:     [60, 100] as [number, number],
+      inputTokensYDomain:  yDomainFor([...inSrc.map(p => p.y),  ...inTgt.map(p => p.y)]),
+      outputTokensYDomain: yDomainFor([...outSrc.map(p => p.y), ...outTgt.map(p => p.y)]),
+    };
+  })(),
+};
+
 function ShadowTestingContent({ job }: { job: MigrationJob }) {
   const isDark = useCloudscapeDarkMode();
   const varHighlightColor = isDark ? "#4a3870" : "#dccef7";
@@ -1341,41 +1484,77 @@ function ShadowTestingContent({ job }: { job: MigrationJob }) {
   const [shadowRequests, setShadowRequests] = useState<ShadowTestingRequest[]>([]);
   const [selectedGroup, setSelectedGroup] = useState<ShadowTestingTemplate | null>(null);
   const [modalPageSize, setModalPageSize] = useState(10);
+  const [jobProps, setJobProps] = useState<JobProperties | null>(null);
+  const chartSeries = useMemo(() => STATIC_CHART_DATA[job.id] ?? null, [job.id]);
 
-  const toDateSeries = (vals: number[]) =>
-    SHADOW_HOURS.map((h, i) => ({ x: new Date(new Date(job.dateStarted).getTime() + h * 3600000), y: vals[i] }));
-
-  const shadowXDomain: [Date, Date] = [new Date(job.dateStarted), new Date(job.dateCompleted && job.dateCompleted !== "-" ? job.dateCompleted : job.dateStarted)];
+  const accuracySeries = useMemo(() => {
+    if (job.id === "job-2") {
+      const sonnet = chartSeries?.accSonnet ?? [];
+      const opus   = chartSeries?.accOpus   ?? [];
+      const v3     = chartSeries?.accV3     ?? [];
+      const r1     = chartSeries?.accR1     ?? [];
+      return [
+        // all — indices 0–3
+        { title: "Claude 3.5 Sonnet", type: "line" as const, data: sonnet },
+        { title: "Claude 3 Opus",     type: "line" as const, data: opus },
+        { title: "DeepSeek-V3",       type: "line" as const, data: v3, color: "#D97757" },
+        { title: "DeepSeek-R1",       type: "line" as const, data: r1 },
+        // seeded — indices 4–7 (same data, control switches visibility)
+        { title: "Claude 3.5 Sonnet", type: "line" as const, data: sonnet },
+        { title: "Claude 3 Opus",     type: "line" as const, data: opus },
+        { title: "DeepSeek-V3",       type: "line" as const, data: v3, color: "#D97757" },
+        { title: "DeepSeek-R1",       type: "line" as const, data: r1 },
+        // live — indices 8–11
+        { title: "Claude 3.5 Sonnet", type: "line" as const, data: sonnet },
+        { title: "Claude 3 Opus",     type: "line" as const, data: opus },
+        { title: "DeepSeek-V3",       type: "line" as const, data: v3, color: "#D97757" },
+        { title: "DeepSeek-R1",       type: "line" as const, data: r1 },
+      ];
+    }
+    return [
+      { title: job.sourceModel, type: "line" as const, data: chartSeries?.accSrcAll  ?? [] },
+      { title: job.targetModel, type: "line" as const, data: chartSeries?.accTgtAll  ?? [], color: "#D97757" },
+      { title: job.sourceModel, type: "line" as const, data: chartSeries?.accSrcSeed ?? [] },
+      { title: job.targetModel, type: "line" as const, data: chartSeries?.accTgtSeed ?? [], color: "#D97757" },
+      { title: job.sourceModel, type: "line" as const, data: chartSeries?.accSrcLive ?? [] },
+      { title: job.targetModel, type: "line" as const, data: chartSeries?.accTgtLive ?? [], color: "#D97757" },
+    ];
+  }, [job.id, job.sourceModel, job.targetModel, chartSeries]);
 
   const inputTokensSeries = useMemo(() => [
-    { title: job.sourceModel + " – Seeded and Live", type: "line" as const, data: toDateSeries(INPUT_TOKENS_SOURCE) },
-    { title: job.sourceModel + " – Seeded",          type: "line" as const, data: toDateSeries(INPUT_TOKENS_SOURCE_SEEDED) },
-    { title: job.sourceModel + " – Live",             type: "line" as const, data: toDateSeries(INPUT_TOKENS_SOURCE_LIVE) },
-    { title: job.targetModel + " – Seeded and Live", type: "line" as const, data: toDateSeries(INPUT_TOKENS_TARGET), color: "#D97757", },
-    { title: job.targetModel + " – Seeded", type: "line" as const, data: toDateSeries(INPUT_TOKENS_TARGET_SEEDED) },
-    { title: job.targetModel + " – Live",             type: "line" as const, data: toDateSeries(INPUT_TOKENS_TARGET_LIVE) },
-  ], [job.sourceModel, job.targetModel, job.dateStarted]);
+    { title: job.sourceModel, type: "line" as const, data: chartSeries?.inSrc ?? [] },
+    { title: job.targetModel, type: "line" as const, data: chartSeries?.inTgt ?? [], color: "#D97757" },
+  ], [job.sourceModel, job.targetModel, chartSeries]);
 
   const outputTokensSeries = useMemo(() => [
-    { title: job.sourceModel + " – Seeded and Live", type: "line" as const, data: toDateSeries(OUTPUT_TOKENS_SOURCE) },
-    { title: job.sourceModel + " – Seeded",          type: "line" as const, data: toDateSeries(OUTPUT_TOKENS_SOURCE_SEEDED) },
-    { title: job.sourceModel + " – Live",             type: "line" as const, data: toDateSeries(OUTPUT_TOKENS_SOURCE_LIVE) },
-    { title: job.targetModel + " – Seeded and Live", type: "line" as const, data: toDateSeries(OUTPUT_TOKENS_TARGET), color: "#D97757", },
-    { title: job.targetModel + " – Seeded", type: "line" as const, data: toDateSeries(OUTPUT_TOKENS_TARGET_SEEDED) },
-    { title: job.targetModel + " – Live",             type: "line" as const, data: toDateSeries(OUTPUT_TOKENS_TARGET_LIVE) },
-  ], [job.sourceModel, job.targetModel, job.dateStarted]);
+    { title: job.sourceModel, type: "line" as const, data: chartSeries?.outSrc ?? [] },
+    { title: job.targetModel, type: "line" as const, data: chartSeries?.outTgt ?? [], color: "#D97757" },
+  ], [job.sourceModel, job.targetModel, chartSeries]);
 
-  const [visibleInputTokens,  setVisibleInputTokens]  = useState(() => [inputTokensSeries[0],  inputTokensSeries[3]]);
-  const [visibleOutputTokens, setVisibleOutputTokens] = useState(() => [outputTokensSeries[0], outputTokensSeries[3]]);
+  const [accuracySegment, setAccuracySegment] = useState<"all" | "seeded" | "live">("all");
+
+  const visibleAccuracy = useMemo(() => {
+    if (job.id === "job-2") {
+      const start = accuracySegment === "all" ? 0 : accuracySegment === "seeded" ? 4 : 8;
+      return [accuracySeries[start], accuracySeries[start + 1], accuracySeries[start + 2], accuracySeries[start + 3]];
+    }
+    const idxPairs = { all: [0, 1], seeded: [2, 3], live: [4, 5] } as const;
+    const [i, j] = idxPairs[accuracySegment];
+    return [accuracySeries[i], accuracySeries[j]];
+  }, [job.id, accuracySegment, accuracySeries]);
 
   useEffect(() => {
-    fetch("/shadow-testing-dataset.json")
+    fetch(`/${job.id}-shadow-testing-dataset.json`)
       .then((r) => r.json())
       .then((data: ShadowTestingTemplate[]) => setEntries(data));
-    fetch("/shadow-testing-live-rows.json")
+    fetch(`/${job.id}-shadow-testing-live-rows.json`)
       .then((r) => r.json())
       .then((data: ShadowTestingRequest[]) => setShadowRequests(data));
-  }, []);
+
+    fetch(`/${job.id}-properties.json`)
+      .then((r) => r.json())
+      .then((data: JobProperties) => setJobProps(data));
+  }, [job.id]);
 
   const { items: allFilteredItems, collectionProps, propertyFilterProps } = useCollection(entries, {
     propertyFiltering: {
@@ -1442,7 +1621,6 @@ function ShadowTestingContent({ job }: { job: MigrationJob }) {
     const vis = new Map(shadowColumnPrefs.map(p => [p.id, p.visible]));
     return [
       { id: "groupId",  visible: vis.get("groupId")  ?? true },
-      { id: "model",    visible: vis.get("model")    ?? true },
       { id: "template", visible: vis.get("template") ?? true },
       {
         type: "group" as const,
@@ -1497,7 +1675,7 @@ function ShadowTestingContent({ job }: { job: MigrationJob }) {
     },
     {
       id: "source-accuracy",
-      header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+      header: <span style={{ display: "block", textAlign: "right" }}>Relative quality</span>,
       cell: (item: ShadowTestingTemplate) => (
         <span style={{ display: "block", textAlign: "right" }}>{item.aggregate.source.accuracy}</span>
       ),
@@ -1524,7 +1702,7 @@ function ShadowTestingContent({ job }: { job: MigrationJob }) {
     },
     {
       id: "target-accuracy",
-      header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+      header: <span style={{ display: "block", textAlign: "right" }}>Relative quality</span>,
       cell: (item: ShadowTestingTemplate) => {
         const delta = item.aggregate.target.accuracy - item.aggregate.source.accuracy;
         return (
@@ -1582,62 +1760,67 @@ function ShadowTestingContent({ job }: { job: MigrationJob }) {
             columns={3}
             items={[
               { label: "Status", value: <StatusIndicator type="success">Completed</StatusIndicator> },
-              { label: "Traffic sampling (%)", value: "10%" },
-              { label: "Date started", value: job.dateCompleted && job.dateCompleted !== "-"
-                  ? addMinutes(job.dateCompleted, -72 * 60)
-                  : "-", },
-              { label: "Time range for test", value: "72 hours" },
-              { label: "Number of templates tested", value: "24" },
-              { label: "Date completed", value: job.dateCompleted && job.dateCompleted !== "-" ? job.dateCompleted : "-" },
+              { label: "Traffic sampling (%)", value: jobProps?.shadowTesting.trafficSampling ?? "-" },
+              { label: "Date started", value: jobProps?.shadowTesting.dateStarted ?? "-" },
+              { label: "Time range for test", value: jobProps?.shadowTesting.timeRangeForTest ?? "-" },
+              { label: "Number of templates tested", value: entries.length || "-" },
+              { label: "Date completed", value: jobProps?.shadowTesting.dateCompleted ?? "-" },
             ]}
           />
         </Container>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "20px" }}>
-          <Container header={<Header variant="h2" description="Accuracy measured on seeded inputs only. Live traffic does not have ground truth.">Average accuracy (%)</Header>}>
+          <Container header={<Header variant="h2" description="Average relative quality score across seeded and live traffic.">Average relative quality</Header>}>
+            <SpaceBetween size="s">
+              <SegmentedControl
+                selectedId={accuracySegment}
+                onChange={({ detail }) => setAccuracySegment(detail.selectedId as "all" | "seeded" | "live")}
+                options={[
+                  { id: "all",    text: "All" },
+                  { id: "seeded", text: "Seeded" },
+                  { id: "live",   text: "Live" },
+                ]}
+              />
+              <LineChart<Date>
+                series={accuracySeries}
+                visibleSeries={visibleAccuracy}
+                xDomain={chartSeries?.xDomain}
+                yDomain={chartSeries?.accuracyYDomain ?? [0, 100]}
+                xTitle="Time & Date"
+                yTitle="Score"
+                xScaleType="time"
+                i18nStrings={LINE_CHART_I18N}
+                height={200}
+                hideLegend
+                hideFilter
+              />
+            </SpaceBetween>
+          </Container>
+          <Container header={<Header variant="h2" description="Measures how input tokens evolve over time.">Average input tokens</Header>}>
             <LineChart<Date>
-              series={[
-                { title: job.sourceModel, type: "line", data: toDateSeries(ACCURACY_SOURCE) },
-                { title: job.targetModel, color: "#D97757", type: "line", data: toDateSeries(ACCURACY_TARGET) },
-              ]}
-              xDomain={shadowXDomain}
-              yDomain={[75, 90]}
+              series={inputTokensSeries}
+              xDomain={chartSeries?.xDomain}
+              yDomain={chartSeries?.inputTokensYDomain ?? [0, 100]}
               xTitle="Time & Date"
-              yTitle="Percent (%)"
+              yTitle="Tokens"
               xScaleType="time"
               i18nStrings={LINE_CHART_I18N}
-              height={270}
+              height={250}
               hideLegend
               hideFilter
             />
           </Container>
-          <Container header={<Header variant="h2" description="Average input tokens of seeded and live traffic.">Average input tokens</Header>}>
-            <LineChart<Date>
-              series={inputTokensSeries}
-              visibleSeries={visibleInputTokens}
-              onFilterChange={({ detail }) => setVisibleInputTokens([...detail.visibleSeries] as typeof inputTokensSeries)}
-              xDomain={shadowXDomain}
-              yDomain={[40, 60]}
-              xTitle="Time & Date"
-              yTitle="Tokens"
-              xScaleType="time"
-              i18nStrings={LINE_CHART_I18N}
-              height={200}
-              hideLegend
-            />
-          </Container>
-          <Container header={<Header variant="h2" description="Average output tokens of seeded and live traffic.">Average output tokens</Header>}>
+          <Container header={<Header variant="h2" description="Measures how output tokens evolve over time.">Average output tokens</Header>}>
             <LineChart<Date>
               series={outputTokensSeries}
-              visibleSeries={visibleOutputTokens}
-              onFilterChange={({ detail }) => setVisibleOutputTokens([...detail.visibleSeries] as typeof outputTokensSeries)}
-              xDomain={shadowXDomain}
-              yDomain={[185, 225]}
+              xDomain={chartSeries?.xDomain}
+              yDomain={chartSeries?.outputTokensYDomain ?? [0, 300]}
               xTitle="Time & Date"
               yTitle="Tokens"
               xScaleType="time"
               i18nStrings={LINE_CHART_I18N}
-              height={200}
+              height={250}
               hideLegend
+              hideFilter
             />
           </Container>
         </div>
@@ -1703,10 +1886,10 @@ function ShadowTestingContent({ job }: { job: MigrationJob }) {
                   { id: "groupId",             label: "Group ID",             alwaysVisible: true },
                   { id: "model",               label: "Model" },
                   { id: "template",            label: "Template",             alwaysVisible: true },
-                  { id: "source-accuracy",     label: "Source accuracy (%)" },
+                  { id: "source-accuracy",     label: "Source relative quality" },
                   { id: "source-inputTokens",  label: "Source input tokens" },
                   { id: "source-outputTokens", label: "Source output tokens" },
-                  { id: "target-accuracy",     label: "Target accuracy (%)" },
+                  { id: "target-accuracy",     label: "Target relative quality" },
                   { id: "target-inputTokens",  label: "Target input tokens" },
                   { id: "target-outputTokens", label: "Target output tokens" },
                   { id: "requests",            label: "Requests" },

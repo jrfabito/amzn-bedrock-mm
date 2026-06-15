@@ -1,0 +1,1602 @@
+[
+  {
+    "groupId": "01",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Summarize this customer review: '{{reviewText}}'",
+    "testData": [
+      {
+        "inputs": { "reviewText": "The battery life is great but the screen is dim in sunlight." },
+        "expectedOutput": "The product excels in battery life but struggles with screen visibility outdoors.",
+        "actualOutput": "The product has strong battery performance but poor screen visibility in bright outdoor conditions.",
+        "accuracy": "82",
+        "inputTokens": "28",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "reviewText": "Incredibly fast delivery but the packaging was damaged on arrival." },
+        "expectedOutput": "Delivery speed was excellent but the packaging arrived in poor condition.",
+        "actualOutput": "Fast shipping noted, but the item arrived with damaged packaging.",
+        "accuracy": "80",
+        "inputTokens": "26",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "reviewText": "The app is intuitive but crashes frequently on older devices." },
+        "expectedOutput": "The app is easy to use but has stability issues on older hardware.",
+        "actualOutput": "App usability is strong but reliability on older devices is a concern.",
+        "accuracy": "83",
+        "inputTokens": "27",
+        "outputTokens": "17"
+      }
+    ]
+  },
+  {
+    "groupId": "01",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "You are a product feedback analyst. Summarize the following customer review in one sentence, highlighting sentiment for each mentioned feature. Review: '{{reviewText}}'",
+    "testData": [
+      {
+        "inputs": { "reviewText": "The battery life is great but the screen is dim in sunlight." },
+        "expectedOutput": "The product excels in battery life but struggles with screen visibility outdoors.",
+        "actualOutput": "Battery life received positive sentiment while screen brightness in sunlight was flagged as a limitation.",
+        "accuracy": "95",
+        "inputTokens": "58",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "reviewText": "Incredibly fast delivery but the packaging was damaged on arrival." },
+        "expectedOutput": "Delivery speed was excellent but the packaging arrived in poor condition.",
+        "actualOutput": "Delivery speed received strong positive sentiment while packaging condition on arrival was flagged as a failure.",
+        "accuracy": "96",
+        "inputTokens": "56",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "reviewText": "The app is intuitive but crashes frequently on older devices." },
+        "expectedOutput": "The app is easy to use but has stability issues on older hardware.",
+        "actualOutput": "App intuitiveness received positive sentiment while frequent crashes on older devices were flagged as a critical issue.",
+        "accuracy": "97",
+        "inputTokens": "57",
+        "outputTokens": "22"
+      }
+    ]
+  },
+  {
+    "groupId": "02",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Translate this to {{targetLanguage}}: '{{text}}'",
+    "testData": [
+      {
+        "inputs": { "targetLanguage": "Spanish", "text": "Please contact support if you experience any issues." },
+        "expectedOutput": "Por favor, comuníquese con soporte si experimenta algún problema.",
+        "actualOutput": "Por favor, contacte al soporte si experimenta algún problema.",
+        "accuracy": "88",
+        "inputTokens": "22",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "targetLanguage": "Spanish", "text": "Your order has been shipped and will arrive within 3 business days." },
+        "expectedOutput": "Su pedido ha sido enviado y llegará en un plazo de 3 días hábiles.",
+        "actualOutput": "Su pedido ha sido enviado y llegará dentro de 3 días hábiles.",
+        "accuracy": "86",
+        "inputTokens": "24",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "targetLanguage": "Spanish", "text": "Thank you for your feedback. We will review it shortly." },
+        "expectedOutput": "Gracias por sus comentarios. Los revisaremos en breve.",
+        "actualOutput": "Gracias por tu comentario. Lo revisaremos pronto.",
+        "accuracy": "84",
+        "inputTokens": "22",
+        "outputTokens": "14"
+      },
+      {
+        "inputs": { "targetLanguage": "Spanish", "text": "Your account has been successfully updated." },
+        "expectedOutput": "Su cuenta ha sido actualizada correctamente.",
+        "actualOutput": "Tu cuenta ha sido actualizada con éxito.",
+        "accuracy": "85",
+        "inputTokens": "20",
+        "outputTokens": "12"
+      }
+    ]
+  },
+  {
+    "groupId": "02",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Translate the following customer-facing support message to formal {{targetLanguage}}, maintaining a professional and helpful tone. Text: '{{text}}'",
+    "testData": [
+      {
+        "inputs": { "targetLanguage": "Latin American Spanish", "text": "Please contact support if you experience any issues." },
+        "expectedOutput": "Por favor, comuníquese con soporte si experimenta algún problema.",
+        "actualOutput": "Si experimenta algún inconveniente, le invitamos a comunicarse con nuestro equipo de soporte.",
+        "accuracy": "97",
+        "inputTokens": "52",
+        "outputTokens": "24"
+      },
+      {
+        "inputs": { "targetLanguage": "Latin American Spanish", "text": "Your order has been shipped and will arrive within 3 business days." },
+        "expectedOutput": "Su pedido ha sido enviado y llegará en un plazo de 3 días hábiles.",
+        "actualOutput": "Su pedido ha sido despachado y llegará en un plazo de 3 días hábiles.",
+        "accuracy": "98",
+        "inputTokens": "54",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "targetLanguage": "Latin American Spanish", "text": "Thank you for your feedback. We will review it shortly." },
+        "expectedOutput": "Gracias por sus comentarios. Los revisaremos en breve.",
+        "actualOutput": "Agradecemos sus comentarios y los revisaremos a la brevedad posible.",
+        "accuracy": "97",
+        "inputTokens": "52",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "targetLanguage": "Latin American Spanish", "text": "Your account has been successfully updated." },
+        "expectedOutput": "Su cuenta ha sido actualizada correctamente.",
+        "actualOutput": "Su cuenta ha sido actualizada de manera exitosa.",
+        "accuracy": "98",
+        "inputTokens": "50",
+        "outputTokens": "14"
+      }
+    ]
+  },
+  {
+    "groupId": "03",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Write a product description for {{productName}}.",
+    "testData": [
+      {
+        "inputs": { "productName": "wireless noise-canceling headphones" },
+        "expectedOutput": "A concise, benefit-focused description of wireless noise-canceling headphones.",
+        "actualOutput": "These wireless noise-canceling headphones deliver immersive sound and block out distractions for a focused listening experience.",
+        "accuracy": "80",
+        "inputTokens": "14",
+        "outputTokens": "24"
+      },
+      {
+        "inputs": { "productName": "a portable espresso maker" },
+        "expectedOutput": "A concise, benefit-focused description of a portable espresso maker.",
+        "actualOutput": "This portable espresso maker lets you enjoy barista-quality coffee anywhere, with a compact design perfect for travel.",
+        "accuracy": "78",
+        "inputTokens": "14",
+        "outputTokens": "22"
+      }
+    ]
+  },
+  {
+    "groupId": "03",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "You are a copywriter for a premium {{industry}} brand. Write a 2-sentence product description for {{productName}} that emphasizes {{emphasis}}. Tone: {{tone}}.",
+    "testData": [
+      {
+        "inputs": { "productName": "wireless noise-canceling headphones", "industry": "consumer electronics", "emphasis": "sound quality, comfort, and everyday versatility", "tone": "confident, modern" },
+        "expectedOutput": "A concise, benefit-focused description of wireless noise-canceling headphones.",
+        "actualOutput": "Engineered for deep focus and rich audio, these wireless headphones use advanced noise-canceling technology to silence the world around you. Lightweight and designed for all-day wear, they move seamlessly from your morning commute to late-night listening sessions.",
+        "accuracy": "96",
+        "inputTokens": "68",
+        "outputTokens": "52"
+      },
+      {
+        "inputs": { "productName": "a portable espresso maker", "industry": "consumer appliances", "emphasis": "convenience, quality, and portability", "tone": "confident, modern" },
+        "expectedOutput": "A concise, benefit-focused description of a portable espresso maker.",
+        "actualOutput": "Wherever the day takes you, this portable espresso maker delivers a rich, cafe-quality shot in under two minutes. Compact enough for a backpack and powerful enough for the most demanding coffee enthusiast.",
+        "accuracy": "96",
+        "inputTokens": "66",
+        "outputTokens": "46"
+      }
+    ]
+  },
+  {
+    "groupId": "04",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Extract all action items from this meeting note: '{{meetingNotes}}'",
+    "testData": [
+      {
+        "inputs": { "meetingNotes": "John will follow up with the client by Friday. Sarah needs to update the roadmap. The team should review the new designs before next Tuesday." },
+        "expectedOutput": "A numbered list of action items with owner and deadline.",
+        "actualOutput": "1. John: Follow up with client by Friday. 2. Sarah: Update the roadmap. 3. Team: Review new designs before Tuesday.",
+        "accuracy": "85",
+        "inputTokens": "52",
+        "outputTokens": "32"
+      },
+      {
+        "inputs": { "meetingNotes": "Maria will send the revised proposal by end of day. Dev team needs to fix the login bug before the release. Everyone should complete the security training by next Monday." },
+        "expectedOutput": "A numbered list of action items with owner and deadline.",
+        "actualOutput": "1. Maria: Send revised proposal by end of day. 2. Dev team: Fix login bug before release. 3. Everyone: Complete security training by next Monday.",
+        "accuracy": "84",
+        "inputTokens": "54",
+        "outputTokens": "34"
+      },
+      {
+        "inputs": { "meetingNotes": "The design team will finalize mockups by Thursday. James needs to schedule the client demo. Finance should approve the Q3 budget before the board meeting." },
+        "expectedOutput": "A numbered list of action items with owner and deadline.",
+        "actualOutput": "1. Design team: Finalize mockups by Thursday. 2. James: Schedule client demo. 3. Finance: Approve Q3 budget before board meeting.",
+        "accuracy": "86",
+        "inputTokens": "52",
+        "outputTokens": "30"
+      }
+    ]
+  },
+  {
+    "groupId": "04",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: '{{meetingNotes}}'",
+    "testData": [
+      {
+        "inputs": { "meetingNotes": "John will follow up with the client by Friday. Sarah needs to update the roadmap. The team should review the new designs before next Tuesday." },
+        "expectedOutput": "A numbered list of action items with owner and deadline.",
+        "actualOutput": "[{\"owner\": \"John\", \"task\": \"Follow up with client\", \"deadline\": \"Friday\"}, {\"owner\": \"Sarah\", \"task\": \"Update the roadmap\", \"deadline\": \"Unspecified\"}, {\"owner\": \"Team\", \"task\": \"Review new designs\", \"deadline\": \"Next Tuesday\"}]",
+        "accuracy": "98",
+        "inputTokens": "82",
+        "outputTokens": "58"
+      },
+      {
+        "inputs": { "meetingNotes": "Maria will send the revised proposal by end of day. Dev team needs to fix the login bug before the release. Everyone should complete the security training by next Monday." },
+        "expectedOutput": "A numbered list of action items with owner and deadline.",
+        "actualOutput": "[{\"owner\": \"Maria\", \"task\": \"Send revised proposal\", \"deadline\": \"End of day\"}, {\"owner\": \"Dev team\", \"task\": \"Fix login bug\", \"deadline\": \"Before release\"}, {\"owner\": \"Everyone\", \"task\": \"Complete security training\", \"deadline\": \"Next Monday\"}]",
+        "accuracy": "98",
+        "inputTokens": "84",
+        "outputTokens": "60"
+      },
+      {
+        "inputs": { "meetingNotes": "The design team will finalize mockups by Thursday. James needs to schedule the client demo. Finance should approve the Q3 budget before the board meeting." },
+        "expectedOutput": "A numbered list of action items with owner and deadline.",
+        "actualOutput": "[{\"owner\": \"Design team\", \"task\": \"Finalize mockups\", \"deadline\": \"Thursday\"}, {\"owner\": \"James\", \"task\": \"Schedule client demo\", \"deadline\": \"Unspecified\"}, {\"owner\": \"Finance\", \"task\": \"Approve Q3 budget\", \"deadline\": \"Before board meeting\"}]",
+        "accuracy": "99",
+        "inputTokens": "82",
+        "outputTokens": "58"
+      }
+    ]
+  },
+  {
+    "groupId": "05",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Classify this support ticket as High, Medium, or Low priority: '{{ticketText}}'",
+    "testData": [
+      {
+        "inputs": { "ticketText": "I cannot log into my account and have an important presentation in 2 hours." },
+        "expectedOutput": "High",
+        "actualOutput": "High",
+        "accuracy": "83",
+        "inputTokens": "38",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "ticketText": "I would like to update my billing address." },
+        "expectedOutput": "Low",
+        "actualOutput": "Low",
+        "accuracy": "90",
+        "inputTokens": "32",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "ticketText": "The dashboard is loading slowly for the past hour." },
+        "expectedOutput": "Medium",
+        "actualOutput": "Medium",
+        "accuracy": "82",
+        "inputTokens": "34",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "ticketText": "All users in our organization are locked out of the system." },
+        "expectedOutput": "High",
+        "actualOutput": "High",
+        "accuracy": "85",
+        "inputTokens": "36",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "ticketText": "Can you add a dark mode option to the settings page?" },
+        "expectedOutput": "Low",
+        "actualOutput": "Low",
+        "accuracy": "88",
+        "inputTokens": "32",
+        "outputTokens": "2"
+      }
+    ]
+  },
+  {
+    "groupId": "05",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: '{{ticketText}}'",
+    "testData": [
+      {
+        "inputs": { "ticketText": "I cannot log into my account and have an important presentation in 2 hours." },
+        "expectedOutput": "High",
+        "actualOutput": "{\"priority\": \"High\", \"reason\": \"Login failure with a hard time constraint of 2 hours creates immediate business impact.\"}",
+        "accuracy": "97",
+        "inputTokens": "68",
+        "outputTokens": "30"
+      },
+      {
+        "inputs": { "ticketText": "I would like to update my billing address." },
+        "expectedOutput": "Low",
+        "actualOutput": "{\"priority\": \"Low\", \"reason\": \"Billing address update is a routine account maintenance task with no urgency.\"}",
+        "accuracy": "98",
+        "inputTokens": "62",
+        "outputTokens": "26"
+      },
+      {
+        "inputs": { "ticketText": "The dashboard is loading slowly for the past hour." },
+        "expectedOutput": "Medium",
+        "actualOutput": "{\"priority\": \"Medium\", \"reason\": \"Performance degradation affects usability but does not block core functionality.\"}",
+        "accuracy": "96",
+        "inputTokens": "64",
+        "outputTokens": "28"
+      },
+      {
+        "inputs": { "ticketText": "All users in our organization are locked out of the system." },
+        "expectedOutput": "High",
+        "actualOutput": "{\"priority\": \"High\", \"reason\": \"Organization-wide lockout represents a critical service outage with broad business impact.\"}",
+        "accuracy": "99",
+        "inputTokens": "66",
+        "outputTokens": "28"
+      },
+      {
+        "inputs": { "ticketText": "Can you add a dark mode option to the settings page?" },
+        "expectedOutput": "Low",
+        "actualOutput": "{\"priority\": \"Low\", \"reason\": \"Feature request for a cosmetic UI enhancement with no impact on existing functionality.\"}",
+        "accuracy": "98",
+        "inputTokens": "62",
+        "outputTokens": "26"
+      }
+    ]
+  },
+  {
+    "groupId": "06",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Write a subject line for an email about {{emailTopic}}.",
+    "testData": [
+      {
+        "inputs": { "emailTopic": "a scheduled system maintenance window" },
+        "expectedOutput": "A clear, professional subject line under 60 characters.",
+        "actualOutput": "Scheduled System Maintenance – Action May Be Required",
+        "accuracy": "79",
+        "inputTokens": "18",
+        "outputTokens": "10"
+      },
+      {
+        "inputs": { "emailTopic": "a new product feature launch" },
+        "expectedOutput": "A clear, professional subject line under 60 characters.",
+        "actualOutput": "New Feature Now Available – Check It Out",
+        "accuracy": "77",
+        "inputTokens": "16",
+        "outputTokens": "10"
+      },
+      {
+        "inputs": { "emailTopic": "an upcoming price increase" },
+        "expectedOutput": "A clear, professional subject line under 60 characters.",
+        "actualOutput": "Important Update: Changes to Your Pricing Plan",
+        "accuracy": "80",
+        "inputTokens": "16",
+        "outputTokens": "10"
+      }
+    ]
+  },
+  {
+    "groupId": "06",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Generate {{count}} email subject line options for {{emailTopic}} targeting {{audience}}. Each should be clear, professional, and under 60 characters. Indicate which is recommended.",
+    "testData": [
+      {
+        "inputs": { "count": 3, "emailTopic": "a scheduled system maintenance notification", "audience": "enterprise customers" },
+        "expectedOutput": "A clear, professional subject line under 60 characters.",
+        "actualOutput": "1. [Recommended] 'Scheduled Maintenance: Service Downtime on [Date]' 2. 'Upcoming System Maintenance – Plan Accordingly' 3. 'Important: Maintenance Window Scheduled for [Date]'",
+        "accuracy": "95",
+        "inputTokens": "56",
+        "outputTokens": "42"
+      },
+      {
+        "inputs": { "count": 3, "emailTopic": "a new product feature launch", "audience": "existing customers" },
+        "expectedOutput": "A clear, professional subject line under 60 characters.",
+        "actualOutput": "1. [Recommended] 'Introducing [Feature]: Now Available in Your Account' 2. 'New: [Feature] Is Here — Here's What It Does' 3. 'Your Account Just Got Better: Meet [Feature]'",
+        "accuracy": "96",
+        "inputTokens": "54",
+        "outputTokens": "44"
+      },
+      {
+        "inputs": { "count": 3, "emailTopic": "an upcoming price increase", "audience": "subscription customers" },
+        "expectedOutput": "A clear, professional subject line under 60 characters.",
+        "actualOutput": "1. [Recommended] 'Important: Upcoming Changes to Your Subscription' 2. 'A Note on Pricing – Effective [Date]' 3. 'Your Plan Is Changing – Here's What to Know'",
+        "accuracy": "96",
+        "inputTokens": "54",
+        "outputTokens": "42"
+      }
+    ]
+  },
+  {
+    "groupId": "07",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Rewrite this sentence to be more concise: '{{sentence}}'",
+    "testData": [
+      {
+        "inputs": { "sentence": "Due to the fact that the weather was not good, we decided to cancel the outdoor event that had been planned." },
+        "expectedOutput": "A concise rewrite under 12 words.",
+        "actualOutput": "Because of bad weather, we canceled the outdoor event.",
+        "accuracy": "84",
+        "inputTokens": "40",
+        "outputTokens": "12"
+      },
+      {
+        "inputs": { "sentence": "In the event that you are not able to attend the meeting, please make sure to send someone in your place." },
+        "expectedOutput": "A concise rewrite under 12 words.",
+        "actualOutput": "If you cannot attend the meeting, please send a substitute.",
+        "accuracy": "82",
+        "inputTokens": "42",
+        "outputTokens": "13"
+      },
+      {
+        "inputs": { "sentence": "It is absolutely essential that all team members are in attendance at the all-hands meeting that is scheduled for next Friday." },
+        "expectedOutput": "A concise rewrite under 12 words.",
+        "actualOutput": "All team members must attend next Friday's all-hands meeting.",
+        "accuracy": "85",
+        "inputTokens": "44",
+        "outputTokens": "12"
+      },
+      {
+        "inputs": { "sentence": "We are currently in the process of reviewing your application and will get back to you at some point in the near future." },
+        "expectedOutput": "A concise rewrite under 12 words.",
+        "actualOutput": "We are reviewing your application and will follow up soon.",
+        "accuracy": "83",
+        "inputTokens": "42",
+        "outputTokens": "13"
+      }
+    ]
+  },
+  {
+    "groupId": "07",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under {{wordLimit}} words. Sentence: '{{sentence}}'",
+    "testData": [
+      {
+        "inputs": { "wordLimit": 12, "sentence": "Due to the fact that the weather was not good, we decided to cancel the outdoor event that had been planned." },
+        "expectedOutput": "A concise rewrite under 12 words.",
+        "actualOutput": "Poor weather forced us to cancel the planned outdoor event.",
+        "accuracy": "98",
+        "inputTokens": "66",
+        "outputTokens": "13"
+      },
+      {
+        "inputs": { "wordLimit": 12, "sentence": "In the event that you are not able to attend the meeting, please make sure to send someone in your place." },
+        "expectedOutput": "A concise rewrite under 12 words.",
+        "actualOutput": "If you cannot attend, please send a substitute.",
+        "accuracy": "99",
+        "inputTokens": "68",
+        "outputTokens": "10"
+      },
+      {
+        "inputs": { "wordLimit": 12, "sentence": "It is absolutely essential that all team members are in attendance at the all-hands meeting that is scheduled for next Friday." },
+        "expectedOutput": "A concise rewrite under 12 words.",
+        "actualOutput": "All team members must attend next Friday's all-hands.",
+        "accuracy": "98",
+        "inputTokens": "70",
+        "outputTokens": "10"
+      },
+      {
+        "inputs": { "wordLimit": 12, "sentence": "We are currently in the process of reviewing your application and will get back to you at some point in the near future." },
+        "expectedOutput": "A concise rewrite under 12 words.",
+        "actualOutput": "We're reviewing your application and will be in touch soon.",
+        "accuracy": "99",
+        "inputTokens": "68",
+        "outputTokens": "12"
+      }
+    ]
+  },
+  {
+    "groupId": "08",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Identify the sentiment of this tweet: '{{tweetText}}'",
+    "testData": [
+      {
+        "inputs": { "tweetText": "Just spent 3 hours on hold. Worst customer service I have ever experienced. Never buying from them again." },
+        "expectedOutput": "Negative",
+        "actualOutput": "Negative",
+        "accuracy": "86",
+        "inputTokens": "36",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "tweetText": "Just got my order and everything is perfect. Fast shipping and exactly as described!" },
+        "expectedOutput": "Positive",
+        "actualOutput": "Positive",
+        "accuracy": "90",
+        "inputTokens": "34",
+        "outputTokens": "2"
+      },
+      {
+        "inputs": { "tweetText": "Package arrived today. It's fine I guess." },
+        "expectedOutput": "Neutral",
+        "actualOutput": "Neutral",
+        "accuracy": "80",
+        "inputTokens": "28",
+        "outputTokens": "2"
+      }
+    ]
+  },
+  {
+    "groupId": "08",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative), confidence (0–100), and a one-sentence rationale. Tweet: '{{tweetText}}'",
+    "testData": [
+      {
+        "inputs": { "tweetText": "Just spent 3 hours on hold. Worst customer service I have ever experienced. Never buying from them again." },
+        "expectedOutput": "Negative",
+        "actualOutput": "{\"sentiment\": \"Negative\", \"confidence\": 99, \"rationale\": \"The tweet expresses strong frustration over wait time, explicitly labels the experience as the worst ever, and states intent to stop purchasing.\"}",
+        "accuracy": "99",
+        "inputTokens": "76",
+        "outputTokens": "48"
+      },
+      {
+        "inputs": { "tweetText": "Just got my order and everything is perfect. Fast shipping and exactly as described!" },
+        "expectedOutput": "Positive",
+        "actualOutput": "{\"sentiment\": \"Positive\", \"confidence\": 98, \"rationale\": \"The tweet uses emphatic positive language across both delivery speed and product accuracy.\"}",
+        "accuracy": "98",
+        "inputTokens": "72",
+        "outputTokens": "40"
+      },
+      {
+        "inputs": { "tweetText": "Package arrived today. It's fine I guess." },
+        "expectedOutput": "Neutral",
+        "actualOutput": "{\"sentiment\": \"Neutral\", \"confidence\": 85, \"rationale\": \"The tweet acknowledges receipt without strong positive or negative language, suggesting mild indifference.\"}",
+        "accuracy": "97",
+        "inputTokens": "66",
+        "outputTokens": "36"
+      }
+    ]
+  },
+  {
+    "groupId": "09",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Write a one-paragraph onboarding welcome message for a new SaaS product called {{productName}}.",
+    "testData": [
+      {
+        "inputs": { "productName": "DataFlow" },
+        "expectedOutput": "A warm, concise onboarding message covering key capabilities and next steps.",
+        "actualOutput": "Welcome to DataFlow! We're thrilled to have you on board. DataFlow helps your team connect, transform, and visualize data with ease. Let's get started.",
+        "accuracy": "78",
+        "inputTokens": "22",
+        "outputTokens": "34"
+      },
+      {
+        "inputs": { "productName": "TaskBridge" },
+        "expectedOutput": "A warm, concise onboarding message covering key capabilities and next steps.",
+        "actualOutput": "Welcome to TaskBridge! We're excited to have you here. TaskBridge helps your team stay aligned, track progress, and get work done faster. Let's dive in.",
+        "accuracy": "76",
+        "inputTokens": "20",
+        "outputTokens": "34"
+      }
+    ]
+  },
+  {
+    "groupId": "09",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Write a one-paragraph onboarding welcome message for a new user of {{productName}}, a {{productDescription}}. Tone: {{tone}}. Mention: {{mentions}}. Max {{maxWords}} words.",
+    "testData": [
+      {
+        "inputs": { "productName": "DataFlow", "productDescription": "SaaS data pipeline product targeting data engineers", "tone": "warm but technically credible", "mentions": "getting started, key capabilities, and where to find help", "maxWords": 80 },
+        "expectedOutput": "A warm, concise onboarding message covering key capabilities and next steps.",
+        "actualOutput": "Welcome to DataFlow — we're glad you're here. DataFlow gives data engineers a fast, flexible way to build, monitor, and scale pipelines without the overhead. You can connect your first source in minutes using our guided setup, explore pre-built connectors, and manage transformations visually or in code. When you need help, our docs and support team are always a click away.",
+        "accuracy": "96",
+        "inputTokens": "74",
+        "outputTokens": "82"
+      },
+      {
+        "inputs": { "productName": "TaskBridge", "productDescription": "SaaS project management tool targeting cross-functional teams", "tone": "warm but professionally confident", "mentions": "getting started, key capabilities, and where to find help", "maxWords": 80 },
+        "expectedOutput": "A warm, concise onboarding message covering key capabilities and next steps.",
+        "actualOutput": "Welcome to TaskBridge — we're excited to have you. TaskBridge gives cross-functional teams a clear, connected way to assign work, track progress, and hit deadlines without the noise. Set up your first project in minutes using our guided onboarding, explore integrations with your existing tools, and manage everything from a single dashboard. Our help center and support team are here whenever you need them.",
+        "accuracy": "96",
+        "inputTokens": "76",
+        "outputTokens": "84"
+      }
+    ]
+  },
+  {
+    "groupId": "10",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Generate {{count}} frequently asked questions for {{productType}}.",
+    "testData": [
+      {
+        "inputs": { "count": 5, "productType": "a cloud storage product" },
+        "expectedOutput": "5 relevant FAQs covering common user concerns.",
+        "actualOutput": "1. How much storage do I get? 2. Is my data secure? 3. Can I share files with others? 4. What file types are supported? 5. How do I upgrade my plan?",
+        "accuracy": "80",
+        "inputTokens": "16",
+        "outputTokens": "42"
+      },
+      {
+        "inputs": { "count": 5, "productType": "a project management tool" },
+        "expectedOutput": "5 relevant FAQs covering common user concerns.",
+        "actualOutput": "1. How do I create a project? 2. Can I invite team members? 3. Is there a mobile app? 4. How do I track deadlines? 5. What integrations are available?",
+        "accuracy": "79",
+        "inputTokens": "16",
+        "outputTokens": "40"
+      },
+      {
+        "inputs": { "count": 5, "productType": "an e-commerce platform" },
+        "expectedOutput": "5 relevant FAQs covering common user concerns.",
+        "actualOutput": "1. How do I list a product? 2. What payment methods are accepted? 3. How are shipping rates calculated? 4. Can I offer discount codes? 5. How do I process a refund?",
+        "accuracy": "81",
+        "inputTokens": "16",
+        "outputTokens": "42"
+      }
+    ]
+  },
+  {
+    "groupId": "10",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Generate {{count}} FAQs for {{productType}} targeting {{audience}}. For each FAQ, provide the question and a concise 1–2 sentence answer. Focus on {{focusAreas}}.",
+    "testData": [
+      {
+        "inputs": { "count": 5, "productType": "a cloud storage product", "audience": "small business owners", "focusAreas": "security, pricing, collaboration, and reliability" },
+        "expectedOutput": "5 relevant FAQs covering common user concerns.",
+        "actualOutput": "1. Is my business data encrypted? Yes, all files are encrypted in transit and at rest using AES-256. 2. What happens if I exceed my storage limit? You will receive a notification and can upgrade your plan at any time. 3. Can multiple team members access the same files? Yes, you can invite team members and set individual permission levels. 4. What is the uptime guarantee? We offer a 99.9% uptime SLA backed by redundant infrastructure. 5. Are there long-term contracts? No, all plans are month-to-month with no cancellation fees.",
+        "accuracy": "97",
+        "inputTokens": "58",
+        "outputTokens": "118"
+      },
+      {
+        "inputs": { "count": 5, "productType": "a project management tool", "audience": "small business owners", "focusAreas": "ease of use, team collaboration, pricing, and integrations" },
+        "expectedOutput": "5 relevant FAQs covering common user concerns.",
+        "actualOutput": "1. How quickly can my team get started? Most teams are up and running within an hour using our guided setup. 2. Can I collaborate with external contractors? Yes, you can invite guests with limited access at no extra cost. 3. Does it integrate with tools we already use? Yes, we support integrations with Slack, Google Workspace, and 50+ other tools. 4. Is there a free plan? Yes, our free plan supports up to 5 users with core features included. 5. Can I cancel anytime? Yes, all paid plans are month-to-month with no cancellation fees.",
+        "accuracy": "97",
+        "inputTokens": "58",
+        "outputTokens": "120"
+      },
+      {
+        "inputs": { "count": 5, "productType": "an e-commerce platform", "audience": "small business owners", "focusAreas": "setup, payments, shipping, and customer management" },
+        "expectedOutput": "5 relevant FAQs covering common user concerns.",
+        "actualOutput": "1. How long does it take to set up my store? You can have a basic store live within a day using our guided setup and pre-built templates. 2. What payment methods can I accept? We support all major credit cards, PayPal, Apple Pay, and buy-now-pay-later options. 3. How are shipping rates calculated? You can set flat rates, use real-time carrier rates, or offer free shipping with custom thresholds. 4. Can I manage returns and refunds? Yes, our built-in returns portal lets customers initiate returns and automatically updates your inventory. 5. Is customer data protected? All customer data is stored securely and fully compliant with GDPR and CCPA regulations.",
+        "accuracy": "98",
+        "inputTokens": "60",
+        "outputTokens": "124"
+      }
+    ]
+  },
+  {
+    "groupId": "11",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Summarize the following article in {{count}} bullet points: '{{articleText}}'",
+    "testData": [
+      {
+        "inputs": { "count": 3, "articleText": "Researchers at MIT have developed a new battery technology that charges in under 5 minutes and lasts 3x longer than lithium-ion. The technology uses a novel solid-state electrolyte and could be ready for commercial use within 5 years." },
+        "expectedOutput": "3 concise bullets covering the key facts.",
+        "actualOutput": "- MIT developed a fast-charging battery. - It charges in under 5 minutes and lasts 3x longer than lithium-ion. - Commercial availability expected within 5 years.",
+        "accuracy": "83",
+        "inputTokens": "68",
+        "outputTokens": "40"
+      },
+      {
+        "inputs": { "count": 3, "articleText": "A new study from Stanford found that remote workers are 13% more productive than office workers. The study tracked 500 employees over 9 months and found that remote workers took fewer sick days and reported higher job satisfaction." },
+        "expectedOutput": "3 concise bullets covering the key facts.",
+        "actualOutput": "- Stanford study found remote workers are 13% more productive. - 500 employees tracked over 9 months. - Remote workers took fewer sick days and reported higher satisfaction.",
+        "accuracy": "82",
+        "inputTokens": "70",
+        "outputTokens": "38"
+      }
+    ]
+  },
+  {
+    "groupId": "11",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Summarize the following article in exactly {{count}} bullet points for {{audience}}. Each bullet must be one sentence and highlight {{emphasis}}. Article: '{{articleText}}'",
+    "testData": [
+      {
+        "inputs": { "count": 3, "audience": "a non-technical executive audience", "emphasis": "business or practical relevance", "articleText": "Researchers at MIT have developed a new battery technology that charges in under 5 minutes and lasts 3x longer than lithium-ion. The technology uses a novel solid-state electrolyte and could be ready for commercial use within 5 years." },
+        "expectedOutput": "3 concise bullets covering the key facts.",
+        "actualOutput": "- MIT researchers have created a battery that charges in under 5 minutes, dramatically reducing downtime for devices and EVs. - The new solid-state technology triples the lifespan of current lithium-ion batteries, lowering long-term replacement costs. - Commercial deployment is projected within 5 years, signaling a near-term shift in the battery market.",
+        "accuracy": "98",
+        "inputTokens": "104",
+        "outputTokens": "68"
+      },
+      {
+        "inputs": { "count": 3, "audience": "a non-technical executive audience", "emphasis": "business or practical relevance", "articleText": "A new study from Stanford found that remote workers are 13% more productive than office workers. The study tracked 500 employees over 9 months and found that remote workers took fewer sick days and reported higher job satisfaction." },
+        "expectedOutput": "3 concise bullets covering the key facts.",
+        "actualOutput": "- A Stanford study of 500 employees found remote workers are 13% more productive, offering a measurable output advantage for distributed teams. - Remote workers took fewer sick days, reducing unplanned absences and associated productivity losses. - Higher reported job satisfaction among remote workers suggests long-term retention benefits for companies with flexible work policies.",
+        "accuracy": "98",
+        "inputTokens": "106",
+        "outputTokens": "70"
+      }
+    ]
+  },
+  {
+    "groupId": "12",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Write a SQL query to get all users who signed up in the last {{days}} days.",
+    "testData": [
+      {
+        "inputs": { "days": 30 },
+        "expectedOutput": "A valid SQL query returning users signed up in the last 30 days.",
+        "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '30 days';",
+        "accuracy": "85",
+        "inputTokens": "20",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "days": 7 },
+        "expectedOutput": "A valid SQL query returning users signed up in the last 7 days.",
+        "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '7 days';",
+        "accuracy": "85",
+        "inputTokens": "18",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "days": 90 },
+        "expectedOutput": "A valid SQL query returning users signed up in the last 90 days.",
+        "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '90 days';",
+        "accuracy": "85",
+        "inputTokens": "18",
+        "outputTokens": "18"
+      }
+    ]
+  },
+  {
+    "groupId": "12",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Write a {{dialect}} query to retrieve all users who signed up in the last {{days}} days. Return only {{fields}}. Exclude soft-deleted records where deleted_at is not null. Add a comment explaining the query.",
+    "testData": [
+      {
+        "inputs": { "dialect": "PostgreSQL", "days": 30, "fields": "id, email, and created_at" },
+        "expectedOutput": "A valid SQL query returning users signed up in the last 30 days.",
+        "actualOutput": "-- Retrieve active users who registered within the last 30 days\nSELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '30 days' AND deleted_at IS NULL ORDER BY created_at DESC;",
+        "accuracy": "99",
+        "inputTokens": "62",
+        "outputTokens": "48"
+      },
+      {
+        "inputs": { "dialect": "PostgreSQL", "days": 7, "fields": "id, email, and created_at" },
+        "expectedOutput": "A valid SQL query returning users signed up in the last 7 days.",
+        "actualOutput": "-- Retrieve active users who registered within the last 7 days\nSELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '7 days' AND deleted_at IS NULL ORDER BY created_at DESC;",
+        "accuracy": "99",
+        "inputTokens": "60",
+        "outputTokens": "46"
+      },
+      {
+        "inputs": { "dialect": "PostgreSQL", "days": 90, "fields": "id, email, and created_at" },
+        "expectedOutput": "A valid SQL query returning users signed up in the last 90 days.",
+        "actualOutput": "-- Retrieve active users who registered within the last 90 days\nSELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '90 days' AND deleted_at IS NULL ORDER BY created_at DESC;",
+        "accuracy": "99",
+        "inputTokens": "60",
+        "outputTokens": "48"
+      }
+    ]
+  },
+  {
+    "groupId": "13",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Suggest a name for {{appDescription}}.",
+    "testData": [
+      {
+        "inputs": { "appDescription": "a productivity app that helps remote teams manage async work" },
+        "expectedOutput": "A short, memorable app name.",
+        "actualOutput": "AsyncHQ",
+        "accuracy": "76",
+        "inputTokens": "20",
+        "outputTokens": "4"
+      },
+      {
+        "inputs": { "appDescription": "a budgeting app for freelancers" },
+        "expectedOutput": "A short, memorable app name.",
+        "actualOutput": "FreelanceFunds",
+        "accuracy": "72",
+        "inputTokens": "18",
+        "outputTokens": "4"
+      },
+      {
+        "inputs": { "appDescription": "a wellness app that tracks sleep and stress levels" },
+        "expectedOutput": "A short, memorable app name.",
+        "actualOutput": "RestWell",
+        "accuracy": "74",
+        "inputTokens": "20",
+        "outputTokens": "4"
+      }
+    ]
+  },
+  {
+    "groupId": "13",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Generate {{count}} name ideas for {{appDescription}}. Each name should be short (1–2 words), memorable, and available as a .com domain. Include a one-line rationale for each.",
+    "testData": [
+      {
+        "inputs": { "count": 5, "appDescription": "a B2B productivity app that helps remote teams manage async work" },
+        "expectedOutput": "A short, memorable app name.",
+        "actualOutput": "1. Driftwork – Evokes smooth, uninterrupted async flow. 2. Loopshift – Suggests handoffs and continuous progress across time zones. 3. Cadence – Implies rhythm and structured async momentum. 4. Relay HQ – Communicates team handoffs with a sense of headquarters authority. 5. Stackpass – Suggests layered task progression and seamless passing of work.",
+        "accuracy": "94",
+        "inputTokens": "58",
+        "outputTokens": "76"
+      },
+      {
+        "inputs": { "count": 5, "appDescription": "a budgeting app for freelancers" },
+        "expectedOutput": "A short, memorable app name.",
+        "actualOutput": "1. SoloLedger – Positions the app as a personal finance tool built for independent workers. 2. Payself – Simple and direct, implying control over your own income. 3. Flowbooks – Evokes steady cash flow and clean bookkeeping. 4. Invoicly – Ties the brand to a core freelancer workflow. 5. Earnwise – Suggests financial intelligence tailored to self-employed income.",
+        "accuracy": "94",
+        "inputTokens": "54",
+        "outputTokens": "74"
+      },
+      {
+        "inputs": { "count": 5, "appDescription": "a wellness app that tracks sleep and stress levels" },
+        "expectedOutput": "A short, memorable app name.",
+        "actualOutput": "1. Restiq – Short and modern, evoking intelligent rest tracking. 2. Calmbit – Combines calm and habit, suggesting small daily wellness actions. 3. Driftly – Implies easing into rest naturally. 4. Serenova – A softer brand evoking serenity and wellness data. 5. Napspace – Playful but direct, focused on rest and recovery.",
+        "accuracy": "93",
+        "inputTokens": "56",
+        "outputTokens": "74"
+      }
+    ]
+  },
+  {
+    "groupId": "14",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Explain what {{concept}} is to a non-technical stakeholder.",
+    "testData": [
+      {
+        "inputs": { "concept": "an API" },
+        "expectedOutput": "A plain-language explanation of the concept without jargon.",
+        "actualOutput": "An API is a way for two software applications to talk to each other and share information automatically.",
+        "accuracy": "82",
+        "inputTokens": "16",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "concept": "a database index" },
+        "expectedOutput": "A plain-language explanation of the concept without jargon.",
+        "actualOutput": "A database index helps the system find information faster, like a table of contents in a book.",
+        "accuracy": "80",
+        "inputTokens": "16",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "concept": "machine learning" },
+        "expectedOutput": "A plain-language explanation of the concept without jargon.",
+        "actualOutput": "Machine learning is a way for computers to learn from data and improve at tasks without being explicitly programmed for each one.",
+        "accuracy": "81",
+        "inputTokens": "16",
+        "outputTokens": "26"
+      },
+      {
+        "inputs": { "concept": "a CDN" },
+        "expectedOutput": "A plain-language explanation of the concept without jargon.",
+        "actualOutput": "A CDN is a network of servers that delivers web content to users from the closest location to speed up load times.",
+        "accuracy": "80",
+        "inputTokens": "14",
+        "outputTokens": "26"
+      }
+    ]
+  },
+  {
+    "groupId": "14",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Explain what {{concept}} is to {{audience}} in {{sentenceLimit}} sentences or fewer. Use a real-world analogy. Avoid all technical jargon.",
+    "testData": [
+      {
+        "inputs": { "concept": "an API", "audience": "a non-technical business stakeholder", "sentenceLimit": 3 },
+        "expectedOutput": "A plain-language explanation of the concept without jargon.",
+        "actualOutput": "An API is like a waiter in a restaurant: you tell the waiter what you want, they take your request to the kitchen, and bring back exactly what you ordered. In software, APIs let different products and services communicate and exchange data behind the scenes. This is what allows your CRM to sync with your email tool, or your payment processor to connect with your website.",
+        "accuracy": "98",
+        "inputTokens": "46",
+        "outputTokens": "76"
+      },
+      {
+        "inputs": { "concept": "a database index", "audience": "a non-technical business stakeholder", "sentenceLimit": 3 },
+        "expectedOutput": "A plain-language explanation of the concept without jargon.",
+        "actualOutput": "Think of a database index like the index in the back of a textbook — instead of flipping through every page to find a topic, you go straight to the page number listed. Without it, the system has to scan every record in the database to find what you need, which takes much longer. Adding an index means your app finds and loads information significantly faster.",
+        "accuracy": "98",
+        "inputTokens": "48",
+        "outputTokens": "78"
+      },
+      {
+        "inputs": { "concept": "machine learning", "audience": "a non-technical business stakeholder", "sentenceLimit": 3 },
+        "expectedOutput": "A plain-language explanation of the concept without jargon.",
+        "actualOutput": "Machine learning is like hiring an employee who gets better at their job the more experience they gain — except instead of a person, it's software learning from data. You feed it examples of past outcomes, and it figures out patterns to make predictions or decisions on new situations. This is how spam filters learn to block new junk mail, or how Netflix gets better at recommending shows you'll actually watch.",
+        "accuracy": "98",
+        "inputTokens": "48",
+        "outputTokens": "82"
+      },
+      {
+        "inputs": { "concept": "a CDN", "audience": "a non-technical business stakeholder", "sentenceLimit": 3 },
+        "expectedOutput": "A plain-language explanation of the concept without jargon.",
+        "actualOutput": "A CDN is like having warehouses stocked with your products in multiple cities instead of shipping everything from one location — customers get what they need from the closest warehouse, so delivery is faster. On the web, a CDN stores copies of your site's content on servers around the world so visitors load your pages from a nearby location. This means faster load times for your users no matter where they are.",
+        "accuracy": "98",
+        "inputTokens": "46",
+        "outputTokens": "82"
+      }
+    ]
+  },
+  {
+    "groupId": "15",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Write a decline email for {{emailContext}}.",
+    "testData": [
+      {
+        "inputs": { "emailContext": "a job applicant who was not selected" },
+        "expectedOutput": "A professional, empathetic decline email under 100 words.",
+        "actualOutput": "Thank you for applying. After careful consideration, we have decided to move forward with another candidate. We wish you the best in your search.",
+        "accuracy": "79",
+        "inputTokens": "18",
+        "outputTokens": "32"
+      },
+      {
+        "inputs": { "emailContext": "a vendor proposal that was not selected" },
+        "expectedOutput": "A professional, empathetic decline email under 100 words.",
+        "actualOutput": "Thank you for submitting your proposal. After careful review, we have decided to move forward with another vendor. We appreciate your time and effort.",
+        "accuracy": "77",
+        "inputTokens": "18",
+        "outputTokens": "32"
+      },
+      {
+        "inputs": { "emailContext": "a partnership request that is not a fit" },
+        "expectedOutput": "A professional, empathetic decline email under 100 words.",
+        "actualOutput": "Thank you for reaching out about a potential partnership. After reviewing your proposal, we don't think it's the right fit at this time. We wish you success.",
+        "accuracy": "78",
+        "inputTokens": "20",
+        "outputTokens": "34"
+      }
+    ]
+  },
+  {
+    "groupId": "15",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Write a professional and empathetic {{emailType}} email. {{context}}. Keep it under {{wordLimit}} words. Do not use '{{avoidPhrase}}'.",
+    "testData": [
+      {
+        "inputs": { "emailType": "job application decline", "context": "The candidate interviewed but was not selected. Acknowledge their time, briefly note the decision without false praise, and leave the door open for future roles", "wordLimit": 100, "avoidPhrase": "we regret to inform you" },
+        "expectedOutput": "A professional, empathetic decline email under 100 words.",
+        "actualOutput": "Hi [Name], thank you for taking the time to interview with us. After a thorough review, we've decided to move forward with another candidate whose experience more closely matches our current needs. This was a competitive process and not a reflection of your qualifications. We'll keep your information on file and encourage you to apply for future openings. Wishing you all the best.",
+        "accuracy": "97",
+        "inputTokens": "72",
+        "outputTokens": "78"
+      },
+      {
+        "inputs": { "emailType": "vendor proposal decline", "context": "The vendor submitted a proposal but was not selected. Acknowledge their effort, note the decision briefly, and keep the relationship warm for future consideration", "wordLimit": 100, "avoidPhrase": "we regret to inform you" },
+        "expectedOutput": "A professional, empathetic decline email under 100 words.",
+        "actualOutput": "Hi [Name], thank you for the time and thought you put into your proposal. After careful review, we've decided to move in a different direction for this engagement. This was not an easy decision and reflects the strength of the submissions we received. We'll keep your team in mind for future opportunities and hope to find the right fit down the road.",
+        "accuracy": "97",
+        "inputTokens": "74",
+        "outputTokens": "76"
+      },
+      {
+        "inputs": { "emailType": "partnership request decline", "context": "The request is not a strategic fit at this time. Be respectful, avoid vague excuses, and leave the door open", "wordLimit": 100, "avoidPhrase": "we regret to inform you" },
+        "expectedOutput": "A professional, empathetic decline email under 100 words.",
+        "actualOutput": "Hi [Name], thank you for thinking of us and for the detail you shared about your work. After reviewing the opportunity, we don't think it's the right fit for where we're focused right now — though that's a reflection of our current priorities, not the quality of what you're building. We'd welcome the chance to revisit this as things evolve on both sides.",
+        "accuracy": "97",
+        "inputTokens": "72",
+        "outputTokens": "78"
+      }
+    ]
+  },
+  {
+    "groupId": "16",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "List {{count}} best practices for {{topic}}.",
+    "testData": [
+      {
+        "inputs": { "count": 5, "topic": "writing clean Python code" },
+        "expectedOutput": "5 actionable best practices for the topic.",
+        "actualOutput": "1. Use meaningful variable names. 2. Follow PEP 8 style guidelines. 3. Write docstrings for functions. 4. Keep functions short and focused. 5. Handle exceptions properly.",
+        "accuracy": "83",
+        "inputTokens": "14",
+        "outputTokens": "38"
+      },
+      {
+        "inputs": { "count": 5, "topic": "writing accessible UI components" },
+        "expectedOutput": "5 actionable best practices for the topic.",
+        "actualOutput": "1. Use semantic HTML elements. 2. Add alt text to all images. 3. Ensure sufficient color contrast. 4. Make all interactions keyboard navigable. 5. Test with a screen reader.",
+        "accuracy": "82",
+        "inputTokens": "14",
+        "outputTokens": "38"
+      }
+    ]
+  },
+  {
+    "groupId": "16",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "List {{count}} best practices for {{topic}} targeting {{audience}}. For each practice, include a one-line explanation and a short code example demonstrating good vs. bad usage.",
+    "testData": [
+      {
+        "inputs": { "count": 5, "topic": "writing clean Python code", "audience": "mid-level engineers" },
+        "expectedOutput": "5 actionable best practices for the topic.",
+        "actualOutput": "1. Use descriptive names: Names should reveal intent. Bad: `d = 86400` Good: `SECONDS_PER_DAY = 86400`. 2. Follow PEP 8: Consistent formatting reduces cognitive load. Bad: `def foo(x,y):return x+y` Good: `def add(x, y): return x + y`. 3. Write docstrings: Document what, not how. 4. Keep functions focused: One function, one responsibility. 5. Use specific exceptions: Bad: `except Exception` Good: `except ValueError as e`.",
+        "accuracy": "97",
+        "inputTokens": "56",
+        "outputTokens": "128"
+      },
+      {
+        "inputs": { "count": 5, "topic": "writing accessible UI components", "audience": "mid-level front-end engineers" },
+        "expectedOutput": "5 actionable best practices for the topic.",
+        "actualOutput": "1. Use semantic HTML: Bad: `<div onClick={...}>` Good: `<button onClick={...}>`. 2. Always include alt text: Bad: `<img src='...' />` Good: `<img src='...' alt='User avatar' />`. 3. Ensure contrast ratio meets WCAG AA (4.5:1 minimum). 4. Trap focus in modals: Use `focus-trap` or `inert` to prevent background interaction. 5. Announce dynamic content: Use `aria-live='polite'` for status updates.",
+        "accuracy": "97",
+        "inputTokens": "58",
+        "outputTokens": "118"
+      }
+    ]
+  },
+  {
+    "groupId": "17",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Create a short push notification for {{campaign}}.",
+    "testData": [
+      {
+        "inputs": { "campaign": "a flash sale ending in 2 hours" },
+        "expectedOutput": "A short push notification under 60 characters with urgency and a CTA.",
+        "actualOutput": "Flash sale ends in 2 hours! Shop now and save up to 50%.",
+        "accuracy": "80",
+        "inputTokens": "18",
+        "outputTokens": "16"
+      },
+      {
+        "inputs": { "campaign": "a new feature release" },
+        "expectedOutput": "A short push notification under 60 characters with urgency and a CTA.",
+        "actualOutput": "New feature just dropped. Check it out now!",
+        "accuracy": "76",
+        "inputTokens": "16",
+        "outputTokens": "12"
+      },
+      {
+        "inputs": { "campaign": "an abandoned cart reminder" },
+        "expectedOutput": "A short push notification under 60 characters with urgency and a CTA.",
+        "actualOutput": "You left something behind. Complete your purchase today.",
+        "accuracy": "78",
+        "inputTokens": "16",
+        "outputTokens": "12"
+      },
+      {
+        "inputs": { "campaign": "a subscription renewal reminder" },
+        "expectedOutput": "A short push notification under 60 characters with urgency and a CTA.",
+        "actualOutput": "Your subscription renews soon. Review your plan now.",
+        "accuracy": "77",
+        "inputTokens": "16",
+        "outputTokens": "12"
+      }
+    ]
+  },
+  {
+    "groupId": "17",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Write {{count}} push notification options for {{campaign}}. Each must be under {{charLimit}} characters, create urgency without being spammy, and include a clear CTA. Label which performs best for {{targetUser}}.",
+    "testData": [
+      {
+        "inputs": { "count": 3, "campaign": "a flash sale ending in 2 hours", "charLimit": 60, "targetUser": "high-intent users" },
+        "expectedOutput": "A short push notification under 60 characters with urgency and a CTA.",
+        "actualOutput": "1. [Best for high-intent] '2 hrs left: Up to 50% off. Grab it now.' 2. 'Flash sale ending soon — don't miss out. Shop now.' 3. 'Your deal expires in 2 hours. Claim it before it's gone.'",
+        "accuracy": "96",
+        "inputTokens": "60",
+        "outputTokens": "54"
+      },
+      {
+        "inputs": { "count": 3, "campaign": "a new feature release", "charLimit": 60, "targetUser": "power users" },
+        "expectedOutput": "A short push notification under 60 characters with urgency and a CTA.",
+        "actualOutput": "1. [Best for power users] 'New: [Feature] is live. See what's changed.' 2. 'Just shipped: [Feature]. Tap to explore.' 3. 'Your app just got better. Check out [Feature] now.'",
+        "accuracy": "95",
+        "inputTokens": "58",
+        "outputTokens": "52"
+      },
+      {
+        "inputs": { "count": 3, "campaign": "an abandoned cart reminder", "charLimit": 60, "targetUser": "price-sensitive users" },
+        "expectedOutput": "A short push notification under 60 characters with urgency and a CTA.",
+        "actualOutput": "1. [Best for price-sensitive] 'Your cart is waiting — and so is free shipping.' 2. 'Still thinking it over? Items sell out fast.' 3. 'Complete your order before your cart expires.'",
+        "accuracy": "96",
+        "inputTokens": "58",
+        "outputTokens": "50"
+      },
+      {
+        "inputs": { "count": 3, "campaign": "a subscription renewal reminder", "charLimit": 60, "targetUser": "at-risk churn users" },
+        "expectedOutput": "A short push notification under 60 characters with urgency and a CTA.",
+        "actualOutput": "1. [Best for at-risk churn] 'Your plan renews in 3 days. Manage it here.' 2. 'Don't lose access — renew your subscription now.' 3. 'Stay connected: your renewal is coming up soon.'",
+        "accuracy": "96",
+        "inputTokens": "60",
+        "outputTokens": "52"
+      }
+    ]
+  },
+  {
+    "groupId": "18",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Describe the difference between {{conceptA}} and {{conceptB}}.",
+    "testData": [
+      {
+        "inputs": { "conceptA": "supervised", "conceptB": "unsupervised machine learning" },
+        "expectedOutput": "A plain-language explanation of the difference between the two concepts.",
+        "actualOutput": "Supervised learning uses labeled data to train models to make predictions. Unsupervised learning finds patterns in data without labels.",
+        "accuracy": "84",
+        "inputTokens": "16",
+        "outputTokens": "26"
+      },
+      {
+        "inputs": { "conceptA": "REST", "conceptB": "GraphQL" },
+        "expectedOutput": "A plain-language explanation of the difference between the two concepts.",
+        "actualOutput": "REST uses fixed endpoints that return predefined data structures. GraphQL lets clients request exactly the data they need in a single query.",
+        "accuracy": "83",
+        "inputTokens": "14",
+        "outputTokens": "28"
+      },
+      {
+        "inputs": { "conceptA": "authentication", "conceptB": "authorization" },
+        "expectedOutput": "A plain-language explanation of the difference between the two concepts.",
+        "actualOutput": "Authentication verifies who you are. Authorization determines what you are allowed to do.",
+        "accuracy": "85",
+        "inputTokens": "14",
+        "outputTokens": "18"
+      }
+    ]
+  },
+  {
+    "groupId": "18",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Explain the difference between {{conceptA}} and {{conceptB}} for {{audience}}. Use one concrete example for each. Keep the total response under {{wordLimit}} words.",
+    "testData": [
+      {
+        "inputs": { "conceptA": "supervised", "conceptB": "unsupervised machine learning", "audience": "a product manager with no ML background", "wordLimit": 100 },
+        "expectedOutput": "A plain-language explanation of the difference between the two concepts.",
+        "actualOutput": "Supervised learning trains a model on labeled examples so it can predict outcomes on new data — like training a spam filter on emails already marked spam or not spam. Unsupervised learning finds hidden patterns in unlabeled data — like grouping customers by purchase behavior without telling the model what the groups should be. The key difference is whether you're teaching the model the right answer upfront.",
+        "accuracy": "98",
+        "inputTokens": "52",
+        "outputTokens": "78"
+      },
+      {
+        "inputs": { "conceptA": "REST", "conceptB": "GraphQL", "audience": "a product manager with no engineering background", "wordLimit": 100 },
+        "expectedOutput": "A plain-language explanation of the difference between the two concepts.",
+        "actualOutput": "REST is like ordering from a fixed menu — you request a specific dish and get exactly what's listed, even if you only wanted part of it. GraphQL is like telling the kitchen exactly what you want — just the protein, no sides — and getting back only that. REST is simpler to set up; GraphQL is more efficient when different clients need different data from the same source.",
+        "accuracy": "98",
+        "inputTokens": "54",
+        "outputTokens": "80"
+      },
+      {
+        "inputs": { "conceptA": "authentication", "conceptB": "authorization", "audience": "a non-technical business stakeholder", "wordLimit": 100 },
+        "expectedOutput": "A plain-language explanation of the difference between the two concepts.",
+        "actualOutput": "Authentication is the process of confirming who you are — like showing your ID at the door. Authorization is what happens next: determining what you're allowed to do once you're inside — like whether you can access the VIP section. In software, authentication verifies your login, and authorization controls which features, data, or actions you have access to based on your role.",
+        "accuracy": "99",
+        "inputTokens": "50",
+        "outputTokens": "76"
+      }
+    ]
+  },
+  {
+    "groupId": "19",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Write a tooltip for a button labeled '{{buttonLabel}}'.",
+    "testData": [
+      {
+        "inputs": { "buttonLabel": "Archive" },
+        "expectedOutput": "A short tooltip under 15 words.",
+        "actualOutput": "Archive this item.",
+        "accuracy": "75",
+        "inputTokens": "14",
+        "outputTokens": "5"
+      },
+      {
+        "inputs": { "buttonLabel": "Delete" },
+        "expectedOutput": "A short tooltip under 15 words.",
+        "actualOutput": "Delete this item permanently.",
+        "accuracy": "74",
+        "inputTokens": "12",
+        "outputTokens": "5"
+      },
+      {
+        "inputs": { "buttonLabel": "Export" },
+        "expectedOutput": "A short tooltip under 15 words.",
+        "actualOutput": "Export this data to a file.",
+        "accuracy": "75",
+        "inputTokens": "12",
+        "outputTokens": "6"
+      },
+      {
+        "inputs": { "buttonLabel": "Duplicate" },
+        "expectedOutput": "A short tooltip under 15 words.",
+        "actualOutput": "Create a copy of this item.",
+        "accuracy": "74",
+        "inputTokens": "12",
+        "outputTokens": "6"
+      }
+    ]
+  },
+  {
+    "groupId": "19",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Write a UX microcopy tooltip for a '{{buttonLabel}}' button in {{appContext}}. It should explain what {{action}} does, distinguish it from {{relatedAction}}, and stay under {{wordLimit}} words.",
+    "testData": [
+      {
+        "inputs": { "buttonLabel": "Archive", "appContext": "an enterprise document management app", "action": "archiving", "relatedAction": "deletion", "wordLimit": 15 },
+        "expectedOutput": "A short tooltip under 15 words.",
+        "actualOutput": "Move to archive. The item is hidden but not deleted and can be restored.",
+        "accuracy": "97",
+        "inputTokens": "52",
+        "outputTokens": "17"
+      },
+      {
+        "inputs": { "buttonLabel": "Delete", "appContext": "an enterprise document management app", "action": "deleting", "relatedAction": "archiving", "wordLimit": 15 },
+        "expectedOutput": "A short tooltip under 15 words.",
+        "actualOutput": "Permanently remove this item. Unlike archiving, this cannot be undone.",
+        "accuracy": "97",
+        "inputTokens": "52",
+        "outputTokens": "14"
+      },
+      {
+        "inputs": { "buttonLabel": "Export", "appContext": "a data analytics dashboard", "action": "exporting", "relatedAction": "sharing a link", "wordLimit": 15 },
+        "expectedOutput": "A short tooltip under 15 words.",
+        "actualOutput": "Download this data as a file. Unlike sharing a link, this creates a local copy.",
+        "accuracy": "97",
+        "inputTokens": "54",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "buttonLabel": "Duplicate", "appContext": "a project management tool", "action": "duplicating", "relatedAction": "creating a template", "wordLimit": 15 },
+        "expectedOutput": "A short tooltip under 15 words.",
+        "actualOutput": "Create an editable copy of this item with all existing content preserved.",
+        "accuracy": "97",
+        "inputTokens": "54",
+        "outputTokens": "14"
+      }
+    ]
+  },
+  {
+    "groupId": "20",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Generate a regex pattern that validates {{validationTarget}}.",
+    "testData": [
+      {
+        "inputs": { "validationTarget": "a US phone number" },
+        "expectedOutput": "A valid regex pattern for the target format.",
+        "actualOutput": "^\\+?1?\\s?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
+        "accuracy": "83",
+        "inputTokens": "14",
+        "outputTokens": "26"
+      },
+      {
+        "inputs": { "validationTarget": "a US ZIP code" },
+        "expectedOutput": "A valid regex pattern for the target format.",
+        "actualOutput": "^\\d{5}(-\\d{4})?$",
+        "accuracy": "85",
+        "inputTokens": "12",
+        "outputTokens": "14"
+      },
+      {
+        "inputs": { "validationTarget": "an email address" },
+        "expectedOutput": "A valid regex pattern for the target format.",
+        "actualOutput": "^[\\w.-]+@[\\w.-]+\\.[a-zA-Z]{2,}$",
+        "accuracy": "84",
+        "inputTokens": "12",
+        "outputTokens": "20"
+      }
+    ]
+  },
+  {
+    "groupId": "20",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Generate a {{language}} regex pattern that validates {{validationTarget}} including formats: {{formats}}. Include a brief explanation of each part of the pattern and a test snippet.",
+    "testData": [
+      {
+        "inputs": { "language": "JavaScript", "validationTarget": "common US phone number formats", "formats": "(555) 555-5555, 555-555-5555, 555.555.5555, and +1 555 555 5555" },
+        "expectedOutput": "A valid regex pattern for the target format.",
+        "actualOutput": "Pattern: /^(\\+1\\s?)?\\(?\\d{3}\\)?[\\s.\\-]?\\d{3}[\\s.\\-]?\\d{4}$/. Breakdown: optional country code, area code with optional parens, optional separator, 7-digit local number. Test: phoneRegex.test('(555) 555-5555') // true",
+        "accuracy": "98",
+        "inputTokens": "76",
+        "outputTokens": "116"
+      },
+      {
+        "inputs": { "language": "JavaScript", "validationTarget": "US ZIP codes", "formats": "12345 and 12345-6789" },
+        "expectedOutput": "A valid regex pattern for the target format.",
+        "actualOutput": "Pattern: /^\\d{5}(-\\d{4})?$/. Breakdown: 5 required digits, optional hyphen + 4-digit extension. Test: zipRegex.test('12345') // true, zipRegex.test('12345-6789') // true",
+        "accuracy": "98",
+        "inputTokens": "64",
+        "outputTokens": "58"
+      },
+      {
+        "inputs": { "language": "JavaScript", "validationTarget": "email addresses", "formats": "user@example.com and user.name+tag@sub.domain.co" },
+        "expectedOutput": "A valid regex pattern for the target format.",
+        "actualOutput": "Pattern: /^[\\w.+\\-]+@[\\w\\-]+(?:\\.[\\w\\-]+)*\\.[a-zA-Z]{2,}$/. Breakdown: local part allows word chars, dots, plus, hyphen; domain segments separated by dots; TLD 2+ chars. Test: emailRegex.test('user@example.com') // true",
+        "accuracy": "97",
+        "inputTokens": "70",
+        "outputTokens": "80"
+      }
+    ]
+  },
+  {
+    "groupId": "21",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Write a brief error message for {{errorContext}}.",
+    "testData": [
+      {
+        "inputs": { "errorContext": "a failed file upload" },
+        "expectedOutput": "A clear error message that tells the user what happened and what to do next.",
+        "actualOutput": "File upload failed. Please try again.",
+        "accuracy": "74",
+        "inputTokens": "14",
+        "outputTokens": "8"
+      },
+      {
+        "inputs": { "errorContext": "an invalid form submission" },
+        "expectedOutput": "A clear error message that tells the user what happened and what to do next.",
+        "actualOutput": "Some fields are invalid. Please review and try again.",
+        "accuracy": "73",
+        "inputTokens": "14",
+        "outputTokens": "10"
+      },
+      {
+        "inputs": { "errorContext": "a failed payment" },
+        "expectedOutput": "A clear error message that tells the user what happened and what to do next.",
+        "actualOutput": "Payment failed. Please check your details and try again.",
+        "accuracy": "75",
+        "inputTokens": "12",
+        "outputTokens": "10"
+      },
+      {
+        "inputs": { "errorContext": "a session timeout" },
+        "expectedOutput": "A clear error message that tells the user what happened and what to do next.",
+        "actualOutput": "Your session has expired. Please log in again.",
+        "accuracy": "76",
+        "inputTokens": "12",
+        "outputTokens": "10"
+      }
+    ]
+  },
+  {
+    "groupId": "21",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Write a UX error message for {{errorContext}} in {{appContext}}. The message should: identify what went wrong, tell the user what to do next, and offer a fallback action. Keep it under {{wordLimit}} words. Avoid technical jargon.",
+    "testData": [
+      {
+        "inputs": { "errorContext": "a failed file upload", "appContext": "a web app", "wordLimit": 25 },
+        "expectedOutput": "A clear error message that tells the user what happened and what to do next.",
+        "actualOutput": "Upload failed. Check your file size and format, then try again. If the problem continues, contact support.",
+        "accuracy": "97",
+        "inputTokens": "58",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "errorContext": "an invalid form submission", "appContext": "a web app", "wordLimit": 25 },
+        "expectedOutput": "A clear error message that tells the user what happened and what to do next.",
+        "actualOutput": "Some fields need attention. Review the highlighted fields and resubmit. Contact support if the issue persists.",
+        "accuracy": "97",
+        "inputTokens": "56",
+        "outputTokens": "18"
+      },
+      {
+        "inputs": { "errorContext": "a failed payment", "appContext": "an e-commerce checkout", "wordLimit": 25 },
+        "expectedOutput": "A clear error message that tells the user what happened and what to do next.",
+        "actualOutput": "Payment could not be processed. Check your card details and try again, or use a different payment method.",
+        "accuracy": "98",
+        "inputTokens": "58",
+        "outputTokens": "20"
+      },
+      {
+        "inputs": { "errorContext": "a session timeout", "appContext": "an enterprise dashboard", "wordLimit": 25 },
+        "expectedOutput": "A clear error message that tells the user what happened and what to do next.",
+        "actualOutput": "Your session expired due to inactivity. Sign in again to continue. Your unsaved changes may not have been preserved.",
+        "accuracy": "97",
+        "inputTokens": "56",
+        "outputTokens": "20"
+      }
+    ]
+  },
+  {
+    "groupId": "22",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Summarize the key benefits of {{topic}} for {{audience}}.",
+    "testData": [
+      {
+        "inputs": { "topic": "Agile methodology", "audience": "a non-technical audience" },
+        "expectedOutput": "A concise summary of key benefits without process jargon.",
+        "actualOutput": "Agile helps teams work faster by breaking projects into smaller pieces, getting frequent feedback, and adapting to changes quickly.",
+        "accuracy": "81",
+        "inputTokens": "18",
+        "outputTokens": "26"
+      },
+      {
+        "inputs": { "topic": "cloud computing", "audience": "a non-technical audience" },
+        "expectedOutput": "A concise summary of key benefits without process jargon.",
+        "actualOutput": "Cloud computing lets businesses access software and storage over the internet, reducing the need for expensive hardware and enabling teams to work from anywhere.",
+        "accuracy": "80",
+        "inputTokens": "16",
+        "outputTokens": "30"
+      },
+      {
+        "inputs": { "topic": "automated testing", "audience": "a non-technical product manager" },
+        "expectedOutput": "A concise summary of key benefits without process jargon.",
+        "actualOutput": "Automated testing helps catch bugs earlier, speeds up releases, and reduces the risk of shipping broken features to customers.",
+        "accuracy": "81",
+        "inputTokens": "18",
+        "outputTokens": "26"
+      }
+    ]
+  },
+  {
+    "groupId": "22",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Summarize the top {{count}} business benefits of {{topic}} for {{audience}} in {{count}} bullet points. Each bullet should be one sentence and focus on {{emphasis}}.",
+    "testData": [
+      {
+        "inputs": { "count": 3, "topic": "Agile methodology", "audience": "a VP-level non-technical audience", "emphasis": "business outcomes, not process mechanics" },
+        "expectedOutput": "A concise summary of key benefits without process jargon.",
+        "actualOutput": "- Agile reduces time-to-market by delivering working increments of a product on a regular cadence. - It lowers risk by surfacing problems early through continuous feedback loops. - Teams can respond to shifting business priorities mid-project without costly rework.",
+        "accuracy": "97",
+        "inputTokens": "56",
+        "outputTokens": "66"
+      },
+      {
+        "inputs": { "count": 3, "topic": "cloud computing", "audience": "a VP-level non-technical audience", "emphasis": "business outcomes, not technical architecture" },
+        "expectedOutput": "A concise summary of key benefits without process jargon.",
+        "actualOutput": "- Cloud computing eliminates large upfront infrastructure costs by shifting to a predictable monthly operating expense. - It enables teams to scale capacity up or down instantly based on demand, reducing waste and over-provisioning. - Remote access to all tools and data supports distributed teams without relying on on-site hardware.",
+        "accuracy": "97",
+        "inputTokens": "56",
+        "outputTokens": "68"
+      },
+      {
+        "inputs": { "count": 3, "topic": "automated testing", "audience": "a VP-level non-technical audience", "emphasis": "business outcomes, not engineering process" },
+        "expectedOutput": "A concise summary of key benefits without process jargon.",
+        "actualOutput": "- Automated testing reduces the cost of bugs by catching them before they reach customers, when fixes are cheapest. - It enables faster release cycles by removing the bottleneck of manual QA on every update. - Consistent test coverage lowers the risk of regressions, protecting product reliability as the codebase grows.",
+        "accuracy": "97",
+        "inputTokens": "58",
+        "outputTokens": "68"
+      }
+    ]
+  },
+  {
+    "groupId": "23",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Write a meta description for a landing page selling {{product}}.",
+    "testData": [
+      {
+        "inputs": { "product": "project management software" },
+        "expectedOutput": "An SEO-friendly meta description under 155 characters.",
+        "actualOutput": "Manage projects, track progress, and collaborate with your team — all in one place. Try it free today.",
+        "accuracy": "78",
+        "inputTokens": "16",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "product": "an AI writing assistant" },
+        "expectedOutput": "An SEO-friendly meta description under 155 characters.",
+        "actualOutput": "Write faster and smarter with an AI assistant that helps you draft, edit, and polish content in minutes.",
+        "accuracy": "77",
+        "inputTokens": "16",
+        "outputTokens": "22"
+      },
+      {
+        "inputs": { "product": "a cybersecurity platform for small businesses" },
+        "expectedOutput": "An SEO-friendly meta description under 155 characters.",
+        "actualOutput": "Protect your business from cyber threats with easy-to-use security tools built for small teams. No IT team required.",
+        "accuracy": "78",
+        "inputTokens": "18",
+        "outputTokens": "24"
+      }
+    ]
+  },
+  {
+    "groupId": "23",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Write an SEO-optimized meta description for a {{product}} landing page targeting {{audience}}. Include a primary keyword, a differentiator, and a CTA. Stay under {{charLimit}} characters.",
+    "testData": [
+      {
+        "inputs": { "product": "project management software", "audience": "small business owners", "charLimit": 155 },
+        "expectedOutput": "An SEO-friendly meta description under 155 characters.",
+        "actualOutput": "Streamline projects and team collaboration with software built for small businesses. Stay on deadline, reduce chaos. Start your free trial today.",
+        "accuracy": "97",
+        "inputTokens": "52",
+        "outputTokens": "30"
+      },
+      {
+        "inputs": { "product": "AI writing assistant", "audience": "content marketers", "charLimit": 155 },
+        "expectedOutput": "An SEO-friendly meta description under 155 characters.",
+        "actualOutput": "Generate high-quality content 10x faster with an AI writing assistant built for marketers. From first draft to final copy. Try it free.",
+        "accuracy": "97",
+        "inputTokens": "50",
+        "outputTokens": "30"
+      },
+      {
+        "inputs": { "product": "cybersecurity platform for small businesses", "audience": "small business owners without IT staff", "charLimit": 155 },
+        "expectedOutput": "An SEO-friendly meta description under 155 characters.",
+        "actualOutput": "Protect your business from cyber threats with a cybersecurity platform designed for small teams — no IT expertise required. Get protected today.",
+        "accuracy": "97",
+        "inputTokens": "54",
+        "outputTokens": "30"
+      }
+    ]
+  },
+  {
+    "groupId": "24",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "template": "Create a short changelog entry for {{feature}}.",
+    "testData": [
+      {
+        "inputs": { "feature": "a new dark mode feature" },
+        "expectedOutput": "A concise changelog entry under 40 words.",
+        "actualOutput": "Added dark mode support across the app.",
+        "accuracy": "77",
+        "inputTokens": "14",
+        "outputTokens": "9"
+      },
+      {
+        "inputs": { "feature": "a bulk export feature" },
+        "expectedOutput": "A concise changelog entry under 40 words.",
+        "actualOutput": "Added bulk export. Users can now export multiple records at once.",
+        "accuracy": "76",
+        "inputTokens": "14",
+        "outputTokens": "14"
+      },
+      {
+        "inputs": { "feature": "keyboard shortcuts for common actions" },
+        "expectedOutput": "A concise changelog entry under 40 words.",
+        "actualOutput": "Added keyboard shortcuts for common actions to improve navigation speed.",
+        "accuracy": "77",
+        "inputTokens": "16",
+        "outputTokens": "14"
+      }
+    ]
+  },
+  {
+    "groupId": "24",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "template": "Write a changelog entry for {{feature}} in a SaaS product. Follow this format: feature name, one-sentence description of what it does, and one sentence on how to enable it. Keep it under {{wordLimit}} words. Tone: {{tone}}.",
+    "testData": [
+      {
+        "inputs": { "feature": "a newly shipped dark mode feature", "wordLimit": 40, "tone": "clear and developer-friendly" },
+        "expectedOutput": "A concise changelog entry under 40 words.",
+        "actualOutput": "Dark Mode: The app now supports a full dark color theme across all surfaces, reducing eye strain in low-light environments. Enable it under Settings → Appearance → Theme.",
+        "accuracy": "98",
+        "inputTokens": "62",
+        "outputTokens": "34"
+      },
+      {
+        "inputs": { "feature": "a bulk export feature", "wordLimit": 40, "tone": "clear and developer-friendly" },
+        "expectedOutput": "A concise changelog entry under 40 words.",
+        "actualOutput": "Bulk Export: You can now select and export multiple records simultaneously as a CSV or JSON file. Access it from the table toolbar via the Export dropdown.",
+        "accuracy": "98",
+        "inputTokens": "60",
+        "outputTokens": "34"
+      },
+      {
+        "inputs": { "feature": "keyboard shortcuts for common actions", "wordLimit": 40, "tone": "clear and developer-friendly" },
+        "expectedOutput": "A concise changelog entry under 40 words.",
+        "actualOutput": "Keyboard Shortcuts: Common actions like save, search, and navigate are now accessible via keyboard shortcuts to speed up your workflow. View the full shortcut list under Help → Keyboard Shortcuts.",
+        "accuracy": "98",
+        "inputTokens": "64",
+        "outputTokens": "36"
+      }
+    ]
+  }
+]

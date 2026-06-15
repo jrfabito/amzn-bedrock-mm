@@ -80,8 +80,8 @@ const FILTERING_PROPERTIES: PropertyFilterProps.FilteringProperty[] = [
   { key: "groupId",          propertyLabel: "Group ID",       operators: [":", "!:", "=", "!="],              groupValuesLabel: "Group ID values" },
   { key: "model",            propertyLabel: "Model",          operators: [":", "!:", "=", "!="],              groupValuesLabel: "Model values" },
   { key: "template",         propertyLabel: "Template",       operators: [":", "!:"],                         groupValuesLabel: "Template values" },
-  { key: "accuracy",         propertyLabel: "Accuracy (%)",   operators: ["=", "!=", ">", ">=", "<", "<="],  groupValuesLabel: "Accuracy values" },
-  { key: "accuracyDelta",    propertyLabel: "Δ Accuracy (%)", operators: ["=", "!=", ">", ">=", "<", "<="],  groupValuesLabel: "Accuracy Δ values" },
+  { key: "accuracy",         propertyLabel: "Relative quality",   operators: ["=", "!=", ">", ">=", "<", "<="],  groupValuesLabel: "Relative quality values" },
+  { key: "accuracyDelta",    propertyLabel: "Δ Relative quality", operators: ["=", "!=", ">", ">=", "<", "<="],  groupValuesLabel: "Relative quality Δ values" },
   { key: "inputTokens",      propertyLabel: "Input tokens",   operators: ["=", "!=", ">", ">=", "<", "<="],  groupValuesLabel: "Input token values" },
   { key: "inputTokensDelta", propertyLabel: "Δ Input tokens", operators: ["=", "!=", ">", ">=", "<", "<="],  groupValuesLabel: "Input tokens Δ values" },
   { key: "outputTokens",     propertyLabel: "Output tokens",  operators: ["=", "!=", ">", ">=", "<", "<="],  groupValuesLabel: "Output token values" },
@@ -136,7 +136,7 @@ const FIXED_TEST_DATA_COLUMNS = [
   },
   {
     id: "accuracy",
-    header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+    header: <span style={{ display: "block", textAlign: "right" }}>Relative quality</span>,
     cell: (td: TestDataCase) => <span style={{ display: "block", textAlign: "right" }}>{td.accuracy}</span>,
   },
   {
@@ -334,7 +334,7 @@ export default function StartShadowTestingPage() {
       },
       {
         id: "accuracy",
-        header: <span style={{ display: "block", textAlign: "right" }}>Accuracy (%)</span>,
+        header: <span style={{ display: "block", textAlign: "right" }}>Relative quality</span>,
         cell: (item: PromptTemplateEntry) => {
           const { value } = getDelta(item, "accuracy");
           return <span style={{ display: "block", textAlign: "right" }}>{value}</span>;
@@ -344,7 +344,7 @@ export default function StartShadowTestingPage() {
       },
       {
         id: "accuracyDelta",
-        header: <span style={{ display: "block", textAlign: "right" }}>Δ Accuracy (%)</span>,
+        header: <span style={{ display: "block", textAlign: "right" }}>Δ Relative quality</span>,
         cell: (item: PromptTemplateEntry) => {
           const { delta } = getDelta(item, "accuracy");
           if (delta === null) return "—";

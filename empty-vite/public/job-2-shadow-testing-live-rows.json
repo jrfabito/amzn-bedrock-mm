@@ -1,0 +1,1142 @@
+[
+  {
+    "requestId": "req-01-001",
+    "groupId": "01",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T10:22:14Z",
+    "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, identifying overall sentiment. Review: 'The keyboard feels premium but keys start sticking in humid weather.'",
+    "groundTruth": "Keyboard build quality is praised but performance degrades in humid conditions.",
+    "source": {
+      "actualOutput": "Keyboard quality is appreciated but has humidity-related reliability issues.",
+      "accuracy": 83,
+      "inputTokens": 29,
+      "outputTokens": 18
+    },
+    "target": {
+      "actualOutput": "The reviewer is generally positive about the product.",
+      "accuracy": 51,
+      "inputTokens": 46,
+      "outputTokens": 15
+    }
+  },
+  {
+    "requestId": "req-01-002",
+    "groupId": "01",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T14:08:33Z",
+    "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, identifying overall sentiment. Review: 'Setup was straightforward but the companion app crashes on Android.'",
+    "groundTruth": "Installation is easy but Android app stability is a significant problem.",
+    "source": {
+      "actualOutput": "Initial setup is smooth but the Android app has serious stability issues.",
+      "accuracy": 81,
+      "inputTokens": 27,
+      "outputTokens": 17
+    },
+    "target": {
+      "actualOutput": "The overall experience has both positive and negative aspects.",
+      "accuracy": 48,
+      "inputTokens": 44,
+      "outputTokens": 14
+    }
+  },
+  {
+    "requestId": "req-01-003",
+    "groupId": "01",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T09:47:55Z",
+    "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, identifying overall sentiment. Review: 'Love the design but the charging port feels loose after a week of use.'",
+    "groundTruth": "Aesthetic design is a highlight but build quality around the charging port is poor.",
+    "source": {
+      "actualOutput": "Design earns praise but the charging port durability is a concern.",
+      "accuracy": 80,
+      "inputTokens": 30,
+      "outputTokens": 17
+    },
+    "target": {
+      "actualOutput": "The sentiment is mixed with some positive and negative points.",
+      "accuracy": 55,
+      "inputTokens": 47,
+      "outputTokens": 16
+    }
+  },
+  {
+    "requestId": "req-01-004",
+    "groupId": "01",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T16:03:21Z",
+    "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, identifying overall sentiment. Review: 'Customer service was responsive but the replacement took over a week.'",
+    "groundTruth": "Support responsiveness is good but replacement delivery speed disappointed the customer.",
+    "source": {
+      "actualOutput": "Support response is timely but replacement delivery was unexpectedly slow.",
+      "accuracy": 82,
+      "inputTokens": 28,
+      "outputTokens": 18
+    },
+    "target": {
+      "actualOutput": "The reviewer had a positive support experience despite some delays.",
+      "accuracy": 52,
+      "inputTokens": 45,
+      "outputTokens": 15
+    }
+  },
+  {
+    "requestId": "req-02-001",
+    "groupId": "02",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T11:15:42Z",
+    "resolvedInput": "Translate the following customer support message to Italian, maintaining a professional tone. Text: 'Your account has been temporarily suspended for unusual activity.'",
+    "groundTruth": "Il tuo account è stato temporaneamente sospeso per attività insolita.",
+    "source": {
+      "actualOutput": "Il tuo account è stato temporaneamente sospeso per attività insolita.",
+      "accuracy": 86,
+      "inputTokens": 24,
+      "outputTokens": 17
+    },
+    "target": {
+      "actualOutput": "Il suo account è stato temporaneamente sospeso a causa di un'attività insolita.",
+      "accuracy": 93,
+      "inputTokens": 40,
+      "outputTokens": 19
+    }
+  },
+  {
+    "requestId": "req-02-002",
+    "groupId": "02",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T09:38:17Z",
+    "resolvedInput": "Translate the following customer support message to French, maintaining a professional tone. Text: 'We are currently experiencing higher than usual wait times.'",
+    "groundTruth": "Nous rencontrons actuellement des temps d'attente supérieurs à la normale.",
+    "source": {
+      "actualOutput": "Nous connaissons actuellement des temps d'attente plus longs que d'habitude.",
+      "accuracy": 87,
+      "inputTokens": 24,
+      "outputTokens": 18
+    },
+    "target": {
+      "actualOutput": "Nous vous informons que les délais d'attente sont actuellement supérieurs à la normale.",
+      "accuracy": 94,
+      "inputTokens": 40,
+      "outputTokens": 20
+    }
+  },
+  {
+    "requestId": "req-02-003",
+    "groupId": "02",
+    "trafficType": "live",
+    "timestamp": "2026-05-29T15:52:09Z",
+    "resolvedInput": "Translate the following customer support message to Spanish, maintaining a professional tone. Text: 'Your refund has been processed and will appear within 5 business days.'",
+    "groundTruth": "Su reembolso ha sido procesado y aparecerá en un plazo de 5 días hábiles.",
+    "source": {
+      "actualOutput": "Su reembolso ha sido procesado y aparecerá en 5 días hábiles.",
+      "accuracy": 88,
+      "inputTokens": 26,
+      "outputTokens": 18
+    },
+    "target": {
+      "actualOutput": "Su reembolso ha sido procesado satisfactoriamente y se reflejará en su cuenta en un plazo de 5 días hábiles.",
+      "accuracy": 95,
+      "inputTokens": 42,
+      "outputTokens": 20
+    }
+  },
+  {
+    "requestId": "req-02-004",
+    "groupId": "02",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T13:24:50Z",
+    "resolvedInput": "Translate the following customer support message to German, maintaining a professional tone. Text: 'Please update your payment method to avoid service interruption.'",
+    "groundTruth": "Bitte aktualisieren Sie Ihre Zahlungsmethode, um eine Unterbrechung des Dienstes zu vermeiden.",
+    "source": {
+      "actualOutput": "Bitte aktualisieren Sie Ihre Zahlungsmethode, um eine Serviceunterbrechung zu vermeiden.",
+      "accuracy": 87,
+      "inputTokens": 24,
+      "outputTokens": 18
+    },
+    "target": {
+      "actualOutput": "Wir bitten Sie, Ihre Zahlungsmethode zu aktualisieren, um eine Unterbrechung Ihres Dienstes zu vermeiden.",
+      "accuracy": 93,
+      "inputTokens": 40,
+      "outputTokens": 20
+    }
+  },
+  {
+    "requestId": "req-02-005",
+    "groupId": "02",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T10:11:38Z",
+    "resolvedInput": "Translate the following customer support message to Portuguese, maintaining a professional tone. Text: 'Our team is reviewing your request and will get back to you shortly.'",
+    "groundTruth": "Nossa equipe está analisando seu pedido e entrará em contato em breve.",
+    "source": {
+      "actualOutput": "Nossa equipe está analisando sua solicitação e retornará em breve.",
+      "accuracy": 85,
+      "inputTokens": 24,
+      "outputTokens": 17
+    },
+    "target": {
+      "actualOutput": "Nossa equipe está a analisar o seu pedido e entrará em contacto brevemente.",
+      "accuracy": 92,
+      "inputTokens": 40,
+      "outputTokens": 19
+    }
+  },
+  {
+    "requestId": "req-03-001",
+    "groupId": "03",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T13:44:27Z",
+    "resolvedInput": "Write a 2-sentence product description for ergonomic standing desk converter that highlights posture support and space-saving design and appeals to remote workers.",
+    "groundTruth": "A well-structured 2-sentence description emphasizing posture improvement and compact design for home offices.",
+    "source": {
+      "actualOutput": "This standing desk converter helps you alternate between sitting and standing throughout the day, reducing back strain. Compact and easy to set up, it fits any desk without requiring a full workspace upgrade.",
+      "accuracy": 78,
+      "inputTokens": 32,
+      "outputTokens": 38
+    },
+    "target": {
+      "actualOutput": "Designed for the modern remote worker, this ergonomic standing desk converter lets you shift posture throughout the day — reducing fatigue and protecting your spine. Its slim, space-saving design slots onto any existing desk in seconds, no tools required.",
+      "accuracy": 88,
+      "inputTokens": 58,
+      "outputTokens": 46
+    }
+  },
+  {
+    "requestId": "req-03-002",
+    "groupId": "03",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T11:29:04Z",
+    "resolvedInput": "Write a 2-sentence product description for bamboo cutting board set that highlights sustainability and antimicrobial properties and appeals to eco-conscious home cooks.",
+    "groundTruth": "A 2-sentence description highlighting bamboo's eco-friendly nature and natural antimicrobial benefits.",
+    "source": {
+      "actualOutput": "These bamboo cutting boards are naturally antimicrobial and gentler on knife edges than plastic alternatives. Made from one of the world's fastest-growing plants, they're a sustainable choice for any kitchen.",
+      "accuracy": 80,
+      "inputTokens": 30,
+      "outputTokens": 36
+    },
+    "target": {
+      "actualOutput": "Crafted from sustainably sourced bamboo, this cutting board set is naturally antimicrobial — keeping your prep surfaces hygienic without chemicals. Perfect for the eco-conscious cook, each board is hard-wearing, knife-friendly, and kind to the planet.",
+      "accuracy": 90,
+      "inputTokens": 56,
+      "outputTokens": 44
+    }
+  },
+  {
+    "requestId": "req-03-003",
+    "groupId": "03",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T14:57:18Z",
+    "resolvedInput": "Write a 2-sentence product description for solar-powered garden lights that highlights energy savings and all-night illumination and appeals to homeowners.",
+    "groundTruth": "A 2-sentence description emphasizing solar charging and automatic dusk-to-dawn operation.",
+    "source": {
+      "actualOutput": "These solar garden lights charge automatically during the day and illuminate your outdoor spaces all night — no wiring required. They're a cost-free, eco-friendly way to add ambiance and security to any garden.",
+      "accuracy": 79,
+      "inputTokens": 30,
+      "outputTokens": 34
+    },
+    "target": {
+      "actualOutput": "Harvest sunlight by day and enjoy up to 10 hours of warm, ambient illumination every night — completely free of energy costs. These solar garden lights install in minutes and switch on automatically at dusk, giving your outdoor space a polished, effortless glow.",
+      "accuracy": 91,
+      "inputTokens": 56,
+      "outputTokens": 44
+    }
+  },
+  {
+    "requestId": "req-03-004",
+    "groupId": "03",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T09:33:45Z",
+    "resolvedInput": "Write a 2-sentence product description for portable espresso maker that highlights cafe-quality extraction and travel-ready design and appeals to coffee enthusiasts.",
+    "groundTruth": "A 2-sentence description highlighting manual espresso quality and portability for travel.",
+    "source": {
+      "actualOutput": "This portable espresso maker produces rich, cafe-quality shots using hand pressure — no electricity needed. Light enough to fit in a carry-on, it's the perfect companion for coffee lovers who refuse to compromise on the road.",
+      "accuracy": 80,
+      "inputTokens": 32,
+      "outputTokens": 38
+    },
+    "target": {
+      "actualOutput": "Engineered for serious coffee drinkers on the go, this compact espresso maker uses manual pump pressure to extract bold, full-bodied shots that rival your favorite cafe. Weighing under 500g and fitting in any bag, it delivers an uncompromised coffee ritual wherever the day takes you.",
+      "accuracy": 90,
+      "inputTokens": 58,
+      "outputTokens": 48
+    }
+  },
+  {
+    "requestId": "req-04-001",
+    "groupId": "04",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T08:55:31Z",
+    "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'Alex will finalize the budget spreadsheet by EOD Monday. The design team needs to submit mockups for the new dashboard. HR should send the updated onboarding checklist to all new hires.'",
+    "groundTruth": "[{\"owner\":\"Alex\",\"task\":\"Finalize budget spreadsheet\",\"deadline\":\"EOD Monday\"},{\"owner\":\"Design team\",\"task\":\"Submit mockups for new dashboard\",\"deadline\":null},{\"owner\":\"HR\",\"task\":\"Send updated onboarding checklist to new hires\",\"deadline\":null}]",
+    "source": {
+      "actualOutput": "1. Alex: Finalize the budget spreadsheet by EOD Monday. 2. Design team: Submit mockups for the new dashboard. 3. HR: Send updated onboarding checklist to new hires.",
+      "accuracy": 84,
+      "inputTokens": 50,
+      "outputTokens": 30
+    },
+    "target": {
+      "actualOutput": "[{\"owner\": \"Alex\", \"task\": \"Finalize budget spreadsheet\", \"deadline\": \"EOD Monday\"}, {\"owner\": \"Design team\", \"task\": \"Submit mockups for new dashboard\", \"deadline\": null}, {\"owner\": \"HR\", \"task\": \"Send onboarding checklist to new hires\", \"deadline\": null}]",
+      "accuracy": 78,
+      "inputTokens": 68,
+      "outputTokens": 56
+    }
+  },
+  {
+    "requestId": "req-04-002",
+    "groupId": "04",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T13:17:42Z",
+    "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'Priya must contact the legal team regarding the contract amendments. IT will deploy the security patch to all servers by Thursday. Marketing should prepare campaign assets by next sprint.'",
+    "groundTruth": "[{\"owner\":\"Priya\",\"task\":\"Contact legal team about contract amendments\",\"deadline\":null},{\"owner\":\"IT\",\"task\":\"Deploy security patch to all servers\",\"deadline\":\"Thursday\"},{\"owner\":\"Marketing\",\"task\":\"Prepare campaign assets\",\"deadline\":\"Next sprint\"}]",
+    "source": {
+      "actualOutput": "1. Priya: Contact legal team about contract amendments. 2. IT: Deploy security patch to all servers by Thursday. 3. Marketing: Prepare campaign assets before next sprint.",
+      "accuracy": 86,
+      "inputTokens": 52,
+      "outputTokens": 32
+    },
+    "target": {
+      "actualOutput": "[{\"owner\": \"Priya\", \"task\": \"Contact legal team regarding contract amendments\", \"deadline\": null}, {\"owner\": \"IT\", \"task\": \"Deploy security patch\", \"deadline\": \"Thursday\"}, {\"owner\": \"Marketing\", \"task\": \"Prepare campaign assets\", \"deadline\": \"Next sprint\"}]",
+      "accuracy": 80,
+      "inputTokens": 70,
+      "outputTokens": 60
+    }
+  },
+  {
+    "requestId": "req-04-003",
+    "groupId": "04",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-30T10:44:19Z",
+    "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'The backend team will migrate the legacy API endpoints by end of quarter. Jessica needs to present the Q2 results to the board on Friday. Sales must update CRM records for all closed deals.'",
+    "groundTruth": "[{\"owner\":\"Backend team\",\"task\":\"Migrate legacy API endpoints\",\"deadline\":\"End of quarter\"},{\"owner\":\"Jessica\",\"task\":\"Present Q2 results to board\",\"deadline\":\"Friday\"},{\"owner\":\"Sales\",\"task\":\"Update CRM records for closed deals\",\"deadline\":null}]",
+    "source": {
+      "actualOutput": "1. Backend team: Migrate legacy API endpoints by end of quarter. 2. Jessica: Present Q2 results to the board on Friday. 3. Sales: Update CRM records for all closed deals.",
+      "accuracy": 83,
+      "inputTokens": 52,
+      "outputTokens": 31
+    },
+    "target": {
+      "actualOutput": "Backend team – migrate legacy API endpoints (EOQ). Jessica – board Q2 presentation (Friday). Sales – CRM updates.",
+      "accuracy": 76,
+      "inputTokens": 70,
+      "outputTokens": 28
+    }
+  },
+  {
+    "requestId": "req-04-004",
+    "groupId": "04",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T15:28:07Z",
+    "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'Chris will reach out to the UX research participants for scheduling. The infrastructure team needs to increase server capacity before the product launch. Emily should draft the press release by next Wednesday.'",
+    "groundTruth": "[{\"owner\":\"Chris\",\"task\":\"Reach out to UX research participants for scheduling\",\"deadline\":null},{\"owner\":\"Infrastructure team\",\"task\":\"Increase server capacity\",\"deadline\":\"Before product launch\"},{\"owner\":\"Emily\",\"task\":\"Draft press release\",\"deadline\":\"Next Wednesday\"}]",
+    "source": {
+      "actualOutput": "1. Chris: Schedule UX research participants. 2. Infrastructure team: Increase server capacity before product launch. 3. Emily: Draft press release by next Wednesday.",
+      "accuracy": 84,
+      "inputTokens": 52,
+      "outputTokens": 31
+    },
+    "target": {
+      "actualOutput": "[{\"owner\": \"Chris\", \"task\": \"Schedule UX research\", \"deadline\": null}, {\"owner\": \"Infrastructure team\", \"task\": \"Scale server capacity for launch\", \"deadline\": null}]",
+      "accuracy": 74,
+      "inputTokens": 68,
+      "outputTokens": 24
+    }
+  },
+  {
+    "requestId": "req-04-005",
+    "groupId": "04",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T11:52:38Z",
+    "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'David will set up the analytics tracking for the new features. The QA team should validate all edge cases before the next release. Finance must approve the vendor invoice by close of business.'",
+    "groundTruth": "[{\"owner\":\"David\",\"task\":\"Set up analytics tracking for new features\",\"deadline\":null},{\"owner\":\"QA team\",\"task\":\"Validate all edge cases\",\"deadline\":\"Before next release\"},{\"owner\":\"Finance\",\"task\":\"Approve vendor invoice\",\"deadline\":\"Close of business\"}]",
+    "source": {
+      "actualOutput": "1. David: Set up analytics tracking for new features. 2. QA team: Validate edge cases before next release. 3. Finance: Approve vendor invoice by COB.",
+      "accuracy": 85,
+      "inputTokens": 50,
+      "outputTokens": 30
+    },
+    "target": {
+      "actualOutput": "[{\"owner\": \"David\", \"task\": \"Set up analytics tracking for new features\", \"deadline\": null}, {\"owner\": \"QA team\", \"task\": \"Validate all edge cases before next release\", \"deadline\": \"Before next release\"}, {\"owner\": \"Finance\", \"task\": \"Approve vendor invoice\", \"deadline\": \"Close of business\"}]",
+      "accuracy": 77,
+      "inputTokens": 66,
+      "outputTokens": 54
+    }
+  },
+  {
+    "requestId": "req-05-001",
+    "groupId": "05",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T09:14:55Z",
+    "resolvedInput": "Classify the following support ticket. Return JSON with fields: priority and reason. Ticket: 'Our entire team has been locked out of the production environment since midnight. We have a customer demo in 30 minutes.'",
+    "groundTruth": "{\"priority\":\"High\",\"reason\":\"Complete production lockout with an imminent critical customer-facing event.\"}",
+    "source": {
+      "actualOutput": "High",
+      "accuracy": 84,
+      "inputTokens": 42,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"priority\": \"Medium\", \"reason\": \"Team access issues should be investigated by IT at the earliest opportunity.\"}",
+      "accuracy": 44,
+      "inputTokens": 60,
+      "outputTokens": 22
+    }
+  },
+  {
+    "requestId": "req-05-002",
+    "groupId": "05",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T14:37:22Z",
+    "resolvedInput": "Classify the following support ticket. Return JSON with fields: priority and reason. Ticket: 'The export to CSV feature is broken for files larger than 10MB.'",
+    "groundTruth": "{\"priority\":\"Medium\",\"reason\":\"Feature degradation affecting users with large datasets but not blocking core functionality.\"}",
+    "source": {
+      "actualOutput": "Medium",
+      "accuracy": 82,
+      "inputTokens": 36,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"priority\": \"High\", \"reason\": \"Data export failures can indicate serious backend processing issues.\"}",
+      "accuracy": 38,
+      "inputTokens": 52,
+      "outputTokens": 22
+    }
+  },
+  {
+    "requestId": "req-05-003",
+    "groupId": "05",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T10:03:47Z",
+    "resolvedInput": "Classify the following support ticket. Return JSON with fields: priority and reason. Ticket: 'I\\'d like to change the timezone setting on my profile.'",
+    "groundTruth": "{\"priority\":\"Low\",\"reason\":\"Routine profile update with no service impact.\"}",
+    "source": {
+      "actualOutput": "Low",
+      "accuracy": 82,
+      "inputTokens": 30,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"priority\": \"Medium\", \"reason\": \"Timezone settings affect scheduling and time-sensitive features across the platform.\"}",
+      "accuracy": 50,
+      "inputTokens": 46,
+      "outputTokens": 18
+    }
+  },
+  {
+    "requestId": "req-05-004",
+    "groupId": "05",
+    "trafficType": "live",
+    "timestamp": "2026-05-29T16:48:13Z",
+    "resolvedInput": "Classify the following support ticket. Return JSON with fields: priority and reason. Ticket: 'All API calls are returning 503 errors starting 10 minutes ago. Our service is completely down.'",
+    "groundTruth": "{\"priority\":\"High\",\"reason\":\"Complete service outage due to API failures requiring immediate escalation.\"}",
+    "source": {
+      "actualOutput": "High",
+      "accuracy": 86,
+      "inputTokens": 40,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"priority\": \"Medium\", \"reason\": \"503 errors are often transient and may resolve without intervention.\"}",
+      "accuracy": 40,
+      "inputTokens": 58,
+      "outputTokens": 22
+    }
+  },
+  {
+    "requestId": "req-05-005",
+    "groupId": "05",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T11:22:59Z",
+    "resolvedInput": "Classify the following support ticket. Return JSON with fields: priority and reason. Ticket: 'Can you explain how the billing cycle works for monthly vs. annual plans?'",
+    "groundTruth": "{\"priority\":\"Low\",\"reason\":\"Informational billing inquiry with no service impact.\"}",
+    "source": {
+      "actualOutput": "Low",
+      "accuracy": 82,
+      "inputTokens": 34,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"priority\": \"Medium\", \"reason\": \"Billing confusion may indicate a need to improve documentation or pricing clarity.\"}",
+      "accuracy": 52,
+      "inputTokens": 50,
+      "outputTokens": 20
+    }
+  },
+  {
+    "requestId": "req-05-006",
+    "groupId": "05",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T13:55:04Z",
+    "resolvedInput": "Classify the following support ticket. Return JSON with fields: priority and reason. Ticket: 'I forgot to add a team member to a project three days ago. Can you help?'",
+    "groundTruth": "{\"priority\":\"Low\",\"reason\":\"Non-urgent account administration task with no immediate impact.\"}",
+    "source": {
+      "actualOutput": "Low",
+      "accuracy": 83,
+      "inputTokens": 34,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"priority\": \"Medium\", \"reason\": \"Project configuration issues can affect team collaboration and should be resolved promptly.\"}",
+      "accuracy": 45,
+      "inputTokens": 50,
+      "outputTokens": 20
+    }
+  },
+  {
+    "requestId": "req-06-001",
+    "groupId": "06",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T15:30:09Z",
+    "resolvedInput": "Explain what a cloud database is to a marketing director in 3 sentences or fewer. Use a real-world analogy. Avoid technical jargon.",
+    "groundTruth": "A clear analogy-based explanation of cloud databases without technical jargon, tailored for non-technical stakeholders.",
+    "source": {
+      "actualOutput": "A cloud database is like a filing cabinet you can access from anywhere in the world, managed by someone else so you never have to maintain it yourself.",
+      "accuracy": 80,
+      "inputTokens": 22,
+      "outputTokens": 30
+    },
+    "target": {
+      "actualOutput": "Imagine a filing cabinet in a warehouse you never have to visit — someone else handles the maintenance, the security, and the backups. A cloud database works the same way: your company's data lives on remote servers managed by a provider, and your team can access it instantly from any device, anywhere in the world. You pay for what you use, and the cabinet expands automatically as your files grow.",
+      "accuracy": 95,
+      "inputTokens": 40,
+      "outputTokens": 56
+    }
+  },
+  {
+    "requestId": "req-06-002",
+    "groupId": "06",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T08:47:33Z",
+    "resolvedInput": "Explain what containerization is to a finance VP in 3 sentences or fewer. Use a real-world analogy. Avoid technical jargon.",
+    "groundTruth": "An analogy explaining software containerization in non-technical terms, highlighting isolation and portability.",
+    "source": {
+      "actualOutput": "Containerization is a way of packaging software so it runs the same way on any computer, like a shipping container that can be moved between ships, trucks, and trains without repacking.",
+      "accuracy": 76,
+      "inputTokens": 22,
+      "outputTokens": 28
+    },
+    "target": {
+      "actualOutput": "Think of containerization like a self-contained moving box: everything a software application needs to run is packed inside, so it behaves identically whether it's on a developer's laptop or a production server. Just as a shipping container can move seamlessly between ships, trains, and trucks, containerized software can move between environments without configuration changes. This makes deployments faster, cheaper, and far less risky.",
+      "accuracy": 94,
+      "inputTokens": 40,
+      "outputTokens": 54
+    }
+  },
+  {
+    "requestId": "req-06-003",
+    "groupId": "06",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T12:19:48Z",
+    "resolvedInput": "Explain what a load balancer is to a product owner in 2 sentences or fewer. Use a real-world analogy. Avoid technical jargon.",
+    "groundTruth": "A 2-sentence analogy explaining load balancers without jargon.",
+    "source": {
+      "actualOutput": "A load balancer is like a traffic officer at a busy intersection, directing each car to the least congested lane to keep everything flowing smoothly.",
+      "accuracy": 78,
+      "inputTokens": 20,
+      "outputTokens": 26
+    },
+    "target": {
+      "actualOutput": "Imagine a busy restaurant with multiple checkout counters — a load balancer is the host who directs each arriving customer to the shortest queue, so no single line gets overwhelmed while others sit empty. In software, it works the same way: automatically distributing incoming requests across multiple servers so your product stays fast and available even during traffic spikes.",
+      "accuracy": 96,
+      "inputTokens": 36,
+      "outputTokens": 48
+    }
+  },
+  {
+    "requestId": "req-06-004",
+    "groupId": "06",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T14:41:27Z",
+    "resolvedInput": "Explain what event-driven architecture is to a non-technical CEO in 3 sentences or fewer. Use a real-world analogy. Avoid technical jargon.",
+    "groundTruth": "An analogy-based explanation of event-driven architecture for an executive audience, avoiding jargon.",
+    "source": {
+      "actualOutput": "Event-driven architecture is like setting up a system of alerts in an office: when something happens in one department, a notification automatically triggers the right action in another, without anyone having to manually coordinate.",
+      "accuracy": 74,
+      "inputTokens": 22,
+      "outputTokens": 28
+    },
+    "target": {
+      "actualOutput": "Think of it like a well-run hotel: when a guest checks in at the front desk, that single event automatically triggers housekeeping to prepare the room, the restaurant to be notified of dietary preferences, and billing to start the clock. Event-driven architecture works the same way in software — when something meaningful happens, it automatically sets off the right chain of actions across your systems, instantly and without manual intervention. The result is a business that responds in real time, without coordination overhead.",
+      "accuracy": 96,
+      "inputTokens": 40,
+      "outputTokens": 54
+    }
+  },
+  {
+    "requestId": "req-07-001",
+    "groupId": "07",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T16:05:52Z",
+    "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative) and a one-sentence rationale. Tweet: 'This product completely changed how I work. Nothing will ever go back to the old way.'",
+    "groundTruth": "{\"sentiment\":\"Positive\",\"rationale\":\"The tweet expresses strong enthusiasm and life-changing impact of the product.\"}",
+    "source": {
+      "actualOutput": "Positive",
+      "accuracy": 86,
+      "inputTokens": 36,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"sentiment\": \"Neutral\", \"rationale\": \"The tweet describes a routine change in workflow without expressing clear emotion.\"}",
+      "accuracy": 50,
+      "inputTokens": 52,
+      "outputTokens": 24
+    }
+  },
+  {
+    "requestId": "req-07-002",
+    "groupId": "07",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T10:58:34Z",
+    "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative) and a one-sentence rationale. Tweet: 'Three updates in a week and still no fix for the notification bug. Giving up.'",
+    "groundTruth": "{\"sentiment\":\"Negative\",\"rationale\":\"The tweet expresses frustration with repeated failed updates and a loss of confidence in the product.\"}",
+    "source": {
+      "actualOutput": "Negative",
+      "accuracy": 87,
+      "inputTokens": 34,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"sentiment\": \"Neutral\", \"rationale\": \"The user is providing factual feedback about update frequency and outstanding issues.\"}",
+      "accuracy": 46,
+      "inputTokens": 50,
+      "outputTokens": 24
+    }
+  },
+  {
+    "requestId": "req-07-003",
+    "groupId": "07",
+    "trafficType": "live",
+    "timestamp": "2026-05-29T15:14:06Z",
+    "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative) and a one-sentence rationale. Tweet: 'Package arrived. Looks fine. Works as described.'",
+    "groundTruth": "{\"sentiment\":\"Neutral\",\"rationale\":\"The tweet is factual and descriptive without positive or negative emotional language.\"}",
+    "source": {
+      "actualOutput": "Neutral",
+      "accuracy": 84,
+      "inputTokens": 28,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"sentiment\": \"Positive\", \"rationale\": \"The package arrived as expected, indicating a satisfactory customer experience.\"}",
+      "accuracy": 44,
+      "inputTokens": 44,
+      "outputTokens": 22
+    }
+  },
+  {
+    "requestId": "req-07-004",
+    "groupId": "07",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T09:26:41Z",
+    "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative) and a one-sentence rationale. Tweet: 'Can someone at support PLEASE respond? Ticket open for 5 days.'",
+    "groundTruth": "{\"sentiment\":\"Negative\",\"rationale\":\"The tweet expresses frustration and urgency over an unresolved support request.\"}",
+    "source": {
+      "actualOutput": "Negative",
+      "accuracy": 86,
+      "inputTokens": 32,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"sentiment\": \"Neutral\", \"rationale\": \"The user is requesting a status update on an open support ticket.\"}",
+      "accuracy": 48,
+      "inputTokens": 48,
+      "outputTokens": 22
+    }
+  },
+  {
+    "requestId": "req-07-005",
+    "groupId": "07",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T12:39:18Z",
+    "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative) and a one-sentence rationale. Tweet: 'Just hit 1,000 subscribers thanks to this tool. Honestly can\\'t believe it.'",
+    "groundTruth": "{\"sentiment\":\"Positive\",\"rationale\":\"The tweet expresses genuine excitement and gratitude attributed to the tool's impact.\"}",
+    "source": {
+      "actualOutput": "Positive",
+      "accuracy": 86,
+      "inputTokens": 34,
+      "outputTokens": 2
+    },
+    "target": {
+      "actualOutput": "{\"sentiment\": \"Neutral\", \"rationale\": \"The user is reporting a milestone achievement and attributing it to a tool.\"}",
+      "accuracy": 52,
+      "inputTokens": 50,
+      "outputTokens": 24
+    }
+  },
+  {
+    "requestId": "req-08-001",
+    "groupId": "08",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T13:02:47Z",
+    "resolvedInput": "Write a UX microcopy tooltip for a 'Duplicate' button in a workflow automation platform. Explain what it does and stay under 15 words.",
+    "groundTruth": "A concise tooltip explaining duplication creates an editable copy of the workflow.",
+    "source": {
+      "actualOutput": "Copy this workflow.",
+      "accuracy": 74,
+      "inputTokens": 28,
+      "outputTokens": 6
+    },
+    "target": {
+      "actualOutput": "Create an editable copy of this workflow — the original remains unchanged.",
+      "accuracy": 95,
+      "inputTokens": 48,
+      "outputTokens": 14
+    }
+  },
+  {
+    "requestId": "req-08-002",
+    "groupId": "08",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T11:44:23Z",
+    "resolvedInput": "Write a UX microcopy tooltip for a 'Flag for Review' button in a content moderation dashboard. Explain what it does and stay under 12 words.",
+    "groundTruth": "A concise tooltip explaining the action escalates content for human review.",
+    "source": {
+      "actualOutput": "Flag this content for review.",
+      "accuracy": 75,
+      "inputTokens": 28,
+      "outputTokens": 6
+    },
+    "target": {
+      "actualOutput": "Mark this item for human review — it won't be published until cleared.",
+      "accuracy": 96,
+      "inputTokens": 46,
+      "outputTokens": 13
+    }
+  },
+  {
+    "requestId": "req-08-003",
+    "groupId": "08",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T15:18:56Z",
+    "resolvedInput": "Write a UX microcopy tooltip for a 'Export' button in a data analytics tool. Explain what it does and stay under 15 words.",
+    "groundTruth": "A concise tooltip explaining export downloads the current view as a file.",
+    "source": {
+      "actualOutput": "Download this report.",
+      "accuracy": 75,
+      "inputTokens": 28,
+      "outputTokens": 6
+    },
+    "target": {
+      "actualOutput": "Download the current view as a CSV or PDF — your filters and columns are included.",
+      "accuracy": 97,
+      "inputTokens": 46,
+      "outputTokens": 14
+    }
+  },
+  {
+    "requestId": "req-08-004",
+    "groupId": "08",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T10:27:35Z",
+    "resolvedInput": "Write a UX microcopy tooltip for a 'Lock' button in a collaborative document editor. Explain what it does and stay under 12 words.",
+    "groundTruth": "A concise tooltip explaining locking prevents other editors from making changes.",
+    "source": {
+      "actualOutput": "Lock this document from editing.",
+      "accuracy": 76,
+      "inputTokens": 28,
+      "outputTokens": 6
+    },
+    "target": {
+      "actualOutput": "Prevent others from editing — only you can unlock it.",
+      "accuracy": 96,
+      "inputTokens": 46,
+      "outputTokens": 13
+    }
+  },
+  {
+    "requestId": "req-09-001",
+    "groupId": "09",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T09:51:16Z",
+    "resolvedInput": "Write a UX error message for a connection timeout in a real-time collaboration tool. Explain what went wrong, what to do next, and offer a fallback. Keep it under 30 words.",
+    "groundTruth": "Error message that identifies the timeout, instructs refresh, and offers offline mode as fallback.",
+    "source": {
+      "actualOutput": "Connection lost. Refresh the page to reconnect.",
+      "accuracy": 74,
+      "inputTokens": 28,
+      "outputTokens": 12
+    },
+    "target": {
+      "actualOutput": "Connection timed out. Refresh to reconnect — any unsaved changes will be recovered. If the issue persists, try your offline mode.",
+      "accuracy": 95,
+      "inputTokens": 46,
+      "outputTokens": 24
+    }
+  },
+  {
+    "requestId": "req-09-002",
+    "groupId": "09",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T13:33:07Z",
+    "resolvedInput": "Write a UX error message for an invalid email format in a user registration form. Explain what went wrong, what to do next, and offer a fallback. Keep it under 25 words.",
+    "groundTruth": "Error message that identifies format issue, gives example, and directs correction.",
+    "source": {
+      "actualOutput": "Invalid email address. Please check and try again.",
+      "accuracy": 75,
+      "inputTokens": 26,
+      "outputTokens": 10
+    },
+    "target": {
+      "actualOutput": "That doesn't look like a valid email. Use the format name@example.com and try again.",
+      "accuracy": 96,
+      "inputTokens": 44,
+      "outputTokens": 22
+    }
+  },
+  {
+    "requestId": "req-09-003",
+    "groupId": "09",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-30T10:07:44Z",
+    "resolvedInput": "Write a UX error message for insufficient storage space in a cloud backup service. Explain what went wrong, what to do next, and offer a fallback. Keep it under 30 words.",
+    "groundTruth": "Error message that states storage is full, suggests deleting old backups, and offers a plan upgrade as fallback.",
+    "source": {
+      "actualOutput": "Storage full. Delete old backups or upgrade your plan.",
+      "accuracy": 73,
+      "inputTokens": 28,
+      "outputTokens": 12
+    },
+    "target": {
+      "actualOutput": "You've run out of storage. Delete older backups to free space, or upgrade your plan for more capacity. Need help? Contact support.",
+      "accuracy": 97,
+      "inputTokens": 46,
+      "outputTokens": 26
+    }
+  },
+  {
+    "requestId": "req-09-004",
+    "groupId": "09",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T14:58:22Z",
+    "resolvedInput": "Write a UX error message for a broken API integration in a third-party reporting dashboard. Explain what went wrong, what to do next, and offer a fallback. Keep it under 35 words.",
+    "groundTruth": "Error message identifying the integration failure, suggesting reconnection, and offering manual export as fallback.",
+    "source": {
+      "actualOutput": "Integration error. Please reconnect your account.",
+      "accuracy": 74,
+      "inputTokens": 28,
+      "outputTokens": 12
+    },
+    "target": {
+      "actualOutput": "The connection to your data source was interrupted. Reconnect the integration in Settings — or download your latest report manually in the meantime.",
+      "accuracy": 95,
+      "inputTokens": 48,
+      "outputTokens": 26
+    }
+  },
+  {
+    "requestId": "req-09-005",
+    "groupId": "09",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T11:20:53Z",
+    "resolvedInput": "Write a UX error message for a video rendering failure in a video editing platform. Explain what went wrong, what to do next, and offer a fallback. Keep it under 30 words.",
+    "groundTruth": "Error message explaining the render failed, directing retry, and offering support escalation as fallback.",
+    "source": {
+      "actualOutput": "Render failed. Try again or contact support.",
+      "accuracy": 74,
+      "inputTokens": 28,
+      "outputTokens": 12
+    },
+    "target": {
+      "actualOutput": "Your video couldn't be rendered. Try again — if it keeps failing, contact support and we'll investigate.",
+      "accuracy": 95,
+      "inputTokens": 46,
+      "outputTokens": 24
+    }
+  },
+  {
+    "requestId": "req-10-001",
+    "groupId": "10",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T10:44:31Z",
+    "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'The meeting that was scheduled for Tuesday has been postponed to a later date due to the fact that several key stakeholders are not available.'",
+    "groundTruth": "Tuesday's meeting is postponed — key stakeholders are unavailable.",
+    "source": {
+      "actualOutput": "Tuesday's meeting is postponed because key stakeholders are unavailable.",
+      "accuracy": 84,
+      "inputTokens": 44,
+      "outputTokens": 14
+    },
+    "target": {
+      "actualOutput": "Tuesday's meeting is postponed — key stakeholders aren't available.",
+      "accuracy": 97,
+      "inputTokens": 62,
+      "outputTokens": 12
+    }
+  },
+  {
+    "requestId": "req-10-002",
+    "groupId": "10",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T09:17:08Z",
+    "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'In order to be able to complete the registration process, it is necessary for you to provide a valid form of identification.'",
+    "groundTruth": "To complete registration, provide valid identification.",
+    "source": {
+      "actualOutput": "You must provide valid identification to complete registration.",
+      "accuracy": 83,
+      "inputTokens": 44,
+      "outputTokens": 14
+    },
+    "target": {
+      "actualOutput": "To complete registration, provide valid identification.",
+      "accuracy": 98,
+      "inputTokens": 62,
+      "outputTokens": 10
+    }
+  },
+  {
+    "requestId": "req-10-003",
+    "groupId": "10",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-30T13:52:19Z",
+    "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'We have come to the conclusion that the budget for the upcoming fiscal year will need to be reduced by approximately 15 percent.'",
+    "groundTruth": "The upcoming fiscal year budget must be cut by approximately 15%.",
+    "source": {
+      "actualOutput": "We've concluded the upcoming fiscal year budget must be cut by roughly 15%.",
+      "accuracy": 83,
+      "inputTokens": 44,
+      "outputTokens": 14
+    },
+    "target": {
+      "actualOutput": "Next fiscal year's budget will be cut by approximately 15%.",
+      "accuracy": 97,
+      "inputTokens": 62,
+      "outputTokens": 10
+    }
+  },
+  {
+    "requestId": "req-10-004",
+    "groupId": "10",
+    "trafficType": "live",
+    "timestamp": "2026-05-29T14:38:47Z",
+    "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'It is our intention to roll out the new version of the software application in the near future pending the completion of testing.'",
+    "groundTruth": "We plan to release the new software version once testing is complete.",
+    "source": {
+      "actualOutput": "We plan to release the new software version once testing concludes.",
+      "accuracy": 83,
+      "inputTokens": 44,
+      "outputTokens": 14
+    },
+    "target": {
+      "actualOutput": "We'll release the new software version once testing is complete.",
+      "accuracy": 98,
+      "inputTokens": 62,
+      "outputTokens": 10
+    }
+  },
+  {
+    "requestId": "req-10-005",
+    "groupId": "10",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T16:04:25Z",
+    "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 10 words. Sentence: 'The feedback that was provided by the client was largely positive with the exception of a few minor concerns about the timeline.'",
+    "groundTruth": "Client feedback was largely positive, with minor timeline concerns.",
+    "source": {
+      "actualOutput": "Client feedback was mostly positive, with a few concerns about the timeline.",
+      "accuracy": 84,
+      "inputTokens": 44,
+      "outputTokens": 14
+    },
+    "target": {
+      "actualOutput": "Client feedback was positive, with minor timeline concerns.",
+      "accuracy": 97,
+      "inputTokens": 62,
+      "outputTokens": 10
+    }
+  },
+  {
+    "requestId": "req-10-006",
+    "groupId": "10",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T09:49:02Z",
+    "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'Despite the fact that the initial estimates were accurate, the final costs ended up being significantly higher than what was originally projected.'",
+    "groundTruth": "Despite accurate initial estimates, final costs were significantly higher than projected.",
+    "source": {
+      "actualOutput": "Despite accurate initial estimates, final costs were significantly higher than projected.",
+      "accuracy": 85,
+      "inputTokens": 46,
+      "outputTokens": 14
+    },
+    "target": {
+      "actualOutput": "Initial estimates were accurate, but final costs came in significantly over budget.",
+      "accuracy": 96,
+      "inputTokens": 64,
+      "outputTokens": 12
+    }
+  },
+  {
+    "requestId": "req-11-001",
+    "groupId": "11",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T08:33:14Z",
+    "resolvedInput": "Write a push notification for a limited-time free trial expiring tonight. Keep it under 80 characters with a clear CTA.",
+    "groundTruth": "Urgent message with deadline and clear CTA to start the trial before it expires.",
+    "source": {
+      "actualOutput": "Your free trial expires tonight. Start now before it's gone!",
+      "accuracy": 78,
+      "inputTokens": 22,
+      "outputTokens": 14
+    },
+    "target": {
+      "actualOutput": "Last chance: your free trial ends tonight. Start now — no credit card needed.",
+      "accuracy": 93,
+      "inputTokens": 38,
+      "outputTokens": 16
+    }
+  },
+  {
+    "requestId": "req-11-002",
+    "groupId": "11",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-30T11:56:40Z",
+    "resolvedInput": "Write a push notification for a new badge achievement unlocked. Keep it under 80 characters with a clear CTA.",
+    "groundTruth": "Celebratory message with the achievement and CTA to view it.",
+    "source": {
+      "actualOutput": "You earned a new badge! Tap to see your achievement.",
+      "accuracy": 79,
+      "inputTokens": 20,
+      "outputTokens": 14
+    },
+    "target": {
+      "actualOutput": "New badge unlocked! You're on a streak — keep it going. Tap to celebrate.",
+      "accuracy": 94,
+      "inputTokens": 36,
+      "outputTokens": 16
+    }
+  },
+  {
+    "requestId": "req-11-003",
+    "groupId": "11",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T14:22:57Z",
+    "resolvedInput": "Write a push notification for an upcoming scheduled maintenance window. Keep it under 80 characters with a clear CTA.",
+    "groundTruth": "Informational message with maintenance time and reassurance of brevity.",
+    "source": {
+      "actualOutput": "Scheduled maintenance tonight from 2–4 AM. Save your work before then.",
+      "accuracy": 78,
+      "inputTokens": 22,
+      "outputTokens": 14
+    },
+    "target": {
+      "actualOutput": "Heads up: maintenance window 2–4 AM tonight. We'll be back before you wake up.",
+      "accuracy": 94,
+      "inputTokens": 38,
+      "outputTokens": 16
+    }
+  },
+  {
+    "requestId": "req-11-004",
+    "groupId": "11",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T15:08:29Z",
+    "resolvedInput": "Write a push notification for a referral bonus offer for the next 24 hours. Keep it under 80 characters with a clear CTA.",
+    "groundTruth": "Urgency-driven message with the referral incentive and a clear CTA.",
+    "source": {
+      "actualOutput": "Refer a friend today and earn a $20 bonus — offer ends in 24 hours!",
+      "accuracy": 80,
+      "inputTokens": 22,
+      "outputTokens": 16
+    },
+    "target": {
+      "actualOutput": "24-hour offer: refer a friend, earn $20. Share your link now.",
+      "accuracy": 95,
+      "inputTokens": 38,
+      "outputTokens": 16
+    }
+  },
+  {
+    "requestId": "req-12-001",
+    "groupId": "12",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-28T12:11:44Z",
+    "resolvedInput": "Write a PostgreSQL query to get all orders placed in the past 7 days with a total above $100. Return only id, user_id, total, created_at. Add a comment explaining the query.",
+    "groundTruth": "-- Orders above $100 from the past 7 days\nSELECT id, user_id, total, created_at FROM orders WHERE created_at >= NOW() - INTERVAL '7 days' AND total > 100;",
+    "source": {
+      "actualOutput": "SELECT id, user_id, total, created_at FROM orders WHERE created_at >= NOW() - INTERVAL '7 days' AND total > 100;",
+      "accuracy": 85,
+      "inputTokens": 28,
+      "outputTokens": 24
+    },
+    "target": {
+      "actualOutput": "-- Recent high-value orders\nSELECT id, user_id, amount, order_date FROM orders WHERE order_date BETWEEN NOW() - INTERVAL '1 week' AND NOW() AND amount > 100;",
+      "accuracy": 62,
+      "inputTokens": 46,
+      "outputTokens": 32
+    }
+  },
+  {
+    "requestId": "req-12-002",
+    "groupId": "12",
+    "trafficType": "seeded",
+    "timestamp": "2026-05-29T14:48:19Z",
+    "resolvedInput": "Write a MySQL query to get the average session duration grouped by device type. Return only device_type, avg_duration. Add a comment explaining the query.",
+    "groundTruth": "-- Average session length by device type\nSELECT device_type, AVG(duration) AS avg_duration FROM sessions GROUP BY device_type;",
+    "source": {
+      "actualOutput": "SELECT device_type, AVG(session_duration) AS avg_duration FROM sessions GROUP BY device_type;",
+      "accuracy": 83,
+      "inputTokens": 26,
+      "outputTokens": 20
+    },
+    "target": {
+      "actualOutput": "-- Sessions grouped by device\nSELECT device_type, AVG(duration_seconds) AS avg_duration FROM user_sessions GROUP BY device_type ORDER BY avg_duration DESC;",
+      "accuracy": 64,
+      "inputTokens": 44,
+      "outputTokens": 30
+    }
+  },
+  {
+    "requestId": "req-12-003",
+    "groupId": "12",
+    "trafficType": "live",
+    "timestamp": "2026-05-29T16:25:38Z",
+    "resolvedInput": "Write a PostgreSQL query to get all inactive users who have not logged in for more than 90 days. Return only id, email, last_login. Add a comment explaining the query.",
+    "groundTruth": "-- Users inactive for over 90 days\nSELECT id, email, last_login FROM users WHERE last_login < NOW() - INTERVAL '90 days';",
+    "source": {
+      "actualOutput": "SELECT id, email, last_login FROM users WHERE last_login < NOW() - INTERVAL '90 days';",
+      "accuracy": 84,
+      "inputTokens": 28,
+      "outputTokens": 22
+    },
+    "target": {
+      "actualOutput": "-- Dormant user accounts\nSELECT id, email, last_seen FROM users WHERE active = false AND last_seen < NOW() - INTERVAL '3 months';",
+      "accuracy": 60,
+      "inputTokens": 46,
+      "outputTokens": 28
+    }
+  },
+  {
+    "requestId": "req-12-004",
+    "groupId": "12",
+    "trafficType": "live",
+    "timestamp": "2026-05-30T11:37:53Z",
+    "resolvedInput": "Write a MySQL query to get the number of new customers acquired each month this year. Return only month, customer_count. Add a comment explaining the query.",
+    "groundTruth": "-- Monthly customer acquisition for the current year\nSELECT DATE_FORMAT(created_at, '%Y-%m') AS month, COUNT(*) AS customer_count FROM customers WHERE YEAR(created_at) = YEAR(NOW()) GROUP BY month ORDER BY month;",
+    "source": {
+      "actualOutput": "SELECT MONTH(created_at) AS month, COUNT(*) AS customer_count FROM customers WHERE YEAR(created_at) = YEAR(NOW()) GROUP BY month ORDER BY month;",
+      "accuracy": 84,
+      "inputTokens": 28,
+      "outputTokens": 22
+    },
+    "target": {
+      "actualOutput": "-- New customers per month in 2026\nSELECT DATE_FORMAT(signup_date, '%Y-%m') AS month, COUNT(id) AS customer_count FROM users WHERE YEAR(signup_date) = YEAR(CURDATE()) AND role = 'customer' GROUP BY month;",
+      "accuracy": 65,
+      "inputTokens": 46,
+      "outputTokens": 30
+    }
+  },
+  {
+    "requestId": "req-12-005",
+    "groupId": "12",
+    "trafficType": "live",
+    "timestamp": "2026-05-31T13:14:27Z",
+    "resolvedInput": "Write a PostgreSQL query to get all failed payment transactions from the last 24 hours. Return only id, user_id, amount, error_code. Add a comment explaining the query.",
+    "groundTruth": "-- Failed payments from the last 24 hours\nSELECT id, user_id, amount, error_code FROM transactions WHERE status = 'failed' AND created_at >= NOW() - INTERVAL '24 hours';",
+    "source": {
+      "actualOutput": "SELECT id, user_id, amount, error_code FROM transactions WHERE status = 'failed' AND created_at >= NOW() - INTERVAL '24 hours';",
+      "accuracy": 86,
+      "inputTokens": 28,
+      "outputTokens": 24
+    },
+    "target": {
+      "actualOutput": "-- Recent payment failures\nSELECT id, user_id, total, failure_reason FROM payments WHERE payment_status != 'success' AND created_at > NOW() - INTERVAL '1 day';",
+      "accuracy": 63,
+      "inputTokens": 46,
+      "outputTokens": 30
+    }
+  }
+]

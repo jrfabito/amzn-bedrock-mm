@@ -1,0 +1,482 @@
+[
+  {
+    "groupId": "01",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Summarize this customer review: 'The battery life is great but the screen is dim in sunlight.'",
+    "output": "The product has strong battery performance but poor screen visibility in bright outdoor conditions.",
+    "accuracy": "82",
+    "inputTokens": "28",
+    "outputTokens": "18"
+  },
+  {
+    "groupId": "01",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "You are a product feedback analyst. Summarize the following customer review in one sentence, highlighting sentiment for each mentioned feature. Review: 'The battery life is great but the screen is dim in sunlight.'",
+    "output": "Battery life received positive sentiment while screen brightness in sunlight was flagged as a limitation.",
+    "accuracy": "95",
+    "inputTokens": "58",
+    "outputTokens": "22"
+  },
+  {
+    "groupId": "02",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Translate this to Spanish: 'Please contact support if you experience any issues.'",
+    "output": "Por favor, contacte al soporte si experimenta algún problema.",
+    "accuracy": "88",
+    "inputTokens": "22",
+    "outputTokens": "16"
+  },
+  {
+    "groupId": "02",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Translate the following customer-facing support message to formal Latin American Spanish, maintaining a professional and helpful tone. Text: 'Please contact support if you experience any issues.'",
+    "output": "Si experimenta algún inconveniente, le invitamos a comunicarse con nuestro equipo de soporte.",
+    "accuracy": "97",
+    "inputTokens": "52",
+    "outputTokens": "24"
+  },
+  {
+    "groupId": "03",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Write a product description for wireless noise-canceling headphones.",
+    "output": "These wireless noise-canceling headphones deliver immersive sound and block out distractions for a focused listening experience.",
+    "accuracy": "80",
+    "inputTokens": "14",
+    "outputTokens": "24"
+  },
+  {
+    "groupId": "03",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "You are a copywriter for a premium consumer electronics brand. Write a 2-sentence product description for wireless noise-canceling headphones that emphasizes sound quality, comfort, and everyday versatility. Tone: confident, modern.",
+    "output": "Engineered for deep focus and rich audio, these wireless headphones use advanced noise-canceling technology to silence the world around you. Lightweight and designed for all-day wear, they move seamlessly from your morning commute to late-night listening sessions.",
+    "accuracy": "96",
+    "inputTokens": "68",
+    "outputTokens": "52"
+  },
+  {
+    "groupId": "04",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Extract all action items from this meeting note: 'John will follow up with the client by Friday. Sarah needs to update the roadmap. The team should review the new designs before next Tuesday.'",
+    "output": "1. John: Follow up with client by Friday. 2. Sarah: Update the roadmap. 3. Team: Review new designs before Tuesday.",
+    "accuracy": "85",
+    "inputTokens": "52",
+    "outputTokens": "32"
+  },
+  {
+    "groupId": "04",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'John will follow up with the client by Friday. Sarah needs to update the roadmap. The team should review the new designs before next Tuesday.'",
+    "output": "[{\"owner\": \"John\", \"task\": \"Follow up with client\", \"deadline\": \"Friday\"}, {\"owner\": \"Sarah\", \"task\": \"Update the roadmap\", \"deadline\": \"Unspecified\"}, {\"owner\": \"Team\", \"task\": \"Review new designs\", \"deadline\": \"Next Tuesday\"}]",
+    "accuracy": "98",
+    "inputTokens": "82",
+    "outputTokens": "58"
+  },
+  {
+    "groupId": "05",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Classify this support ticket as High, Medium, or Low priority: 'I cannot log into my account and have an important presentation in 2 hours.'",
+    "output": "High",
+    "accuracy": "83",
+    "inputTokens": "38",
+    "outputTokens": "2"
+  },
+  {
+    "groupId": "05",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: 'I cannot log into my account and have an important presentation in 2 hours.'",
+    "output": "{\"priority\": \"High\", \"reason\": \"Login failure with a hard time constraint of 2 hours creates immediate business impact.\"}",
+    "accuracy": "97",
+    "inputTokens": "68",
+    "outputTokens": "30"
+  },
+  {
+    "groupId": "06",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Write a subject line for an email about a scheduled system maintenance window.",
+    "output": "Scheduled System Maintenance – Action May Be Required",
+    "accuracy": "79",
+    "inputTokens": "18",
+    "outputTokens": "10"
+  },
+  {
+    "groupId": "06",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Generate 3 email subject line options for a scheduled system maintenance notification targeting enterprise customers. Each should be clear, professional, and under 60 characters. Indicate which is recommended.",
+    "output": "1. [Recommended] 'Scheduled Maintenance: Service Downtime on [Date]' 2. 'Upcoming System Maintenance – Plan Accordingly' 3. 'Important: Maintenance Window Scheduled for [Date]'",
+    "accuracy": "95",
+    "inputTokens": "56",
+    "outputTokens": "42"
+  },
+  {
+    "groupId": "07",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Rewrite this sentence to be more concise: 'Due to the fact that the weather was not good, we decided to cancel the outdoor event that had been planned.'",
+    "output": "Because of bad weather, we canceled the outdoor event.",
+    "accuracy": "84",
+    "inputTokens": "40",
+    "outputTokens": "12"
+  },
+  {
+    "groupId": "07",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'Due to the fact that the weather was not good, we decided to cancel the outdoor event that had been planned.'",
+    "output": "Poor weather forced us to cancel the planned outdoor event.",
+    "accuracy": "98",
+    "inputTokens": "66",
+    "outputTokens": "13"
+  },
+  {
+    "groupId": "08",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Identify the sentiment of this tweet: 'Just spent 3 hours on hold. Worst customer service I have ever experienced. Never buying from them again.'",
+    "output": "Negative",
+    "accuracy": "86",
+    "inputTokens": "36",
+    "outputTokens": "2"
+  },
+  {
+    "groupId": "08",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative), confidence (0–100), and a one-sentence rationale. Tweet: 'Just spent 3 hours on hold. Worst customer service I have ever experienced. Never buying from them again.'",
+    "output": "{\"sentiment\": \"Negative\", \"confidence\": 99, \"rationale\": \"The tweet expresses strong frustration over wait time, explicitly labels the experience as the worst ever, and states intent to stop purchasing.\"}",
+    "accuracy": "99",
+    "inputTokens": "76",
+    "outputTokens": "48"
+  },
+  {
+    "groupId": "09",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Write a one-paragraph onboarding welcome message for a new SaaS product called DataFlow.",
+    "output": "Welcome to DataFlow! We're thrilled to have you on board. DataFlow helps your team connect, transform, and visualize data with ease. Let's get started.",
+    "accuracy": "78",
+    "inputTokens": "22",
+    "outputTokens": "34"
+  },
+  {
+    "groupId": "09",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Write a one-paragraph onboarding welcome message for a new user of DataFlow, a SaaS data pipeline product targeting data engineers. Tone: warm but technically credible. Mention: getting started, key capabilities, and where to find help. Max 80 words.",
+    "output": "Welcome to DataFlow — we're glad you're here. DataFlow gives data engineers a fast, flexible way to build, monitor, and scale pipelines without the overhead. You can connect your first source in minutes using our guided setup, explore pre-built connectors, and manage transformations visually or in code. When you need help, our docs and support team are always a click away. Let's build something.",
+    "accuracy": "96",
+    "inputTokens": "74",
+    "outputTokens": "82"
+  },
+  {
+    "groupId": "10",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Generate 5 frequently asked questions for a cloud storage product.",
+    "output": "1. How much storage do I get? 2. Is my data secure? 3. Can I share files with others? 4. What file types are supported? 5. How do I upgrade my plan?",
+    "accuracy": "80",
+    "inputTokens": "16",
+    "outputTokens": "42"
+  },
+  {
+    "groupId": "10",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Generate 5 FAQs for a cloud storage product targeting small business owners. For each FAQ, provide the question and a concise 1–2 sentence answer. Focus on security, pricing, collaboration, and reliability.",
+    "output": "1. Is my business data encrypted? Yes, all files are encrypted in transit and at rest using AES-256. 2. What happens if I exceed my storage limit? You will receive a notification and can upgrade your plan at any time. 3. Can multiple team members access the same files? Yes, you can invite team members and set individual permission levels. 4. What is the uptime guarantee? We offer a 99.9% uptime SLA backed by redundant infrastructure. 5. Are there long-term contracts? No, all plans are month-to-month with no cancellation fees.",
+    "accuracy": "97",
+    "inputTokens": "58",
+    "outputTokens": "118"
+  },
+  {
+    "groupId": "11",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Summarize the following article in 3 bullet points: 'Researchers at MIT have developed a new battery technology that charges in under 5 minutes and lasts 3x longer than lithium-ion. The technology uses a novel solid-state electrolyte and could be ready for commercial use within 5 years.'",
+    "output": "- MIT developed a fast-charging battery. - It charges in under 5 minutes and lasts 3x longer than lithium-ion. - Commercial availability expected within 5 years.",
+    "accuracy": "83",
+    "inputTokens": "68",
+    "outputTokens": "40"
+  },
+  {
+    "groupId": "11",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Summarize the following article in exactly 3 bullet points for a non-technical executive audience. Each bullet must be one sentence and highlight business or practical relevance. Article: 'Researchers at MIT have developed a new battery technology that charges in under 5 minutes and lasts 3x longer than lithium-ion. The technology uses a novel solid-state electrolyte and could be ready for commercial use within 5 years.'",
+    "output": "- MIT researchers have created a battery that charges in under 5 minutes, dramatically reducing downtime for devices and EVs. - The new solid-state technology triples the lifespan of current lithium-ion batteries, lowering long-term replacement costs. - Commercial deployment is projected within 5 years, signaling a near-term shift in the battery market.",
+    "accuracy": "98",
+    "inputTokens": "104",
+    "outputTokens": "68"
+  },
+  {
+    "groupId": "12",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Write a SQL query to get all users who signed up in the last 30 days.",
+    "output": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '30 days';",
+    "accuracy": "85",
+    "inputTokens": "20",
+    "outputTokens": "20"
+  },
+  {
+    "groupId": "12",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Write a PostgreSQL query to retrieve all users who signed up in the last 30 days. Return only id, email, and created_at. Exclude soft-deleted records where deleted_at is not null. Add a comment explaining the query.",
+    "output": "-- Retrieve active users who registered within the last 30 days\nSELECT id, email, created_at\nFROM users\nWHERE created_at >= NOW() - INTERVAL '30 days'\n  AND deleted_at IS NULL\nORDER BY created_at DESC;",
+    "accuracy": "99",
+    "inputTokens": "62",
+    "outputTokens": "48"
+  },
+  {
+    "groupId": "13",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Suggest a name for a productivity app that helps remote teams manage async work.",
+    "output": "AsyncHQ",
+    "accuracy": "76",
+    "inputTokens": "20",
+    "outputTokens": "4"
+  },
+  {
+    "groupId": "13",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Generate 5 name ideas for a B2B productivity app that helps remote teams manage async work. Each name should be short (1–2 words), memorable, and available as a .com domain. Include a one-line rationale for each.",
+    "output": "1. Driftwork – Evokes smooth, uninterrupted async flow. 2. Loopshift – Suggests handoffs and continuous progress across time zones. 3. Cadence – Implies rhythm and structured async momentum. 4. Relay HQ – Communicates team handoffs with a sense of headquarters authority. 5. Stackpass – Suggests layered task progression and seamless passing of work.",
+    "accuracy": "94",
+    "inputTokens": "58",
+    "outputTokens": "76"
+  },
+  {
+    "groupId": "14",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Explain what an API is to a non-technical stakeholder.",
+    "output": "An API is a way for two software applications to talk to each other and share information automatically.",
+    "accuracy": "82",
+    "inputTokens": "16",
+    "outputTokens": "22"
+  },
+  {
+    "groupId": "14",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Explain what an API is to a non-technical business stakeholder in 3 sentences or fewer. Use a real-world analogy. Avoid all technical jargon.",
+    "output": "An API is like a waiter in a restaurant: you tell the waiter what you want, they take your request to the kitchen, and bring back exactly what you ordered. In software, APIs let different products and services communicate and exchange data behind the scenes. This is what allows your CRM to sync with your email tool, or your payment processor to connect with your website.",
+    "accuracy": "98",
+    "inputTokens": "46",
+    "outputTokens": "76"
+  },
+  {
+    "groupId": "15",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Write a decline email for a job applicant who was not selected.",
+    "output": "Thank you for applying. After careful consideration, we have decided to move forward with another candidate. We wish you the best in your search.",
+    "accuracy": "79",
+    "inputTokens": "18",
+    "outputTokens": "32"
+  },
+  {
+    "groupId": "15",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Write a professional and empathetic job application decline email. The candidate interviewed but was not selected. Acknowledge their time, briefly note the decision without false praise, and leave the door open for future roles. Keep it under 100 words. Do not use 'we regret to inform you.'",
+    "output": "Subject: Your Application at [Company]\n\nHi [Name],\n\nThank you for taking the time to interview with us — we genuinely appreciate your interest in the role.\n\nAfter a thorough review, we've decided to move forward with another candidate whose experience more closely matches our current needs. This was a competitive process and not a reflection of your qualifications.\n\nWe'll keep your information on file and encourage you to apply for future openings that may be a strong fit.\n\nWishing you all the best,\n[Your Name]",
+    "accuracy": "97",
+    "inputTokens": "72",
+    "outputTokens": "98"
+  },
+  {
+    "groupId": "16",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "List 5 best practices for writing clean Python code.",
+    "output": "1. Use meaningful variable names. 2. Follow PEP 8 style guidelines. 3. Write docstrings for functions. 4. Keep functions short and focused. 5. Handle exceptions properly.",
+    "accuracy": "83",
+    "inputTokens": "14",
+    "outputTokens": "38"
+  },
+  {
+    "groupId": "16",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "List 5 best practices for writing clean Python code targeting mid-level engineers. For each practice, include a one-line explanation and a short code example demonstrating good vs. bad usage.",
+    "output": "1. Use descriptive names: Names should reveal intent without needing comments. Bad: `d = 86400` Good: `SECONDS_PER_DAY = 86400`. 2. Follow PEP 8: Consistent formatting reduces cognitive load. Bad: `def foo(x,y):return x+y` Good: `def add(x, y):\\n    return x + y`. 3. Write docstrings: Document what, not how. Good: `\"\"\"Return the sum of two integers.\"\"\"`. 4. Keep functions focused: One function, one responsibility. Split functions exceeding 20 lines. 5. Use specific exceptions: Bad: `except Exception` Good: `except ValueError as e`.",
+    "accuracy": "97",
+    "inputTokens": "56",
+    "outputTokens": "128"
+  },
+  {
+    "groupId": "17",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Create a short push notification for a flash sale ending in 2 hours.",
+    "output": "Flash sale ends in 2 hours! Shop now and save up to 50%.",
+    "accuracy": "80",
+    "inputTokens": "18",
+    "outputTokens": "16"
+  },
+  {
+    "groupId": "17",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Write 3 push notification options for a flash sale ending in 2 hours. Each must be under 60 characters, create urgency without being spammy, and include a clear CTA. Label which performs best for high-intent users.",
+    "output": "1. [Best for high-intent] '2 hrs left: Up to 50% off. Grab it now.' 2. 'Flash sale ending soon — don't miss out. Shop now.' 3. 'Your deal expires in 2 hours. Claim it before it's gone.'",
+    "accuracy": "96",
+    "inputTokens": "60",
+    "outputTokens": "54"
+  },
+  {
+    "groupId": "18",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Describe the difference between supervised and unsupervised machine learning.",
+    "output": "Supervised learning uses labeled data to train models to make predictions. Unsupervised learning finds patterns in data without labels.",
+    "accuracy": "84",
+    "inputTokens": "16",
+    "outputTokens": "26"
+  },
+  {
+    "groupId": "18",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Explain the difference between supervised and unsupervised machine learning for a product manager with no ML background. Use one concrete example for each. Keep the total response under 100 words.",
+    "output": "Supervised learning trains a model on labeled examples so it can predict outcomes on new data. Example: training a spam filter on emails already marked spam or not spam. Unsupervised learning finds hidden patterns in data with no labels provided. Example: grouping customers by purchase behavior without telling the model what the groups should be. The key difference is whether you're teaching the model the right answer upfront.",
+    "accuracy": "98",
+    "inputTokens": "52",
+    "outputTokens": "78"
+  },
+  {
+    "groupId": "19",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Write a tooltip for a button labeled 'Archive'.",
+    "output": "Archive this item.",
+    "accuracy": "75",
+    "inputTokens": "14",
+    "outputTokens": "5"
+  },
+  {
+    "groupId": "19",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Write a UX microcopy tooltip for an 'Archive' button in an enterprise document management app. It should explain what archiving does, distinguish it from deletion, and stay under 15 words.",
+    "output": "Move to archive. The item is hidden but not deleted and can be restored.",
+    "accuracy": "97",
+    "inputTokens": "52",
+    "outputTokens": "17"
+  },
+  {
+    "groupId": "20",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Generate a regex pattern that validates a US phone number.",
+    "output": "^\\+?1?\\s?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$",
+    "accuracy": "83",
+    "inputTokens": "14",
+    "outputTokens": "26"
+  },
+  {
+    "groupId": "20",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Generate a JavaScript regex pattern that validates common US phone number formats including: (555) 555-5555, 555-555-5555, 555.555.5555, and +1 555 555 5555. Include a brief explanation of each part of the pattern and a test snippet.",
+    "output": "Pattern: /^(\\+1\\s?)?\\(?\\d{3}\\)?[\\s.\\-]?\\d{3}[\\s.\\-]?\\d{4}$/\n\nBreakdown:\n- (\\+1\\s?)? — optional country code\n- \\(?\\d{3}\\)? — area code with optional parentheses\n- [\\s.\\-]? — optional separator\n- \\d{3}[\\s.\\-]?\\d{4} — 7-digit local number\n\nTest:\nconst phoneRegex = /^(\\+1\\s?)?\\(?\\d{3}\\)?[\\s.\\-]?\\d{3}[\\s.\\-]?\\d{4}$/;\nconsole.log(phoneRegex.test('(555) 555-5555')); // true\nconsole.log(phoneRegex.test('+1 555 555 5555')); // true",
+    "accuracy": "98",
+    "inputTokens": "76",
+    "outputTokens": "116"
+  },
+  {
+    "groupId": "21",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Write a brief error message for a failed file upload.",
+    "output": "File upload failed. Please try again.",
+    "accuracy": "74",
+    "inputTokens": "14",
+    "outputTokens": "8"
+  },
+  {
+    "groupId": "21",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Write a UX error message for a failed file upload in a web app. The message should: identify what went wrong, tell the user what to do next, and offer a fallback action. Keep it under 25 words. Avoid technical jargon.",
+    "output": "Upload failed. Check your file size and format, then try again. If the problem continues, contact support.",
+    "accuracy": "97",
+    "inputTokens": "58",
+    "outputTokens": "20"
+  },
+  {
+    "groupId": "22",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Summarize the key benefits of Agile methodology for a non-technical audience.",
+    "output": "Agile helps teams work faster by breaking projects into smaller pieces, getting frequent feedback, and adapting to changes quickly.",
+    "accuracy": "81",
+    "inputTokens": "18",
+    "outputTokens": "26"
+  },
+  {
+    "groupId": "22",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Summarize the top 3 business benefits of Agile methodology for a VP-level non-technical audience in 3 bullet points. Each bullet should be one sentence and focus on business outcomes, not process mechanics.",
+    "output": "- Agile reduces time-to-market by delivering working increments of a product on a regular cadence rather than waiting for full completion. - It lowers risk by surfacing problems early through continuous feedback loops instead of discovering them at launch. - Teams can respond to shifting business priorities mid-project without costly rework or contract renegotiation.",
+    "accuracy": "97",
+    "inputTokens": "56",
+    "outputTokens": "66"
+  },
+  {
+    "groupId": "23",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Write a meta description for a landing page selling project management software.",
+    "output": "Manage projects, track progress, and collaborate with your team — all in one place. Try it free today.",
+    "accuracy": "78",
+    "inputTokens": "16",
+    "outputTokens": "22"
+  },
+  {
+    "groupId": "23",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Write an SEO-optimized meta description for a project management software landing page targeting small business owners. Include a primary keyword, a differentiator, and a CTA. Stay under 155 characters.",
+    "output": "Streamline projects and team collaboration with software built for small businesses. Stay on deadline, reduce chaos. Start your free trial today.",
+    "accuracy": "97",
+    "inputTokens": "52",
+    "outputTokens": "30"
+  },
+  {
+    "groupId": "24",
+    "type": "Source",
+    "model": "Claude Sonnet 3.5",
+    "input": "Create a short changelog entry for a new dark mode feature.",
+    "output": "Added dark mode support across the app.",
+    "accuracy": "77",
+    "inputTokens": "14",
+    "outputTokens": "9"
+  },
+  {
+    "groupId": "24",
+    "type": "Optimized",
+    "model": "Claude Sonnet 4.5",
+    "input": "Write a changelog entry for a newly shipped dark mode feature in a SaaS product. Follow this format: feature name, one-sentence description of what it does, and one sentence on how to enable it. Keep it under 40 words. Tone: clear and developer-friendly.",
+    "output": "Dark Mode: The app now supports a full dark color theme across all surfaces, reducing eye strain in low-light environments. Enable it under Settings → Appearance → Theme.",
+    "accuracy": "98",
+    "inputTokens": "62",
+    "outputTokens": "34"
+  }
+]

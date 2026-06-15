@@ -62,8 +62,8 @@ const fetchBuckets = async (): Promise<S3ResourceSelectorProps.Bucket[]> => [
 
 const fetchObjects = async (): Promise<S3ResourceSelectorProps.Object[]> => [
   { Key: "prompts/", IsFolder: true },
-  { Key: "prompts/summarization-v1.json", LastModified: "2025-05-01", Size: 1234 },
-  { Key: "prompts/classification-v2.json", LastModified: "2025-05-10", Size: 2345 },
+  { Key: "prompts/summarization-v1.json", LastModified: "2026-05-01", Size: 1234 },
+  { Key: "prompts/classification-v2.json", LastModified: "2026-05-10", Size: 2345 },
 ];
 
 const RELATIVE_OPTIONS: DateRangePickerProps.RelativeOption[] = [

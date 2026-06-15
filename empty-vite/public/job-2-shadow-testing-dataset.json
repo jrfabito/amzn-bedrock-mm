@@ -1,0 +1,74 @@
+[
+  {
+    "groupId": "01", "model": "DeepSeek-V3",
+    "template": "You are a product feedback analyst. Summarize the following customer review in one sentence, identifying overall sentiment. Review: '{{reviewText}}'",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 82, "inputTokens": 28, "outputTokens": 17 }, "target": { "accuracy": 53, "inputTokens": 46, "outputTokens": 16 } }
+  },
+  {
+    "groupId": "02", "model": "DeepSeek-V3",
+    "template": "Translate the following customer support message to {{targetLanguage}}, maintaining a professional tone. Text: '{{text}}'",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 88, "inputTokens": 24, "outputTokens": 18 }, "target": { "accuracy": 93, "inputTokens": 40, "outputTokens": 19 } }
+  },
+  {
+    "groupId": "03", "model": "DeepSeek-V3",
+    "template": "Write a 2-sentence product description for {{productName}} that highlights {{emphasis}} and appeals to {{audience}}.",
+    "requests": 7,
+    "aggregate": { "source": { "accuracy": 80, "inputTokens": 14, "outputTokens": 25 }, "target": { "accuracy": 89, "inputTokens": 39, "outputTokens": 49 } }
+  },
+  {
+    "groupId": "04", "model": "DeepSeek-R1",
+    "template": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: '{{meetingNotes}}'",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 85, "inputTokens": 50, "outputTokens": 32 }, "target": { "accuracy": 75, "inputTokens": 68, "outputTokens": 47 } }
+  },
+  {
+    "groupId": "05", "model": "DeepSeek-R1",
+    "template": "Classify the following support ticket. Return JSON with fields: priority and reason. Ticket: '{{ticketText}}'",
+    "requests": 8,
+    "aggregate": { "source": { "accuracy": 84, "inputTokens": 35, "outputTokens": 2 }, "target": { "accuracy": 41, "inputTokens": 53, "outputTokens": 21 } }
+  },
+  {
+    "groupId": "06", "model": "DeepSeek-R1",
+    "template": "Explain what {{concept}} is to {{audience}} in {{sentenceLimit}} sentences or fewer. Use a real-world analogy. Avoid technical jargon.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 82, "inputTokens": 15, "outputTokens": 28 }, "target": { "accuracy": 95, "inputTokens": 37, "outputTokens": 52 } }
+  },
+  {
+    "groupId": "07", "model": "DeepSeek-V3",
+    "template": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative) and a one-sentence rationale. Tweet: '{{tweetText}}'",
+    "requests": 7,
+    "aggregate": { "source": { "accuracy": 86, "inputTokens": 32, "outputTokens": 2 }, "target": { "accuracy": 48, "inputTokens": 50, "outputTokens": 24 } }
+  },
+  {
+    "groupId": "08", "model": "DeepSeek-V3",
+    "template": "Write a UX microcopy tooltip for a '{{buttonLabel}}' button in {{appContext}}. Explain what it does and stay under {{wordLimit}} words.",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 75, "inputTokens": 14, "outputTokens": 5 }, "target": { "accuracy": 96, "inputTokens": 35, "outputTokens": 14 } }
+  },
+  {
+    "groupId": "09", "model": "DeepSeek-R1",
+    "template": "Write a UX error message for {{errorContext}} in {{appContext}}. Explain what went wrong, what to do next, and offer a fallback. Keep it under {{wordLimit}} words.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 74, "inputTokens": 14, "outputTokens": 10 }, "target": { "accuracy": 96, "inputTokens": 41, "outputTokens": 23 } }
+  },
+  {
+    "groupId": "10", "model": "DeepSeek-R1",
+    "template": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under {{wordLimit}} words. Sentence: '{{sentence}}'",
+    "requests": 8,
+    "aggregate": { "source": { "accuracy": 84, "inputTokens": 41, "outputTokens": 14 }, "target": { "accuracy": 97, "inputTokens": 59, "outputTokens": 12 } }
+  },
+  {
+    "groupId": "11", "model": "DeepSeek-V3",
+    "template": "Write a push notification for {{campaign}}. Keep it under {{charLimit}} characters with a clear CTA.",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 80, "inputTokens": 17, "outputTokens": 15 }, "target": { "accuracy": 94, "inputTokens": 31, "outputTokens": 16 } }
+  },
+  {
+    "groupId": "12", "model": "DeepSeek-R1",
+    "template": "Write a {{dialect}} query to get {{queryDescription}}. Return only {{fields}}. Add a comment explaining the query.",
+    "requests": 7,
+    "aggregate": { "source": { "accuracy": 85, "inputTokens": 21, "outputTokens": 25 }, "target": { "accuracy": 64, "inputTokens": 43, "outputTokens": 31 } }
+  }
+]

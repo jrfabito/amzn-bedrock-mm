@@ -1,916 +1,916 @@
 [
   {
-    "requestId": "req-01-001", "groupId": "01", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-01-001", "groupId": "01", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, highlighting sentiment for each mentioned feature. Review: 'The battery life is great but the screen is dim in sunlight.'",
     "groundTruth": "The product excels in battery life but struggles with screen visibility outdoors.",
     "source": { "actualOutput": "The product has strong battery performance but poor screen visibility in bright outdoor conditions.", "accuracy": 82, "inputTokens": 28, "outputTokens": 18 },
     "target": { "actualOutput": "Battery life received positive sentiment while screen brightness in sunlight was flagged as a limitation.", "accuracy": 95, "inputTokens": 58, "outputTokens": 22 }
   },
   {
-    "requestId": "req-01-002", "groupId": "01", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-01-002", "groupId": "01", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, highlighting sentiment for each mentioned feature. Review: 'Incredibly fast delivery but the packaging was damaged on arrival.'",
     "groundTruth": "Delivery speed was excellent but the packaging arrived in poor condition.",
     "source": { "actualOutput": "Fast shipping noted but the item arrived with damaged packaging.", "accuracy": 80, "inputTokens": 26, "outputTokens": 16 },
     "target": { "actualOutput": "Delivery speed received strong positive sentiment while packaging condition on arrival was flagged as a failure.", "accuracy": 96, "inputTokens": 56, "outputTokens": 20 }
   },
   {
-    "requestId": "req-01-003", "groupId": "01", "trafficType": "seeded", "timestamp": "2025-06-01T10:10:00Z",
+    "requestId": "req-01-003", "groupId": "01", "trafficType": "seeded", "timestamp": "2026-06-01T10:10:00Z",
     "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, highlighting sentiment for each mentioned feature. Review: 'The app is intuitive but crashes frequently on older devices.'",
     "groundTruth": "The app is easy to use but has stability issues on older hardware.",
     "source": { "actualOutput": "App usability is strong but reliability on older devices is a concern.", "accuracy": 83, "inputTokens": 27, "outputTokens": 17 },
     "target": { "actualOutput": "App intuitiveness received positive sentiment while frequent crashes on older devices were flagged as a critical issue.", "accuracy": 97, "inputTokens": 57, "outputTokens": 22 }
   },
   {
-    "requestId": "req-01-004", "groupId": "01", "trafficType": "live", "timestamp": "2025-06-02T09:14:00Z",
+    "requestId": "req-01-004", "groupId": "01", "trafficType": "live", "timestamp": "2026-06-02T09:14:00Z",
     "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, highlighting sentiment for each mentioned feature. Review: 'Screen resolution is stunning but the price feels steep for what you get.'",
     "groundTruth": null,
     "source": { "actualOutput": "Strong display quality noted but value for money was questioned.", "accuracy": null, "inputTokens": 29, "outputTokens": 17 },
     "target": { "actualOutput": "Screen resolution received strong positive sentiment while pricing was flagged as a potential barrier to purchase.", "accuracy": null, "inputTokens": 59, "outputTokens": 21 }
   },
   {
-    "requestId": "req-01-005", "groupId": "01", "trafficType": "live", "timestamp": "2025-06-03T11:45:00Z",
+    "requestId": "req-01-005", "groupId": "01", "trafficType": "live", "timestamp": "2026-06-03T11:45:00Z",
     "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, highlighting sentiment for each mentioned feature. Review: 'Sound quality is exceptional but the ear cups are too tight after an hour.'",
     "groundTruth": null,
     "source": { "actualOutput": "Sound quality praised but comfort during extended wear flagged as an issue.", "accuracy": null, "inputTokens": 28, "outputTokens": 16 },
     "target": { "actualOutput": "Sound quality received exceptional positive sentiment while ear cup comfort during extended use was flagged as a physical limitation.", "accuracy": null, "inputTokens": 58, "outputTokens": 22 }
   },
   {
-    "requestId": "req-01-006", "groupId": "01", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-01-006", "groupId": "01", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "You are a product feedback analyst. Summarize the following customer review in one sentence, highlighting sentiment for each mentioned feature. Review: 'The keyboard backlight is beautiful but the fan noise is unbearable during video calls.'",
     "groundTruth": null,
     "source": { "actualOutput": "Keyboard backlight praised but fan noise during calls flagged as a significant issue.", "accuracy": null, "inputTokens": 30, "outputTokens": 18 },
     "target": { "actualOutput": "Keyboard backlight received strong positive sentiment while fan noise during video calls was flagged as a disruptive limitation.", "accuracy": null, "inputTokens": 60, "outputTokens": 24 }
   },
   {
-    "requestId": "req-02-001", "groupId": "02", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-02-001", "groupId": "02", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Translate the following customer-facing support message to formal Latin American Spanish, maintaining a professional and helpful tone. Text: 'Please contact support if you experience any issues.'",
     "groundTruth": "Por favor, comuníquese con soporte si experimenta algún problema.",
     "source": { "actualOutput": "Por favor, contacte al soporte si experimenta algún problema.", "accuracy": 88, "inputTokens": 22, "outputTokens": 16 },
     "target": { "actualOutput": "Si experimenta algún inconveniente, le invitamos a comunicarse con nuestro equipo de soporte.", "accuracy": 97, "inputTokens": 52, "outputTokens": 24 }
   },
   {
-    "requestId": "req-02-002", "groupId": "02", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-02-002", "groupId": "02", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Translate the following customer-facing support message to formal Latin American Spanish, maintaining a professional and helpful tone. Text: 'Your order has been shipped and will arrive within 3 business days.'",
     "groundTruth": "Su pedido ha sido enviado y llegará en un plazo de 3 días hábiles.",
     "source": { "actualOutput": "Su pedido ha sido enviado y llegará dentro de 3 días hábiles.", "accuracy": 86, "inputTokens": 24, "outputTokens": 18 },
     "target": { "actualOutput": "Su pedido ha sido despachado y llegará en un plazo de 3 días hábiles.", "accuracy": 98, "inputTokens": 54, "outputTokens": 22 }
   },
   {
-    "requestId": "req-02-003", "groupId": "02", "trafficType": "seeded", "timestamp": "2025-06-01T10:10:00Z",
+    "requestId": "req-02-003", "groupId": "02", "trafficType": "seeded", "timestamp": "2026-06-01T10:10:00Z",
     "resolvedInput": "Translate the following customer-facing support message to formal Latin American Spanish, maintaining a professional and helpful tone. Text: 'Thank you for your feedback. We will review it shortly.'",
     "groundTruth": "Gracias por sus comentarios. Los revisaremos en breve.",
     "source": { "actualOutput": "Gracias por tu comentario. Lo revisaremos pronto.", "accuracy": 84, "inputTokens": 22, "outputTokens": 14 },
     "target": { "actualOutput": "Agradecemos sus comentarios y los revisaremos a la brevedad posible.", "accuracy": 97, "inputTokens": 52, "outputTokens": 18 }
   },
   {
-    "requestId": "req-02-004", "groupId": "02", "trafficType": "live", "timestamp": "2025-06-02T08:30:00Z",
+    "requestId": "req-02-004", "groupId": "02", "trafficType": "live", "timestamp": "2026-06-02T08:30:00Z",
     "resolvedInput": "Translate the following customer-facing support message to formal Latin American Spanish, maintaining a professional and helpful tone. Text: 'Your refund has been processed and will appear within 5 business days.'",
     "groundTruth": null,
     "source": { "actualOutput": "Tu reembolso ha sido procesado y aparecerá en un plazo de 5 días hábiles.", "accuracy": null, "inputTokens": 24, "outputTokens": 18 },
     "target": { "actualOutput": "Su reembolso ha sido procesado y se reflejará en su cuenta en un plazo de 5 días hábiles.", "accuracy": null, "inputTokens": 54, "outputTokens": 22 }
   },
   {
-    "requestId": "req-02-005", "groupId": "02", "trafficType": "live", "timestamp": "2025-06-03T14:20:00Z",
+    "requestId": "req-02-005", "groupId": "02", "trafficType": "live", "timestamp": "2026-06-03T14:20:00Z",
     "resolvedInput": "Translate the following customer-facing support message to formal Latin American Spanish, maintaining a professional and helpful tone. Text: 'We apologize for the inconvenience and appreciate your patience.'",
     "groundTruth": null,
     "source": { "actualOutput": "Pedimos disculpas por los inconvenientes y agradecemos tu paciencia.", "accuracy": null, "inputTokens": 22, "outputTokens": 16 },
     "target": { "actualOutput": "Lamentamos los inconvenientes ocasionados y le agradecemos sinceramente su paciencia.", "accuracy": null, "inputTokens": 52, "outputTokens": 18 }
   },
   {
-    "requestId": "req-02-006", "groupId": "02", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-02-006", "groupId": "02", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Translate the following customer-facing support message to formal Latin American Spanish, maintaining a professional and helpful tone. Text: 'Your subscription has been successfully renewed for another year.'",
     "groundTruth": null,
     "source": { "actualOutput": "Tu suscripción ha sido renovada exitosamente por otro año.", "accuracy": null, "inputTokens": 22, "outputTokens": 16 },
     "target": { "actualOutput": "Su suscripción ha sido renovada exitosamente por un año adicional.", "accuracy": null, "inputTokens": 52, "outputTokens": 18 }
   },
   {
-    "requestId": "req-03-001", "groupId": "03", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-03-001", "groupId": "03", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "You are a copywriter for a premium consumer electronics brand. Write a 2-sentence product description for wireless noise-canceling headphones that emphasizes sound quality, comfort, and everyday versatility. Tone: confident, modern.",
     "groundTruth": "A concise, benefit-focused 2-sentence description of wireless noise-canceling headphones.",
     "source": { "actualOutput": "These wireless noise-canceling headphones deliver immersive sound and block out distractions for a focused listening experience.", "accuracy": 80, "inputTokens": 14, "outputTokens": 24 },
     "target": { "actualOutput": "Engineered for deep focus and rich audio, these wireless headphones use advanced noise-canceling technology to silence the world around you. Lightweight and designed for all-day wear, they move seamlessly from your morning commute to late-night listening sessions.", "accuracy": 96, "inputTokens": 68, "outputTokens": 52 }
   },
   {
-    "requestId": "req-03-002", "groupId": "03", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-03-002", "groupId": "03", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "You are a copywriter for a premium consumer appliances brand. Write a 2-sentence product description for a portable espresso maker that emphasizes convenience, quality, and portability. Tone: confident, modern.",
     "groundTruth": "A concise, benefit-focused 2-sentence description of a portable espresso maker.",
     "source": { "actualOutput": "This portable espresso maker lets you enjoy barista-quality coffee anywhere, with a compact design perfect for travel.", "accuracy": 78, "inputTokens": 14, "outputTokens": 22 },
     "target": { "actualOutput": "Wherever the day takes you, this portable espresso maker delivers a rich, cafe-quality shot in under two minutes. Compact enough for a backpack and powerful enough for the most demanding coffee enthusiast.", "accuracy": 96, "inputTokens": 66, "outputTokens": 46 }
   },
   {
-    "requestId": "req-03-003", "groupId": "03", "trafficType": "live", "timestamp": "2025-06-02T11:30:00Z",
+    "requestId": "req-03-003", "groupId": "03", "trafficType": "live", "timestamp": "2026-06-02T11:30:00Z",
     "resolvedInput": "You are a copywriter for a premium fitness brand. Write a 2-sentence product description for a smart yoga mat that emphasizes guided practice, durability, and connectivity. Tone: confident, modern.",
     "groundTruth": null,
     "source": { "actualOutput": "This smart yoga mat guides your practice with built-in sensors and connects to your favorite fitness apps.", "accuracy": null, "inputTokens": 14, "outputTokens": 22 },
     "target": { "actualOutput": "Embedded with pressure sensors that map your alignment in real time, this smart yoga mat transforms every session into a guided experience. Built to last and wirelessly connected, it syncs seamlessly with your favorite wellness apps.", "accuracy": null, "inputTokens": 68, "outputTokens": 48 }
   },
   {
-    "requestId": "req-03-004", "groupId": "03", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-03-004", "groupId": "03", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "You are a copywriter for a premium outdoor apparel brand. Write a 2-sentence product description for a waterproof hiking jacket that emphasizes durability, weather protection, and packability. Tone: adventurous, confident.",
     "groundTruth": null,
     "source": { "actualOutput": "This waterproof hiking jacket keeps you dry and protected in any weather, with a packable design perfect for the trail.", "accuracy": null, "inputTokens": 14, "outputTokens": 24 },
     "target": { "actualOutput": "Built for the most demanding conditions, this waterproof hiking jacket seals out wind and rain while packing down to the size of a water bottle. From alpine ridges to sudden downpours, it delivers serious protection without adding serious weight.", "accuracy": null, "inputTokens": 68, "outputTokens": 50 }
   },
   {
-    "requestId": "req-03-005", "groupId": "03", "trafficType": "live", "timestamp": "2025-06-04T09:00:00Z",
+    "requestId": "req-03-005", "groupId": "03", "trafficType": "live", "timestamp": "2026-06-04T09:00:00Z",
     "resolvedInput": "You are a copywriter for a premium wellness brand. Write a 2-sentence product description for a weighted blanket that emphasizes stress relief, sleep quality, and sensory comfort. Tone: calm, reassuring.",
     "groundTruth": null,
     "source": { "actualOutput": "This weighted blanket promotes relaxation and deeper sleep through gentle, even pressure.", "accuracy": null, "inputTokens": 14, "outputTokens": 16 },
     "target": { "actualOutput": "Filled with evenly distributed micro glass beads, this weighted blanket delivers gentle deep-pressure stimulation that calms the nervous system and signals the body it's time to rest. Wrap yourself in it and feel the difference — slower breaths, quieter thoughts, deeper sleep.", "accuracy": null, "inputTokens": 68, "outputTokens": 52 }
   },
   {
-    "requestId": "req-04-001", "groupId": "04", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-04-001", "groupId": "04", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'John will follow up with the client by Friday. Sarah needs to update the roadmap. The team should review the new designs before next Tuesday.'",
     "groundTruth": "[{\"owner\": \"John\", \"task\": \"Follow up with client\", \"deadline\": \"Friday\"}, {\"owner\": \"Sarah\", \"task\": \"Update the roadmap\", \"deadline\": \"Unspecified\"}, {\"owner\": \"Team\", \"task\": \"Review new designs\", \"deadline\": \"Next Tuesday\"}]",
     "source": { "actualOutput": "1. John: Follow up with client by Friday. 2. Sarah: Update the roadmap. 3. Team: Review new designs before Tuesday.", "accuracy": 85, "inputTokens": 52, "outputTokens": 32 },
     "target": { "actualOutput": "[{\"owner\": \"John\", \"task\": \"Follow up with client\", \"deadline\": \"Friday\"}, {\"owner\": \"Sarah\", \"task\": \"Update the roadmap\", \"deadline\": \"Unspecified\"}, {\"owner\": \"Team\", \"task\": \"Review new designs\", \"deadline\": \"Next Tuesday\"}]", "accuracy": 98, "inputTokens": 82, "outputTokens": 58 }
   },
   {
-    "requestId": "req-04-002", "groupId": "04", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-04-002", "groupId": "04", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'Maria will send the revised proposal by end of day. Dev team needs to fix the login bug before the release. Everyone should complete the security training by next Monday.'",
     "groundTruth": "[{\"owner\": \"Maria\", \"task\": \"Send revised proposal\", \"deadline\": \"End of day\"}, {\"owner\": \"Dev team\", \"task\": \"Fix login bug\", \"deadline\": \"Before release\"}, {\"owner\": \"Everyone\", \"task\": \"Complete security training\", \"deadline\": \"Next Monday\"}]",
     "source": { "actualOutput": "1. Maria: Send revised proposal by end of day. 2. Dev team: Fix login bug before release. 3. Everyone: Complete security training by next Monday.", "accuracy": 84, "inputTokens": 54, "outputTokens": 34 },
     "target": { "actualOutput": "[{\"owner\": \"Maria\", \"task\": \"Send revised proposal\", \"deadline\": \"End of day\"}, {\"owner\": \"Dev team\", \"task\": \"Fix login bug\", \"deadline\": \"Before release\"}, {\"owner\": \"Everyone\", \"task\": \"Complete security training\", \"deadline\": \"Next Monday\"}]", "accuracy": 98, "inputTokens": 84, "outputTokens": 60 }
   },
   {
-    "requestId": "req-04-003", "groupId": "04", "trafficType": "seeded", "timestamp": "2025-06-01T10:10:00Z",
+    "requestId": "req-04-003", "groupId": "04", "trafficType": "seeded", "timestamp": "2026-06-01T10:10:00Z",
     "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'The design team will finalize mockups by Thursday. James needs to schedule the client demo. Finance should approve the Q3 budget before the board meeting.'",
     "groundTruth": "[{\"owner\": \"Design team\", \"task\": \"Finalize mockups\", \"deadline\": \"Thursday\"}, {\"owner\": \"James\", \"task\": \"Schedule client demo\", \"deadline\": \"Unspecified\"}, {\"owner\": \"Finance\", \"task\": \"Approve Q3 budget\", \"deadline\": \"Before board meeting\"}]",
     "source": { "actualOutput": "1. Design team: Finalize mockups by Thursday. 2. James: Schedule client demo. 3. Finance: Approve Q3 budget before board meeting.", "accuracy": 86, "inputTokens": 52, "outputTokens": 30 },
     "target": { "actualOutput": "[{\"owner\": \"Design team\", \"task\": \"Finalize mockups\", \"deadline\": \"Thursday\"}, {\"owner\": \"James\", \"task\": \"Schedule client demo\", \"deadline\": \"Unspecified\"}, {\"owner\": \"Finance\", \"task\": \"Approve Q3 budget\", \"deadline\": \"Before board meeting\"}]", "accuracy": 99, "inputTokens": 82, "outputTokens": 58 }
   },
   {
-    "requestId": "req-04-004", "groupId": "04", "trafficType": "live", "timestamp": "2025-06-02T14:00:00Z",
+    "requestId": "req-04-004", "groupId": "04", "trafficType": "live", "timestamp": "2026-06-02T14:00:00Z",
     "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'Alex will prepare the Q4 forecast by Wednesday. The marketing team needs to finalize the campaign brief. Lisa should confirm the venue for the offsite by end of week.'",
     "groundTruth": null,
     "source": { "actualOutput": "1. Alex: Prepare Q4 forecast by Wednesday. 2. Marketing team: Finalize campaign brief. 3. Lisa: Confirm venue by end of week.", "accuracy": null, "inputTokens": 54, "outputTokens": 32 },
     "target": { "actualOutput": "[{\"owner\": \"Alex\", \"task\": \"Prepare Q4 forecast\", \"deadline\": \"Wednesday\"}, {\"owner\": \"Marketing team\", \"task\": \"Finalize campaign brief\", \"deadline\": \"Unspecified\"}, {\"owner\": \"Lisa\", \"task\": \"Confirm venue for offsite\", \"deadline\": \"End of week\"}]", "accuracy": null, "inputTokens": 84, "outputTokens": 60 }
   },
   {
-    "requestId": "req-04-005", "groupId": "04", "trafficType": "live", "timestamp": "2025-06-03T10:00:00Z",
+    "requestId": "req-04-005", "groupId": "04", "trafficType": "live", "timestamp": "2026-06-03T10:00:00Z",
     "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'Rachel will draft the new onboarding checklist by Thursday. IT needs to provision accounts for the new hires before their start date. The entire team should complete the mandatory compliance training before end of quarter.'",
     "groundTruth": null,
     "source": { "actualOutput": "1. Rachel: Draft onboarding checklist by Thursday. 2. IT: Provision accounts before start date. 3. Team: Complete compliance training before end of quarter.", "accuracy": null, "inputTokens": 54, "outputTokens": 34 },
     "target": { "actualOutput": "[{\"owner\": \"Rachel\", \"task\": \"Draft new onboarding checklist\", \"deadline\": \"Thursday\"}, {\"owner\": \"IT\", \"task\": \"Provision accounts for new hires\", \"deadline\": \"Before new hire start date\"}, {\"owner\": \"Entire team\", \"task\": \"Complete mandatory compliance training\", \"deadline\": \"End of quarter\"}]", "accuracy": null, "inputTokens": 84, "outputTokens": 62 }
   },
   {
-    "requestId": "req-04-006", "groupId": "04", "trafficType": "live", "timestamp": "2025-06-04T14:00:00Z",
+    "requestId": "req-04-006", "groupId": "04", "trafficType": "live", "timestamp": "2026-06-04T14:00:00Z",
     "resolvedInput": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: 'Security team must patch the identified vulnerabilities before next release. Diana will present the revised budget to the board next Tuesday. All department heads need to submit their hiring plans by end of week.'",
     "groundTruth": null,
     "source": { "actualOutput": "1. Security: Patch vulnerabilities before next release. 2. Diana: Present revised budget Tuesday. 3. Department heads: Submit hiring plans by end of week.", "accuracy": null, "inputTokens": 56, "outputTokens": 34 },
     "target": { "actualOutput": "[{\"owner\": \"Security team\", \"task\": \"Patch identified vulnerabilities\", \"deadline\": \"Before next release\"}, {\"owner\": \"Diana\", \"task\": \"Present revised budget to the board\", \"deadline\": \"Next Tuesday\"}, {\"owner\": \"All department heads\", \"task\": \"Submit hiring plans\", \"deadline\": \"End of week\"}]", "accuracy": null, "inputTokens": 86, "outputTokens": 62 }
   },
   {
-    "requestId": "req-05-001", "groupId": "05", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-05-001", "groupId": "05", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: 'I cannot log into my account and have an important presentation in 2 hours.'",
     "groundTruth": "High",
     "source": { "actualOutput": "High", "accuracy": 83, "inputTokens": 38, "outputTokens": 2 },
     "target": { "actualOutput": "{\"priority\": \"High\", \"reason\": \"Login failure with a hard time constraint of 2 hours creates immediate business impact.\"}", "accuracy": 97, "inputTokens": 68, "outputTokens": 30 }
   },
   {
-    "requestId": "req-05-002", "groupId": "05", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-05-002", "groupId": "05", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: 'I would like to update my billing address.'",
     "groundTruth": "Low",
     "source": { "actualOutput": "Low", "accuracy": 90, "inputTokens": 32, "outputTokens": 2 },
     "target": { "actualOutput": "{\"priority\": \"Low\", \"reason\": \"Billing address update is a routine account maintenance task with no urgency.\"}", "accuracy": 98, "inputTokens": 62, "outputTokens": 26 }
   },
   {
-    "requestId": "req-05-003", "groupId": "05", "trafficType": "seeded", "timestamp": "2025-06-01T10:10:00Z",
+    "requestId": "req-05-003", "groupId": "05", "trafficType": "seeded", "timestamp": "2026-06-01T10:10:00Z",
     "resolvedInput": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: 'The dashboard is loading slowly for the past hour.'",
     "groundTruth": "Medium",
     "source": { "actualOutput": "Medium", "accuracy": 82, "inputTokens": 34, "outputTokens": 2 },
     "target": { "actualOutput": "{\"priority\": \"Medium\", \"reason\": \"Performance degradation affects usability but does not block core functionality.\"}", "accuracy": 96, "inputTokens": 64, "outputTokens": 28 }
   },
   {
-    "requestId": "req-05-004", "groupId": "05", "trafficType": "seeded", "timestamp": "2025-06-01T10:15:00Z",
+    "requestId": "req-05-004", "groupId": "05", "trafficType": "seeded", "timestamp": "2026-06-01T10:15:00Z",
     "resolvedInput": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: 'All users in our organization are locked out of the system.'",
     "groundTruth": "High",
     "source": { "actualOutput": "High", "accuracy": 85, "inputTokens": 36, "outputTokens": 2 },
     "target": { "actualOutput": "{\"priority\": \"High\", \"reason\": \"Organization-wide lockout represents a critical service outage with broad business impact.\"}", "accuracy": 99, "inputTokens": 66, "outputTokens": 28 }
   },
   {
-    "requestId": "req-05-005", "groupId": "05", "trafficType": "seeded", "timestamp": "2025-06-01T10:20:00Z",
+    "requestId": "req-05-005", "groupId": "05", "trafficType": "seeded", "timestamp": "2026-06-01T10:20:00Z",
     "resolvedInput": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: 'Can you add a dark mode option to the settings page?'",
     "groundTruth": "Low",
     "source": { "actualOutput": "Low", "accuracy": 88, "inputTokens": 32, "outputTokens": 2 },
     "target": { "actualOutput": "{\"priority\": \"Low\", \"reason\": \"Feature request for a cosmetic UI enhancement with no impact on existing functionality.\"}", "accuracy": 98, "inputTokens": 62, "outputTokens": 26 }
   },
   {
-    "requestId": "req-05-006", "groupId": "05", "trafficType": "live", "timestamp": "2025-06-02T09:00:00Z",
+    "requestId": "req-05-006", "groupId": "05", "trafficType": "live", "timestamp": "2026-06-02T09:00:00Z",
     "resolvedInput": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: 'Our payment processing is failing for all customers at checkout.'",
     "groundTruth": null,
     "source": { "actualOutput": "High", "accuracy": null, "inputTokens": 36, "outputTokens": 2 },
     "target": { "actualOutput": "{\"priority\": \"High\", \"reason\": \"Payment processing failure at checkout directly blocks revenue and affects all customers.\"}", "accuracy": null, "inputTokens": 66, "outputTokens": 28 }
   },
   {
-    "requestId": "req-05-007", "groupId": "05", "trafficType": "live", "timestamp": "2025-06-03T15:30:00Z",
+    "requestId": "req-05-007", "groupId": "05", "trafficType": "live", "timestamp": "2026-06-03T15:30:00Z",
     "resolvedInput": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: 'I accidentally deleted a file and need it restored.'",
     "groundTruth": null,
     "source": { "actualOutput": "Medium", "accuracy": null, "inputTokens": 32, "outputTokens": 2 },
     "target": { "actualOutput": "{\"priority\": \"Medium\", \"reason\": \"File restoration is time-sensitive but does not affect system availability or other users.\"}", "accuracy": null, "inputTokens": 62, "outputTokens": 26 }
   },
   {
-    "requestId": "req-05-008", "groupId": "05", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-05-008", "groupId": "05", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: 'Our SSO integration stopped working this morning and no one in our 200-person company can log in.'",
     "groundTruth": null,
     "source": { "actualOutput": "High", "accuracy": null, "inputTokens": 36, "outputTokens": 2 },
     "target": { "actualOutput": "{\"priority\": \"High\", \"reason\": \"Company-wide SSO failure preventing 200 users from accessing the system constitutes a critical service outage.\"}", "accuracy": null, "inputTokens": 66, "outputTokens": 26 }
   },
   {
-    "requestId": "req-06-001", "groupId": "06", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-06-001", "groupId": "06", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Generate 3 email subject line options for a scheduled system maintenance notification targeting enterprise customers. Each should be clear, professional, and under 60 characters. Indicate which is recommended.",
     "groundTruth": "A clear, professional subject line under 60 characters.",
     "source": { "actualOutput": "Scheduled System Maintenance – Action May Be Required", "accuracy": 79, "inputTokens": 18, "outputTokens": 10 },
     "target": { "actualOutput": "1. [Recommended] 'Scheduled Maintenance: Service Downtime on [Date]' 2. 'Upcoming System Maintenance – Plan Accordingly' 3. 'Important: Maintenance Window Scheduled for [Date]'", "accuracy": 95, "inputTokens": 56, "outputTokens": 42 }
   },
   {
-    "requestId": "req-06-002", "groupId": "06", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-06-002", "groupId": "06", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Generate 3 email subject line options for a new product feature launch targeting existing customers. Each should be clear, professional, and under 60 characters. Indicate which is recommended.",
     "groundTruth": "A clear, professional subject line under 60 characters.",
     "source": { "actualOutput": "New Feature Now Available – Check It Out", "accuracy": 77, "inputTokens": 16, "outputTokens": 10 },
     "target": { "actualOutput": "1. [Recommended] 'Introducing [Feature]: Now Available in Your Account' 2. 'New: [Feature] Is Here — Here's What It Does' 3. 'Your Account Just Got Better: Meet [Feature]'", "accuracy": 96, "inputTokens": 54, "outputTokens": 44 }
   },
   {
-    "requestId": "req-06-003", "groupId": "06", "trafficType": "seeded", "timestamp": "2025-06-01T10:10:00Z",
+    "requestId": "req-06-003", "groupId": "06", "trafficType": "seeded", "timestamp": "2026-06-01T10:10:00Z",
     "resolvedInput": "Generate 3 email subject line options for an upcoming price increase targeting subscription customers. Each should be clear, professional, and under 60 characters. Indicate which is recommended.",
     "groundTruth": "A clear, professional subject line under 60 characters.",
     "source": { "actualOutput": "Important Update: Changes to Your Pricing Plan", "accuracy": 80, "inputTokens": 16, "outputTokens": 10 },
     "target": { "actualOutput": "1. [Recommended] 'Important: Upcoming Changes to Your Subscription' 2. 'A Note on Pricing – Effective [Date]' 3. 'Your Plan Is Changing – Here's What to Know'", "accuracy": 96, "inputTokens": 54, "outputTokens": 42 }
   },
   {
-    "requestId": "req-06-004", "groupId": "06", "trafficType": "live", "timestamp": "2025-06-02T13:00:00Z",
+    "requestId": "req-06-004", "groupId": "06", "trafficType": "live", "timestamp": "2026-06-02T13:00:00Z",
     "resolvedInput": "Generate 3 email subject line options for a customer satisfaction survey targeting recent purchasers. Each should be clear, professional, and under 60 characters. Indicate which is recommended.",
     "groundTruth": null,
     "source": { "actualOutput": "We'd Love Your Feedback – Quick Survey Inside", "accuracy": null, "inputTokens": 16, "outputTokens": 10 },
     "target": { "actualOutput": "1. [Recommended] 'How did we do? Share your experience (2 min)' 2. 'Your opinion matters — take our quick survey' 3. 'Tell us about your recent purchase'", "accuracy": null, "inputTokens": 54, "outputTokens": 38 }
   },
   {
-    "requestId": "req-06-005", "groupId": "06", "trafficType": "live", "timestamp": "2025-06-03T10:00:00Z",
+    "requestId": "req-06-005", "groupId": "06", "trafficType": "live", "timestamp": "2026-06-03T10:00:00Z",
     "resolvedInput": "Generate 3 email subject line options for a re-engagement campaign targeting inactive users. Each should be clear, professional, and under 60 characters. Indicate which is recommended.",
     "groundTruth": null,
     "source": { "actualOutput": "We Miss You – Come Back and See What's New", "accuracy": null, "inputTokens": 16, "outputTokens": 10 },
     "target": { "actualOutput": "1. [Recommended] 'A lot has changed since you've been gone' 2. 'We saved your account — here's what's new' 3. 'Still interested? Here's what you've been missing'", "accuracy": null, "inputTokens": 54, "outputTokens": 38 }
   },
   {
-    "requestId": "req-06-006", "groupId": "06", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-06-006", "groupId": "06", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Generate 3 email subject line options for a trial expiration reminder targeting free trial users. Each should be clear, professional, and under 60 characters. Indicate which is recommended.",
     "groundTruth": null,
     "source": { "actualOutput": "Your Free Trial Is Ending Soon – Upgrade Today", "accuracy": null, "inputTokens": 16, "outputTokens": 10 },
     "target": { "actualOutput": "1. [Recommended] 'Your trial ends in 3 days — keep the momentum' 2. 'Don't lose your progress — upgrade before your trial ends' 3. 'Your free trial is almost up. Here's what happens next.'", "accuracy": null, "inputTokens": 54, "outputTokens": 42 }
   },
   {
-    "requestId": "req-07-001", "groupId": "07", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-07-001", "groupId": "07", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'Due to the fact that the weather was not good, we decided to cancel the outdoor event that had been planned.'",
     "groundTruth": "A concise rewrite under 12 words.",
     "source": { "actualOutput": "Because of bad weather, we canceled the outdoor event.", "accuracy": 84, "inputTokens": 40, "outputTokens": 12 },
     "target": { "actualOutput": "Poor weather forced us to cancel the planned outdoor event.", "accuracy": 98, "inputTokens": 66, "outputTokens": 13 }
   },
   {
-    "requestId": "req-07-002", "groupId": "07", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-07-002", "groupId": "07", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'In the event that you are not able to attend the meeting, please make sure to send someone in your place.'",
     "groundTruth": "A concise rewrite under 12 words.",
     "source": { "actualOutput": "If you cannot attend the meeting, please send a substitute.", "accuracy": 82, "inputTokens": 42, "outputTokens": 13 },
     "target": { "actualOutput": "If you cannot attend, please send a substitute.", "accuracy": 99, "inputTokens": 68, "outputTokens": 10 }
   },
   {
-    "requestId": "req-07-003", "groupId": "07", "trafficType": "seeded", "timestamp": "2025-06-01T10:10:00Z",
+    "requestId": "req-07-003", "groupId": "07", "trafficType": "seeded", "timestamp": "2026-06-01T10:10:00Z",
     "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'We are currently in the process of reviewing your application and will get back to you at some point in the near future.'",
     "groundTruth": "A concise rewrite under 12 words.",
     "source": { "actualOutput": "We are reviewing your application and will follow up soon.", "accuracy": 83, "inputTokens": 42, "outputTokens": 13 },
     "target": { "actualOutput": "We're reviewing your application and will be in touch soon.", "accuracy": 99, "inputTokens": 68, "outputTokens": 12 }
   },
   {
-    "requestId": "req-07-004", "groupId": "07", "trafficType": "live", "timestamp": "2025-06-02T09:00:00Z",
+    "requestId": "req-07-004", "groupId": "07", "trafficType": "live", "timestamp": "2026-06-02T09:00:00Z",
     "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'At this point in time, we are not in a position to make any final decisions.'",
     "groundTruth": null,
     "source": { "actualOutput": "We cannot make a final decision at this time.", "accuracy": null, "inputTokens": 42, "outputTokens": 11 },
     "target": { "actualOutput": "We are not ready to decide yet.", "accuracy": null, "inputTokens": 68, "outputTokens": 8 }
   },
   {
-    "requestId": "req-07-005", "groupId": "07", "trafficType": "live", "timestamp": "2025-06-03T10:00:00Z",
+    "requestId": "req-07-005", "groupId": "07", "trafficType": "live", "timestamp": "2026-06-03T10:00:00Z",
     "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'We would like to take this opportunity to express our sincere gratitude for your continued support.'",
     "groundTruth": null,
     "source": { "actualOutput": "Thank you sincerely for your continued support.", "accuracy": null, "inputTokens": 42, "outputTokens": 9 },
     "target": { "actualOutput": "Thank you for your continued support.", "accuracy": null, "inputTokens": 68, "outputTokens": 7 }
   },
   {
-    "requestId": "req-07-006", "groupId": "07", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-07-006", "groupId": "07", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under 12 words. Sentence: 'There are a number of different options that are available for you to consider at this time.'",
     "groundTruth": null,
     "source": { "actualOutput": "Several options are available for you to consider.", "accuracy": null, "inputTokens": 42, "outputTokens": 10 },
     "target": { "actualOutput": "You have several options to consider.", "accuracy": null, "inputTokens": 68, "outputTokens": 7 }
   },
   {
-    "requestId": "req-08-001", "groupId": "08", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-08-001", "groupId": "08", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative), confidence (0–100), and a one-sentence rationale. Tweet: 'Just spent 3 hours on hold. Worst customer service I have ever experienced. Never buying from them again.'",
     "groundTruth": "Negative",
     "source": { "actualOutput": "Negative", "accuracy": 86, "inputTokens": 36, "outputTokens": 2 },
     "target": { "actualOutput": "{\"sentiment\": \"Negative\", \"confidence\": 99, \"rationale\": \"The tweet expresses strong frustration over wait time, explicitly labels the experience as the worst ever, and states intent to stop purchasing.\"}", "accuracy": 99, "inputTokens": 76, "outputTokens": 48 }
   },
   {
-    "requestId": "req-08-002", "groupId": "08", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-08-002", "groupId": "08", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative), confidence (0–100), and a one-sentence rationale. Tweet: 'Just got my order and everything is perfect. Fast shipping and exactly as described!'",
     "groundTruth": "Positive",
     "source": { "actualOutput": "Positive", "accuracy": 90, "inputTokens": 34, "outputTokens": 2 },
     "target": { "actualOutput": "{\"sentiment\": \"Positive\", \"confidence\": 98, \"rationale\": \"The tweet uses emphatic positive language across both delivery speed and product accuracy.\"}", "accuracy": 98, "inputTokens": 72, "outputTokens": 40 }
   },
   {
-    "requestId": "req-08-003", "groupId": "08", "trafficType": "seeded", "timestamp": "2025-06-01T10:10:00Z",
+    "requestId": "req-08-003", "groupId": "08", "trafficType": "seeded", "timestamp": "2026-06-01T10:10:00Z",
     "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative), confidence (0–100), and a one-sentence rationale. Tweet: 'Package arrived today. It's fine I guess.'",
     "groundTruth": "Neutral",
     "source": { "actualOutput": "Neutral", "accuracy": 80, "inputTokens": 28, "outputTokens": 2 },
     "target": { "actualOutput": "{\"sentiment\": \"Neutral\", \"confidence\": 85, \"rationale\": \"The tweet acknowledges receipt without strong positive or negative language, suggesting mild indifference.\"}", "accuracy": 97, "inputTokens": 66, "outputTokens": 36 }
   },
   {
-    "requestId": "req-08-004", "groupId": "08", "trafficType": "live", "timestamp": "2025-06-02T11:00:00Z",
+    "requestId": "req-08-004", "groupId": "08", "trafficType": "live", "timestamp": "2026-06-02T11:00:00Z",
     "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative), confidence (0–100), and a one-sentence rationale. Tweet: 'Absolutely blown away by the support team. Resolved my issue in under 10 minutes!'",
     "groundTruth": null,
     "source": { "actualOutput": "Positive", "accuracy": null, "inputTokens": 34, "outputTokens": 2 },
     "target": { "actualOutput": "{\"sentiment\": \"Positive\", \"confidence\": 99, \"rationale\": \"The tweet expresses strong enthusiasm about support speed and resolution, using emphatic language.\"}", "accuracy": null, "inputTokens": 72, "outputTokens": 38 }
   },
   {
-    "requestId": "req-08-005", "groupId": "08", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-08-005", "groupId": "08", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative), confidence (0–100), and a one-sentence rationale. Tweet: 'Third time this month my order was delayed. Starting to look at alternatives.'",
     "groundTruth": null,
     "source": { "actualOutput": "Negative", "accuracy": null, "inputTokens": 32, "outputTokens": 2 },
     "target": { "actualOutput": "{\"sentiment\": \"Negative\", \"confidence\": 94, \"rationale\": \"Repeated delivery failures and expressed intent to switch providers signal strong dissatisfaction.\"}", "accuracy": null, "inputTokens": 70, "outputTokens": 36 }
   },
   {
-    "requestId": "req-08-006", "groupId": "08", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-08-006", "groupId": "08", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative), confidence (0–100), and a one-sentence rationale. Tweet: 'Unsubscribed. Done. Not worth the headache.'",
     "groundTruth": null,
     "source": { "actualOutput": "Negative", "accuracy": null, "inputTokens": 26, "outputTokens": 2 },
     "target": { "actualOutput": "{\"sentiment\": \"Negative\", \"confidence\": 99, \"rationale\": \"Decisive cancellation combined with dismissive language signals complete dissatisfaction and zero intent to return.\"}", "accuracy": null, "inputTokens": 64, "outputTokens": 30 }
   },
   {
-    "requestId": "req-09-001", "groupId": "09", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-09-001", "groupId": "09", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Write a one-paragraph onboarding welcome message for a new user of DataFlow, a SaaS data pipeline product targeting data engineers. Tone: warm but technically credible. Mention: getting started, key capabilities, and where to find help. Max 80 words.",
     "groundTruth": "A warm, concise onboarding message covering key capabilities and next steps.",
     "source": { "actualOutput": "Welcome to DataFlow! We're thrilled to have you on board. DataFlow helps your team connect, transform, and visualize data with ease. Let's get started.", "accuracy": 78, "inputTokens": 22, "outputTokens": 34 },
     "target": { "actualOutput": "Welcome to DataFlow — we're glad you're here. DataFlow gives data engineers a fast, flexible way to build, monitor, and scale pipelines without the overhead. You can connect your first source in minutes using our guided setup, explore pre-built connectors, and manage transformations visually or in code. When you need help, our docs and support team are always a click away.", "accuracy": 96, "inputTokens": 74, "outputTokens": 82 }
   },
   {
-    "requestId": "req-09-002", "groupId": "09", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-09-002", "groupId": "09", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Write a one-paragraph onboarding welcome message for a new user of TaskBridge, a SaaS project management tool targeting cross-functional teams. Tone: warm but professionally confident. Mention: getting started, key capabilities, and where to find help. Max 80 words.",
     "groundTruth": "A warm, concise onboarding message covering key capabilities and next steps.",
     "source": { "actualOutput": "Welcome to TaskBridge! We're excited to have you here. TaskBridge helps your team stay aligned, track progress, and get work done faster. Let's dive in.", "accuracy": 76, "inputTokens": 20, "outputTokens": 34 },
     "target": { "actualOutput": "Welcome to TaskBridge — we're excited to have you. TaskBridge gives cross-functional teams a clear, connected way to assign work, track progress, and hit deadlines without the noise. Set up your first project in minutes, explore integrations with your existing tools, and manage everything from a single dashboard. Our help center and support team are here whenever you need them.", "accuracy": 96, "inputTokens": 76, "outputTokens": 84 }
   },
   {
-    "requestId": "req-09-003", "groupId": "09", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-09-003", "groupId": "09", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Write a one-paragraph onboarding welcome message for a new user of ShieldVault, a SaaS cybersecurity platform targeting IT administrators. Tone: professional and reassuring. Mention: getting started, key capabilities, and where to find help. Max 80 words.",
     "groundTruth": null,
     "source": { "actualOutput": "Welcome to ShieldVault! We're glad to have you on board. ShieldVault helps IT teams protect their infrastructure with powerful, easy-to-use security tools. Let's get you set up.", "accuracy": null, "inputTokens": 22, "outputTokens": 36 },
     "target": { "actualOutput": "Welcome to ShieldVault — your infrastructure is in good hands. ShieldVault gives IT administrators a unified platform to monitor threats, enforce policies, and respond to incidents in real time. Start by connecting your first environment using our guided setup wizard, explore our pre-built compliance templates, and configure alerts tailored to your stack. Our security team and documentation are available around the clock.", "accuracy": null, "inputTokens": 76, "outputTokens": 84 }
   },
   {
-    "requestId": "req-09-004", "groupId": "09", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-09-004", "groupId": "09", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Write a one-paragraph onboarding welcome message for a new user of AdHive, a SaaS advertising platform targeting performance marketers. Tone: energetic and results-focused. Mention: getting started, key capabilities, and where to find help. Max 80 words.",
     "groundTruth": null,
     "source": { "actualOutput": "Welcome to AdHive! AdHive helps performance marketers run better ad campaigns. Let's get started and drive results.", "accuracy": null, "inputTokens": 22, "outputTokens": 22 },
     "target": { "actualOutput": "Welcome to AdHive — let's drive results from day one. AdHive gives performance marketers a unified platform to build, optimize, and scale campaigns across paid search, social, and programmatic channels. Connect your first ad account in minutes, set your optimization goals, and let our AI bidding engine start working. Our performance team and live chat support are ready when you need them.", "accuracy": null, "inputTokens": 76, "outputTokens": 82 }
   },
   {
-    "requestId": "req-09-005", "groupId": "09", "trafficType": "live", "timestamp": "2025-06-04T09:00:00Z",
+    "requestId": "req-09-005", "groupId": "09", "trafficType": "live", "timestamp": "2026-06-04T09:00:00Z",
     "resolvedInput": "Write a one-paragraph onboarding welcome message for a new user of BudgetIQ, a SaaS financial planning tool targeting small business owners. Tone: friendly and approachable. Mention: getting started, key capabilities, and where to find help. Max 80 words.",
     "groundTruth": null,
     "source": { "actualOutput": "Welcome to BudgetIQ! We're so glad you're here. BudgetIQ makes financial planning simple for small business owners. Let's get started!", "accuracy": null, "inputTokens": 20, "outputTokens": 28 },
     "target": { "actualOutput": "Welcome to BudgetIQ — great to have you here. BudgetIQ gives small business owners a simple, clear way to track spending, forecast cash flow, and stay on top of budgets without needing a finance degree. Connect your accounts in minutes, explore our automated reports, and set your first budget goals today. If you ever need help, our support team is just a chat away.", "accuracy": null, "inputTokens": 74, "outputTokens": 82 }
   },
   {
-    "requestId": "req-10-001", "groupId": "10", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-10-001", "groupId": "10", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Generate 5 FAQs for a cloud storage product targeting small business owners. For each FAQ, provide the question and a concise 1–2 sentence answer. Focus on security, pricing, collaboration, and reliability.",
     "groundTruth": "5 relevant FAQs covering common user concerns.",
     "source": { "actualOutput": "1. How much storage do I get? 2. Is my data secure? 3. Can I share files with others? 4. What file types are supported? 5. How do I upgrade my plan?", "accuracy": 80, "inputTokens": 16, "outputTokens": 42 },
     "target": { "actualOutput": "1. Is my business data encrypted? Yes, all files are encrypted in transit and at rest using AES-256. 2. What happens if I exceed my storage limit? You will receive a notification and can upgrade your plan at any time. 3. Can multiple team members access the same files? Yes, you can invite team members and set individual permission levels. 4. What is the uptime guarantee? We offer a 99.9% uptime SLA backed by redundant infrastructure. 5. Are there long-term contracts? No, all plans are month-to-month with no cancellation fees.", "accuracy": 97, "inputTokens": 58, "outputTokens": 118 }
   },
   {
-    "requestId": "req-10-002", "groupId": "10", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-10-002", "groupId": "10", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Generate 5 FAQs for a project management tool targeting small business owners. For each FAQ, provide the question and a concise 1–2 sentence answer. Focus on ease of use, team collaboration, pricing, and integrations.",
     "groundTruth": "5 relevant FAQs covering common user concerns.",
     "source": { "actualOutput": "1. How do I create a project? 2. Can I invite team members? 3. Is there a mobile app? 4. How do I track deadlines? 5. What integrations are available?", "accuracy": 79, "inputTokens": 16, "outputTokens": 40 },
     "target": { "actualOutput": "1. How quickly can my team get started? Most teams are up and running within an hour using our guided setup. 2. Can I collaborate with external contractors? Yes, you can invite guests with limited access at no extra cost. 3. Does it integrate with tools we already use? Yes, we support integrations with Slack, Google Workspace, and 50+ other tools. 4. Is there a free plan? Yes, our free plan supports up to 5 users with core features included. 5. Can I cancel anytime? Yes, all paid plans are month-to-month with no cancellation fees.", "accuracy": 97, "inputTokens": 58, "outputTokens": 120 }
   },
   {
-    "requestId": "req-10-003", "groupId": "10", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-10-003", "groupId": "10", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Generate 5 FAQs for a video conferencing tool targeting remote-first startup teams. For each FAQ, provide the question and a concise 1–2 sentence answer. Focus on reliability, integrations, recording, and pricing.",
     "groundTruth": null,
     "source": { "actualOutput": "1. Is the video quality reliable? 2. Does it integrate with Slack? 3. Can I record meetings? 4. How much does it cost? 5. Is there a free plan?", "accuracy": null, "inputTokens": 16, "outputTokens": 38 },
     "target": { "actualOutput": "1. How reliable is the connection during large calls? Our infrastructure maintains HD video quality for up to 500 participants with 99.9% uptime. 2. Does it integrate with our existing tools? Yes, we support native integrations with Slack, Notion, Google Calendar, and 40+ other tools. 3. Can we record and transcribe meetings? Yes, all recordings are auto-transcribed and saved to your team workspace. 4. Is there a free plan? Yes, our free plan includes unlimited calls for up to 10 participants. 5. How does pricing scale as we grow? Paid plans scale per seat with volume discounts starting at 25 users.", "accuracy": null, "inputTokens": 60, "outputTokens": 126 }
   },
   {
-    "requestId": "req-10-004", "groupId": "10", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-10-004", "groupId": "10", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Generate 5 FAQs for a payroll software platform targeting HR managers at mid-sized companies. For each FAQ, provide the question and a concise 1–2 sentence answer. Focus on compliance, tax filing, direct deposit, and integrations.",
     "groundTruth": null,
     "source": { "actualOutput": "1. Does it handle tax filing? 2. Is it compliant with state regulations? 3. Can I set up direct deposit? 4. Does it integrate with HR systems? 5. How long does setup take?", "accuracy": null, "inputTokens": 16, "outputTokens": 40 },
     "target": { "actualOutput": "1. Does the platform handle federal and state tax filing automatically? Yes, we file all required payroll taxes on your behalf and send employees their W-2s at year end. 2. How does it handle compliance across multiple states? The platform automatically applies the correct tax rules and minimum wage requirements for each state. 3. How quickly can direct deposit be set up? Direct deposit is configured during onboarding and typically activates within one pay cycle. 4. Does it integrate with our HRIS? Yes, we have pre-built integrations with Workday, BambooHR, and Rippling. 5. What happens if there's a payroll error? Our team will correct errors and file any necessary amendments at no additional cost.", "accuracy": null, "inputTokens": 60, "outputTokens": 128 }
   },
   {
-    "requestId": "req-10-005", "groupId": "10", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-10-005", "groupId": "10", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Generate 5 FAQs for a document signing platform targeting legal operations professionals. For each FAQ, provide the question and a concise 1–2 sentence answer. Focus on legal validity, security, audit trails, and enterprise features.",
     "groundTruth": null,
     "source": { "actualOutput": "1. Are signatures legally binding? 2. Is it secure? 3. Is there an audit trail? 4. Does it support bulk sending? 5. Can it integrate with our contract system?", "accuracy": null, "inputTokens": 16, "outputTokens": 38 },
     "target": { "actualOutput": "1. Are electronic signatures legally enforceable? Yes, our signatures comply with eIDAS, ESIGN, and UETA regulations across 180+ countries. 2. How is document security maintained? All documents are encrypted at rest and in transit, with access controls enforced at the signer level. 3. What does the audit trail include? Every view, click, and signature is time-stamped and IP-logged. 4. Can we send documents in bulk? Yes, our bulk send feature supports up to 1,000 recipients per envelope. 5. Does it integrate with CLM systems? Yes, we have certified integrations with Ironclad, Conga, and Salesforce CPQ.", "accuracy": null, "inputTokens": 60, "outputTokens": 124 }
   },
   {
-    "requestId": "req-11-001", "groupId": "11", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-11-001", "groupId": "11", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Summarize the following article in exactly 3 bullet points for a non-technical executive audience. Each bullet must be one sentence and highlight business or practical relevance. Article: 'Researchers at MIT have developed a new battery technology that charges in under 5 minutes and lasts 3x longer than lithium-ion. The technology uses a novel solid-state electrolyte and could be ready for commercial use within 5 years.'",
     "groundTruth": "3 concise bullets covering the key facts.",
     "source": { "actualOutput": "- MIT developed a fast-charging battery. - It charges in under 5 minutes and lasts 3x longer than lithium-ion. - Commercial availability expected within 5 years.", "accuracy": 83, "inputTokens": 68, "outputTokens": 40 },
     "target": { "actualOutput": "- MIT researchers have created a battery that charges in under 5 minutes, dramatically reducing downtime for devices and EVs. - The new solid-state technology triples the lifespan of current lithium-ion batteries, lowering long-term replacement costs. - Commercial deployment is projected within 5 years, signaling a near-term shift in the battery market.", "accuracy": 98, "inputTokens": 104, "outputTokens": 68 }
   },
   {
-    "requestId": "req-11-002", "groupId": "11", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-11-002", "groupId": "11", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Summarize the following article in exactly 3 bullet points for a non-technical executive audience. Each bullet must be one sentence and highlight business or practical relevance. Article: 'A new study from Stanford found that remote workers are 13% more productive than office workers. The study tracked 500 employees over 9 months and found that remote workers took fewer sick days and reported higher job satisfaction.'",
     "groundTruth": "3 concise bullets covering the key facts.",
     "source": { "actualOutput": "- Stanford study found remote workers are 13% more productive. - 500 employees tracked over 9 months. - Remote workers took fewer sick days and reported higher satisfaction.", "accuracy": 82, "inputTokens": 70, "outputTokens": 38 },
     "target": { "actualOutput": "- A Stanford study of 500 employees found remote workers are 13% more productive, offering a measurable output advantage for distributed teams. - Remote workers took fewer sick days, reducing unplanned absences and associated productivity losses. - Higher reported job satisfaction among remote workers suggests long-term retention benefits for companies with flexible work policies.", "accuracy": 98, "inputTokens": 106, "outputTokens": 70 }
   },
   {
-    "requestId": "req-11-003", "groupId": "11", "trafficType": "live", "timestamp": "2025-06-02T14:00:00Z",
+    "requestId": "req-11-003", "groupId": "11", "trafficType": "live", "timestamp": "2026-06-02T14:00:00Z",
     "resolvedInput": "Summarize the following article in exactly 3 bullet points for a non-technical executive audience. Each bullet must be one sentence and highlight business or practical relevance. Article: 'Amazon has announced a $4 billion investment in Anthropic, an AI safety company. The deal gives Amazon cloud computing credits and preferred cloud provider status. Analysts say this positions Amazon to compete more directly with Microsoft's investment in OpenAI.'",
     "groundTruth": null,
     "source": { "actualOutput": "- Amazon invested $4 billion in Anthropic. - Amazon gets cloud credits and preferred provider status. - This positions Amazon against Microsoft and OpenAI.", "accuracy": null, "inputTokens": 72, "outputTokens": 36 },
     "target": { "actualOutput": "- Amazon's $4 billion investment in Anthropic signals a major escalation in the cloud provider AI race, with direct implications for enterprise AI procurement. - The deal gives Amazon preferred cloud provider status, strengthening AWS's competitive position against Microsoft Azure's OpenAI partnership. - For enterprise buyers, this creates a more competitive AI infrastructure market, likely driving better pricing and more differentiated model offerings.", "accuracy": null, "inputTokens": 108, "outputTokens": 72 }
   },
   {
-    "requestId": "req-11-004", "groupId": "11", "trafficType": "live", "timestamp": "2025-06-03T10:00:00Z",
+    "requestId": "req-11-004", "groupId": "11", "trafficType": "live", "timestamp": "2026-06-03T10:00:00Z",
     "resolvedInput": "Summarize the following article in exactly 3 bullet points for a non-technical executive audience. Each bullet must be one sentence and highlight business or practical relevance. Article: 'Cybersecurity firm CrowdStrike reported a 75% increase in cloud environment intrusions in 2023. Attackers increasingly target cloud identity credentials rather than endpoints. The report recommends zero-trust architecture as the primary mitigation strategy.'",
     "groundTruth": null,
     "source": { "actualOutput": "- Cloud intrusions up 75% in 2023. - Attackers targeting cloud credentials instead of devices. - Zero-trust recommended as key defense.", "accuracy": null, "inputTokens": 70, "outputTokens": 30 },
     "target": { "actualOutput": "- Cloud environment intrusions surged 75% in 2023, indicating that cloud infrastructure has become the primary attack surface for sophisticated threat actors. - The shift toward targeting identity credentials rather than devices means perimeter-based security alone is no longer sufficient for cloud-first organizations. - Adopting zero-trust architecture is now the leading industry recommendation to reduce cloud breach risk.", "accuracy": null, "inputTokens": 106, "outputTokens": 70 }
   },
   {
-    "requestId": "req-11-005", "groupId": "11", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-11-005", "groupId": "11", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Summarize the following article in exactly 3 bullet points for a non-technical executive audience. Each bullet must be one sentence and highlight business or practical relevance. Article: 'The US Federal Reserve held interest rates steady at 5.25–5.5%, citing persistent inflation above the 2% target. Fed Chair Powell indicated rates could remain elevated through 2024. Markets responded with a modest sell-off in equities.'",
     "groundTruth": null,
     "source": { "actualOutput": "- Fed held rates steady at 5.25–5.5%. - Rates may stay high through 2024. - Markets sold off modestly.", "accuracy": null, "inputTokens": 70, "outputTokens": 32 },
     "target": { "actualOutput": "- The Fed's decision to hold rates signals that inflation remains a persistent concern, maintaining pressure on borrowing costs for businesses and consumers alike. - Rates staying elevated through 2024 means companies should plan for continued high financing costs when evaluating capital investments or debt refinancing. - The modest market sell-off reflects investor recalibration of growth expectations under a prolonged high-rate environment.", "accuracy": null, "inputTokens": 106, "outputTokens": 70 }
   },
   {
-    "requestId": "req-12-001", "groupId": "12", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-12-001", "groupId": "12", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Write a PostgreSQL query to retrieve all users who signed up in the last 30 days. Return only id, email, and created_at. Exclude soft-deleted records where deleted_at is not null. Add a comment explaining the query.",
     "groundTruth": "A valid SQL query returning users signed up in the last 30 days.",
     "source": { "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '30 days';", "accuracy": 85, "inputTokens": 20, "outputTokens": 20 },
     "target": { "actualOutput": "-- Retrieve active users who registered within the last 30 days\nSELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '30 days' AND deleted_at IS NULL ORDER BY created_at DESC;", "accuracy": 99, "inputTokens": 62, "outputTokens": 48 }
   },
   {
-    "requestId": "req-12-002", "groupId": "12", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-12-002", "groupId": "12", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Write a PostgreSQL query to retrieve all users who signed up in the last 7 days. Return only id, email, and created_at. Exclude soft-deleted records where deleted_at is not null. Add a comment explaining the query.",
     "groundTruth": "A valid SQL query returning users signed up in the last 7 days.",
     "source": { "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '7 days';", "accuracy": 85, "inputTokens": 18, "outputTokens": 18 },
     "target": { "actualOutput": "-- Retrieve active users who registered within the last 7 days\nSELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '7 days' AND deleted_at IS NULL ORDER BY created_at DESC;", "accuracy": 99, "inputTokens": 60, "outputTokens": 46 }
   },
   {
-    "requestId": "req-12-003", "groupId": "12", "trafficType": "seeded", "timestamp": "2025-06-01T10:10:00Z",
+    "requestId": "req-12-003", "groupId": "12", "trafficType": "seeded", "timestamp": "2026-06-01T10:10:00Z",
     "resolvedInput": "Write a PostgreSQL query to retrieve all users who signed up in the last 90 days. Return only id, email, and created_at. Exclude soft-deleted records where deleted_at is not null. Add a comment explaining the query.",
     "groundTruth": "A valid SQL query returning users signed up in the last 90 days.",
     "source": { "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '90 days';", "accuracy": 85, "inputTokens": 18, "outputTokens": 18 },
     "target": { "actualOutput": "-- Retrieve active users who registered within the last 90 days\nSELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '90 days' AND deleted_at IS NULL ORDER BY created_at DESC;", "accuracy": 99, "inputTokens": 60, "outputTokens": 48 }
   },
   {
-    "requestId": "req-12-004", "groupId": "12", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-12-004", "groupId": "12", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Write a PostgreSQL query to retrieve all users who signed up in the last 14 days. Return only id, email, and created_at. Exclude soft-deleted records where deleted_at is not null. Add a comment explaining the query.",
     "groundTruth": null,
     "source": { "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '14 days';", "accuracy": null, "inputTokens": 18, "outputTokens": 18 },
     "target": { "actualOutput": "-- Retrieve active users who registered within the last 14 days\nSELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '14 days' AND deleted_at IS NULL ORDER BY created_at DESC;", "accuracy": null, "inputTokens": 60, "outputTokens": 46 }
   },
   {
-    "requestId": "req-12-005", "groupId": "12", "trafficType": "live", "timestamp": "2025-06-03T10:00:00Z",
+    "requestId": "req-12-005", "groupId": "12", "trafficType": "live", "timestamp": "2026-06-03T10:00:00Z",
     "resolvedInput": "Write a PostgreSQL query to retrieve all users who signed up in the last 60 days. Return only id, email, and created_at. Exclude soft-deleted records where deleted_at is not null. Add a comment explaining the query.",
     "groundTruth": null,
     "source": { "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '60 days';", "accuracy": null, "inputTokens": 18, "outputTokens": 18 },
     "target": { "actualOutput": "-- Retrieve active users who registered within the last 60 days\nSELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '60 days' AND deleted_at IS NULL ORDER BY created_at DESC;", "accuracy": null, "inputTokens": 60, "outputTokens": 46 }
   },
   {
-    "requestId": "req-12-006", "groupId": "12", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-12-006", "groupId": "12", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Write a PostgreSQL query to retrieve all users who signed up in the last 180 days. Return only id, email, and created_at. Exclude soft-deleted records where deleted_at is not null. Add a comment explaining the query.",
     "groundTruth": null,
     "source": { "actualOutput": "SELECT * FROM users WHERE created_at >= NOW() - INTERVAL '180 days';", "accuracy": null, "inputTokens": 18, "outputTokens": 18 },
     "target": { "actualOutput": "-- Retrieve active users who registered within the last 180 days\nSELECT id, email, created_at FROM users WHERE created_at >= NOW() - INTERVAL '180 days' AND deleted_at IS NULL ORDER BY created_at DESC;", "accuracy": null, "inputTokens": 60, "outputTokens": 48 }
   },
   {
-    "requestId": "req-13-001", "groupId": "13", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-13-001", "groupId": "13", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Generate 5 name ideas for a B2B productivity app that helps remote teams manage async work. Each name should be short (1–2 words), memorable, and available as a .com domain. Include a one-line rationale for each.",
     "groundTruth": "A short, memorable app name.",
     "source": { "actualOutput": "AsyncHQ", "accuracy": 76, "inputTokens": 20, "outputTokens": 4 },
     "target": { "actualOutput": "1. Driftwork – Evokes smooth, uninterrupted async flow. 2. Loopshift – Suggests handoffs and continuous progress across time zones. 3. Cadence – Implies rhythm and structured async momentum. 4. Relay HQ – Communicates team handoffs with a sense of headquarters authority. 5. Stackpass – Suggests layered task progression and seamless passing of work.", "accuracy": 94, "inputTokens": 58, "outputTokens": 76 }
   },
   {
-    "requestId": "req-13-002", "groupId": "13", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-13-002", "groupId": "13", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Generate 5 name ideas for a budgeting app for freelancers. Each name should be short (1–2 words), memorable, and available as a .com domain. Include a one-line rationale for each.",
     "groundTruth": "A short, memorable app name.",
     "source": { "actualOutput": "FreelanceFunds", "accuracy": 72, "inputTokens": 18, "outputTokens": 4 },
     "target": { "actualOutput": "1. SoloLedger – Positions the app as a personal finance tool built for independent workers. 2. Payself – Simple and direct, implying control over your own income. 3. Flowbooks – Evokes steady cash flow and clean bookkeeping. 4. Invoicly – Ties the brand to a core freelancer workflow. 5. Earnwise – Suggests financial intelligence tailored to self-employed income.", "accuracy": 94, "inputTokens": 54, "outputTokens": 74 }
   },
   {
-    "requestId": "req-13-003", "groupId": "13", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-13-003", "groupId": "13", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Generate 5 name ideas for a B2B SaaS tool that helps sales teams track follow-ups and deal momentum. Each name should be short (1–2 words), memorable, and available as a .com domain. Include a one-line rationale for each.",
     "groundTruth": null,
     "source": { "actualOutput": "DealTrack", "accuracy": null, "inputTokens": 20, "outputTokens": 4 },
     "target": { "actualOutput": "1. Pulsedeal – Suggests keeping a finger on the pulse of every deal in your pipeline. 2. Followly – Simple and direct, purpose-built for follow-up workflows. 3. Momentiq – Implies intelligence around deal momentum and timing. 4. Nudgestack – Evokes a layered system of timely sales nudges. 5. Closepath – Positions the tool as the direct route to closing more deals.", "accuracy": null, "inputTokens": 58, "outputTokens": 78 }
   },
   {
-    "requestId": "req-13-004", "groupId": "13", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-13-004", "groupId": "13", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Generate 5 name ideas for a mobile app that helps people track their daily water intake. Each name should be short (1–2 words), memorable, and available as a .com domain. Include a one-line rationale for each.",
     "groundTruth": null,
     "source": { "actualOutput": "HydroTrack", "accuracy": null, "inputTokens": 18, "outputTokens": 4 },
     "target": { "actualOutput": "1. Sipwise – Implies smart, mindful hydration habits. 2. Wavelog – Evokes water tracking with a clean, modern feel. 3. Fillup – Simple and satisfying, mirrors the feeling of a full water bottle. 4. Drinkly – Friendly and approachable, lowers the barrier to habit tracking. 5. Aquabit – Combines water with habit, clean and tech-forward.", "accuracy": null, "inputTokens": 56, "outputTokens": 74 }
   },
   {
-    "requestId": "req-13-005", "groupId": "13", "trafficType": "live", "timestamp": "2025-06-04T09:00:00Z",
+    "requestId": "req-13-005", "groupId": "13", "trafficType": "live", "timestamp": "2026-06-04T09:00:00Z",
     "resolvedInput": "Generate 5 name ideas for a peer-to-peer car rental marketplace targeting urban car owners. Each name should be short (1–2 words), memorable, and available as a .com domain. Include a one-line rationale for each.",
     "groundTruth": null,
     "source": { "actualOutput": "CarShare", "accuracy": null, "inputTokens": 18, "outputTokens": 4 },
     "target": { "actualOutput": "1. Wheelpass – Implies easy, pass-based access to cars in your neighborhood. 2. Curbly – Friendly and urban, evokes finding a car right at the curb. 3. Keypass – Simple and transactional, implies frictionless key handoff. 4. Driverly – Approachable marketplace brand that centers the driver experience. 5. Spotcar – Suggests finding a car in your spot, your city, your terms.", "accuracy": null, "inputTokens": 56, "outputTokens": 76 }
   },
   {
-    "requestId": "req-14-001", "groupId": "14", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-14-001", "groupId": "14", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Explain what an API is to a non-technical business stakeholder in 3 sentences or fewer. Use a real-world analogy. Avoid all technical jargon.",
     "groundTruth": "A plain-language explanation of the concept without jargon.",
     "source": { "actualOutput": "An API is a way for two software applications to talk to each other and share information automatically.", "accuracy": 82, "inputTokens": 16, "outputTokens": 22 },
     "target": { "actualOutput": "An API is like a waiter in a restaurant: you tell the waiter what you want, they take your request to the kitchen, and bring back exactly what you ordered. In software, APIs let different products and services communicate and exchange data behind the scenes. This is what allows your CRM to sync with your email tool, or your payment processor to connect with your website.", "accuracy": 98, "inputTokens": 46, "outputTokens": 76 }
   },
   {
-    "requestId": "req-14-002", "groupId": "14", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-14-002", "groupId": "14", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Explain what a database index is to a non-technical business stakeholder in 3 sentences or fewer. Use a real-world analogy. Avoid all technical jargon.",
     "groundTruth": "A plain-language explanation of the concept without jargon.",
     "source": { "actualOutput": "A database index helps the system find information faster, like a table of contents in a book.", "accuracy": 80, "inputTokens": 16, "outputTokens": 20 },
     "target": { "actualOutput": "Think of a database index like the index in the back of a textbook — instead of flipping through every page to find a topic, you go straight to the page number listed. Without it, the system has to scan every record to find what you need, which takes much longer. Adding an index means your app finds and loads information significantly faster.", "accuracy": 98, "inputTokens": 48, "outputTokens": 78 }
   },
   {
-    "requestId": "req-14-003", "groupId": "14", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-14-003", "groupId": "14", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Explain what a load balancer is to a non-technical business stakeholder in 3 sentences or fewer. Use a real-world analogy. Avoid all technical jargon.",
     "groundTruth": null,
     "source": { "actualOutput": "A load balancer distributes incoming traffic across multiple servers to prevent any one server from being overwhelmed.", "accuracy": null, "inputTokens": 16, "outputTokens": 22 },
     "target": { "actualOutput": "A load balancer works like a traffic officer at a busy intersection — instead of sending every car down the same road, it directs traffic across multiple routes to keep things moving smoothly. In software, it distributes incoming user requests across multiple servers so no single server gets overwhelmed. This keeps your website or app fast and available even during peak usage.", "accuracy": null, "inputTokens": 48, "outputTokens": 76 }
   },
   {
-    "requestId": "req-14-004", "groupId": "14", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-14-004", "groupId": "14", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Explain what caching is to a non-technical business stakeholder in 3 sentences or fewer. Use a real-world analogy. Avoid all technical jargon.",
     "groundTruth": null,
     "source": { "actualOutput": "Caching stores frequently accessed data in a fast location so it can be retrieved quickly without going back to the original source.", "accuracy": null, "inputTokens": 16, "outputTokens": 24 },
     "target": { "actualOutput": "Caching is like keeping a cheat sheet on your desk instead of looking up the same information in a book every time — you get to the answer much faster because you've already done the work. In software, it stores copies of frequently requested data in a fast location so your app can retrieve it instantly rather than fetching it from a slower database. This dramatically speeds up load times for users.", "accuracy": null, "inputTokens": 48, "outputTokens": 82 }
   },
   {
-    "requestId": "req-14-005", "groupId": "14", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-14-005", "groupId": "14", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Explain what serverless computing is to a non-technical business stakeholder in 3 sentences or fewer. Use a real-world analogy. Avoid all technical jargon.",
     "groundTruth": null,
     "source": { "actualOutput": "Serverless computing lets developers run code without managing the underlying servers, which are handled automatically by a cloud provider.", "accuracy": null, "inputTokens": 16, "outputTokens": 24 },
     "target": { "actualOutput": "Serverless computing is like renting a taxi instead of owning a car — you only pay for the ride when you need it, and someone else handles all the maintenance and parking. In software, it means your code runs in the cloud on demand without your team having to manage or maintain any underlying servers. You're billed only for what you use, which reduces costs and eliminates a whole category of infrastructure management.", "accuracy": null, "inputTokens": 48, "outputTokens": 84 }
   },
   {
-    "requestId": "req-15-001", "groupId": "15", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-15-001", "groupId": "15", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Write a professional and empathetic job application decline email. The candidate interviewed but was not selected. Acknowledge their time, briefly note the decision without false praise, and leave the door open for future roles. Keep it under 100 words. Do not use 'we regret to inform you.'",
     "groundTruth": "A professional, empathetic decline email under 100 words.",
     "source": { "actualOutput": "Thank you for applying. After careful consideration, we have decided to move forward with another candidate. We wish you the best in your search.", "accuracy": 79, "inputTokens": 18, "outputTokens": 32 },
     "target": { "actualOutput": "Hi [Name], thank you for taking the time to interview with us. After a thorough review, we've decided to move forward with another candidate whose experience more closely matches our current needs. This was a competitive process and not a reflection of your qualifications. We'll keep your information on file and encourage you to apply for future openings. Wishing you all the best.", "accuracy": 97, "inputTokens": 72, "outputTokens": 78 }
   },
   {
-    "requestId": "req-15-002", "groupId": "15", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-15-002", "groupId": "15", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Write a professional and empathetic vendor proposal decline email. The vendor submitted a proposal but was not selected. Acknowledge their effort, note the decision briefly, and keep the relationship warm for future consideration. Keep it under 100 words. Do not use 'we regret to inform you.'",
     "groundTruth": "A professional, empathetic decline email under 100 words.",
     "source": { "actualOutput": "Thank you for submitting your proposal. After careful review, we have decided to move forward with another vendor. We appreciate your time and effort.", "accuracy": 77, "inputTokens": 18, "outputTokens": 32 },
     "target": { "actualOutput": "Hi [Name], thank you for the time and thought you put into your proposal. After careful review, we've decided to move in a different direction for this engagement. This was not an easy decision and reflects the strength of the submissions we received. We'll keep your team in mind for future opportunities and hope to find the right fit down the road.", "accuracy": 97, "inputTokens": 74, "outputTokens": 76 }
   },
   {
-    "requestId": "req-15-003", "groupId": "15", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-15-003", "groupId": "15", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Write a professional and empathetic late delivery apology email. The customer's order is delayed by 5 days due to supply chain issues. Acknowledge the delay, explain briefly, and offer a discount on their next order. Keep it under 100 words. Do not use 'we regret to inform you.'",
     "groundTruth": null,
     "source": { "actualOutput": "We're sorry your order is running late. Supply chain delays have pushed back your delivery by 5 days. As an apology, we'd like to offer you a discount on your next order.", "accuracy": null, "inputTokens": 24, "outputTokens": 38 },
     "target": { "actualOutput": "Hi [Name], your order is running approximately 5 days late due to supply chain disruptions outside our control, and we want to be upfront about that. We know this is frustrating and we're sorry for the wait. As a thank you for your patience, we'd like to offer you 15% off your next order — the code will be in your inbox within 24 hours.", "accuracy": null, "inputTokens": 76, "outputTokens": 78 }
   },
   {
-    "requestId": "req-15-004", "groupId": "15", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-15-004", "groupId": "15", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Write a professional and empathetic price increase notification email. Subscription prices are increasing by 15% in 60 days due to rising infrastructure costs. Be transparent, give ample notice, and offer a lock-in option at the current rate. Keep it under 100 words. Do not use 'we regret to inform you.'",
     "groundTruth": null,
     "source": { "actualOutput": "We're letting you know that subscription prices will increase by 15% in 60 days. This is due to rising infrastructure costs. You can lock in your current rate by upgrading before the change takes effect.", "accuracy": null, "inputTokens": 26, "outputTokens": 44 },
     "target": { "actualOutput": "Hi [Name], we want to be transparent: starting [Date], subscription prices will increase by 15% to reflect rising infrastructure costs. We're giving you 60 days' notice because we believe you deserve time to plan. If you'd like to lock in your current rate, you can do so by renewing your annual plan before [Date] — just visit your account settings or reach out to our team.", "accuracy": null, "inputTokens": 78, "outputTokens": 80 }
   },
   {
-    "requestId": "req-15-005", "groupId": "15", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-15-005", "groupId": "15", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Write a professional and empathetic service cancellation response email. The customer is canceling after 2 years. Acknowledge their tenure, express genuine appreciation, and offer to help with offboarding. Keep it under 100 words. Do not use 'we regret to inform you.'",
     "groundTruth": null,
     "source": { "actualOutput": "Thank you for being a customer for the past two years. We're sorry to see you go and hope we can serve you again in the future.", "accuracy": null, "inputTokens": 22, "outputTokens": 32 },
     "target": { "actualOutput": "Hi [Name], thank you for two years with us — we genuinely value the time you've spent with our product. We understand the decision to move on and want to make the transition as smooth as possible. Our team is happy to help with data exports, documentation, or any offboarding questions you have. Wishing you the best in whatever comes next.", "accuracy": null, "inputTokens": 74, "outputTokens": 76 }
   },
   {
-    "requestId": "req-16-001", "groupId": "16", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-16-001", "groupId": "16", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "List 5 best practices for writing clean Python code targeting mid-level engineers. For each practice, include a one-line explanation and a short code example demonstrating good vs. bad usage.",
     "groundTruth": "5 actionable best practices for the topic.",
     "source": { "actualOutput": "1. Use meaningful variable names. 2. Follow PEP 8 style guidelines. 3. Write docstrings for functions. 4. Keep functions short and focused. 5. Handle exceptions properly.", "accuracy": 83, "inputTokens": 14, "outputTokens": 38 },
     "target": { "actualOutput": "1. Use descriptive names: Names should reveal intent. Bad: `d = 86400` Good: `SECONDS_PER_DAY = 86400`. 2. Follow PEP 8: Consistent formatting reduces cognitive load. Bad: `def foo(x,y):return x+y` Good: `def add(x, y): return x + y`. 3. Write docstrings: Document what, not how. 4. Keep functions focused: One function, one responsibility. 5. Use specific exceptions: Bad: `except Exception` Good: `except ValueError as e`.", "accuracy": 97, "inputTokens": 56, "outputTokens": 128 }
   },
   {
-    "requestId": "req-16-002", "groupId": "16", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-16-002", "groupId": "16", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "List 5 best practices for writing accessible UI components targeting mid-level front-end engineers. For each practice, include a one-line explanation and a short code example demonstrating good vs. bad usage.",
     "groundTruth": "5 actionable best practices for the topic.",
     "source": { "actualOutput": "1. Use semantic HTML elements. 2. Add alt text to all images. 3. Ensure sufficient color contrast. 4. Make all interactions keyboard navigable. 5. Test with a screen reader.", "accuracy": 82, "inputTokens": 14, "outputTokens": 38 },
     "target": { "actualOutput": "1. Use semantic HTML: Bad: `<div onClick={...}>` Good: `<button onClick={...}>`. 2. Always include alt text: Bad: `<img src='...' />` Good: `<img src='...' alt='User avatar' />`. 3. Ensure contrast ratio meets WCAG AA (4.5:1 minimum). 4. Trap focus in modals: Use `focus-trap` or `inert`. 5. Announce dynamic content: Use `aria-live='polite'` for status updates.", "accuracy": 97, "inputTokens": 58, "outputTokens": 118 }
   },
   {
-    "requestId": "req-16-003", "groupId": "16", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-16-003", "groupId": "16", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "List 5 best practices for writing efficient SQL queries targeting mid-level data analysts. For each practice, include a one-line explanation and a short code example demonstrating good vs. bad usage.",
     "groundTruth": null,
     "source": { "actualOutput": "1. Select only needed columns. 2. Use indexes. 3. Avoid SELECT *. 4. Use WHERE clauses. 5. Limit result sets.", "accuracy": null, "inputTokens": 14, "outputTokens": 28 },
     "target": { "actualOutput": "1. Avoid SELECT *: Fetching all columns wastes memory. Bad: `SELECT * FROM orders` Good: `SELECT id, customer_id, total FROM orders`. 2. Filter early with WHERE: Reduce row count before joins. 3. Use indexed columns in joins: Joining on non-indexed columns causes full table scans. 4. Limit result sets in dev: Add `LIMIT 100` during testing. 5. Use CTEs for readability: Complex subqueries become maintainable with `WITH cte AS (...)` patterns.", "accuracy": null, "inputTokens": 58, "outputTokens": 128 }
   },
   {
-    "requestId": "req-16-004", "groupId": "16", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-16-004", "groupId": "16", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "List 5 best practices for writing effective Git commit messages targeting mid-level engineers. For each practice, include a one-line explanation and a short code example demonstrating good vs. bad usage.",
     "groundTruth": null,
     "source": { "actualOutput": "1. Be descriptive. 2. Use present tense. 3. Keep it short. 4. Reference issues. 5. Separate subject from body.", "accuracy": null, "inputTokens": 14, "outputTokens": 24 },
     "target": { "actualOutput": "1. Use the imperative mood: Bad: `Fixed the login bug` Good: `Fix login redirect loop on expired sessions`. 2. Limit subject to 50 chars: Forces clarity and displays cleanly in logs. 3. Reference issue numbers: Bad: `Update styles` Good: `Update button styles to match design system (#412)`. 4. Explain why, not what: The diff shows what changed; the message explains why. 5. Separate subject from body with a blank line.", "accuracy": null, "inputTokens": 56, "outputTokens": 124 }
   },
   {
-    "requestId": "req-16-005", "groupId": "16", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-16-005", "groupId": "16", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "List 5 best practices for designing REST API endpoints targeting mid-level backend engineers. For each practice, include a one-line explanation and a short code example demonstrating good vs. bad usage.",
     "groundTruth": null,
     "source": { "actualOutput": "1. Use nouns not verbs. 2. Use proper HTTP methods. 3. Version your API. 4. Return proper status codes. 5. Be consistent.", "accuracy": null, "inputTokens": 14, "outputTokens": 26 },
     "target": { "actualOutput": "1. Use nouns for resources: Bad: `GET /getUser` Good: `GET /users/{id}`. 2. Use correct HTTP verbs: Bad: `POST /deleteUser` Good: `DELETE /users/{id}`. 3. Version your API: Bad: `/users` Good: `/v1/users`. 4. Return meaningful status codes: Bad: always return 200. Good: `404` for not found, `422` for validation errors. 5. Use consistent naming: All snake_case in JSON responses throughout.", "accuracy": null, "inputTokens": 56, "outputTokens": 128 }
   },
   {
-    "requestId": "req-17-001", "groupId": "17", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-17-001", "groupId": "17", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Write 3 push notification options for a flash sale ending in 2 hours. Each must be under 60 characters, create urgency without being spammy, and include a clear CTA. Label which performs best for high-intent users.",
     "groundTruth": "A short push notification under 60 characters with urgency and a CTA.",
     "source": { "actualOutput": "Flash sale ends in 2 hours! Shop now and save up to 50%.", "accuracy": 80, "inputTokens": 18, "outputTokens": 16 },
     "target": { "actualOutput": "1. [Best for high-intent] '2 hrs left: Up to 50% off. Grab it now.' 2. 'Flash sale ending soon — don't miss out. Shop now.' 3. 'Your deal expires in 2 hours. Claim it before it's gone.'", "accuracy": 96, "inputTokens": 60, "outputTokens": 54 }
   },
   {
-    "requestId": "req-17-002", "groupId": "17", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-17-002", "groupId": "17", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Write 3 push notification options for an abandoned cart reminder. Each must be under 60 characters, create urgency without being spammy, and include a clear CTA. Label which performs best for price-sensitive users.",
     "groundTruth": "A short push notification under 60 characters with urgency and a CTA.",
     "source": { "actualOutput": "You left something behind. Complete your purchase today.", "accuracy": 78, "inputTokens": 16, "outputTokens": 12 },
     "target": { "actualOutput": "1. [Best for price-sensitive] 'Your cart is waiting — and so is free shipping.' 2. 'Still thinking it over? Items sell out fast.' 3. 'Complete your order before your cart expires.'", "accuracy": 96, "inputTokens": 58, "outputTokens": 50 }
   },
   {
-    "requestId": "req-17-003", "groupId": "17", "trafficType": "seeded", "timestamp": "2025-06-01T10:10:00Z",
+    "requestId": "req-17-003", "groupId": "17", "trafficType": "seeded", "timestamp": "2026-06-01T10:10:00Z",
     "resolvedInput": "Write 3 push notification options for a subscription renewal reminder. Each must be under 60 characters, create urgency without being spammy, and include a clear CTA. Label which performs best for at-risk churn users.",
     "groundTruth": "A short push notification under 60 characters with urgency and a CTA.",
     "source": { "actualOutput": "Your subscription renews soon. Review your plan now.", "accuracy": 77, "inputTokens": 16, "outputTokens": 12 },
     "target": { "actualOutput": "1. [Best for at-risk churn] 'Your plan renews in 3 days. Manage it here.' 2. 'Don't lose access — renew your subscription now.' 3. 'Stay connected: your renewal is coming up soon.'", "accuracy": 96, "inputTokens": 60, "outputTokens": 52 }
   },
   {
-    "requestId": "req-17-004", "groupId": "17", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-17-004", "groupId": "17", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Write 3 push notification options for a daily step goal reminder for a fitness app. Each must be under 60 characters, create urgency without being spammy, and include a clear CTA. Label which performs best for habit-forming users.",
     "groundTruth": null,
     "source": { "actualOutput": "You're close to your step goal! Keep moving.", "accuracy": null, "inputTokens": 18, "outputTokens": 12 },
     "target": { "actualOutput": "1. [Best for habit-forming] 'You're 2,000 steps from your goal. Finish strong.' 2. 'Your streak is on the line — get those steps in today.' 3. 'Daily goal alert: you've got time. Let's move.'", "accuracy": null, "inputTokens": 62, "outputTokens": 50 }
   },
   {
-    "requestId": "req-17-005", "groupId": "17", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-17-005", "groupId": "17", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Write 3 push notification options for a price drop alert on a wishlisted item in a shopping app. Each must be under 60 characters, create urgency without being spammy, and include a clear CTA. Label which performs best for deal-seeking users.",
     "groundTruth": null,
     "source": { "actualOutput": "Price drop on your wishlist item. Shop now!", "accuracy": null, "inputTokens": 18, "outputTokens": 10 },
     "target": { "actualOutput": "1. [Best for deal-seekers] '[Item] just dropped 30%. Grab it before it's gone.' 2. 'Your wishlist item is on sale — today only.' 3. 'Price alert: [Item] is now $X. Tap to buy.'", "accuracy": null, "inputTokens": 62, "outputTokens": 48 }
   },
   {
-    "requestId": "req-17-006", "groupId": "17", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-17-006", "groupId": "17", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Write 3 push notification options for a low account balance alert in a banking app. Each must be under 60 characters, create urgency without being spammy, and include a clear CTA. Label which performs best for financially cautious users.",
     "groundTruth": null,
     "source": { "actualOutput": "Your balance is low. Top up now.", "accuracy": null, "inputTokens": 18, "outputTokens": 8 },
     "target": { "actualOutput": "1. [Best for cautious users] 'Balance below $50. Add funds to avoid issues.' 2. 'Low balance alert — upcoming payments may fail. Act now.' 3. 'Your account is running low. Tap to transfer funds.'", "accuracy": null, "inputTokens": 62, "outputTokens": 48 }
   },
   {
-    "requestId": "req-18-001", "groupId": "18", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-18-001", "groupId": "18", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Explain the difference between supervised and unsupervised machine learning for a product manager with no ML background. Use one concrete example for each. Keep the total response under 100 words.",
     "groundTruth": "A plain-language explanation of the difference between the two concepts.",
     "source": { "actualOutput": "Supervised learning uses labeled data to train models to make predictions. Unsupervised learning finds patterns in data without labels.", "accuracy": 84, "inputTokens": 16, "outputTokens": 26 },
     "target": { "actualOutput": "Supervised learning trains a model on labeled examples so it can predict outcomes on new data — like training a spam filter on emails already marked spam or not spam. Unsupervised learning finds hidden patterns in unlabeled data — like grouping customers by purchase behavior without telling the model what the groups should be. The key difference is whether you're teaching the model the right answer upfront.", "accuracy": 98, "inputTokens": 52, "outputTokens": 78 }
   },
   {
-    "requestId": "req-18-002", "groupId": "18", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-18-002", "groupId": "18", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Explain the difference between REST and GraphQL for a product manager with no engineering background. Use one concrete example for each. Keep the total response under 100 words.",
     "groundTruth": "A plain-language explanation of the difference between the two concepts.",
     "source": { "actualOutput": "REST uses fixed endpoints that return predefined data structures. GraphQL lets clients request exactly the data they need in a single query.", "accuracy": 83, "inputTokens": 14, "outputTokens": 28 },
     "target": { "actualOutput": "REST is like ordering from a fixed menu — you request a specific dish and get exactly what's listed, even if you only wanted part of it. GraphQL is like telling the kitchen exactly what you want — just the protein, no sides — and getting back only that. REST is simpler to set up; GraphQL is more efficient when different clients need different data from the same source.", "accuracy": 98, "inputTokens": 54, "outputTokens": 80 }
   },
   {
-    "requestId": "req-18-003", "groupId": "18", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-18-003", "groupId": "18", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Explain the difference between authentication and authorization for a non-technical business stakeholder. Use one concrete example for each. Keep the total response under 100 words.",
     "groundTruth": null,
     "source": { "actualOutput": "Authentication verifies who you are. Authorization determines what you are allowed to do.", "accuracy": null, "inputTokens": 14, "outputTokens": 18 },
     "target": { "actualOutput": "Authentication is the process of confirming who you are — like showing your ID at the door. Authorization is what happens next: determining what you're allowed to do once you're inside — like whether you can access the VIP section. In software, authentication verifies your login, and authorization controls which features, data, or actions you have access to based on your role.", "accuracy": null, "inputTokens": 50, "outputTokens": 76 }
   },
   {
-    "requestId": "req-18-004", "groupId": "18", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-18-004", "groupId": "18", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Explain the difference between a monolith and microservices for a non-technical product manager. Use one concrete example for each. Keep the total response under 100 words.",
     "groundTruth": null,
     "source": { "actualOutput": "A monolith is one large application that does everything. Microservices split the application into many small, independent services.", "accuracy": null, "inputTokens": 16, "outputTokens": 22 },
     "target": { "actualOutput": "A monolith is like a department store where everything is run by one company under one roof — if the power goes out, the whole store closes. Microservices are like a shopping mall where each store is independent — if the electronics store closes, the coffee shop stays open. Most large tech companies started as monoliths and moved to microservices as they scaled.", "accuracy": null, "inputTokens": 52, "outputTokens": 78 }
   },
   {
-    "requestId": "req-18-005", "groupId": "18", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-18-005", "groupId": "18", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Explain the difference between agile and waterfall project management for a non-technical business executive. Use one concrete example for each. Keep the total response under 100 words.",
     "groundTruth": null,
     "source": { "actualOutput": "Waterfall is a linear process where each phase must complete before the next begins. Agile is iterative and allows for changes throughout development.", "accuracy": null, "inputTokens": 16, "outputTokens": 26 },
     "target": { "actualOutput": "Waterfall is like building a house — you finalize the blueprints, pour the foundation, and only move to the next step when the previous one is complete. Agile is like renovating a house room by room — you design, build, and get feedback on each room before moving to the next, adjusting plans along the way. Agile works well when requirements may change; waterfall works when they're fixed upfront.", "accuracy": null, "inputTokens": 52, "outputTokens": 84 }
   },
   {
-    "requestId": "req-19-001", "groupId": "19", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-19-001", "groupId": "19", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Write a UX microcopy tooltip for an 'Archive' button in an enterprise document management app. It should explain what archiving does, distinguish it from deletion, and stay under 15 words.",
     "groundTruth": "A short tooltip under 15 words.",
     "source": { "actualOutput": "Archive this item.", "accuracy": 75, "inputTokens": 14, "outputTokens": 5 },
     "target": { "actualOutput": "Move to archive. The item is hidden but not deleted and can be restored.", "accuracy": 97, "inputTokens": 52, "outputTokens": 17 }
   },
   {
-    "requestId": "req-19-002", "groupId": "19", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-19-002", "groupId": "19", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Write a UX microcopy tooltip for a 'Delete' button in an enterprise document management app. It should explain what deleting does, distinguish it from archiving, and stay under 15 words.",
     "groundTruth": "A short tooltip under 15 words.",
     "source": { "actualOutput": "Delete this item permanently.", "accuracy": 74, "inputTokens": 12, "outputTokens": 5 },
     "target": { "actualOutput": "Permanently remove this item. Unlike archiving, this cannot be undone.", "accuracy": 97, "inputTokens": 52, "outputTokens": 14 }
   },
   {
-    "requestId": "req-19-003", "groupId": "19", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-19-003", "groupId": "19", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Write a UX microcopy tooltip for a 'Publish' button in a content management system. It should explain what publishing does, distinguish it from saving a draft, and stay under 15 words.",
     "groundTruth": null,
     "source": { "actualOutput": "Publish this content to make it live.", "accuracy": null, "inputTokens": 12, "outputTokens": 8 },
     "target": { "actualOutput": "Make this content publicly visible. Unlike saving a draft, this goes live immediately.", "accuracy": null, "inputTokens": 52, "outputTokens": 15 }
   },
   {
-    "requestId": "req-19-004", "groupId": "19", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-19-004", "groupId": "19", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Write a UX microcopy tooltip for a 'Suspend account' button in an admin user management panel. It should explain what suspending does, distinguish it from deactivating, and stay under 15 words.",
     "groundTruth": null,
     "source": { "actualOutput": "Suspend this account to temporarily block user access.", "accuracy": null, "inputTokens": 12, "outputTokens": 10 },
     "target": { "actualOutput": "Temporarily block login. Unlike deactivating, the account and data are fully preserved.", "accuracy": null, "inputTokens": 52, "outputTokens": 14 }
   },
   {
-    "requestId": "req-19-005", "groupId": "19", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-19-005", "groupId": "19", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Write a UX microcopy tooltip for a 'Revoke access' button in an API key management interface. It should explain what revoking does, distinguish it from deleting, and stay under 15 words.",
     "groundTruth": null,
     "source": { "actualOutput": "Revoke this API key to block access immediately.", "accuracy": null, "inputTokens": 12, "outputTokens": 10 },
     "target": { "actualOutput": "Immediately block this key from making requests. Unlike deleting, the key record is retained.", "accuracy": null, "inputTokens": 52, "outputTokens": 16 }
   },
   {
-    "requestId": "req-20-001", "groupId": "20", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-20-001", "groupId": "20", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Generate a JavaScript regex pattern that validates common US phone number formats including: (555) 555-5555, 555-555-5555, 555.555.5555, and +1 555 555 5555. Include a brief explanation of each part of the pattern and a test snippet.",
     "groundTruth": "A valid regex pattern for the target format.",
     "source": { "actualOutput": "^\\+?1?\\s?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$", "accuracy": 83, "inputTokens": 14, "outputTokens": 26 },
     "target": { "actualOutput": "Pattern: /^(\\+1\\s?)?\\(?\\d{3}\\)?[\\s.\\-]?\\d{3}[\\s.\\-]?\\d{4}$/. Breakdown: optional country code, area code with optional parens, optional separator, 7-digit local number. Test: phoneRegex.test('(555) 555-5555') // true", "accuracy": 98, "inputTokens": 76, "outputTokens": 116 }
   },
   {
-    "requestId": "req-20-002", "groupId": "20", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-20-002", "groupId": "20", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Generate a JavaScript regex pattern that validates US ZIP codes including formats: 12345 and 12345-6789. Include a brief explanation of each part of the pattern and a test snippet.",
     "groundTruth": "A valid regex pattern for the target format.",
     "source": { "actualOutput": "^\\d{5}(-\\d{4})?$", "accuracy": 85, "inputTokens": 12, "outputTokens": 14 },
     "target": { "actualOutput": "Pattern: /^\\d{5}(-\\d{4})?$/. Breakdown: 5 required digits, optional hyphen + 4-digit extension. Test: zipRegex.test('12345') // true, zipRegex.test('12345-6789') // true", "accuracy": 98, "inputTokens": 64, "outputTokens": 58 }
   },
   {
-    "requestId": "req-20-003", "groupId": "20", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-20-003", "groupId": "20", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Generate a JavaScript regex pattern that validates strong passwords including formats: at least 8 characters, one uppercase, one lowercase, one number, and one special character. Include a brief explanation of each part of the pattern and a test snippet.",
     "groundTruth": null,
     "source": { "actualOutput": "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$", "accuracy": null, "inputTokens": 16, "outputTokens": 28 },
     "target": { "actualOutput": "Pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z\\d]).{8,}$/. Breakdown: requires lowercase, uppercase, digit, special char, min 8 chars total. Test: passwordRegex.test('Hello1!x') // true, passwordRegex.test('hello123') // false", "accuracy": null, "inputTokens": 72, "outputTokens": 90 }
   },
   {
-    "requestId": "req-20-004", "groupId": "20", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-20-004", "groupId": "20", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Generate a JavaScript regex pattern that validates hex color codes including formats: #FFF, #FFFFFF, #fff, and #ffffff. Include a brief explanation of each part of the pattern and a test snippet.",
     "groundTruth": null,
     "source": { "actualOutput": "^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$", "accuracy": null, "inputTokens": 16, "outputTokens": 18 },
     "target": { "actualOutput": "Pattern: /^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{6})$/. Breakdown: literal hash, 3-digit shorthand or 6-digit full hex, case-insensitive. Test: hexRegex.test('#FFF') // true, hexRegex.test('#ffffff') // true, hexRegex.test('#GGGGGG') // false", "accuracy": null, "inputTokens": 68, "outputTokens": 82 }
   },
   {
-    "requestId": "req-20-005", "groupId": "20", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-20-005", "groupId": "20", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Generate a JavaScript regex pattern that validates IPv4 addresses including formats: 192.168.1.1, 10.0.0.255, and 0.0.0.0. Include a brief explanation of each part of the pattern and a test snippet.",
     "groundTruth": null,
     "source": { "actualOutput": "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$", "accuracy": null, "inputTokens": 18, "outputTokens": 34 },
     "target": { "actualOutput": "Pattern: /^((25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(25[0-5]|2[0-4]\\d|[01]?\\d\\d?)$/. Breakdown: each octet matches 0-255 with dot separators, last octet has no trailing dot. Test: ipRegex.test('192.168.1.1') // true, ipRegex.test('999.0.0.1') // false", "accuracy": null, "inputTokens": 72, "outputTokens": 90 }
   },
   {
-    "requestId": "req-21-001", "groupId": "21", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-21-001", "groupId": "21", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Write a UX error message for a failed file upload in a web app. The message should: identify what went wrong, tell the user what to do next, and offer a fallback action. Keep it under 25 words. Avoid technical jargon.",
     "groundTruth": "A clear error message that tells the user what happened and what to do next.",
     "source": { "actualOutput": "File upload failed. Please try again.", "accuracy": 74, "inputTokens": 14, "outputTokens": 8 },
     "target": { "actualOutput": "Upload failed. Check your file size and format, then try again. If the problem continues, contact support.", "accuracy": 97, "inputTokens": 58, "outputTokens": 20 }
   },
   {
-    "requestId": "req-21-002", "groupId": "21", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-21-002", "groupId": "21", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Write a UX error message for a failed payment in an e-commerce checkout. The message should: identify what went wrong, tell the user what to do next, and offer a fallback action. Keep it under 25 words. Avoid technical jargon.",
     "groundTruth": "A clear error message that tells the user what happened and what to do next.",
     "source": { "actualOutput": "Payment failed. Please check your details and try again.", "accuracy": 75, "inputTokens": 12, "outputTokens": 10 },
     "target": { "actualOutput": "Payment could not be processed. Check your card details and try again, or use a different payment method.", "accuracy": 98, "inputTokens": 58, "outputTokens": 20 }
   },
   {
-    "requestId": "req-21-003", "groupId": "21", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-21-003", "groupId": "21", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Write a UX error message for a duplicate account detection during signup in a web app. The message should: identify what went wrong, tell the user what to do next, and offer a fallback action. Keep it under 25 words. Avoid technical jargon.",
     "groundTruth": null,
     "source": { "actualOutput": "An account with this email already exists. Please log in.", "accuracy": null, "inputTokens": 14, "outputTokens": 12 },
     "target": { "actualOutput": "An account with this email already exists. Sign in instead, or reset your password if you've forgotten it.", "accuracy": null, "inputTokens": 56, "outputTokens": 20 }
   },
   {
-    "requestId": "req-21-004", "groupId": "21", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-21-004", "groupId": "21", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Write a UX error message for a network connection lost during a form submission in a web app. The message should: identify what went wrong, tell the user what to do next, and offer a fallback action. Keep it under 25 words. Avoid technical jargon.",
     "groundTruth": null,
     "source": { "actualOutput": "Connection lost. Please check your internet and try again.", "accuracy": null, "inputTokens": 12, "outputTokens": 10 },
     "target": { "actualOutput": "Connection lost before your form was saved. Check your internet and resubmit. Your entries should still be visible.", "accuracy": null, "inputTokens": 56, "outputTokens": 20 }
   },
   {
-    "requestId": "req-21-005", "groupId": "21", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-21-005", "groupId": "21", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Write a UX error message for a permission denied when trying to access a restricted page in an enterprise app. The message should: identify what went wrong, tell the user what to do next, and offer a fallback action. Keep it under 25 words. Avoid technical jargon.",
     "groundTruth": null,
     "source": { "actualOutput": "You don't have permission to view this page. Contact your administrator.", "accuracy": null, "inputTokens": 12, "outputTokens": 14 },
     "target": { "actualOutput": "You don't have access to this page. Ask your admin to grant permission, or return to your dashboard.", "accuracy": null, "inputTokens": 56, "outputTokens": 20 }
   },
   {
-    "requestId": "req-22-001", "groupId": "22", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-22-001", "groupId": "22", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Summarize the top 3 business benefits of Agile methodology for a VP-level non-technical audience in 3 bullet points. Each bullet should be one sentence and focus on business outcomes, not process mechanics.",
     "groundTruth": "A concise summary of key benefits without process jargon.",
     "source": { "actualOutput": "Agile helps teams work faster by breaking projects into smaller pieces, getting frequent feedback, and adapting to changes quickly.", "accuracy": 81, "inputTokens": 18, "outputTokens": 26 },
     "target": { "actualOutput": "- Agile reduces time-to-market by delivering working increments of a product on a regular cadence. - It lowers risk by surfacing problems early through continuous feedback loops. - Teams can respond to shifting business priorities mid-project without costly rework.", "accuracy": 97, "inputTokens": 56, "outputTokens": 66 }
   },
   {
-    "requestId": "req-22-002", "groupId": "22", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-22-002", "groupId": "22", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Summarize the top 3 business benefits of cloud computing for a VP-level non-technical audience in 3 bullet points. Each bullet should be one sentence and focus on business outcomes, not technical architecture.",
     "groundTruth": "A concise summary of key benefits without process jargon.",
     "source": { "actualOutput": "Cloud computing lets businesses access software and storage over the internet, reducing the need for expensive hardware and enabling teams to work from anywhere.", "accuracy": 80, "inputTokens": 16, "outputTokens": 30 },
     "target": { "actualOutput": "- Cloud computing eliminates large upfront infrastructure costs by shifting to a predictable monthly operating expense. - It enables teams to scale capacity up or down instantly based on demand, reducing waste and over-provisioning. - Remote access to all tools and data supports distributed teams without relying on on-site hardware.", "accuracy": 97, "inputTokens": 56, "outputTokens": 68 }
   },
   {
-    "requestId": "req-22-003", "groupId": "22", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-22-003", "groupId": "22", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Summarize the top 3 business benefits of DevOps for a VP-level non-technical audience in 3 bullet points. Each bullet should be one sentence and focus on business outcomes, not technical process.",
     "groundTruth": null,
     "source": { "actualOutput": "DevOps improves collaboration, speeds up deployments, and reduces errors in production.", "accuracy": null, "inputTokens": 18, "outputTokens": 18 },
     "target": { "actualOutput": "- DevOps shortens the time between a business decision and a working software feature reaching customers, often from months to days. - By automating testing and deployment, it reduces the frequency and severity of production incidents that damage customer experience and revenue. - Tighter collaboration between development and operations teams eliminates handoff delays that slow down product delivery.", "accuracy": null, "inputTokens": 58, "outputTokens": 70 }
   },
   {
-    "requestId": "req-22-004", "groupId": "22", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-22-004", "groupId": "22", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Summarize the top 3 business benefits of investing in employee training for a VP-level non-technical audience in 3 bullet points. Each bullet should be one sentence and focus on business outcomes, not HR methodology.",
     "groundTruth": null,
     "source": { "actualOutput": "Training improves performance, boosts retention, and prepares employees for future roles.", "accuracy": null, "inputTokens": 18, "outputTokens": 18 },
     "target": { "actualOutput": "- Investing in employee development directly reduces turnover, and replacing a skilled employee typically costs 50–200% of their annual salary. - Upskilled teams deliver higher-quality output with less management oversight, freeing leaders to focus on strategy rather than day-to-day problem-solving. - Companies with strong learning cultures are better positioned to adapt to industry disruption because their people can acquire new capabilities faster than competitors.", "accuracy": null, "inputTokens": 58, "outputTokens": 72 }
   },
   {
-    "requestId": "req-22-005", "groupId": "22", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-22-005", "groupId": "22", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Summarize the top 3 business benefits of product-led growth for a VP-level non-technical audience in 3 bullet points. Each bullet should be one sentence and focus on business outcomes, not growth tactics.",
     "groundTruth": null,
     "source": { "actualOutput": "Product-led growth reduces customer acquisition costs, accelerates sales cycles, and improves retention.", "accuracy": null, "inputTokens": 18, "outputTokens": 18 },
     "target": { "actualOutput": "- Product-led growth lowers customer acquisition costs by letting the product itself convert and expand users, reducing reliance on expensive sales headcount. - Customers who discover value independently before speaking to sales have stronger conviction and shorter time-to-close, improving conversion rates and deal velocity. - When product usage drives expansion, net revenue retention compounds naturally — satisfied users upgrade without the friction of a traditional renewal negotiation.", "accuracy": null, "inputTokens": 58, "outputTokens": 72 }
   },
   {
-    "requestId": "req-23-001", "groupId": "23", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-23-001", "groupId": "23", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Write an SEO-optimized meta description for a project management software landing page targeting small business owners. Include a primary keyword, a differentiator, and a CTA. Stay under 155 characters.",
     "groundTruth": "An SEO-friendly meta description under 155 characters.",
     "source": { "actualOutput": "Manage projects, track progress, and collaborate with your team — all in one place. Try it free today.", "accuracy": 78, "inputTokens": 16, "outputTokens": 22 },
     "target": { "actualOutput": "Streamline projects and team collaboration with software built for small businesses. Stay on deadline, reduce chaos. Start your free trial today.", "accuracy": 97, "inputTokens": 52, "outputTokens": 30 }
   },
   {
-    "requestId": "req-23-002", "groupId": "23", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-23-002", "groupId": "23", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Write an SEO-optimized meta description for an AI writing assistant landing page targeting content marketers. Include a primary keyword, a differentiator, and a CTA. Stay under 155 characters.",
     "groundTruth": "An SEO-friendly meta description under 155 characters.",
     "source": { "actualOutput": "Write faster and smarter with an AI assistant that helps you draft, edit, and polish content in minutes.", "accuracy": 77, "inputTokens": 16, "outputTokens": 22 },
     "target": { "actualOutput": "Generate high-quality content 10x faster with an AI writing assistant built for marketers. From first draft to final copy. Try it free.", "accuracy": 97, "inputTokens": 50, "outputTokens": 30 }
   },
   {
-    "requestId": "req-23-003", "groupId": "23", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-23-003", "groupId": "23", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Write an SEO-optimized meta description for a no-code app builder landing page targeting non-technical entrepreneurs. Include a primary keyword, a differentiator, and a CTA. Stay under 155 characters.",
     "groundTruth": null,
     "source": { "actualOutput": "Build your own app without coding. Our no-code builder makes it easy for anyone to create powerful apps. Start free.", "accuracy": null, "inputTokens": 18, "outputTokens": 24 },
     "target": { "actualOutput": "Build a custom app without writing a single line of code. Our no-code builder is designed for entrepreneurs who move fast. Start free.", "accuracy": null, "inputTokens": 54, "outputTokens": 28 }
   },
   {
-    "requestId": "req-23-004", "groupId": "23", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-23-004", "groupId": "23", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Write an SEO-optimized meta description for a remote work time tracking software landing page targeting freelancers and remote teams. Include a primary keyword, a differentiator, and a CTA. Stay under 155 characters.",
     "groundTruth": null,
     "source": { "actualOutput": "Track your work hours and stay productive with easy-to-use time tracking software. Try it free.", "accuracy": null, "inputTokens": 18, "outputTokens": 20 },
     "target": { "actualOutput": "Time tracking software built for remote teams and freelancers — log hours, generate invoices, and prove productivity. Try it free today.", "accuracy": null, "inputTokens": 54, "outputTokens": 28 }
   },
   {
-    "requestId": "req-23-005", "groupId": "23", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-23-005", "groupId": "23", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Write an SEO-optimized meta description for a corporate travel management platform landing page targeting travel managers at enterprise companies. Include a primary keyword, a differentiator, and a CTA. Stay under 155 characters.",
     "groundTruth": null,
     "source": { "actualOutput": "Manage corporate travel bookings and expenses in one place. Save time and cut costs. Get a demo.", "accuracy": null, "inputTokens": 18, "outputTokens": 20 },
     "target": { "actualOutput": "Corporate travel management software that cuts booking time and enforces policy automatically. Built for enterprise travel teams. Get a demo.", "accuracy": null, "inputTokens": 54, "outputTokens": 28 }
   },
   {
-    "requestId": "req-24-001", "groupId": "24", "trafficType": "seeded", "timestamp": "2025-06-01T10:00:00Z",
+    "requestId": "req-24-001", "groupId": "24", "trafficType": "seeded", "timestamp": "2026-06-01T10:00:00Z",
     "resolvedInput": "Write a changelog entry for a newly shipped dark mode feature in a SaaS product. Follow this format: feature name, one-sentence description of what it does, and one sentence on how to enable it. Keep it under 40 words. Tone: clear and developer-friendly.",
     "groundTruth": "A concise changelog entry under 40 words.",
     "source": { "actualOutput": "Added dark mode support across the app.", "accuracy": 77, "inputTokens": 14, "outputTokens": 9 },
     "target": { "actualOutput": "Dark Mode: The app now supports a full dark color theme across all surfaces, reducing eye strain in low-light environments. Enable it under Settings → Appearance → Theme.", "accuracy": 98, "inputTokens": 62, "outputTokens": 34 }
   },
   {
-    "requestId": "req-24-002", "groupId": "24", "trafficType": "seeded", "timestamp": "2025-06-01T10:05:00Z",
+    "requestId": "req-24-002", "groupId": "24", "trafficType": "seeded", "timestamp": "2026-06-01T10:05:00Z",
     "resolvedInput": "Write a changelog entry for a bulk export feature in a SaaS product. Follow this format: feature name, one-sentence description of what it does, and one sentence on how to enable it. Keep it under 40 words. Tone: clear and developer-friendly.",
     "groundTruth": "A concise changelog entry under 40 words.",
     "source": { "actualOutput": "Added bulk export. Users can now export multiple records at once.", "accuracy": 76, "inputTokens": 14, "outputTokens": 14 },
     "target": { "actualOutput": "Bulk Export: You can now select and export multiple records simultaneously as a CSV or JSON file. Access it from the table toolbar via the Export dropdown.", "accuracy": 98, "inputTokens": 60, "outputTokens": 34 }
   },
   {
-    "requestId": "req-24-003", "groupId": "24", "trafficType": "live", "timestamp": "2025-06-02T10:00:00Z",
+    "requestId": "req-24-003", "groupId": "24", "trafficType": "live", "timestamp": "2026-06-02T10:00:00Z",
     "resolvedInput": "Write a changelog entry for a new SSO integration with Okta in a SaaS product. Follow this format: feature name, one-sentence description of what it does, and one sentence on how to enable it. Keep it under 40 words. Tone: clear and developer-friendly.",
     "groundTruth": null,
     "source": { "actualOutput": "Added Okta SSO support for enterprise authentication.", "accuracy": null, "inputTokens": 14, "outputTokens": 8 },
     "target": { "actualOutput": "Okta SSO: Allows enterprise users to log in via Okta single sign-on, eliminating the need for a separate password. Configure it under Settings → Security → SSO → Okta.", "accuracy": null, "inputTokens": 62, "outputTokens": 36 }
   },
   {
-    "requestId": "req-24-004", "groupId": "24", "trafficType": "live", "timestamp": "2025-06-03T14:00:00Z",
+    "requestId": "req-24-004", "groupId": "24", "trafficType": "live", "timestamp": "2026-06-03T14:00:00Z",
     "resolvedInput": "Write a changelog entry for a new role-based access control feature in a SaaS product. Follow this format: feature name, one-sentence description of what it does, and one sentence on how to enable it. Keep it under 40 words. Tone: clear and developer-friendly.",
     "groundTruth": null,
     "source": { "actualOutput": "Added role-based access control so admins can manage user permissions.", "accuracy": null, "inputTokens": 14, "outputTokens": 12 },
     "target": { "actualOutput": "Role-Based Access Control: Assign predefined roles to team members to control what data and features each user can access. Configure roles under Settings → Team → Roles & Permissions.", "accuracy": null, "inputTokens": 62, "outputTokens": 36 }
   },
   {
-    "requestId": "req-24-005", "groupId": "24", "trafficType": "live", "timestamp": "2025-06-04T10:00:00Z",
+    "requestId": "req-24-005", "groupId": "24", "trafficType": "live", "timestamp": "2026-06-04T10:00:00Z",
     "resolvedInput": "Write a changelog entry for a new audit log feature for compliance tracking in a SaaS product. Follow this format: feature name, one-sentence description of what it does, and one sentence on how to enable it. Keep it under 40 words. Tone: clear and developer-friendly.",
     "groundTruth": null,
     "source": { "actualOutput": "Added audit logs so admins can track user activity for compliance.", "accuracy": null, "inputTokens": 14, "outputTokens": 12 },

@@ -1,0 +1,146 @@
+[
+  {
+    "groupId": "01", "model": "Claude Sonnet 4.5",
+    "template": "You are a product feedback analyst. Summarize the following customer review in one sentence, highlighting sentiment for each mentioned feature. Review: '{{reviewText}}'",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 82, "inputTokens": 28, "outputTokens": 17 }, "target": { "accuracy": 95, "inputTokens": 58, "outputTokens": 22 } }
+  },
+  {
+    "groupId": "02", "model": "Claude Sonnet 4.5",
+    "template": "Translate the following customer-facing support message to formal {{targetLanguage}}, maintaining a professional and helpful tone. Text: '{{text}}'",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 86, "inputTokens": 22, "outputTokens": 17 }, "target": { "accuracy": 97, "inputTokens": 52, "outputTokens": 21 } }
+  },
+  {
+    "groupId": "03", "model": "Claude Sonnet 4.5",
+    "template": "You are a copywriter for a premium {{industry}} brand. Write a 2-sentence product description for {{productName}} that emphasizes {{emphasis}}. Tone: {{tone}}.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 79, "inputTokens": 14, "outputTokens": 21 }, "target": { "accuracy": 96, "inputTokens": 68, "outputTokens": 49 } }
+  },
+  {
+    "groupId": "04", "model": "Claude Sonnet 4.5",
+    "template": "Extract all action items from the meeting notes below. Return a JSON array where each item has: owner, task, and deadline. Meeting notes: '{{meetingNotes}}'",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 85, "inputTokens": 54, "outputTokens": 33 }, "target": { "accuracy": 98, "inputTokens": 84, "outputTokens": 61 } }
+  },
+  {
+    "groupId": "05", "model": "Claude Sonnet 4.5",
+    "template": "You are a support triage agent. Classify the following ticket as High, Medium, or Low priority. Return JSON with fields: priority, reason. Ticket: '{{ticketText}}'",
+    "requests": 8,
+    "aggregate": { "source": { "accuracy": 85, "inputTokens": 33, "outputTokens": 2 }, "target": { "accuracy": 97, "inputTokens": 63, "outputTokens": 27 } }
+  },
+  {
+    "groupId": "06", "model": "Claude Sonnet 4.5",
+    "template": "Generate {{count}} email subject line options for {{emailTopic}} targeting {{audience}}. Each should be clear, professional, and under 60 characters. Indicate which is recommended.",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 79, "inputTokens": 16, "outputTokens": 9 }, "target": { "accuracy": 95, "inputTokens": 54, "outputTokens": 41 } }
+  },
+  {
+    "groupId": "07", "model": "Claude Sonnet 4.5",
+    "template": "Rewrite the following sentence to be concise and direct. Remove redundancy without losing meaning. Target: under {{wordLimit}} words. Sentence: '{{sentence}}'",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 83, "inputTokens": 42, "outputTokens": 11 }, "target": { "accuracy": 98, "inputTokens": 68, "outputTokens": 9 } }
+  },
+  {
+    "groupId": "08", "model": "Claude Sonnet 4.5",
+    "template": "Analyze the sentiment of the following tweet. Return JSON with: sentiment (Positive/Neutral/Negative), confidence (0–100), and a one-sentence rationale. Tweet: '{{tweetText}}'",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 84, "inputTokens": 31, "outputTokens": 2 }, "target": { "accuracy": 98, "inputTokens": 70, "outputTokens": 37 } }
+  },
+  {
+    "groupId": "09", "model": "Claude Sonnet 4.5",
+    "template": "Write a one-paragraph onboarding welcome message for a new user of {{productName}}, a {{productDescription}}. Tone: {{tone}}. Mention: {{mentions}}. Max {{maxWords}} words.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 77, "inputTokens": 21, "outputTokens": 26 }, "target": { "accuracy": 96, "inputTokens": 75, "outputTokens": 83 } }
+  },
+  {
+    "groupId": "10", "model": "Claude Sonnet 4.5",
+    "template": "Generate {{count}} FAQs for {{productType}} targeting {{audience}}. For each FAQ, provide the question and a concise 1–2 sentence answer. Focus on {{focusAreas}}.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 80, "inputTokens": 16, "outputTokens": 39 }, "target": { "accuracy": 97, "inputTokens": 59, "outputTokens": 126 } }
+  },
+  {
+    "groupId": "11", "model": "Claude Sonnet 4.5",
+    "template": "Summarize the following article in exactly {{count}} bullet points for {{audience}}. Each bullet must be one sentence and highlight {{emphasis}}. Article: '{{articleText}}'",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 83, "inputTokens": 70, "outputTokens": 35 }, "target": { "accuracy": 98, "inputTokens": 106, "outputTokens": 70 } }
+  },
+  {
+    "groupId": "12", "model": "Claude Sonnet 4.5",
+    "template": "Write a {{dialect}} query to retrieve all users who signed up in the last {{days}} days. Return only {{fields}}. Exclude soft-deleted records where deleted_at is not null. Add a comment explaining the query.",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 85, "inputTokens": 18, "outputTokens": 18 }, "target": { "accuracy": 99, "inputTokens": 60, "outputTokens": 46 } }
+  },
+  {
+    "groupId": "13", "model": "Claude Sonnet 4.5",
+    "template": "Generate {{count}} name ideas for {{appDescription}}. Each name should be short (1–2 words), memorable, and available as a .com domain. Include a one-line rationale for each.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 74, "inputTokens": 19, "outputTokens": 4 }, "target": { "accuracy": 94, "inputTokens": 57, "outputTokens": 76 } }
+  },
+  {
+    "groupId": "14", "model": "Claude Sonnet 4.5",
+    "template": "Explain what {{concept}} is to {{audience}} in {{sentenceLimit}} sentences or fewer. Use a real-world analogy. Avoid all technical jargon.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 81, "inputTokens": 15, "outputTokens": 22 }, "target": { "accuracy": 98, "inputTokens": 47, "outputTokens": 80 } }
+  },
+  {
+    "groupId": "15", "model": "Claude Sonnet 4.5",
+    "template": "Write a professional and empathetic {{emailType}} email. {{context}}. Keep it under {{wordLimit}} words. Do not use '{{avoidPhrase}}'.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 79, "inputTokens": 22, "outputTokens": 35 }, "target": { "accuracy": 97, "inputTokens": 74, "outputTokens": 77 } }
+  },
+  {
+    "groupId": "16", "model": "Claude Sonnet 4.5",
+    "template": "List {{count}} best practices for {{topic}} targeting {{audience}}. For each practice, include a one-line explanation and a short code example demonstrating good vs. bad usage.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 83, "inputTokens": 14, "outputTokens": 29 }, "target": { "accuracy": 97, "inputTokens": 57, "outputTokens": 129 } }
+  },
+  {
+    "groupId": "17", "model": "Claude Sonnet 4.5",
+    "template": "Write {{count}} push notification options for {{campaign}}. Each must be under {{charLimit}} characters, create urgency without being spammy, and include a clear CTA. Label which performs best for {{targetUser}}.",
+    "requests": 6,
+    "aggregate": { "source": { "accuracy": 79, "inputTokens": 18, "outputTokens": 11 }, "target": { "accuracy": 96, "inputTokens": 62, "outputTokens": 49 } }
+  },
+  {
+    "groupId": "18", "model": "Claude Sonnet 4.5",
+    "template": "Explain the difference between {{conceptA}} and {{conceptB}} for {{audience}}. Use one concrete example for each. Keep the total response under {{wordLimit}} words.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 84, "inputTokens": 16, "outputTokens": 27 }, "target": { "accuracy": 98, "inputTokens": 52, "outputTokens": 81 } }
+  },
+  {
+    "groupId": "19", "model": "Claude Sonnet 4.5",
+    "template": "Write a UX microcopy tooltip for a '{{buttonLabel}}' button in {{appContext}}. It should explain what {{action}} does, distinguish it from {{relatedAction}}, and stay under {{wordLimit}} words.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 75, "inputTokens": 12, "outputTokens": 7 }, "target": { "accuracy": 97, "inputTokens": 52, "outputTokens": 15 } }
+  },
+  {
+    "groupId": "20", "model": "Claude Sonnet 4.5",
+    "template": "Generate a {{language}} regex pattern that validates {{validationTarget}} including formats: {{formats}}. Include a brief explanation of each part of the pattern and a test snippet.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 84, "inputTokens": 16, "outputTokens": 24 }, "target": { "accuracy": 98, "inputTokens": 70, "outputTokens": 89 } }
+  },
+  {
+    "groupId": "21", "model": "Claude Sonnet 4.5",
+    "template": "Write a UX error message for {{errorContext}} in {{appContext}}. The message should: identify what went wrong, tell the user what to do next, and offer a fallback action. Keep it under {{wordLimit}} words. Avoid technical jargon.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 75, "inputTokens": 13, "outputTokens": 10 }, "target": { "accuracy": 97, "inputTokens": 56, "outputTokens": 21 } }
+  },
+  {
+    "groupId": "22", "model": "Claude Sonnet 4.5",
+    "template": "Summarize the top {{count}} business benefits of {{topic}} for {{audience}} in {{count}} bullet points. Each bullet should be one sentence and focus on {{emphasis}}.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 81, "inputTokens": 18, "outputTokens": 20 }, "target": { "accuracy": 97, "inputTokens": 58, "outputTokens": 70 } }
+  },
+  {
+    "groupId": "23", "model": "Claude Sonnet 4.5",
+    "template": "Write an SEO-optimized meta description for a {{product}} landing page targeting {{audience}}. Include a primary keyword, a differentiator, and a CTA. Stay under {{charLimit}} characters.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 78, "inputTokens": 17, "outputTokens": 22 }, "target": { "accuracy": 97, "inputTokens": 53, "outputTokens": 29 } }
+  },
+  {
+    "groupId": "24", "model": "Claude Sonnet 4.5",
+    "template": "Write a changelog entry for {{feature}} in a SaaS product. Follow this format: feature name, one-sentence description of what it does, and one sentence on how to enable it. Keep it under {{wordLimit}} words. Tone: {{tone}}.",
+    "requests": 5,
+    "aggregate": { "source": { "accuracy": 77, "inputTokens": 14, "outputTokens": 10 }, "target": { "accuracy": 98, "inputTokens": 62, "outputTokens": 35 } }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "shadowHours": [0, 10, 20, 30, 40, 50, 60, 70, 80],
+  "accuracySource": [83.0, 83.2, 83.5, 83.8, 83.6, 83.9, 84.1, 84.0, 83.8],
+  "accuracyTarget": [88.5, 88.2, 89.1, 88.8, 88.9, 88.7, 89.0, 88.8, 88.9],
+  "inputTokensSource":        [52, 53, 52, 54, 53, 55, 54, 53, 54],
+  "inputTokensSourceSeeded":  [50, 51, 50, 52, 51, 53, 52, 51, 52],
+  "inputTokensSourceLive":    [54, 55, 54, 56, 55, 57, 56, 55, 56],
+  "inputTokensTarget":        [48, 49, 47, 50, 48, 49, 48, 49, 48],
+  "inputTokensTargetSeeded":  [46, 47, 45, 48, 46, 47, 46, 47, 46],
+  "inputTokensTargetLive":    [50, 51, 49, 52, 50, 51, 50, 51, 50],
+  "outputTokensSource":        [210, 212, 215, 218, 214, 216, 219, 217, 215],
+  "outputTokensSourceSeeded":  [205, 207, 210, 213, 209, 211, 214, 212, 210],
+  "outputTokensSourceLive":    [215, 217, 220, 223, 219, 221, 224, 222, 220],
+  "outputTokensTarget":        [195, 197, 200, 202, 198, 201, 200, 199, 198],
+  "outputTokensTargetSeeded":  [190, 192, 195, 197, 193, 196, 195, 194, 193],
+  "outputTokensTargetLive":    [200, 202, 205, 207, 203, 206, 205, 204, 203]
+}
