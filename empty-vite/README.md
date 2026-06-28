@@ -1,46 +1,94 @@
-# Empty Cloudscape App
+# Bedrock Model Migration — Cloudscape Prototype
 
-[https://cloudscape.design/](https://cloudscape.design/)
+A front-end prototype of an **Amazon Bedrock "Model migration"** experience, built with the [Cloudscape](https://cloudscape.design/) design system and [Vite](https://vitejs.dev/). It demonstrates the end-to-end flow a user would follow to evaluate, optimize, and migrate from one foundation model to another using their own invocation logs.
 
-Cloudscape is an open source design system for the cloud. Cloudscape offers user interface guidelines, front-end components, design resources, and development tools for building intuitive, engaging, and inclusive user experiences at scale.
+> This is a UI prototype only. All data is mocked from static JSON files in `public/` — there is no backend or real Bedrock integration.
 
+## What it does
 
-![sample](../assets/empty-vite.png "Screenshot")
+The app walks through a three-stage model migration workflow:
 
+1. **Review evaluation results** — automated performance comparisons (cost, latency, accuracy) between a current model and a candidate model.
+2. **Optimize prompts** — provide prompt templates and let the flow fine-tune them for the target model.
+3. **Run shadow testing** — deploy the candidate model alongside the current one against real-style traffic before committing.
 
-## Vite.js
+### Pages
 
-[https://vitejs.dev/](https://vitejs.dev/)
+| Route | Page | Purpose |
+| --- | --- | --- |
+| `/` | Home | Migration overview, "How it works", migration history table, and model spotlights |
+| `/create-migration` | Create migration | Configure a migration job (source/target models, invocation-log time range) |
+| `/provide-prompt-templates` | Prompt templates | Supply prompt templates / schema for optimization |
+| `/start-shadow-testing` | Shadow testing | Run the candidate model against a test dataset and review results |
+| `/results/:jobId` | Migration results | Charts, metrics, and per-row comparisons for a completed job |
 
-Vite.js is a modern, fast front-end build tool that significantly improves the developer experience when building web applications. 
+### Mocked states
+
+Several pages support dev toggles and a `?state=` URL parameter to preview different stages without a backend. On the home page:
+
+- `?state=EVAL_COMPLETE` — 1 of 3 stages completed (in progress)
+- `?state=OPTIMIZATION_COMPLETE` — 2 of 3 stages completed (in progress)
+- `?state=MIGRATION_COMPLETE` — 3 of 3 stages completed (success)
+
+Mock data lives in `public/` (e.g. `job-1-*.json`, `job-2-*.json`, `invocation-log.json`, `shadow-testing-dataset.json`).
+
+## Tech stack
+
+- [Cloudscape Design System](https://cloudscape.design/) — components, design tokens, global styles, collection hooks
+- [React 18](https://react.dev/) + [React Router 6](https://reactrouter.com/)
+- [Vite 5](https://vitejs.dev/) + TypeScript
+- Sass / PostCSS for styling
+- Light/dark mode toggle (persisted via `localStorage`)
+
+## Project structure
+
+```
+src/
+  app.tsx                  # Router + route definitions
+  main.tsx                 # App entry
+  pages/                   # Home, create-migration, prompt-templates, shadow-testing, results, not-found
+  components/              # App layout, global header, navigation panel, router wrappers
+  common/                  # Constants, types, hooks (dark mode, nav state), helpers, utils
+  styles/                  # app.scss
+public/                    # Mock JSON data and images
+```
 
 ## Development
-1. Clone this repository to your local machine
-```bash
-git clone https://github.com/aws-samples/cloudscape-examples
-cd cloudscape-examples/empty-vite
-```
-2. Install the project dependencies by running:
-```bash
-npm install
-```
-3. To start the development server, run:
-```bash
-npm run dev
-```
 
-This command will start a local development server at ``http://localhost:3000`` (or a different port if 3000 is in use). The server will hot-reload if you make edits to any of the source files.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/aws-samples/cloudscape-examples
+   cd cloudscape-examples/empty-vite
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the dev server (with hot reload):
+   ```bash
+   npm run dev
+   ```
+   The app runs at `http://localhost:3000` (or another port if 3000 is in use).
 
-## Building the App
-To build the application for production, run:
+## Building for production
+
 ```bash
 npm run build
 ```
-This command will generate a dist folder containing the production build of your app. Vite optimizes your project for the best performance during this process.
+Generates a `dist/` folder with the optimized production build.
 
-## Running the App Locally
-After building the app, you can serve it locally using:
+## Previewing the production build
+
 ```bash
 npm run preview
 ```
-This command serves the production build from the dist folder, allowing you to preview the app before deployment.
+Serves the contents of `dist/` locally so you can preview before deployment.
+
+## Other scripts
+
+- `npm run lint` — run ESLint over `ts`/`tsx` files
+- `npm run format` — format the codebase with Prettier
+
+## Deployment
+
+The included `vercel.json` rewrites all routes to `index.html` so the SPA's client-side router (`BrowserRouter`) works on [Vercel](https://vercel.com/). Routing can be switched to `HashRouter` via `USE_BROWSER_ROUTER` in `src/common/constants.ts`.
